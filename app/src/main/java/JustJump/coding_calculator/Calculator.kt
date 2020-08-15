@@ -117,7 +117,7 @@ class Calculator : AppCompatActivity() {
                 state=false
             }
         }
-21
+
         fun paintstring(expression: String): String
         {
             var resultemp: String = ""

@@ -17,14 +17,12 @@ class MainActivity : AppCompatActivity() {
             inten.putExtra("TAG",0)
             startActivity(inten)
         }
-
-//        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("1-1"))
-
 //        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("1+1*(9*3)"))
-
+//
 //        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("3.5+2"))
 //
 //        //println("Prueba -> " + Calculator_funcions().basicEquations("50%"))
+//
 //        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("2.5+2.5"))
 //
 //        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("2.5+2.5"))
