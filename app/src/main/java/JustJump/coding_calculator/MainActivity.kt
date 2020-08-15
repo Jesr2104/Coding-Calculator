@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(inten)
         }
 
+//        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("1-1"))
+
 //        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("1+1*(9*3)"))
 
 //        println("Prueba Basic Equations -> " + Calculator_functions().basicEquations("3.5+2"))

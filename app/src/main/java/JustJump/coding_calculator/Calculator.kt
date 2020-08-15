@@ -66,9 +66,12 @@ class Calculator : AppCompatActivity() {
         /***************************************************************************/
         fun check_integer(result_check: String):String
         {
-            if (result_check[result_check.length - 1] == '0'){
-                if (result_check[result_check.length - 2] == '.') {
-                    return result_check.substring(0, result_check.length - 2)
+            if (result_check.length > 1)
+            {
+                if (result_check[result_check.length - 1] == '0'){
+                    if (result_check[result_check.length - 2] == '.') {
+                        return result_check.substring(0, result_check.length - 2)
+                    }
                 }
             }
             return result_check
@@ -83,16 +86,38 @@ class Calculator : AppCompatActivity() {
             }
         }
 
+        fun deletecomma(number: String): String
+        {
+            var i:Int = 0
+            var tempString: String = ""
+
+            // con este while eliminamos la , para evitar el problema que da al luego hacer aualquier ecuacion
+            while(number.length > i)
+            {
+                if (number[i].toInt() == 44)
+                {
+                    // cuando encuentra una , en cualquier posiciones no hace nada para eliminarla
+                }
+                else
+                {
+                    // paso toda la informacion menos las ','
+                    tempString = tempString + number[i]
+                }
+                i++
+            }
+            return  tempString
+        }
+
         fun ansData()
         {
             if(state)
             {
-                expression.setText(tresult.text)
+                expression.setText(deletecomma(tresult.text.toString()))
                 tresult.setText("")
                 state=false
             }
         }
-
+21
         fun paintstring(expression: String): String
         {
             var resultemp: String = ""
@@ -137,7 +162,6 @@ class Calculator : AppCompatActivity() {
                 {
                     var temp: ArrayList<String> = ArrayList()
                     var i:Int = 2
-                    var tempString: String = ""
 
                     while (i< maxdata)
                     {
@@ -145,26 +169,15 @@ class Calculator : AppCompatActivity() {
                         i++
                     }
 
-//                    i=0
-//                    while(newData.length > i)
-//                    {
-//                        if (newData[i] == ',')
-//                        {
-//
-//                        }
-//                        else
-//                        {
-//                            tempString = tempString + newData[i]
-//                        }
-//                        i++
-//                    }
-                    temp.add(newData)
-
                     savehisttory = temp
+                    savehisttory.add(deletecomma(newData))
                 }
                 else
                 {
-                    savehisttory.add(newData)
+                    var i:Int = 0
+                    var tempString: String = ""
+
+                    savehisttory.add(deletecomma(newData))
                 }
 
                 val editor = shareref_serializardata.edit()
@@ -176,11 +189,13 @@ class Calculator : AppCompatActivity() {
             // si no existe el fichero se crea y se guarda la primera informacion
             else
             {
-                var savehisttory = ArrayList<String>()
-                savehisttory.add(newData)
+                // esta parte del codigo solo se ejecupa cuando es la primera ves que se insertar datos en el fichero
+                var temp: ArrayList<String> = ArrayList()
+
+                temp.add(deletecomma(newData))
 
                 var json: String = ""
-                json = gson.toJson(savehisttory)
+                json = gson.toJson(temp)
 
                 val editor = shareref_serializardata.edit()
 
@@ -950,6 +965,12 @@ class Calculator : AppCompatActivity() {
                     {
                         val format = DecimalFormat()
                         format.setMaximumFractionDigits(4)
+
+                        /*for(item in checkExp)
+                        {
+                            println("Caracter => " + item.toChar())
+                            println("Entero => " + item.toInt())
+                        }*/
 
                         tresult.setText(check_integer(format.format(Calculator_functions().basicEquations(checkExp))))
                         state = true
