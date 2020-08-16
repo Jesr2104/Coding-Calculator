@@ -65,8 +65,8 @@ class Calculator : AppCompatActivity() {
         // this function use the result like the information for the next expression
         fun ansData() {
             if (state) {
-                expression.text = deleteComma(tresult.text.toString())
-                tresult.text = ""
+                expression.text = deleteComma(tResult.text.toString())
+                tResult.text = ""
                 state = false
             }
         }
@@ -288,12 +288,12 @@ class Calculator : AppCompatActivity() {
                                 data.text[0] != '=' -> {
                                     expression.text =
                                         Html.fromHtml(paintString(expression.text.toString() + data.text))
-                                    tresult.text = ""
+                                    tResult.text = ""
                                 }
                                 data.text[0] == '-' -> {
                                     expression.text =
                                         Html.fromHtml(paintString("(" + expression.text.toString() + data.text + ")"))
-                                    tresult.text = ""
+                                    tResult.text = ""
                                 }
                                 else -> {
                                     if (data.text[1] == '-') {
@@ -315,7 +315,7 @@ class Calculator : AppCompatActivity() {
                                             )
                                         )
                                     }
-                                    tresult.text = ""
+                                    tResult.text = ""
                                 }
                             }
                             decreaseLetter()
@@ -458,7 +458,7 @@ class Calculator : AppCompatActivity() {
         /***************************************************************************/
 
         // this Click Listener for sign +
-        numberplus.setOnClickListener{
+        numberPlus.setOnClickListener{
             ansData()
             if (expression.text.isNotEmpty()) {
                 // we check if we have already another arithmetic sigh to change for this one
@@ -480,7 +480,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign -
-        numberless.setOnClickListener{
+        numberLess.setOnClickListener{
             ansData()
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
@@ -494,7 +494,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign *
-        numbermultiply.setOnClickListener{
+        numberMultiply.setOnClickListener{
             ansData()
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
@@ -512,7 +512,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign /
-        numberdivide.setOnClickListener{
+        numberDivide.setOnClickListener{
             ansData()
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
@@ -531,7 +531,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign .
-        numberpunto.setOnClickListener{
+        numberPoint.setOnClickListener{
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1].isDigit()) {
                     var run = true
@@ -578,7 +578,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign %
-        numberpercentage.setOnClickListener{
+        numberPercentage.setOnClickListener{
             if (expression.text.isNotEmpty()) {
                 if (!(expression.text[expression.text.length - 1] == '+' ||
                             expression.text[expression.text.length - 1] == '-' ||
@@ -596,7 +596,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign %
-        numberplusless.setOnClickListener{
+        numberPlusLess.setOnClickListener{
             if (expression.text.isNotEmpty())
             {
                 if(expression.text[expression.text.length - 1] == ')')
@@ -663,7 +663,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign (
-        numberopenparenthesis.setOnClickListener {
+        numberOpenParenthesis.setOnClickListener {
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == ')' || expression.text[expression.text.length - 1].isDigit()) {
                     expression.text = Html.fromHtml(paintString(expression.text.toString() + "*("))
@@ -676,7 +676,7 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Click Listener for sign )
-        numbercloseparenthesis.setOnClickListener{
+        numberCloseParenthesis.setOnClickListener{
             expression.text = Html.fromHtml(paintString(expression.text.toString() + ")"))
         }
 
@@ -685,14 +685,14 @@ class Calculator : AppCompatActivity() {
         /***************************************************************************/
 
         // this Click Listener for "All Clear"
-        numberac.setOnClickListener{
+        numberAllClear.setOnClickListener{
             expression.text = ""
-            tresult.text = ""
+            tResult.text = ""
             increaseLetter()
         }
 
         // this click listener for BackSpace
-        numbrebackspace.setOnClickListener{
+        numberBackSpace.setOnClickListener{
             if (expression.text.isNotEmpty()) {
                 expression.text = Html.fromHtml(paintString(expression.text.substring(0, expression.text.length - 1)))
             }
@@ -704,7 +704,7 @@ class Calculator : AppCompatActivity() {
         /***************************************************************************/
 
         // This click listener get result
-        numberresult.setOnClickListener {
+        numberResult.setOnClickListener {
             if (expression.text.contains('%')) {
                 var i: Int = expression.text.length - 1
                 var number = ""
@@ -724,10 +724,11 @@ class Calculator : AppCompatActivity() {
                             }
                             index--
                         }
-                        if (number.isNotEmpty()) {
-                            dataResult = "(${number.toString().reversed()}/100)" + dataResult
+                        // I dont have exactly this one hire
+                        dataResult = if (number.isNotEmpty()) {
+                            "(${number.reversed()}/100)" + dataResult
                         } else {
-                            dataResult = "${number.toString().reversed()}/100" + dataResult
+                            "${number.reversed()}/100" + dataResult
                         }
 
                         i -= number.length
@@ -742,28 +743,28 @@ class Calculator : AppCompatActivity() {
                     val format = DecimalFormat()
                     format.maximumFractionDigits = 4
 
-                    tresult.text = checkInteger(format.format(Calculator_functions().basicEquations(dataResult)))
+                    tResult.text = checkInteger(format.format(Calculator_functions().basicEquations(dataResult)))
                     state = true
 
                     saveHistory(expression.text.toString())
-                    saveHistory("=" + tresult.text.toString())
+                    saveHistory("=" + tResult.text.toString())
                 } else {
                     val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
                     toast.show()
                 }
             } else {
                 if (expression.text.isNotEmpty()) {
-                    var checkExp = expression.text.toString()
+                    val checkExp = expression.text.toString()
 
                     if (checkParenthesis(checkExp)) {
                         val format = DecimalFormat()
                         format.maximumFractionDigits = 4
 
-                        tresult.text = checkInteger(format.format(Calculator_functions().basicEquations(checkExp)))
+                        tResult.text = checkInteger(format.format(Calculator_functions().basicEquations(checkExp)))
                         state = true
 
                         saveHistory(expression.text.toString())
-                        saveHistory("=" + tresult.text.toString())
+                        saveHistory("=" + tResult.text.toString())
                     } else {
                         val toast = Toast.makeText(applicationContext,"Invalid format used.",Toast.LENGTH_SHORT)
                         toast.show()
