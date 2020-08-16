@@ -1,4 +1,4 @@
-package JustJump.coding_calculator
+package justjump.coding_calculator
 
 import com.github.zieiony.calc.Calc
 

@@ -1,4 +1,4 @@
-package JustJump.coding_calculator
+package justjump.coding_calculator
 
 import android.content.Intent
 import android.os.Bundle
