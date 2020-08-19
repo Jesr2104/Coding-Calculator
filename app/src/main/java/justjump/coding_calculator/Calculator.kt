@@ -2,9 +2,12 @@ package justjump.coding_calculator
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.text.Html
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.github.hamzaahmedkhan.spinnerdialog.callbacks.OnSpinnerOKPressedListener
 import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
@@ -13,14 +16,20 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_calculator.*
 import java.text.DecimalFormat
 
+
 /***************************************************************************/
 // Calculator functions
 /***************************************************************************/
 
 class Calculator : AppCompatActivity() {
+
+    var mainHandler: Handler? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
+
+        var viewModel = ViewModelProvider(this).get(CalculatorViewModel::class.java)
 
         var state = false
 
@@ -258,7 +267,6 @@ class Calculator : AppCompatActivity() {
                 expression.textSize = 35F
             }
         }
-
         /***************************************************************************/
         // History
         /***************************************************************************/
@@ -699,6 +707,45 @@ class Calculator : AppCompatActivity() {
             increaseLetter()
         }
 
+
+        val action = object : Runnable {
+            override fun run() {
+                if (expression.text.isNotEmpty()) {
+                    expression.text = Html.fromHtml(
+                        paintString(
+                            expression.text.substring(
+                                0,
+                                expression.text.length - 1
+                            )
+                        )
+                    )
+                }
+                increaseLetter()
+                mainHandler?.postDelayed(this, 200)
+            }
+        }
+
+        // this Listener when you keep press the button to clear
+        numberBackSpace.setOnTouchListener { view, motionEvent ->
+                when (motionEvent.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        if (mainHandler != null)
+                            true
+                        mainHandler = Handler()
+                        mainHandler?.postDelayed(action, 500)
+                        false
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        if (mainHandler == null)
+                            true
+                        mainHandler?.removeCallbacks(action)
+                        mainHandler = null
+                        false
+                    }
+                    else -> false
+                }
+            }
+
         /***************************************************************************/
         // Result expression
         /***************************************************************************/
@@ -743,7 +790,7 @@ class Calculator : AppCompatActivity() {
                     val format = DecimalFormat()
                     format.maximumFractionDigits = 4
 
-                    tResult.text = checkInteger(format.format(Calculator_functions().basicEquations(dataResult)))
+                    tResult.text = checkInteger(format.format(Functions().basicEquations(dataResult)))
                     state = true
 
                     saveHistory(expression.text.toString())
@@ -760,7 +807,7 @@ class Calculator : AppCompatActivity() {
                         val format = DecimalFormat()
                         format.maximumFractionDigits = 4
 
-                        tResult.text = checkInteger(format.format(Calculator_functions().basicEquations(checkExp)))
+                        tResult.text = checkInteger(format.format(Functions().basicEquations(checkExp)))
                         state = true
 
                         saveHistory(expression.text.toString())
