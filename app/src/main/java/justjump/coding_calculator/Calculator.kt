@@ -1,5 +1,6 @@
 package justjump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -13,9 +14,11 @@ import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import com.google.gson.Gson
+import justjump.coding_calculator.data.local.PreferenceHelper
+import justjump.coding_calculator.extensions.checkInteger
+import justjump.coding_calculator.extensions.deleteComma
 import kotlinx.android.synthetic.main.activity_calculator.*
 import java.text.DecimalFormat
-
 
 /***************************************************************************/
 // Calculator functions
@@ -25,11 +28,12 @@ class Calculator : AppCompatActivity() {
 
     var mainHandler: Handler? = null
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
-        var viewModel = ViewModelProvider(this).get(CalculatorViewModel::class.java)
+        //var viewModel = ViewModelProvider(this).get(CalculatorViewModel::class.java)
 
         var state = false
 
@@ -38,16 +42,16 @@ class Calculator : AppCompatActivity() {
         /***************************************************************************/
 
         // this function check if the number finish on .0 to leave just the integer part.
-        fun checkInteger(result_check: String): String {
-            if (result_check.length > 1) {
-                if (result_check[result_check.length - 1] == '0') {
-                    if (result_check[result_check.length - 2] == '.') {
-                        return result_check.substring(0, result_check.length - 2)
-                    }
-                }
-            }
-            return result_check
-        }
+//        fun checkInteger(result_check: String): String {
+//            if (result_check.length > 1) {
+//                if (result_check[result_check.length - 1] == '0') {
+//                    if (result_check[result_check.length - 2] == '.') {
+//                        return result_check.substring(0, result_check.length - 2)
+//                    }
+//                }
+//            }
+//            return result_check
+//        }
 
         // this function delete the fields if you press = to see the result.
         fun clearExpression() {
@@ -58,23 +62,23 @@ class Calculator : AppCompatActivity() {
         }
 
         // this function delete the char ',' on the string it`s receives and return you string without this character
-        fun deleteComma(number: String): String {
-            var i = 0
-            var tempString = ""
-
-            while (number.length > i) {
-                if (number[i].toInt() != 44) {
-                    tempString += number[i]
-                }
-                i++
-            }
-            return tempString
-        }
+//        fun deleteComma(number: String): String {
+//            var i = 0
+//            var tempString = ""
+//
+//            while (number.length > i) {
+//                if (number[i].toInt() != 44) {
+//                    tempString += number[i]
+//                }
+//                i++
+//            }
+//            return tempString
+//        }
 
         // this function use the result like the information for the next expression
         fun ansData() {
             if (state) {
-                expression.text = deleteComma(tResult.text.toString())
+                expression.text = (tResult.text.toString()).deleteComma()
                 tResult.text = ""
                 state = false
             }
@@ -101,67 +105,67 @@ class Calculator : AppCompatActivity() {
         }
 
         // this function save the date in the history
-        fun saveHistory(newData: String) {
-            val datafile = getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
-            val jObjectData = Gson()
-            val maxData = 20
-
-            // here we check if the file exists
-            if (datafile.contains("HistoryData")) {
-                var json = datafile.getString("HistoryData", "DEFAULT")
-                var savehisttory =
-                    jObjectData.fromJson<ArrayList<String>>(json, ArrayList<String>()::class.java)
-
-                // we check to be sure the max of number of historial is 20 in this case
-                if (savehisttory.size >= maxData) {
-                    val temp: ArrayList<String> = ArrayList()
-                    var i = 2
-
-                    while (i < maxData) {
-                        temp.add(savehisttory[i])
-                        i++
-                    }
-
-                    savehisttory = temp
-                    savehisttory.add(deleteComma(newData))
-                } else {
-                    savehisttory.add(deleteComma(newData))
-                }
-
-                val editor = datafile.edit()
-                json = jObjectData.toJson(savehisttory)
-                editor.putString("HistoryData", json)
-                editor.apply()
-            }
-
-            // if the file not exists we can create one with the first item
-            else {
-                val temp: ArrayList<String> = ArrayList()
-                temp.add(deleteComma(newData))
-
-                val json = jObjectData.toJson(temp)
-                val editor = datafile.edit()
-
-                editor.putString("HistoryData", json)
-                editor.apply()
-            }
-        }
+//        fun saveHistory(newData: String) {
+//            val datafile = getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
+//            val jObjectData = Gson()
+//            val maxData = 20
+//
+//            // here we check if the file exists
+//            if (datafile.contains("HistoryData")) {
+//                var json = datafile.getString("HistoryData", "DEFAULT")
+//                var savehisttory =
+//                    jObjectData.fromJson<ArrayList<String>>(json, ArrayList<String>()::class.java)
+//
+//                // we check to be sure the max of number of historial is 20 in this case
+//                if (savehisttory.size >= maxData) {
+//                    val temp: ArrayList<String> = ArrayList()
+//                    var i = 2
+//
+//                    while (i < maxData) {
+//                        temp.add(savehisttory[i])
+//                        i++
+//                    }
+//
+//                    savehisttory = temp
+//                    savehisttory.add(newData.deleteComma())
+//                } else {
+//                    savehisttory.add(newData.deleteComma())
+//                }
+//
+//                val editor = datafile.edit()
+//                json = jObjectData.toJson(savehisttory)
+//                editor.putString("HistoryData", json)
+//                editor.apply()
+//            }
+//
+//            // if the file not exists we can create one with the first item
+//            else {
+//                val temp: ArrayList<String> = ArrayList()
+//                temp.add(newData.deleteComma())
+//
+//                val json = jObjectData.toJson(temp)
+//                val editor = datafile.edit()
+//
+//                editor.putString("HistoryData", json)
+//                editor.apply()
+//            }
+//        }
 
         // this function load the data from the file to the new array list
-        fun loadHistory(): ArrayList<String>? {
-            val datafile = getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
-            val jObjectData = Gson()
-            var saveHistory: ArrayList<String> = ArrayList()
-
-            if (datafile.contains("HistoryData")) {
-                val json = datafile.getString("HistoryData", "DEFAULT")
-                saveHistory =
-                    jObjectData.fromJson<ArrayList<String>>(json, ArrayList<String>()::class.java)
-
-                return saveHistory
-            }
-            return saveHistory
-        }
+//        fun loadHistory(): ArrayList<String>? {
+//            val datafile = getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
+//            val jObjectData = Gson()
+//            var saveHistory: ArrayList<String> = ArrayList()
+//
+//            if (datafile.contains("HistoryData")) {
+//                val json = datafile.getString("HistoryData", "DEFAULT")
+//                saveHistory =
+//                    jObjectData.fromJson<ArrayList<String>>(json, ArrayList<String>()::class.java)
+//
+//                return saveHistory
+//            }
+//            return saveHistory
+//        }
 
         // this function check all about the insert numbers and check to insert number zero when write one? and when not?
         fun insertNumbers(number: Char) {
@@ -275,7 +279,7 @@ class Calculator : AppCompatActivity() {
         historic.setOnClickListener {
             //Aqui va el codigo para crear el spinnerdialog
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
-            val myList: ArrayList<String>? = loadHistory()
+            val myList: ArrayList<String>? = PreferenceHelper.customPreference(this).getlist()
 
             if (myList != null) {
                 var cont: Int = myList.size - 1
@@ -707,7 +711,6 @@ class Calculator : AppCompatActivity() {
             increaseLetter()
         }
 
-
         val action = object : Runnable {
             override fun run() {
                 if (expression.text.isNotEmpty()) {
@@ -732,7 +735,7 @@ class Calculator : AppCompatActivity() {
                         if (mainHandler != null)
                             true
                         mainHandler = Handler()
-                        mainHandler?.postDelayed(action, 500)
+                        mainHandler?.postDelayed(action, 200)
                         false
                     }
                     MotionEvent.ACTION_UP -> {
@@ -790,11 +793,14 @@ class Calculator : AppCompatActivity() {
                     val format = DecimalFormat()
                     format.maximumFractionDigits = 4
 
-                    tResult.text = checkInteger(format.format(Functions().basicEquations(dataResult)))
+                    tResult.text = format.format(Functions().basicEquations(dataResult)).checkInteger()
                     state = true
 
-                    saveHistory(expression.text.toString())
-                    saveHistory("=" + tResult.text.toString())
+                    with(PreferenceHelper) {
+                        this.customPreference(this@Calculator)
+                        this.setList(expression.text.toString())
+                        this.setList("=" + tResult.text.toString())
+                    }
                 } else {
                     val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
                     toast.show()
@@ -807,11 +813,15 @@ class Calculator : AppCompatActivity() {
                         val format = DecimalFormat()
                         format.maximumFractionDigits = 4
 
-                        tResult.text = checkInteger(format.format(Functions().basicEquations(checkExp)))
+                        tResult.text = format.format(Functions().basicEquations(checkExp)).checkInteger()
                         state = true
 
-                        saveHistory(expression.text.toString())
-                        saveHistory("=" + tResult.text.toString())
+                        with(PreferenceHelper) {
+                            customPreference(this@Calculator)
+                            setList(expression.text.toString())
+                            setList("=" + tResult.text.toString())
+                        }
+
                     } else {
                         val toast = Toast.makeText(applicationContext,"Invalid format used.",Toast.LENGTH_SHORT)
                         toast.show()

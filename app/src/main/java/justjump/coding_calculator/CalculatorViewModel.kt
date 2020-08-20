@@ -7,7 +7,7 @@ import java.text.DecimalFormat
 class CalculatorViewModel: ViewModel() {
 
     fun a() {
-        if (expression.text.contains('%')) {
+        /*if (expression.text.contains('%')) {
             var i: Int = expression.text.length - 1
             var number = ""
             var dataResult = ""
@@ -74,6 +74,10 @@ class CalculatorViewModel: ViewModel() {
             }
         }
     }
+
+    mvvm*/
+    }
+
 
     override fun onCleared() {
         super.onCleared()
