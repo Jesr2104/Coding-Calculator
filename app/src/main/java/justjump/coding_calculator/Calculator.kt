@@ -16,7 +16,6 @@ import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import justjump.coding_calculator.data.local.PreferenceHelper
 import justjump.coding_calculator.extensions.checkInteger
 import justjump.coding_calculator.extensions.checkParenthesis
-import justjump.coding_calculator.extensions.deleteComma
 import justjump.coding_calculator.extensions.paintString
 import justjump.coding_calculator.viewmodel.CalculatorViewModel
 import kotlinx.android.synthetic.main.activity_calculator.*
@@ -43,47 +42,78 @@ class Calculator : AppCompatActivity() {
         // observer
         /***************************************************************************/
         val myObserver = Observer<String> {
-            expression.text = "" + cViewModel.dataFieldExpression.value
+            expression.text = cViewModel.dataFieldExpression.value
         }
-
         cViewModel.dataFieldExpression.observe(this@Calculator, myObserver)
 
-        /***************************************************************************/
-        // Extra functions
-        /***************************************************************************/
+        // this function check all about the insert numbers and check to insert number zero when write one? and when not?
+        fun insertNumbers(number: Char) {
+            var lastNumber = ""
+            var controldecimal = true
 
-        // this function delete the fields if you press = to see the result.
-        /** Esto necesita databinding **/
-        fun clearExpression() {
-            if (state) {
-                expression.text = ""
-                state = false
-            }
-        }
+            if (expression.text.isNotEmpty()) {
+                var cont: Int = expression.text.length - 1
+                var checkvalue = false
 
-        // this function use the result like the information for the next expression
-        /** Esto necesita databinding **/
-        fun ansData() {
-            if (state) {
-                expression.text = (tResult.text.toString()).deleteComma()
-                tResult.text = ""
-                state = false
-            }
-        }
+                while (cont >= 0) {
+                    if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
+                        lastNumber += expression.text[cont]
+                    } else {
+                        cont = 0
+                    }
+                    cont--
+                }
 
-        // this function descrease the size of the letter when length is higher than 10
-        /** Esto necesita databinding **/
-        fun decreaseLetter() {
-            if (expression.length() > 10) {
-                expression.textSize = 25F
-            }
-        }
+                for (item in lastNumber) {
+                    if (item == '.') {
+                        expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
+                        controldecimal = false
+                    }
+                }
 
-        // this function increase the size of the letter when the length is less than 10
-        /** Esto necesita databinding **/
-        fun increaseLetter() {
-            if (expression.length() <= 10) {
-                expression.textSize = 35F
+                if (controldecimal) {
+                    while (cont >= 0) {
+                        if (expression.text[cont].isDigit()) {
+                            if (Character.getNumericValue(expression.text[cont]) > 0) {
+                                checkvalue = true
+                            }
+                        } else {
+                            cont = 0
+                        }
+                        cont--
+                    }
+
+                    if (checkvalue) {
+                        expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
+                    } else if ((expression.text[expression.text.length - 1] == '0')) {
+                        cont = expression.text.length - 1
+                        while (cont >= 0) {
+                            if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
+                                lastNumber += expression.text[cont]
+                            } else {
+                                cont = 0
+                            }
+                            cont--
+                        }
+
+                        if (lastNumber.substring(0, lastNumber.length - 1).toDouble() > 0) {
+                            expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
+                        } else {
+                            expression.text = Html.fromHtml(
+                                (
+                                    expression.text.substring(
+                                        0,
+                                        expression.text.length - 1
+                                    ) + number
+                                ).paintString()
+                            )
+                        }
+                    } else {
+                        expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
+                    }
+                }
+            } else {
+                expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
             }
         }
 
@@ -93,7 +123,6 @@ class Calculator : AppCompatActivity() {
 
         // this function allow to select one option from the history and load on the expression
         historic.setOnClickListener {
-            //Aqui va el codigo para crear el spinnerdialog
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
             val myList: ArrayList<String>? = PreferenceHelper.customPreference(this).getlist()
 
@@ -146,7 +175,6 @@ class Calculator : AppCompatActivity() {
                                     tResult.text = ""
                                 }
                             }
-                            decreaseLetter()
                         }
 
                         override fun onMultiSelection(
@@ -172,71 +200,109 @@ class Calculator : AppCompatActivity() {
 
         // this listen event puts number zero on the expression but check first if it's allow
         number0.setOnClickListener{
-            clearExpression()
+            //state = cViewModel.clearExpression(state)
             cViewModel.insertNumbers('0')
+
+//            var cont: Int = expression.text.length - 1
+//            var checkValue = false
+//            var controlDecimal = true
+//
+//            if (expression.text.isNotEmpty()) {
+//                var nueva = ""
+//
+//                if (expression.text[expression.text.length - 1] == '+' ||
+//                    expression.text[expression.text.length - 1] == '-' ||
+//                    expression.text[expression.text.length - 1] == '*' ||
+//                    expression.text[expression.text.length - 1] == '/'
+//                ) {
+//                    expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
+//                }
+//
+//                while (cont >= 0) {
+//                    if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
+//                        nueva += expression.text[cont]
+//                    } else {
+//                        cont = 0
+//                    }
+//                    cont--
+//                }
+//
+//                for (item in nueva) {
+//                    if (item == '.') {
+//                        expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
+//                        controlDecimal = false
+//                    }
+//                }
+//
+//                for (item in nueva) {
+//                    if (controlDecimal) {
+//                        if (Character.getNumericValue(item.toInt()) > 0) {
+//                            checkValue = true
+//                        }
+//                    }
+//                }
+//
+//                if (checkValue) {
+//                    expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
+//                }
+//            } else {
+//                expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
+//            }
         }
 
         // this Click Listener for number 1
         number1.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
+            //state = cViewModel.clearExpression(state)
+            //insertNumbers('1')
             cViewModel.insertNumbers('1')
         }
 
         // this Click Listener for number 2
         number2.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('2')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('2')
         }
 
         // this Click Listener for number 3
         number3.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('3')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('3')
         }
 
         // this Click Listener for number 4
         number4.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('4')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('4')
         }
 
         // this Click Listener for number 5
         number5.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('5')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('5')
         }
 
         // this Click Listener for number 6
         number6.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('6')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('6')
         }
 
         // this Click Listener for number 7
         number7.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('7')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('7')
         }
 
         // this Click Listener for number 8
         number8.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('8')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('8')
         }
 
         // this Click Listener for number 9
         number9.setOnClickListener{
-            clearExpression()
-            decreaseLetter()
-            cViewModel.insertNumbers('9')
+            //state = cViewModel.clearExpression(state)
+//            cViewModel.insertNumbers('9')
         }
 
         /***************************************************************************/
@@ -245,38 +311,40 @@ class Calculator : AppCompatActivity() {
 
         // this Click Listener for sign +
         numberPlus.setOnClickListener{
-            ansData()
-            if (expression.text.isNotEmpty()) {
-                // we check if we have already another arithmetic sigh to change for this one
-                if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
-                    if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
-                        expression.text = Html.fromHtml(
-                            (expression.text.substring(
-                                0,
-                                expression.text.length - 1
-                            ) + "+").paintString()
-                        )
-                    } else {
-                        expression.text = Html.fromHtml(
-                            (expression.text.substring(
-                                0,
-                                expression.text.length - 1
-                            )).paintString()
-                        )
-                    }
-                }
-                // if we dont have any arithmetic sign we need just to put the new one
-                else {
-                    if (expression.text[expression.text.length - 1] != '(') {
-                        expression.text = Html.fromHtml((expression.text.toString() + "+").paintString())
-                    }
-                }
-            }
+            //state = cViewModel.ansData(state)
+            //cViewModel.insertSighPlus()
+
+//            if (expression.text.isNotEmpty()) {
+//                // we check if we have already another arithmetic sigh to change for this one
+//                if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
+//                    if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
+//                        expression.text = Html.fromHtml(
+//                            (expression.text.substring(
+//                                0,
+//                                expression.text.length - 1
+//                            ) + "+").paintString()
+//                        )
+//                    } else {
+//                        expression.text = Html.fromHtml(
+//                            (expression.text.substring(
+//                                0,
+//                                expression.text.length - 1
+//                            )).paintString()
+//                        )
+//                    }
+//                }
+//                // if we dont have any arithmetic sign we need just to put the new one
+//                else {
+//                    if (expression.text[expression.text.length - 1] != '(') {
+//                        expression.text = Html.fromHtml((expression.text.toString() + "+").paintString())
+//                    }
+//                }
+//            }
         }
 
         // this Click Listener for sign -
         numberLess.setOnClickListener{
-            ansData()
+            //ansData()
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
                     if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
@@ -295,7 +363,7 @@ class Calculator : AppCompatActivity() {
 
         // this Click Listener for sign *
         numberMultiply.setOnClickListener{
-            ansData()
+            //ansData()
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
                     if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
@@ -323,7 +391,7 @@ class Calculator : AppCompatActivity() {
 
         // this Click Listener for sign /
         numberDivide.setOnClickListener{
-            ansData()
+            //ansData()
             if (expression.text.isNotEmpty()) {
                 if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
                     if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
@@ -528,7 +596,6 @@ class Calculator : AppCompatActivity() {
         numberAllClear.setOnClickListener{
             expression.text = ""
             tResult.text = ""
-            increaseLetter()
         }
 
         // this click listener for BackSpace
@@ -541,7 +608,6 @@ class Calculator : AppCompatActivity() {
                     )).paintString()
                 )
             }
-            increaseLetter()
         }
 
         val action = object : Runnable {
@@ -556,7 +622,6 @@ class Calculator : AppCompatActivity() {
                                 ).paintString()
                     )
                 }
-                increaseLetter()
                 mainHandler?.postDelayed(this, 200)
             }
         }
