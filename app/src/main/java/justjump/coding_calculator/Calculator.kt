@@ -42,7 +42,7 @@ class Calculator : AppCompatActivity() {
         // observer
         /***************************************************************************/
         val myObserver = Observer<String> {
-            expression.text = cViewModel.dataFieldExpression.value
+            expression.text = it
         }
         cViewModel.dataFieldExpression.observe(this@Calculator, myObserver)
 
@@ -260,7 +260,7 @@ class Calculator : AppCompatActivity() {
         // this Click Listener for number 2
         number2.setOnClickListener{
             //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('2')
+            cViewModel.insertNumbers('2')
         }
 
         // this Click Listener for number 3
@@ -415,53 +415,54 @@ class Calculator : AppCompatActivity() {
 
         // this Click Listener for sign .
         numberPoint.setOnClickListener{
-            if (expression.text.isNotEmpty()) {
-                if (expression.text[expression.text.length - 1].isDigit()) {
-                    var run = true
-                    var typeDecimal = 0
-                    var cont: Int = expression.text.length - 1
-
-                    while (cont >= 0 && run) {
-                        if (expression.text[cont].isDigit()) {
-                            cont--
-                        } else {
-                            if (expression.text[cont] == '.') {
-                                run = false
-                                typeDecimal = 1
-                            }
-                            else if (expression.text[cont] == '(' ||
-                                expression.text[cont] == ')' ||
-                                expression.text[cont] == '+' ||
-                                expression.text[cont] == '-' ||
-                                expression.text[cont] == '*' ||
-                                expression.text[cont] == '/' ||
-                                expression.text[cont] == '%'
-                            ) {
-                                run = false
-                                typeDecimal = 2
-                            }
-                        }
-                    }
-
-                    if (typeDecimal == 0 || typeDecimal == 2) {
-                        expression.text = Html.fromHtml((expression.text.toString() + ".").paintString())
-                    }
-                    else if (typeDecimal == 1) {
-                        val toast = Toast.makeText(
-                            applicationContext,
-                            "Invalid format used.",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
-                    }
-                } else if (expression.text[expression.text.length - 1] == ')') {
-                    expression.text = Html.fromHtml((expression.text.toString() + "*0.").paintString())
-                } else if (expression.text[expression.text.length - 1] != '.') {
-                    expression.text = Html.fromHtml((expression.text.toString() + "0.").paintString())
-                }
-            } else {
-                expression.text = "0."
-            }
+            cViewModel.addpoint()
+//            if (expression.text.isNotEmpty()) {
+//                if (expression.text[expression.text.length - 1].isDigit()) {
+//                    var run = true
+//                    var typeDecimal = 0
+//                    var cont: Int = expression.text.length - 1
+//
+//                    while (cont >= 0 && run) {
+//                        if (expression.text[cont].isDigit()) {
+//                            cont--
+//                        } else {
+//                            if (expression.text[cont] == '.') {
+//                                run = false
+//                                typeDecimal = 1
+//                            }
+//                            else if (expression.text[cont] == '(' ||
+//                                expression.text[cont] == ')' ||
+//                                expression.text[cont] == '+' ||
+//                                expression.text[cont] == '-' ||
+//                                expression.text[cont] == '*' ||
+//                                expression.text[cont] == '/' ||
+//                                expression.text[cont] == '%'
+//                            ) {
+//                                run = false
+//                                typeDecimal = 2
+//                            }
+//                        }
+//                    }
+//
+//                    if (typeDecimal == 0 || typeDecimal == 2) {
+//                        expression.text = Html.fromHtml((expression.text.toString() + ".").paintString())
+//                    }
+//                    else if (typeDecimal == 1) {
+//                        val toast = Toast.makeText(
+//                            applicationContext,
+//                            "Invalid format used.",
+//                            Toast.LENGTH_SHORT
+//                        )
+//                        toast.show()
+//                    }
+//                } else if (expression.text[expression.text.length - 1] == ')') {
+//                    expression.text = Html.fromHtml((expression.text.toString() + "*0.").paintString())
+//                } else if (expression.text[expression.text.length - 1] != '.') {
+//                    expression.text = Html.fromHtml((expression.text.toString() + "0.").paintString())
+//                }
+//            } else {
+//                expression.text = "0."
+//            }
         }
 
         // this Click Listener for sign %

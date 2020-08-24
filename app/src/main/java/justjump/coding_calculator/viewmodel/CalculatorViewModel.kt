@@ -1,11 +1,8 @@
 package justjump.coding_calculator.viewmodel
 
-import android.text.Html
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import justjump.coding_calculator.extensions.deleteComma
-import justjump.coding_calculator.extensions.paintString
-import kotlinx.android.synthetic.main.activity_calculator.*
 
 class CalculatorViewModel: ViewModel() {
 
@@ -23,10 +20,9 @@ class CalculatorViewModel: ViewModel() {
 
         if (dataString.isNotEmpty()) {
             // logic for the number zero
-            if (number == '0')
-            {
+            if (number == '0') {
                 var newSplitNumber = ""
-                var cont = dataString.length -1
+                var cont = dataString.length - 1
                 var controlDecimal = true
                 var checkValue = false
 
@@ -34,7 +30,9 @@ class CalculatorViewModel: ViewModel() {
                     dataString[dataString.length - 1] == '-' ||
                     dataString[dataString.length - 1] == '*' ||
                     dataString[dataString.length - 1] == '/'
-                ) { dataString += "0"}
+                ) {
+                    dataString += "0"
+                }
 
                 while (cont >= 0) {
                     if (dataString[cont].isDigit() || dataString[cont] == '.') {
@@ -61,8 +59,8 @@ class CalculatorViewModel: ViewModel() {
                 }
 
                 if (checkValue) {
-                    dataString += "0"
-                    dataFieldExpression.value = dataString
+                    dataString = "$dataString 0"
+                    dataFieldExpression.postValue(dataString)
                 }
             }
             // logic for the rest of the number
@@ -80,6 +78,7 @@ class CalculatorViewModel: ViewModel() {
                     }
                     cont--
                 }
+                lastNumber = lastNumber.reversed()
 
                 for (item in lastNumber) {
                     if (item == '.') {
@@ -113,23 +112,26 @@ class CalculatorViewModel: ViewModel() {
                         }
 
                         if (lastNumber.substring(0, lastNumber.length - 1).toDouble() > 0) {
-                            dataString = dataString + number
-                            dataFieldExpression.value = dataString
+                            dataString = "$dataString$number"
+                            dataFieldExpression.postValue(dataString)
                         } else {
-                            dataString = dataString.substring(0,dataString.length - 1) + number
-                            dataFieldExpression.value = dataString
+                            dataString = dataString.substring(0, dataString.length - 1) + number
+                            dataFieldExpression.postValue(dataString)
                         }
                     } else {
-                        dataString += number
-                        dataFieldExpression.value = dataString
+                        dataString = "$dataString$number"
+                        dataFieldExpression.postValue(dataString)
                     }
                 }
+                else
+                {
+                    dataString = "$dataString"
+                    dataFieldExpression.postValue(dataString)
+                }
             }
-        }
-        else
-        {
-            dataString = dataString + number
-            dataFieldExpression.value = dataString
+        } else {
+            dataString = "$dataString$number"
+            dataFieldExpression.postValue(dataString)
         }
     }
 
@@ -149,4 +151,60 @@ class CalculatorViewModel: ViewModel() {
         }
         return false
     }
+
+    fun addpoint(): Int {
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty()) {
+            if (dataString[dataString.length - 1].isDigit()) {
+                var run = true
+                var typeDecimal = 0
+                var cont: Int = dataString.length - 1
+
+                while (cont >= 0 && run) {
+                    if (dataString[cont].isDigit()) {
+                        cont--
+                    } else {
+                        if (dataString[cont] == '.') {
+                            run = false
+                            typeDecimal = 1
+                        } else if (dataString[cont] == '(' ||
+                            dataString[cont] == ')' ||
+                            dataString[cont] == '+' ||
+                            dataString[cont] == '-' ||
+                            dataString[cont] == '*' ||
+                            dataString[cont] == '/' ||
+                            dataString[cont] == '%'
+                        ) {
+                            run = false
+                            typeDecimal = 2
+                        }
+                    }
+                }
+
+                if (typeDecimal == 0 || typeDecimal == 2) {
+                    dataString = "$dataString."
+                    dataFieldExpression.postValue(dataString)
+                } else if (typeDecimal == 1) {
+//                    val toast = Toast.makeText(applicationContext,
+//                        "Invalid format used.",
+//                        Toast.LENGTH_SHORT)
+//                    toast.show()
+                    return -1
+                }
+            } else if (dataString[dataString.length - 1] == ')') {
+                dataString = "$dataString *0."
+                dataFieldExpression.postValue(dataString)
+            } else if (dataString[dataString.length - 1] != '.') {
+                dataString = "$dataString 0."
+                dataFieldExpression.postValue(dataString)
+            }
+        } else {
+            dataString = "0."
+            dataFieldExpression.postValue(dataString)
+        }
+        return 0
+    }
+
+
+
 }
