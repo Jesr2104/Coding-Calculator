@@ -41,86 +41,23 @@ class Calculator : AppCompatActivity() {
         /***************************************************************************/
         // observer
         /***************************************************************************/
-        val myObserver = Observer<String> {
-            expression.text = it
+        val myObserverExpression = Observer<String> {
+            expression.text = Html.fromHtml(it.paintString())
         }
-        cViewModel.dataFieldExpression.observe(this@Calculator, myObserver)
-
-        // this function check all about the insert numbers and check to insert number zero when write one? and when not?
-        fun insertNumbers(number: Char) {
-            var lastNumber = ""
-            var controldecimal = true
-
-            if (expression.text.isNotEmpty()) {
-                var cont: Int = expression.text.length - 1
-                var checkvalue = false
-
-                while (cont >= 0) {
-                    if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
-                        lastNumber += expression.text[cont]
-                    } else {
-                        cont = 0
-                    }
-                    cont--
-                }
-
-                for (item in lastNumber) {
-                    if (item == '.') {
-                        expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
-                        controldecimal = false
-                    }
-                }
-
-                if (controldecimal) {
-                    while (cont >= 0) {
-                        if (expression.text[cont].isDigit()) {
-                            if (Character.getNumericValue(expression.text[cont]) > 0) {
-                                checkvalue = true
-                            }
-                        } else {
-                            cont = 0
-                        }
-                        cont--
-                    }
-
-                    if (checkvalue) {
-                        expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
-                    } else if ((expression.text[expression.text.length - 1] == '0')) {
-                        cont = expression.text.length - 1
-                        while (cont >= 0) {
-                            if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
-                                lastNumber += expression.text[cont]
-                            } else {
-                                cont = 0
-                            }
-                            cont--
-                        }
-
-                        if (lastNumber.substring(0, lastNumber.length - 1).toDouble() > 0) {
-                            expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
-                        } else {
-                            expression.text = Html.fromHtml(
-                                (
-                                    expression.text.substring(
-                                        0,
-                                        expression.text.length - 1
-                                    ) + number
-                                ).paintString()
-                            )
-                        }
-                    } else {
-                        expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
-                    }
-                }
-            } else {
-                expression.text = Html.fromHtml((expression.text.toString() + number).paintString())
-            }
+        val myObserverResult = Observer<String> {
+            tResult.text = it
         }
+
+        // this observer works when the expression change
+        cViewModel.dataFieldExpression.observe(this@Calculator, myObserverExpression)
+        // this observer works when the result change
+        cViewModel.dataFieldResult.observe(this@Calculator, myObserverResult)
 
         /***************************************************************************/
         // History
         /***************************************************************************/
 
+        /** Falta modificar este codigo **/
         // this function allow to select one option from the history and load on the expression
         historic.setOnClickListener {
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
@@ -195,299 +132,111 @@ class Calculator : AppCompatActivity() {
         }
 
         /***************************************************************************/
-        // Numbers
+        // Events of Numbers
         /***************************************************************************/
 
         // this listen event puts number zero on the expression but check first if it's allow
         number0.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.insertNumbers('0')
-
-//            var cont: Int = expression.text.length - 1
-//            var checkValue = false
-//            var controlDecimal = true
-//
-//            if (expression.text.isNotEmpty()) {
-//                var nueva = ""
-//
-//                if (expression.text[expression.text.length - 1] == '+' ||
-//                    expression.text[expression.text.length - 1] == '-' ||
-//                    expression.text[expression.text.length - 1] == '*' ||
-//                    expression.text[expression.text.length - 1] == '/'
-//                ) {
-//                    expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
-//                }
-//
-//                while (cont >= 0) {
-//                    if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
-//                        nueva += expression.text[cont]
-//                    } else {
-//                        cont = 0
-//                    }
-//                    cont--
-//                }
-//
-//                for (item in nueva) {
-//                    if (item == '.') {
-//                        expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
-//                        controlDecimal = false
-//                    }
-//                }
-//
-//                for (item in nueva) {
-//                    if (controlDecimal) {
-//                        if (Character.getNumericValue(item.toInt()) > 0) {
-//                            checkValue = true
-//                        }
-//                    }
-//                }
-//
-//                if (checkValue) {
-//                    expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
-//                }
-//            } else {
-//                expression.text = Html.fromHtml((expression.text.toString() + "0").paintString())
-//            }
         }
 
         // this Click Listener for number 1
         number1.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-            //insertNumbers('1')
+            state = cViewModel.clearExpression(state)
             cViewModel.insertNumbers('1')
         }
 
         // this Click Listener for number 2
         number2.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.insertNumbers('2')
         }
 
         // this Click Listener for number 3
         number3.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('3')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('3')
         }
 
         // this Click Listener for number 4
         number4.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('4')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('4')
         }
 
         // this Click Listener for number 5
         number5.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('5')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('5')
         }
 
         // this Click Listener for number 6
         number6.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('6')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('6')
         }
 
         // this Click Listener for number 7
         number7.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('7')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('7')
         }
 
         // this Click Listener for number 8
         number8.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('8')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('8')
         }
 
         // this Click Listener for number 9
         number9.setOnClickListener{
-            //state = cViewModel.clearExpression(state)
-//            cViewModel.insertNumbers('9')
+            state = cViewModel.clearExpression(state)
+            cViewModel.insertNumbers('9')
         }
 
         /***************************************************************************/
-        // Math signs
+        // Events of Math signs
         /***************************************************************************/
 
         // this Click Listener for sign +
         numberPlus.setOnClickListener{
-            //state = cViewModel.ansData(state)
-            //cViewModel.insertSighPlus()
-
-//            if (expression.text.isNotEmpty()) {
-//                // we check if we have already another arithmetic sigh to change for this one
-//                if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
-//                    if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
-//                        expression.text = Html.fromHtml(
-//                            (expression.text.substring(
-//                                0,
-//                                expression.text.length - 1
-//                            ) + "+").paintString()
-//                        )
-//                    } else {
-//                        expression.text = Html.fromHtml(
-//                            (expression.text.substring(
-//                                0,
-//                                expression.text.length - 1
-//                            )).paintString()
-//                        )
-//                    }
-//                }
-//                // if we dont have any arithmetic sign we need just to put the new one
-//                else {
-//                    if (expression.text[expression.text.length - 1] != '(') {
-//                        expression.text = Html.fromHtml((expression.text.toString() + "+").paintString())
-//                    }
-//                }
-//            }
+            state = cViewModel.ansData(state)
+            cViewModel.sighPlus()
         }
 
         // this Click Listener for sign -
-        numberLess.setOnClickListener{
-            //ansData()
-            if (expression.text.isNotEmpty()) {
-                if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
-                    if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
-                        expression.text = Html.fromHtml(
-                            (expression.text.substring(
-                                0,
-                                expression.text.length - 1
-                            ) + "-").paintString()
-                        )
-                    }
-                } else {
-                    expression.text = Html.fromHtml((expression.text.toString() + "-").paintString())
-                }
-            }
+        numberLess.setOnClickListener {
+            state = cViewModel.ansData(state)
+            cViewModel.sighLess()
         }
 
         // this Click Listener for sign *
         numberMultiply.setOnClickListener{
-            //ansData()
-            if (expression.text.isNotEmpty()) {
-                if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
-                    if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
-                        expression.text = Html.fromHtml(
-                            (expression.text.substring(
-                                0,
-                                expression.text.length - 1
-                            ) + "*").paintString()
-                        )
-                    } else {
-                        expression.text = Html.fromHtml(
-                            (expression.text.substring(
-                                0,
-                                expression.text.length - 1
-                            )).paintString()
-                        )
-                    }
-                } else {
-                    if (expression.text[expression.text.length - 1] != '(') {
-                        expression.text = Html.fromHtml((expression.text.toString() + "*").paintString())
-                    }
-                }
-            }
+            state = cViewModel.ansData(state)
+            cViewModel.sighMultiply()
         }
 
         // this Click Listener for sign /
         numberDivide.setOnClickListener{
-            //ansData()
-            if (expression.text.isNotEmpty()) {
-                if (expression.text[expression.text.length - 1] == '+' || expression.text[expression.text.length - 1] == '-' || expression.text[expression.text.length - 1] == '*' || expression.text[expression.text.length - 1] == '/') {
-                    if (!(expression.text[expression.text.length - 2] == '(' && expression.text[expression.text.length - 1] == '-')) {
-                        expression.text = Html.fromHtml(
-                            (expression.text.substring(
-                                0,
-                                expression.text.length - 1
-                            ) + "/").paintString()
-                        )
-                    } else {
-                        expression.text = expression.text.substring(0, expression.text.length - 1)
-                    }
-                }
-                else {
-                    if (expression.text[expression.text.length - 1] != '(') {
-                        expression.text = Html.fromHtml((expression.text.toString() + "/").paintString())
-                    }
-                }
-            }
+            state = cViewModel.ansData(state)
+            cViewModel.sighDivide()
         }
 
         // this Click Listener for sign .
         numberPoint.setOnClickListener{
-            cViewModel.addpoint()
-//            if (expression.text.isNotEmpty()) {
-//                if (expression.text[expression.text.length - 1].isDigit()) {
-//                    var run = true
-//                    var typeDecimal = 0
-//                    var cont: Int = expression.text.length - 1
-//
-//                    while (cont >= 0 && run) {
-//                        if (expression.text[cont].isDigit()) {
-//                            cont--
-//                        } else {
-//                            if (expression.text[cont] == '.') {
-//                                run = false
-//                                typeDecimal = 1
-//                            }
-//                            else if (expression.text[cont] == '(' ||
-//                                expression.text[cont] == ')' ||
-//                                expression.text[cont] == '+' ||
-//                                expression.text[cont] == '-' ||
-//                                expression.text[cont] == '*' ||
-//                                expression.text[cont] == '/' ||
-//                                expression.text[cont] == '%'
-//                            ) {
-//                                run = false
-//                                typeDecimal = 2
-//                            }
-//                        }
-//                    }
-//
-//                    if (typeDecimal == 0 || typeDecimal == 2) {
-//                        expression.text = Html.fromHtml((expression.text.toString() + ".").paintString())
-//                    }
-//                    else if (typeDecimal == 1) {
-//                        val toast = Toast.makeText(
-//                            applicationContext,
-//                            "Invalid format used.",
-//                            Toast.LENGTH_SHORT
-//                        )
-//                        toast.show()
-//                    }
-//                } else if (expression.text[expression.text.length - 1] == ')') {
-//                    expression.text = Html.fromHtml((expression.text.toString() + "*0.").paintString())
-//                } else if (expression.text[expression.text.length - 1] != '.') {
-//                    expression.text = Html.fromHtml((expression.text.toString() + "0.").paintString())
-//                }
-//            } else {
-//                expression.text = "0."
-//            }
+            state = cViewModel.ansData(state)
+            cViewModel.addPoint()
         }
 
         // this Click Listener for sign %
         numberPercentage.setOnClickListener{
-            if (expression.text.isNotEmpty()) {
-                if (!(expression.text[expression.text.length - 1] == '+' ||
-                            expression.text[expression.text.length - 1] == '-' ||
-                            expression.text[expression.text.length - 1] == '*' ||
-                            expression.text[expression.text.length - 1] == '/' ||
-                            expression.text[expression.text.length - 1] == '%' ||
-                            expression.text[expression.text.length - 1] == '(')
-                ) {
-                    expression.text = Html.fromHtml((expression.text.toString() + "%").paintString())
-                } else {
-                    val toast = Toast.makeText(
-                        applicationContext,
-                        "Invalid format used.",
-                        Toast.LENGTH_SHORT
-                    )
-                    toast.show()
-                }
-            }
+            state = cViewModel.ansData(state)
+            cViewModel.sighPercentage()
         }
 
-        // this Click Listener for sign %
+        /** Falta modificar este codigo **/
+        // this Click Listener for sign (-
         numberPlusLess.setOnClickListener{
             if (expression.text.isNotEmpty())
             {
@@ -573,20 +322,12 @@ class Calculator : AppCompatActivity() {
 
         // this Click Listener for sign (
         numberOpenParenthesis.setOnClickListener {
-            if (expression.text.isNotEmpty()) {
-                if (expression.text[expression.text.length - 1] == ')' || expression.text[expression.text.length - 1].isDigit()) {
-                    expression.text = Html.fromHtml((expression.text.toString() + "*(").paintString())
-                } else {
-                    expression.text = Html.fromHtml((expression.text.toString() + "(").paintString())
-                }
-            } else {
-                expression.text = Html.fromHtml((expression.text.toString() + "(").paintString())
-            }
+            cViewModel.openParenthesis()
         }
 
         // this Click Listener for sign )
         numberCloseParenthesis.setOnClickListener{
-            expression.text = Html.fromHtml((expression.text.toString() + ")").paintString())
+            cViewModel.closeParenthesis()
         }
 
         /***************************************************************************/
@@ -595,20 +336,12 @@ class Calculator : AppCompatActivity() {
 
         // this Click Listener for "All Clear"
         numberAllClear.setOnClickListener{
-            expression.text = ""
-            tResult.text = ""
+            cViewModel.allClear()
         }
 
         // this click listener for BackSpace
         numberBackSpace.setOnClickListener{
-            if (expression.text.isNotEmpty()) {
-                expression.text = Html.fromHtml(
-                    (expression.text.substring(
-                        0,
-                        expression.text.length - 1
-                    )).paintString()
-                )
-            }
+            cViewModel.backSpace()
         }
 
         val action = object : Runnable {
@@ -627,6 +360,7 @@ class Calculator : AppCompatActivity() {
             }
         }
 
+        /** Falta modificar este codigo **/
         // this Listener when you keep press the button to clear
         numberBackSpace.setOnTouchListener { view, motionEvent ->
                 when (motionEvent.action) {

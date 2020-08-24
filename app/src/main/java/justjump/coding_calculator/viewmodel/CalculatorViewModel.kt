@@ -23,8 +23,7 @@ class CalculatorViewModel: ViewModel() {
             if (number == '0') {
                 var newSplitNumber = ""
                 var cont = dataString.length - 1
-                var controlDecimal = true
-                var checkValue = false
+                var checkvalue = false
 
                 if (dataString[dataString.length - 1] == '+' ||
                     dataString[dataString.length - 1] == '-' ||
@@ -42,25 +41,24 @@ class CalculatorViewModel: ViewModel() {
                     }
                     cont--
                 }
+                newSplitNumber = newSplitNumber.reversed()
 
-                for (item in newSplitNumber) {
-                    if (item == '.') {
-                        dataString += "0"
-                        controlDecimal = false
-                    }
+                if(newSplitNumber.contains('.')){
+                    dataString += "0"
+                    dataFieldExpression.postValue(dataString)
                 }
-
-                for (item in newSplitNumber) {
-                    if (controlDecimal) {
+                else
+                {
+                    for (item in newSplitNumber.reversed()) {
                         if (Character.getNumericValue(item.toInt()) > 0) {
-                            checkValue = true
+                            dataString += "0"
+                            checkvalue = true
                         }
                     }
-                }
-
-                if (checkValue) {
-                    dataString = "$dataString 0"
-                    dataFieldExpression.postValue(dataString)
+                    if (checkvalue)
+                    {
+                        dataFieldExpression.postValue(dataString)
+                    }
                 }
             }
             // logic for the rest of the number
@@ -122,10 +120,7 @@ class CalculatorViewModel: ViewModel() {
                         dataString = "$dataString$number"
                         dataFieldExpression.postValue(dataString)
                     }
-                }
-                else
-                {
-                    dataString = "$dataString"
+                } else {
                     dataFieldExpression.postValue(dataString)
                 }
             }
@@ -135,24 +130,85 @@ class CalculatorViewModel: ViewModel() {
         }
     }
 
-    // this function use the result like the information for the next expression
-    fun ansData(check: Boolean): Boolean {
-        if (check) {
-            dataFieldExpression.value = (dataFieldResult.value.toString()).deleteComma()
-            dataFieldResult.value = ""
+    // this function insert the sigh of plus '+'
+    fun sighPlus() {
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty()) {
+            // we check if we have already another arithmetic sigh to change for this one
+            if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
+                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    dataString = (dataString.substring(0, dataString.length - 1) + "+")
+                } else {
+                    dataString = (dataString.substring(0, dataString.length - 1))
+                }
+            }
+            // if we don't have any arithmetic sign we need just to put the new one
+            else {
+                if (dataString[dataString.length - 1] != '(') {
+                    dataString = (dataString + "+")
+                }
+            }
         }
-        return false
+        dataFieldExpression.postValue(dataString)
     }
 
-    // this function delete the fields if you press = to see the result.
-    fun clearExpression(check: Boolean): Boolean {
-        if (check) {
-            dataFieldExpression.value = ""
+    // this function insert the sigh of less '-'
+    fun sighLess() {
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty()) {
+            if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
+                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    dataString = dataString.substring(0, dataString.length - 1) + "-"
+                }
+            } else {
+                dataString += "-"
+            }
         }
-        return false
+        dataFieldExpression.postValue(dataString)
     }
 
-    fun addpoint(): Int {
+    // this function insert the sigh of multiply '*'
+    fun sighMultiply() {
+        var dataString = "" + dataFieldExpression.value
+
+        if (dataString.isNotEmpty()) {
+            if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
+                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    dataString = dataString.substring(0, dataString.length - 1) + "*"
+                } else {
+                    dataString = dataString.substring(0, dataString.length - 1)
+                }
+            } else {
+                if (dataString[dataString.length - 1] != '(') {
+                    dataString += "*"
+                }
+            }
+        }
+        dataFieldExpression.postValue(dataString)
+    }
+
+    // this function insert the sigh of divide '/'
+    fun sighDivide() {
+        var dataString = "" + dataFieldExpression.value
+
+        if (dataString.isNotEmpty()) {
+            if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
+                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    dataString = dataString.substring(0, dataString.length - 1) + "/"
+                } else {
+                    dataString = dataString.substring(0, dataString.length - 1)
+                }
+            } else {
+                if (dataString[dataString.length - 1] != '(') {
+                    dataString = "$dataString/"
+                }
+            }
+        }
+        dataFieldExpression.postValue(dataString)
+    }
+
+    // this function insert the sigh of point '.'
+    fun addPoint(): Int {
         var dataString = "" + dataFieldExpression.value
         if (dataString.isNotEmpty()) {
             if (dataString[dataString.length - 1].isDigit()) {
@@ -205,6 +261,74 @@ class CalculatorViewModel: ViewModel() {
         return 0
     }
 
+    // this function insert the sigh of percentage '%'
+    fun sighPercentage(){
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty()) {
+            if (!(dataString[dataString.length - 1] == '+' ||
+                        dataString[dataString.length - 1] == '-' ||
+                        dataString[dataString.length - 1] == '*' ||
+                        dataString[dataString.length - 1] == '/' ||
+                        dataString[dataString.length - 1] == '%' ||
+                        dataString[dataString.length - 1] == '(')
+            ) {
+                dataString = dataString.toString() + "%"
+            }
+        }
+        dataFieldExpression.postValue(dataString)
+    }
 
+    // this function insert open parenthesis '('
+    fun openParenthesis(){
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty()) {
+            if (dataString[dataString.length - 1] == ')' || dataString[dataString.length - 1].isDigit()) {
+                dataString += "*("
+            } else {
+                dataString += "("
+            }
+        } else {
+            dataString += "("
+        }
+        dataFieldExpression.postValue(dataString)
+    }
 
+    // this function insert close parenthesis ')'
+    fun closeParenthesis(){
+        var dataString = "" + dataFieldExpression.value
+        dataString += ")"
+        dataFieldExpression.postValue(dataString)
+    }
+
+    // this function delete the fields if you press = to see the result.
+    fun clearExpression(check: Boolean): Boolean {
+        if (check) {
+            dataFieldExpression.value = ""
+        }
+        return false
+    }
+
+    // this function clear result field and expression field
+    fun allClear(){
+        dataFieldResult.postValue("")
+        dataFieldExpression.postValue("")
+    }
+
+    // this function delete the last character inserted
+    fun backSpace(){
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty()) {
+            dataString = dataString.substring(0,dataString.length - 1)
+            dataFieldExpression.postValue(dataString)
+        }
+    }
+
+    // this function use the result like the information for the next expression
+    fun ansData(check: Boolean = true): Boolean {
+        if (check) {
+            dataFieldExpression.value = (dataFieldResult.value.toString()).deleteComma()
+            dataFieldResult.value = ""
+        }
+        return false
+    }
 }
