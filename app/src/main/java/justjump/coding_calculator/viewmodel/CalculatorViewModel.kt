@@ -27,7 +27,7 @@ class CalculatorViewModel: ViewModel() {
             if (number == '0') {
                 var newSplitNumber = ""
                 var cont = dataString.length - 1
-                var checkvalue = false
+                var checkValue = false
 
                 if (dataString[dataString.length - 1] == '+' ||
                     dataString[dataString.length - 1] == '-' ||
@@ -35,42 +35,45 @@ class CalculatorViewModel: ViewModel() {
                     dataString[dataString.length - 1] == '/'
                 ) {
                     dataString += "0"
-                }
-
-                while (cont >= 0) {
-                    if (dataString[cont].isDigit() || dataString[cont] == '.') {
-                        newSplitNumber += dataString[cont]
-                    } else {
-                        cont = 0
-                    }
-                    cont--
-                }
-                newSplitNumber = newSplitNumber.reversed()
-
-                if(newSplitNumber.contains('.')){
-                    dataString += "0"
                     dataFieldExpression.postValue(dataString)
                 }
                 else
                 {
-                    for (item in newSplitNumber.reversed()) {
-                        if (Character.getNumericValue(item.toInt()) > 0) {
-                            dataString += "0"
-                            checkvalue = true
+                    while (cont >= 0) {
+                        if (dataString[cont].isDigit() || dataString[cont] == '.') {
+                            newSplitNumber += dataString[cont]
+                        } else {
+                            cont = 0
                         }
+                        cont--
                     }
-                    if (checkvalue)
-                    {
+                    newSplitNumber = newSplitNumber.reversed()
+
+                    if(newSplitNumber.contains('.')){
+                        dataString += "0"
                         dataFieldExpression.postValue(dataString)
+                    }
+                    else
+                    {
+                        for (item in newSplitNumber.reversed()) {
+                            if (Character.getNumericValue(item.toInt()) > 0) {
+                                checkValue = true
+                            }
+                        }
+                        if (checkValue)
+                        {
+                            dataString += "0"
+                            dataFieldExpression.postValue(dataString)
+                        }
                     }
                 }
             }
             // logic for the rest of the number
             else {
                 var lastNumber = ""
-                var controldecimal = true
+                var controlDecimal = true
                 var cont: Int = dataString.length - 1
-                var checkvalue = false
+                var checkValue = false
 
                 while (cont >= 0) {
                     if (dataString[cont].isDigit() || dataString[cont] == '.') {
@@ -85,22 +88,22 @@ class CalculatorViewModel: ViewModel() {
                 for (item in lastNumber) {
                     if (item == '.') {
                         dataString += number
-                        controldecimal = false
+                        controlDecimal = false
                     }
                 }
 
-                if (controldecimal) {
+                if (controlDecimal) {
                     while (cont >= 0) {
                         if (dataString[cont].isDigit()) {
                             if (Character.getNumericValue(dataString[cont]) > 0) {
-                                checkvalue = true
+                                checkValue = true
                             }
                         } else {
                             cont = 0
                         }
                         cont--
                     }
-                    if (checkvalue) {
+                    if (checkValue) {
                         dataString += number
                     } else if ((dataString[dataString.length - 1] == '0')) {
                         cont = dataString.length - 1
@@ -255,7 +258,7 @@ class CalculatorViewModel: ViewModel() {
                 dataString = "$dataString *0."
                 dataFieldExpression.postValue(dataString)
             } else if (dataString[dataString.length - 1] != '.') {
-                dataString = "$dataString 0."
+                dataString = "${dataString}0."
                 dataFieldExpression.postValue(dataString)
             }
         } else {
