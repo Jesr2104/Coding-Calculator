@@ -54,7 +54,6 @@ class Calculator : AppCompatActivity() {
         // History
         /***************************************************************************/
 
-        /** Falta modificar este codigo **/
         // this function allow to select one option from the history and load on the expression
         historic.setOnClickListener {
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
@@ -185,51 +184,59 @@ class Calculator : AppCompatActivity() {
         // this Click Listener for sign +
         numberPlus.setOnClickListener{
             state = cViewModel.ansData(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.sighPlus()
         }
 
         // this Click Listener for sign -
         numberLess.setOnClickListener {
             state = cViewModel.ansData(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.sighLess()
         }
 
         // this Click Listener for sign *
         numberMultiply.setOnClickListener{
             state = cViewModel.ansData(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.sighMultiply()
         }
 
         // this Click Listener for sign /
         numberDivide.setOnClickListener{
             state = cViewModel.ansData(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.sighDivide()
         }
 
         // this Click Listener for sign .
         numberPoint.setOnClickListener{
-            state = cViewModel.ansData(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.addPoint()
         }
 
         // this Click Listener for sign %
         numberPercentage.setOnClickListener{
             state = cViewModel.ansData(state)
+            state = cViewModel.clearExpression(state)
             cViewModel.sighPercentage()
         }
 
         // this Click Listener for sign (-
         numberPlusLess.setOnClickListener{
+            state = cViewModel.clearExpression(state)
             cViewModel.plusLess()
         }
 
         // this Click Listener for sign (
         numberOpenParenthesis.setOnClickListener {
+            state = cViewModel.clearExpression(state)
             cViewModel.openParenthesis()
         }
 
         // this Click Listener for sign )
         numberCloseParenthesis.setOnClickListener{
+            state = cViewModel.clearExpression(state)
             cViewModel.closeParenthesis()
         }
 
@@ -244,6 +251,7 @@ class Calculator : AppCompatActivity() {
 
         // this click listener for BackSpace
         numberBackSpace.setOnClickListener{
+            state = cViewModel.clearExpression(state)
             cViewModel.backSpace()
         }
 
@@ -251,17 +259,17 @@ class Calculator : AppCompatActivity() {
             override fun run() {
                 var data = cViewModel.dataFieldExpression.value
                 if (data!!.isNotEmpty()) {
-                    data = Html.fromHtml((data!!.substring(0,data!!.length - 1)).paintString()).toString()
+                    data = Html.fromHtml((data.substring(0, data.length - 1)).paintString()).toString()
                     cViewModel.dataFieldExpression.value = data
                 }
                 mainHandler?.postDelayed(this, 200)
             }
         }
 
-        /** Falta modificar este codigo **/
         // this Listener when you keep press the button to clear
         numberBackSpace.setOnTouchListener { view, motionEvent ->
-                when (motionEvent.action) {
+            state = cViewModel.clearExpression(state)
+            when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
                             true
@@ -292,6 +300,7 @@ class Calculator : AppCompatActivity() {
                     this.customPreference(this@Calculator)
                     this.setList(cViewModel.dataFieldExpression.value!!)
                     this.setList("=" + cViewModel.dataFieldResult.value!!)
+                    state = true
                 }
 
             } else {
