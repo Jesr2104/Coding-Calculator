@@ -59,6 +59,7 @@ class Calculator : AppCompatActivity() {
         historic.setOnClickListener {
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
             val myList: ArrayList<String>? = PreferenceHelper.customPreference(this).getlist()
+            var dataFieldViewModel = cViewModel.dataFieldExpression.value
 
             if (myList != null) {
                 var cont: Int = myList.size - 1
@@ -77,38 +78,23 @@ class Calculator : AppCompatActivity() {
                         override fun onSingleSelection(data: SpinnerModel, selectedPosition: Int) {
                             when {
                                 data.text[0] != '=' -> {
-                                    expression.text =
-                                        Html.fromHtml((expression.text.toString() + data.text).paintString())
+                                    dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text).paintString()).toString()
                                     tResult.text = ""
                                 }
                                 data.text[0] == '-' -> {
-                                    expression.text =
-                                        Html.fromHtml(("(" + expression.text.toString() + data.text + ")").paintString())
-                                    tResult.text = ""
+                                    dataFieldViewModel = Html.fromHtml(("(" + dataFieldViewModel.toString() + data.text + ")").paintString()).toString()
+                                    cViewModel.dataFieldResult.value = ""
                                 }
                                 else -> {
                                     if (data.text[1] == '-') {
-                                        expression.text = Html.fromHtml(
-                                            (
-                                                    expression.text.toString() + "(" + data.text.substring(
-                                                        1,
-                                                        data.text.length
-                                                    ) + ")"
-                                                    ).paintString()
-                                        )
+                                        dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + "(" + data.text.substring(1,data.text.length) + ")").paintString()).toString()
                                     } else {
-                                        expression.text = Html.fromHtml(
-                                            (
-                                                    expression.text.toString() + data.text.substring(
-                                                        1,
-                                                        data.text.length
-                                                    )
-                                                    ).paintString()
-                                        )
+                                        dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text.substring(1,data.text.length)).paintString()).toString()
                                     }
-                                    tResult.text = ""
+                                    cViewModel.dataFieldResult.value = ""
                                 }
                             }
+                            cViewModel.dataFieldExpression.value = dataFieldViewModel
                         }
 
                         override fun onMultiSelection(
@@ -263,15 +249,10 @@ class Calculator : AppCompatActivity() {
 
         val action = object : Runnable {
             override fun run() {
-                if (expression.text.isNotEmpty()) {
-                    expression.text = Html.fromHtml(
-                        (
-                                expression.text.substring(
-                                    0,
-                                    expression.text.length - 1
-                                )
-                                ).paintString()
-                    )
+                var data = cViewModel.dataFieldExpression.value
+                if (data!!.isNotEmpty()) {
+                    data = Html.fromHtml((data!!.substring(0,data!!.length - 1)).paintString()).toString()
+                    cViewModel.dataFieldExpression.value = data
                 }
                 mainHandler?.postDelayed(this, 200)
             }
@@ -317,7 +298,6 @@ class Calculator : AppCompatActivity() {
                 val toast = Toast.makeText(applicationContext,"Invalid format used.",Toast.LENGTH_SHORT)
                 toast.show()
             }
-
         }
     }
 }
