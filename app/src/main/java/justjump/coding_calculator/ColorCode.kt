@@ -42,7 +42,7 @@ class ColorCode : AppCompatActivity() {
         configGreenColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
 
-                redValue.text = p1.toString()
+                greenValue.text = p1.toString()
                 valueGreen = Functions().convertToHex(p1).toString()
                 valueGreenInteger = p1
                 barColor.setBackgroundColor(Color.parseColor("#$valueRed$valueGreen$valueBlue"))
@@ -61,7 +61,7 @@ class ColorCode : AppCompatActivity() {
         configBlueColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
 
-                redValue.text = p1.toString()
+                blueValue.text = p1.toString()
                 valueBlue = Functions().convertToHex(p1).toString()
                 valueBlueInteger = p1
                 barColor.setBackgroundColor(Color.parseColor("#$valueRed$valueGreen$valueBlue"))
