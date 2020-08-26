@@ -470,4 +470,9 @@ class CalculatorViewModel: ViewModel() {
         dataFieldResult.value = resultData
         return true
     }
+
+    fun correctResult(): Boolean {
+        dataFieldResult.value = ""
+        return false
+    }
 }

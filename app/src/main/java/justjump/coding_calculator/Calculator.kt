@@ -251,7 +251,7 @@ class Calculator : AppCompatActivity() {
 
         // this click listener for BackSpace
         numberBackSpace.setOnClickListener{
-            state = cViewModel.clearExpression(state)
+            state = cViewModel.correctResult()
             cViewModel.backSpace()
         }
 
@@ -268,7 +268,7 @@ class Calculator : AppCompatActivity() {
 
         // this Listener when you keep press the button to clear
         numberBackSpace.setOnTouchListener { view, motionEvent ->
-            state = cViewModel.clearExpression(state)
+            state = cViewModel.correctResult()
             when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
