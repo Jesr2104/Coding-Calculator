@@ -168,6 +168,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/decimaltobinary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="2"
@@ -273,6 +274,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/colorCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"

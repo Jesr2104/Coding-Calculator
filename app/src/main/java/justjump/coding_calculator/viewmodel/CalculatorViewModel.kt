@@ -2,7 +2,11 @@ package justjump.coding_calculator.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import justjump.coding_calculator.Functions
+import justjump.coding_calculator.extensions.checkInteger
+import justjump.coding_calculator.extensions.checkParenthesis
 import justjump.coding_calculator.extensions.deleteComma
+import java.text.DecimalFormat
 
 class CalculatorViewModel: ViewModel() {
 
@@ -300,6 +304,75 @@ class CalculatorViewModel: ViewModel() {
         dataFieldExpression.postValue(dataString)
     }
 
+    // this function insert character (- to convert one number in negative
+    fun plusLess(){
+        var dataString = "" + dataFieldExpression.value
+        if (dataString.isNotEmpty())
+        {
+            if(dataString[dataString.length - 1] == ')')
+            {
+                dataString = "$dataString*(-"
+            }
+            else if((dataString[dataString.length - 1] == '+' ||
+                        dataString[dataString.length - 1] == '-' ||
+                        dataString[dataString.length - 1] == '*' ||
+                        dataString[dataString.length - 1] == '/') &&
+                !(dataString[dataString.length - 1] == '-' && dataString[dataString.length - 2] == '('))
+            {
+                dataString = "$dataString(-"
+            }
+            else if (dataString.length >= 2 && (dataString[dataString.length - 1] == '-' && dataString[dataString.length - 2] == '('))
+            {
+                val restString = dataString.substring(0, dataString.length - 2)
+                dataString = restString
+            }
+            else
+            {
+                var number = ""
+                var cont: Int = dataString.length - 1
+                var finish = true
+
+                while (finish) {
+                    if (cont >= 0) {
+                        if (dataString[cont].isDigit() || dataString[cont] == '.') {
+                            number += dataString[cont].toString()
+                            cont--
+                        } else {
+                            finish = false
+                        }
+                    } else {
+                        finish = false
+                    }
+                }
+                number = number.reversed()
+
+                val restString= dataString.substring(0,dataString.length - number.length)
+
+                if (dataString.length > number.length) {
+                    if (dataString[(dataString.length - number.length) - 1] == '-' && dataString[(dataString.length - number.length) - 2] == '(') {
+                        dataString = "${restString.substring(0,restString.length - 2)}${number}"
+                    } else if (dataString.length - number.length - 1 >= 0) {
+                        if ((dataString[(dataString.length - number.length) - 1] == '+' ||
+                                    dataString[(dataString.length - number.length) - 1] == '-' ||
+                                    dataString[(dataString.length - number.length) - 1] == '*' ||
+                                    dataString[(dataString.length - number.length) - 1] == '/') &&
+                            dataString[(dataString.length - number.length) - 2] != '('
+                        ) {
+                            dataString = "${restString.substring(0,restString.length)}(-${number}"
+                        }
+                    }
+                }
+                else {
+                    dataString = "(-${number}"
+                }
+            }
+        }
+        else {
+            dataString = "$dataString(-"
+        }
+        dataFieldExpression.postValue(dataString)
+    }
+
     // this function delete the fields if you press = to see the result.
     fun clearExpression(check: Boolean): Boolean {
         if (check) {
@@ -330,5 +403,68 @@ class CalculatorViewModel: ViewModel() {
             dataFieldResult.value = ""
         }
         return false
+    }
+
+    // this function solve the result of the expression
+    fun result(): Boolean {
+        val dataString = "" + dataFieldExpression.value
+        var resultData = ""
+        if (dataString.contains('%')) {
+            var i: Int = dataString.length - 1
+            var number = ""
+            var dataResult = ""
+
+            while (0 <= i) {
+                if (dataString[i] == '%') {
+                    var index = i - 1
+
+                    while (0 <= index) {
+                        if (index >= 0) {
+                            if (dataString[index].isDigit() || dataString[index] == '.') {
+                                number += dataString[index]
+                            } else {
+                                index = -1
+                            }
+                        }
+                        index--
+                    }
+                    // I don't have exactly this one hire
+                    dataResult = if (number.isNotEmpty()) {
+                        "(${number.reversed()}/100)" + dataResult
+                    } else {
+                        "${number.reversed()}/100" + dataResult
+                    }
+
+                    i -= number.length
+                    number = ""
+                } else {
+                    dataResult = dataString[i].toString() + dataResult
+                }
+                i--
+            }
+
+            if (dataResult.checkParenthesis()) {
+                val format = DecimalFormat()
+                format.maximumFractionDigits = 4
+                resultData = format.format(Functions().basicEquations(dataResult)).checkInteger()
+            } else {
+                return false
+            }
+        } else {
+            if (dataString.isNotEmpty()) {
+                val checkExp = dataString.toString()
+
+                if (checkExp.checkParenthesis()) {
+                    val format = DecimalFormat()
+                    format.maximumFractionDigits = 4
+                    resultData = format.format(Functions().basicEquations(checkExp)).checkInteger()
+
+                } else {
+                    return false
+                }
+            }
+        }
+        dataFieldResult.value = resultData
+        return true
     }
 }

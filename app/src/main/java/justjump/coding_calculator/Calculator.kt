@@ -14,12 +14,9 @@ import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import justjump.coding_calculator.data.local.PreferenceHelper
-import justjump.coding_calculator.extensions.checkInteger
-import justjump.coding_calculator.extensions.checkParenthesis
 import justjump.coding_calculator.extensions.paintString
 import justjump.coding_calculator.viewmodel.CalculatorViewModel
 import kotlinx.android.synthetic.main.activity_calculator.*
-import java.text.DecimalFormat
 
 /***************************************************************************/
 // Calculator functions
@@ -235,89 +232,9 @@ class Calculator : AppCompatActivity() {
             cViewModel.sighPercentage()
         }
 
-        /** Falta modificar este codigo **/
         // this Click Listener for sign (-
         numberPlusLess.setOnClickListener{
-            if (expression.text.isNotEmpty())
-            {
-                if(expression.text[expression.text.length - 1] == ')')
-                {
-                    expression.text = Html.fromHtml((expression.text.toString() + "*(-").paintString())
-                }
-                else if((expression.text[expression.text.length - 1] == '+' ||
-                         expression.text[expression.text.length - 1] == '-' ||
-                         expression.text[expression.text.length - 1] == '*' ||
-                         expression.text[expression.text.length - 1] == '/') &&
-                         !(expression.text[expression.text.length - 1] == '-' && expression.text[expression.text.length - 2] == '('))
-                {
-                    expression.text = Html.fromHtml((expression.text.toString() + "(-").paintString())
-                }
-                else if (expression.text.length >= 2 && (expression.text[expression.text.length - 1] == '-' && expression.text[expression.text.length - 2] == '('))
-                {
-                    val restString = expression.text.substring(0, expression.text.length - 2)
-                    expression.text = Html.fromHtml((restString).paintString())
-                }
-                else
-                {
-                    var number = ""
-                    var cont: Int = expression.text.length - 1
-                    var finish = true
-
-                    while (finish) {
-                        if (cont >= 0) {
-                            if (expression.text[cont].isDigit() || expression.text[cont] == '.') {
-                                number += expression.text[cont].toString()
-                                cont--
-                            } else {
-                                finish = false
-                            }
-                        } else {
-                            finish = false
-                        }
-                    }
-                    number = number.reversed()
-
-                    val restString= expression.text.substring(
-                        0,
-                        expression.text.length - number.length
-                    )
-
-                    if (expression.text.length > number.length) {
-                        if (expression.text[(expression.text.length - number.length) - 1] == '-' && expression.text[(expression.text.length - number.length) - 2] == '(') {
-                            expression.text = Html.fromHtml(
-                                ("${
-                                    restString.substring(
-                                        0,
-                                        restString.length - 2
-                                    )
-                                }${number}").paintString()
-                            )
-                        } else if (expression.text.length - number.length - 1 >= 0) {
-                            if ((expression.text[(expression.text.length - number.length) - 1] == '+' ||
-                                        expression.text[(expression.text.length - number.length) - 1] == '-' ||
-                                        expression.text[(expression.text.length - number.length) - 1] == '*' ||
-                                        expression.text[(expression.text.length - number.length) - 1] == '/') &&
-                                        expression.text[(expression.text.length - number.length) - 2] != '('
-                            ) {
-                                expression.text = Html.fromHtml(
-                                    ("${
-                                        restString.substring(
-                                            0,
-                                            restString.length
-                                        )
-                                    }(-${number}").paintString()
-                                )
-                            }
-                        }
-                    }
-                    else {
-                        expression.text = Html.fromHtml(("(-${number}").paintString())
-                    }
-                }
-            }
-            else {
-                expression.text = Html.fromHtml((expression.text.toString() + "(-").paintString())
-            }
+            cViewModel.plusLess()
         }
 
         // this Click Listener for sign (
@@ -388,87 +305,19 @@ class Calculator : AppCompatActivity() {
 
         // This click listener get result
         numberResult.setOnClickListener {
-            if (expression.text.contains('%')) {
-                var i: Int = expression.text.length - 1
-                var number = ""
-                var dataResult = ""
-
-                while (0 <= i) {
-                    if (expression.text[i] == '%') {
-                        var index = i - 1
-
-                        while (0 <= index) {
-                            if (index >= 0) {
-                                if (expression.text[index].isDigit() || expression.text[index] == '.') {
-                                    number += expression.text[index]
-                                } else {
-                                    index = -1
-                                }
-                            }
-                            index--
-                        }
-                        // I dont have exactly this one hire
-                        dataResult = if (number.isNotEmpty()) {
-                            "(${number.reversed()}/100)" + dataResult
-                        } else {
-                            "${number.reversed()}/100" + dataResult
-                        }
-
-                        i -= number.length
-                        number = ""
-                    } else {
-                        dataResult = expression.text[i].toString() + dataResult
-                    }
-                    i--
+            state = cViewModel.result()
+            if (state) {
+                with(PreferenceHelper) {
+                    this.customPreference(this@Calculator)
+                    this.setList(cViewModel.dataFieldExpression.value!!)
+                    this.setList("=" + cViewModel.dataFieldResult.value!!)
                 }
 
-                if (dataResult.checkParenthesis()) {
-                    val format = DecimalFormat()
-                    format.maximumFractionDigits = 4
-
-                    tResult.text = format.format(Functions().basicEquations(dataResult)).checkInteger()
-                    state = true
-
-                    with(PreferenceHelper) {
-                        this.customPreference(this@Calculator)
-                        this.setList(expression.text.toString())
-                        this.setList("=" + tResult.text.toString())
-                    }
-                } else {
-                    val toast = Toast.makeText(
-                        applicationContext,
-                        "Invalid format used.",
-                        Toast.LENGTH_SHORT
-                    )
-                    toast.show()
-                }
             } else {
-                if (expression.text.isNotEmpty()) {
-                    val checkExp = expression.text.toString()
-
-                    if (checkExp.checkParenthesis()) {
-                        val format = DecimalFormat()
-                        format.maximumFractionDigits = 4
-
-                        tResult.text = format.format(Functions().basicEquations(checkExp)).checkInteger()
-                        state = true
-
-                        with(PreferenceHelper) {
-                            customPreference(this@Calculator)
-                            setList(expression.text.toString())
-                            setList("=" + tResult.text.toString())
-                        }
-
-                    } else {
-                        val toast = Toast.makeText(
-                            applicationContext,
-                            "Invalid format used.",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
-                    }
-                }
+                val toast = Toast.makeText(applicationContext,"Invalid format used.",Toast.LENGTH_SHORT)
+                toast.show()
             }
+
         }
     }
 }

@@ -61,7 +61,7 @@ class Functions {
     /**********************************************************************/
     // Function to convert integer to hexadecimal
     /**********************************************************************/
-    private fun convertToHex(dataNumber: Int): String? {
+    fun convertToHex(dataNumber: Int): String? {
         var number = dataNumber
         var binario = ""
         var rest: Int

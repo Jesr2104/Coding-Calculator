@@ -95,6 +95,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
                             android:text="("
+                            android:textSize="20dp"
                             android:textStyle="bold"
                             android:textColor="#231f20"
                             android:backgroundTint="#FFDD00">
@@ -106,6 +107,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
                             android:text=")"
+                            android:textSize="20dp"
                             android:textStyle="bold"
                             android:textColor="#231f20"
                             android:backgroundTint="#FFDD00">
@@ -140,6 +142,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="+/-"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="#231f20"
                         android:backgroundTint="#FFDD00">
@@ -168,7 +171,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="AC"
-                        android:textStyle="bold"
+                        android:textSize="20dp"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
 
@@ -188,6 +191,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="/"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
@@ -208,6 +212,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="X"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
@@ -314,6 +319,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="-"
+                        android:textSize="25dp"
                         android:textStyle="bold"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
@@ -402,6 +408,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="+"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
@@ -442,6 +449,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="%"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
@@ -506,6 +514,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="."
+                        android:textSize="25dp"
                         android:textStyle="bold"
                         android:textColor="#FFDD00"
                         android:backgroundTint="#231f20">
@@ -526,9 +535,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="="
+                        android:textSize="50dp"
                         android:textStyle="bold"
                         android:textColor="#231f20"
-                        android:backgroundTint="#FFDD00">
+                        android:backgroundTint="#FFDD00"
+                        >
 
                     </Button>
 
