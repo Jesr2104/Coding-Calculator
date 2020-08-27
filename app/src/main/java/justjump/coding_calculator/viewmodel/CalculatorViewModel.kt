@@ -471,6 +471,7 @@ class CalculatorViewModel: ViewModel() {
         return true
     }
 
+    // this function allow correct the result without clear the expression
     fun correctResult(): Boolean {
         dataFieldResult.value = ""
         return false
