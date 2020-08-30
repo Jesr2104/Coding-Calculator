@@ -1,6 +1,7 @@
 package justjump.coding_calculator
 
 import com.github.zieiony.calc.Calc
+import java.util.regex.Pattern
 
 class Functions {
 
@@ -14,8 +15,28 @@ class Functions {
     /**********************************************************************/
     // Function to Add Integer number and float
     /**********************************************************************/
-    fun basicEquations(expression: String): Double {
-        return Calc().evaluate(expression)
+    fun basicEquations(expression: String): String {
+        if(validateExpression(expression))
+        {
+            return Calc().evaluate(expression).toString()
+        }
+        return "#2104"
+    }
+
+    /**********************************************************************/
+    // Function check the the expression with a regex pattern
+    /**********************************************************************/
+    private fun validateExpression(data: String): Boolean {
+
+        var p = Pattern.compile("((\\()*(-?\\d+(\\.\\d+)?)(\\))*[+/*-])*((\\()*-?\\d+(\\.\\d+)?(\\))*)")
+        var m = p.matcher(data)
+        var b = m.matches()
+
+        if (b)
+        {
+            return true
+        }
+        return false
     }
 
     /**********************************************************************/

@@ -1,5 +1,6 @@
 package justjump.coding_calculator.viewmodel
 
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import justjump.coding_calculator.Functions
@@ -448,19 +449,37 @@ class CalculatorViewModel: ViewModel() {
 
             if (dataResult.checkParenthesis()) {
                 val format = DecimalFormat()
-                format.maximumFractionDigits = 4
-                resultData = format.format(Functions().basicEquations(dataResult)).checkInteger()
+                val dataString = Functions().basicEquations(dataResult)
+                format.maximumFractionDigits = 5
+
+                if (dataString != "#2104")
+                {
+                    resultData = format.format(dataString.toDouble()).checkInteger()
+                }
+                else
+                {
+                    return false
+                }
+
             } else {
                 return false
             }
         } else {
             if (dataString.isNotEmpty()) {
                 val checkExp = dataString.toString()
-
                 if (checkExp.checkParenthesis()) {
+                    val dataString = Functions().basicEquations(checkExp)
                     val format = DecimalFormat()
-                    format.maximumFractionDigits = 4
-                    resultData = format.format(Functions().basicEquations(checkExp)).checkInteger()
+                    format.maximumFractionDigits = 5
+
+                    if (dataString != "#2104")
+                    {
+                        resultData = format.format(dataString.toDouble()).checkInteger()
+                    }
+                    else
+                    {
+                        return false
+                    }
 
                 } else {
                     return false
