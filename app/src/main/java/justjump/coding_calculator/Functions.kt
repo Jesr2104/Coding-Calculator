@@ -28,9 +28,9 @@ class Functions {
     /**********************************************************************/
     private fun validateExpression(data: String): Boolean {
 
-        var p = Pattern.compile("((\\()*(-?\\d+(\\.\\d+)?)(\\))*[+/*-])*((\\()*-?\\d+(\\.\\d+)?(\\))*)")
-        var m = p.matcher(data)
-        var b = m.matches()
+        val p = Pattern.compile("((\\()*(-?\\d+(\\.\\d+)?)(\\))*[+/*-])*((\\()*-?\\d+(\\.\\d+)?(\\))*)")
+        val m = p.matcher(data)
+        val b = m.matches()
 
         if (b)
         {

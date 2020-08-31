@@ -304,7 +304,15 @@ class CalculatorViewModel: ViewModel() {
     // this function insert close parenthesis ')'
     fun closeParenthesis(){
         var dataString = "" + dataFieldExpression.value
-        dataString += ")"
+        if (dataString.isNotEmpty())
+        {
+            dataString += ")"
+        }
+        else
+        {
+            dataString += "("
+        }
+
         dataFieldExpression.postValue(dataString)
     }
 
