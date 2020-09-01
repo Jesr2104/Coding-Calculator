@@ -366,5 +366,27 @@
                 android:textColor="@color/material_white" />
         </LinearLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+
+            app:endIconMode="clear_text"
+
+
+            app:counterEnabled="true"
+            app:counterMaxLength="7"
+            android:hint="Hex-code">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
     </LinearLayout>
 </layout>

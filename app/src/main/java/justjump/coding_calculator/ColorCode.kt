@@ -1,9 +1,11 @@
 package justjump.coding_calculator
 
 import android.graphics.Color
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
+import justjump.coding_calculator.utilities.ComplimentaryColor
 import kotlinx.android.synthetic.main.activity_color_code.*
 
 class ColorCode : AppCompatActivity() {
@@ -19,8 +21,26 @@ class ColorCode : AppCompatActivity() {
         var valueGreenInteger = 0
         var valueBlueInteger = 0
 
+        var paint = Paint()
+        paint.color = Color.parseColor("#FFDD00")
 
-        configRedColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        var data = ComplimentaryColor.getComplimentColor(paint).toString()
+
+        println("Prueba -> "+ ComplimentaryColor.getHexStringForARGB(data.toInt()))
+
+        paint.color = Color.parseColor("#0021ff")
+
+        data = ComplimentaryColor.getComplimentColor(paint).toString()
+
+        println("Prueba -> "+ ComplimentaryColor.getHexStringForARGB(data.toInt()))
+
+        "https://www.materialpalette.com/colors"
+
+//        colorflow.complement('#ff0000')
+
+
+
+                configRedColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
 
                 redValue.text = p1.toString()
@@ -76,7 +96,5 @@ class ColorCode : AppCompatActivity() {
             override fun onStopTrackingTouch(p0: SeekBar?) {
             }
         })
-
-
     }
 }

@@ -32,8 +32,7 @@ class Functions {
         val m = p.matcher(data)
         val b = m.matches()
 
-        if (b)
-        {
+        if (b) {
             return true
         }
         return false
@@ -66,12 +65,12 @@ class Functions {
     fun convertToBinary(dataNumber: Int): String? {
         var number = dataNumber
         var binary = ""
-        var resto: Int
+        var rest: Int
 
         do {
-            resto = number % 2
+            rest = number % 2
             number /= 2
-            binary = "$binary $resto"
+            binary = "$binary $rest"
         } while (number >= 2)
 
         binary = "$binary $number"
