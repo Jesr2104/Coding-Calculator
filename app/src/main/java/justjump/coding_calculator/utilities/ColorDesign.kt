@@ -8,13 +8,12 @@ class ColorDesign {
     /**
      *  Convert a RGB Color to it corresponding HSL values.
      *
-     *  @param:
+     *  @param: colorInt code.
      *  @return: an array containing the 3 HSL values.
      */
     private fun getHSLColorFromRGB(color: Int): FloatArray {
 
-        val hsl: FloatArray = FloatArray(3)
-
+        val hsl = FloatArray(3)
         val r = Color.red(color) / 255f
         val g = Color.green(color) / 255f
         val b = Color.blue(color) / 255f
@@ -38,17 +37,14 @@ class ColorDesign {
             }
             hsl[0] /= 6f
         }
-
-        //println("Color en HSL => HSL(${(((hsl[0]*360) + 180) % 360).toInt()},${(hsl[1]*100).toInt()},${(hsl[2]*100).toInt()})")
-
         return hsl
     }
 
     /**
-     *  Convert a RGB Color to it corresponding HSL values.
+     *  Convert a HLS Color to it corresponding RGB values.
      *
-     *  @param:
-     *  @return: an array containing the 3 HSL values.
+     *  @param: Array<Float> with the 3 HSL values.
+     *  @return: an array containing the 3 RGB color values.
      */
     private fun getRGBColorFromHSL(hsl: FloatArray): Int {
         val r: Float
@@ -83,9 +79,21 @@ class ColorDesign {
         return if (valueT < 2f / 3) p + (q - p) * (2f / 3 - valueT) * 6f else p
     }
 
+    /**
+     *  calculates the corresponding complementary color.
+     *
+     *  @param: paint of the primary color.
+     *  @return: String with the RGB color.
+     */
     fun getComplementary(paint: Paint): String {
 
         val colorHSL = getHSLColorFromRGB(paint.color)
+
+        // with this code we calculate the complementary
+//        colorHSL[0] = ((colorHSL[0] * 360) + 180) % 360
+//        colorHSL[1] = colorHSL[1] * 100
+//        colorHSL[2] = colorHSL[2] * 100
+
         val color = getRGBColorFromHSL(colorHSL)
 
         val red = Color.red(color)
