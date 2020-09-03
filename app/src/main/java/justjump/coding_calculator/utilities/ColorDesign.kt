@@ -90,18 +90,210 @@ class ColorDesign {
         val colorHSL = getHSLColorFromRGB(paint.color)
 
         // with this code we calculate the complementary
-//        colorHSL[0] = ((colorHSL[0] * 360) + 180) % 360
-//        colorHSL[1] = colorHSL[1] * 100
-//        colorHSL[2] = colorHSL[2] * 100
+        colorHSL[0] = (((colorHSL[0] * 360) + 180) % 360) / 360
+        colorHSL[1] = colorHSL[1]
+        colorHSL[2] = colorHSL[2]
 
         val color = getRGBColorFromHSL(colorHSL)
 
         val red = Color.red(color)
-        val blue = Color.blue(color)
         val green = Color.green(color)
+        val blue = Color.blue(color)
 
         return "RGB($red,$green,$blue)"
     }
 
+    fun getSplitComplementary(paint: Paint): Array<String> {
 
+        val colorHSL = getHSLColorFromRGB(paint.color)
+        var resultColors: Array<String> = arrayOf("0","0")
+        val color150: FloatArray = FloatArray(3)
+        val color210: FloatArray = FloatArray(3)
+
+        // with this code we calculate the complementary
+        color150[0] = (((colorHSL[0] * 360) + 150) % 360) / 360
+        color150[1] = colorHSL[1]
+        color150[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color210[0] = (((colorHSL[0] * 360) + 210) % 360) / 360
+        color210[1] = colorHSL[1]
+        color210[2] = colorHSL[2]
+
+        val color1 = getRGBColorFromHSL(color150)
+        val color2 = getRGBColorFromHSL(color210)
+
+        val redColor1 = Color.red(color1)
+        val greenColor1 = Color.green(color1)
+        val blueColor1 = Color.blue(color1)
+
+        val redColor2 = Color.red(color2)
+        val greenColor2 = Color.green(color2)
+        val blueColor2 = Color.blue(color2)
+
+        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
+        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
+
+        return resultColors
+    }
+
+    fun getAnalogous(paint: Paint): Array<String> {
+
+        val colorHSL = getHSLColorFromRGB(paint.color)
+        var resultColors: Array<String> = arrayOf("0","0","0","0","0","0")
+        val color30: FloatArray = FloatArray(3)
+        val color60: FloatArray = FloatArray(3)
+        val color90: FloatArray = FloatArray(3)
+        val color120: FloatArray = FloatArray(3)
+        val color150: FloatArray = FloatArray(3)
+        val color180: FloatArray = FloatArray(3)
+
+        // with this code we calculate the complementary
+        color30[0] = (((colorHSL[0] * 360) + 30) % 360) / 360
+        color30[1] = colorHSL[1]
+        color30[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color60[0] = (((colorHSL[0] * 360) + 60) % 360) / 360
+        color60[1] = colorHSL[1]
+        color60[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color90[0] = (((colorHSL[0] * 360) + 90) % 360) / 360
+        color90[1] = colorHSL[1]
+        color90[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color120[0] = (((colorHSL[0] * 360) + 120) % 360) / 360
+        color120[1] = colorHSL[1]
+        color120[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color150[0] = (((colorHSL[0] * 360) + 150) % 360) / 360
+        color150[1] = colorHSL[1]
+        color150[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color180[0] = (((colorHSL[0] * 360) + 180) % 360) / 360
+        color180[1] = colorHSL[1]
+        color180[2] = colorHSL[2]
+
+        val color1 = getRGBColorFromHSL(color30)
+        val color2 = getRGBColorFromHSL(color60)
+        val color3 = getRGBColorFromHSL(color90)
+        val color4 = getRGBColorFromHSL(color120)
+        val color5 = getRGBColorFromHSL(color150)
+        val color6 = getRGBColorFromHSL(color180)
+
+        val redColor1 = Color.red(color1)
+        val greenColor1 = Color.green(color1)
+        val blueColor1 = Color.blue(color1)
+
+        val redColor2 = Color.red(color2)
+        val greenColor2 = Color.green(color2)
+        val blueColor2 = Color.blue(color2)
+
+        val redColor3 = Color.red(color3)
+        val greenColor3 = Color.green(color3)
+        val blueColor3 = Color.blue(color3)
+
+        val redColor4 = Color.red(color4)
+        val greenColor4 = Color.green(color4)
+        val blueColor4 = Color.blue(color4)
+
+        val redColor5 = Color.red(color5)
+        val greenColor5 = Color.green(color5)
+        val blueColor5 = Color.blue(color5)
+
+        val redColor6 = Color.red(color6)
+        val greenColor6 = Color.green(color6)
+        val blueColor6 = Color.blue(color6)
+
+        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
+        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
+        resultColors[2] = "RGB($redColor3,$greenColor3,$blueColor3)"
+        resultColors[3] = "RGB($redColor4,$greenColor4,$blueColor4)"
+        resultColors[4] = "RGB($redColor5,$greenColor5,$blueColor5)"
+        resultColors[5] = "RGB($redColor6,$greenColor6,$blueColor6)"
+
+        return resultColors
+    }
+
+    fun getTriadic(paint: Paint): Array<String> {
+        val colorHSL = getHSLColorFromRGB(paint.color)
+        var resultColors: Array<String> = arrayOf("0","0")
+        val color120: FloatArray = FloatArray(3)
+        val color240: FloatArray = FloatArray(3)
+
+        // with this code we calculate the complementary
+        color120[0] = (((colorHSL[0] * 360) + 120) % 360) / 360
+        color120[1] = colorHSL[1]
+        color120[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color240[0] = (((colorHSL[0] * 360) + 240) % 360) / 360
+        color240[1] = colorHSL[1]
+        color240[2] = colorHSL[2]
+
+        val color1 = getRGBColorFromHSL(color120)
+        val color2 = getRGBColorFromHSL(color240)
+
+        val redColor1 = Color.red(color1)
+        val greenColor1 = Color.green(color1)
+        val blueColor1 = Color.blue(color1)
+
+        val redColor2 = Color.red(color2)
+        val greenColor2 = Color.green(color2)
+        val blueColor2 = Color.blue(color2)
+
+        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
+        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
+
+        return resultColors
+    }
+
+    fun getTetradic(paint: Paint): Array<String> {
+        val colorHSL = getHSLColorFromRGB(paint.color)
+        var resultColors: Array<String> = arrayOf("0","0","0","0")
+        val color90: FloatArray = FloatArray(3)
+        val color180: FloatArray = FloatArray(3)
+        val color270: FloatArray = FloatArray(3)
+
+        // with this code we calculate the complementary
+        color90[0] = (((colorHSL[0] * 360) + 90) % 360) / 360
+        color90[1] = colorHSL[1]
+        color90[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color180[0] = (((colorHSL[0] * 360) + 180) % 360) / 360
+        color180[1] = colorHSL[1]
+        color180[2] = colorHSL[2]
+
+        // with this code we calculate the complementary
+        color270[0] = (((colorHSL[0] * 360) + 270) % 360) / 360
+        color270[1] = colorHSL[1]
+        color270[2] = colorHSL[2]
+
+        val color1 = getRGBColorFromHSL(color90)
+        val color2 = getRGBColorFromHSL(color180)
+        val color3 = getRGBColorFromHSL(color270)
+
+        val redColor1 = Color.red(color1)
+        val greenColor1 = Color.green(color1)
+        val blueColor1 = Color.blue(color1)
+
+        val redColor2 = Color.red(color2)
+        val greenColor2 = Color.green(color2)
+        val blueColor2 = Color.blue(color2)
+
+        val redColor3 = Color.red(color3)
+        val greenColor3 = Color.green(color3)
+        val blueColor3 = Color.blue(color3)
+
+        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
+        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
+        resultColors[2] = "RGB($redColor3,$greenColor3,$blueColor3)"
+
+        return resultColors
+    }
 }
