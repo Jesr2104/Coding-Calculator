@@ -21,13 +21,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:layout_gravity="center">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -40,8 +40,30 @@
                 </TextView>
 
                 <EditText
-                    android:layout_width="60dp"
+                    android:layout_width="38dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_background">
+
+                </EditText>
+
+                <EditText
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_background">
+
+                </EditText>
+
+                <EditText
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_gravity="center"
                     android:background="@drawable/shape_background">
 
@@ -49,11 +71,18 @@
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:layout_gravity="center">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,8 +95,30 @@
                 </TextView>
 
                 <EditText
-                    android:layout_width="60dp"
+                    android:layout_width="38dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_background">
+
+                </EditText>
+
+                <EditText
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_background">
+
+                </EditText>
+
+                <EditText
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_gravity="center"
                     android:background="@drawable/shape_background">
 
@@ -75,11 +126,17 @@
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:layout_gravity="center">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -92,9 +149,31 @@
                 </TextView>
 
                 <EditText
-                    android:layout_width="60dp"
-                    android:layout_gravity="center"
+                    android:layout_width="38dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_background">
+
+                </EditText>
+
+                <EditText
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_background">
+
+                </EditText>
+
+                <EditText
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/shape_background">
 
                 </EditText>
@@ -107,7 +186,7 @@
             android:id="@+id/barColor"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:background="@drawable/shape_colorcode"
+            android:background="@color/material_white"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
@@ -148,6 +227,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
                             android:text="0"
+                            android:textSize="8dp"
                             android:textStyle="bold"
                             android:layout_marginStart="20dp">
                         </TextView>
@@ -156,6 +236,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
+                            android:textSize="8dp"
                             android:textStyle="bold"
                             android:text="255"
                             android:textAlignment="textEnd"
@@ -408,16 +489,14 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="B"
-                        android:background="@drawable/blue_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:id="@+id/primaryColor"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -428,13 +507,9 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -455,16 +530,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="B"
-                        android:background="@drawable/blue_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -475,24 +547,16 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -513,16 +577,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="B"
-                        android:background="@drawable/blue_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -533,57 +594,37 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -604,16 +645,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="B"
-                        android:background="@drawable/blue_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -624,24 +662,16 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -662,16 +692,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="B"
-                        android:background="@drawable/blue_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -683,35 +710,23 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
                     <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:textAlignment="center"
-                        android:text="R"
-                        android:background="@drawable/red_color"
-                        android:textColor="#231f20"
-                        android:textStyle="bold">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/material_white">
 
                     </TextView>
 
@@ -719,6 +734,9 @@
             </LinearLayout>
 
         </LinearLayout>
+
+
+
 
 
 

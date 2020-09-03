@@ -1,17 +1,23 @@
 package justjump.coding_calculator
 
 import android.graphics.Color
-import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
-import justjump.coding_calculator.utilities.ColorDesign
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import justjump.coding_calculator.viewmodel.ColorCodeViewModel
 import kotlinx.android.synthetic.main.activity_color_code.*
 
 class ColorCode : AppCompatActivity() {
+
+    lateinit var cViewModel: ColorCodeViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_color_code)
+
+        cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
 
         var valueRed = "00"
         var valueGreen = "00"
@@ -21,129 +27,139 @@ class ColorCode : AppCompatActivity() {
         var valueGreenInteger = 0
         var valueBlueInteger = 0
 
-        var paint = Paint()
-        paint.color = Color.parseColor("#FFDD00")
-        println("Color 1 Enviado => #FFDD00")
-        println("Complementary => "+ ColorDesign().getComplementary(paint))
-        var colors = ColorDesign().getSplitComplementary(paint)
-        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
-        var colorsAnalogous = ColorDesign().getAnalogous(paint)
-        var cont = 1
-        for (item in colorsAnalogous){
-            println("Analogous $cont => $item")
-            cont ++
-        }
-        var colorsTriadic = ColorDesign().getTriadic(paint)
-        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
-        var colorsTetradic = ColorDesign().getTetradic(paint)
-        cont = 0
-        for (item in colorsTetradic)
-        {
-            println("Tetradic $cont => $item")
+        /***************************************************************************/
+        // observer
+        /***************************************************************************/
+        val myObserverColor = Observer<Int> {
+            primaryColor.setBackgroundColor(cViewModel.getRGBColor())
         }
 
+        // this observer works when the expression change
+        cViewModel.colorRGB.observe(this@ColorCode, myObserverColor)
 
-        paint.color = Color.parseColor("#186276")
-        println("Color 2 Enviado => #186276")
-        println("Complementary => "+ ColorDesign().getComplementary(paint))
-        colors = ColorDesign().getSplitComplementary(paint)
-        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
-        colorsAnalogous = ColorDesign().getAnalogous(paint)
-        cont = 1
-        for (item in colorsAnalogous){
-            println("Analogous $cont => $item")
-            cont ++
-        }
-        colorsTriadic = ColorDesign().getTriadic(paint)
-        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
-        colorsTetradic = ColorDesign().getTetradic(paint)
-        cont = 0
-        for (item in colorsTetradic)
-        {
-            println("Tetradic $cont => $item")
-        }
-
-
-        paint.color = Color.parseColor("#000000")
-        println("Color 3 Enviado => #000000")
-        println("Complementary => "+ ColorDesign().getComplementary(paint))
-        colors = ColorDesign().getSplitComplementary(paint)
-        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
-        colorsAnalogous = ColorDesign().getAnalogous(paint)
-        cont = 1
-        for (item in colorsAnalogous){
-            println("Analogous $cont => $item")
-            cont ++
-        }
-        colorsTriadic = ColorDesign().getTriadic(paint)
-        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
-        colorsTetradic = ColorDesign().getTetradic(paint)
-        cont = 0
-        for (item in colorsTetradic)
-        {
-            println("Tetradic $cont => $item")
-        }
-
-
-        paint.color = Color.parseColor("#FFFFFF")
-        println("Color 4 Enviado => #FFFFFF")
-        println("Complementary => "+ ColorDesign().getComplementary(paint))
-        colors = ColorDesign().getSplitComplementary(paint)
-        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
-        colorsAnalogous = ColorDesign().getAnalogous(paint)
-        cont = 1
-        for (item in colorsAnalogous){
-            println("Analogous $cont => $item")
-            cont ++
-        }
-        colorsTriadic = ColorDesign().getTriadic(paint)
-        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
-        colorsTetradic = ColorDesign().getTetradic(paint)
-        cont = 0
-        for (item in colorsTetradic)
-        {
-            println("Tetradic $cont => $item")
-        }
-
-        paint.color = Color.parseColor("#FFF000")
-        println("Color 5 Enviado => #FFF000")
-        println("Complementary => "+ ColorDesign().getComplementary(paint))
-        colors = ColorDesign().getSplitComplementary(paint)
-        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
-        colorsAnalogous = ColorDesign().getAnalogous(paint)
-        cont = 1
-        for (item in colorsAnalogous){
-            println("Analogous $cont => $item")
-            cont ++
-        }
-        colorsTriadic = ColorDesign().getTriadic(paint)
-        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
-        colorsTetradic = ColorDesign().getTetradic(paint)
-        cont = 0
-        for (item in colorsTetradic)
-        {
-            println("Tetradic $cont => $item")
-        }
-
-        paint.color = Color.parseColor("#F0F0F0")
-        println("Color 6 Enviado => #F0F0F0")
-        println("Complementary => "+ ColorDesign().getComplementary(paint))
-        colors = ColorDesign().getSplitComplementary(paint)
-        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
-        colorsAnalogous = ColorDesign().getAnalogous(paint)
-        cont = 1
-        for (item in colorsAnalogous){
-            println("Analogous $cont => $item")
-            cont ++
-        }
-        colorsTriadic = ColorDesign().getTriadic(paint)
-        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
-        colorsTetradic = ColorDesign().getTetradic(paint)
-        cont = 0
-        for (item in colorsTetradic)
-        {
-            println("Tetradic $cont => $item")
-        }
+//        var paint = Paint()
+//        paint.color = Color.parseColor("#FFDD00")
+//        println("Color 1 Enviado => #FFDD00")
+//        println("Complementary => "+ ColorDesign().getComplementary(paint))
+//        var colors = ColorDesign().getSplitComplementary(paint)
+//        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
+//        var colorsAnalogous = ColorDesign().getAnalogous(paint)
+//        var cont = 1
+//        for (item in colorsAnalogous){
+//            println("Analogous $cont => $item")
+//            cont ++
+//        }
+//        var colorsTriadic = ColorDesign().getTriadic(paint)
+//        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
+//        var colorsTetradic = ColorDesign().getTetradic(paint)
+//        cont = 0
+//        for (item in colorsTetradic)
+//        {
+//            println("Tetradic $cont => $item")
+//        }
+//
+//
+//        paint.color = Color.parseColor("#186276")
+//        println("Color 2 Enviado => #186276")
+//        println("Complementary => "+ ColorDesign().getComplementary(paint))
+//        colors = ColorDesign().getSplitComplementary(paint)
+//        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
+//        colorsAnalogous = ColorDesign().getAnalogous(paint)
+//        cont = 1
+//        for (item in colorsAnalogous){
+//            println("Analogous $cont => $item")
+//            cont ++
+//        }
+//        colorsTriadic = ColorDesign().getTriadic(paint)
+//        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
+//        colorsTetradic = ColorDesign().getTetradic(paint)
+//        cont = 0
+//        for (item in colorsTetradic)
+//        {
+//            println("Tetradic $cont => $item")
+//        }
+//
+//
+//        paint.color = Color.parseColor("#000000")
+//        println("Color 3 Enviado => #000000")
+//        println("Complementary => "+ ColorDesign().getComplementary(paint))
+//        colors = ColorDesign().getSplitComplementary(paint)
+//        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
+//        colorsAnalogous = ColorDesign().getAnalogous(paint)
+//        cont = 1
+//        for (item in colorsAnalogous){
+//            println("Analogous $cont => $item")
+//            cont ++
+//        }
+//        colorsTriadic = ColorDesign().getTriadic(paint)
+//        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
+//        colorsTetradic = ColorDesign().getTetradic(paint)
+//        cont = 0
+//        for (item in colorsTetradic)
+//        {
+//            println("Tetradic $cont => $item")
+//        }
+//
+//
+//        paint.color = Color.parseColor("#FFFFFF")
+//        println("Color 4 Enviado => #FFFFFF")
+//        println("Complementary => "+ ColorDesign().getComplementary(paint))
+//        colors = ColorDesign().getSplitComplementary(paint)
+//        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
+//        colorsAnalogous = ColorDesign().getAnalogous(paint)
+//        cont = 1
+//        for (item in colorsAnalogous){
+//            println("Analogous $cont => $item")
+//            cont ++
+//        }
+//        colorsTriadic = ColorDesign().getTriadic(paint)
+//        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
+//        colorsTetradic = ColorDesign().getTetradic(paint)
+//        cont = 0
+//        for (item in colorsTetradic)
+//        {
+//            println("Tetradic $cont => $item")
+//        }
+//
+//        paint.color = Color.parseColor("#FFF000")
+//        println("Color 5 Enviado => #FFF000")
+//        println("Complementary => "+ ColorDesign().getComplementary(paint))
+//        colors = ColorDesign().getSplitComplementary(paint)
+//        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
+//        colorsAnalogous = ColorDesign().getAnalogous(paint)
+//        cont = 1
+//        for (item in colorsAnalogous){
+//            println("Analogous $cont => $item")
+//            cont ++
+//        }
+//        colorsTriadic = ColorDesign().getTriadic(paint)
+//        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
+//        colorsTetradic = ColorDesign().getTetradic(paint)
+//        cont = 0
+//        for (item in colorsTetradic)
+//        {
+//            println("Tetradic $cont => $item")
+//        }
+//
+//        paint.color = Color.parseColor("#F0F0F0")
+//        println("Color 6 Enviado => #F0F0F0")
+//        println("Complementary => "+ ColorDesign().getComplementary(paint))
+//        colors = ColorDesign().getSplitComplementary(paint)
+//        println("Split Complementary => " + "Color A["+colors[0]+"] Color B[" + colors[1]+"]")
+//        colorsAnalogous = ColorDesign().getAnalogous(paint)
+//        cont = 1
+//        for (item in colorsAnalogous){
+//            println("Analogous $cont => $item")
+//            cont ++
+//        }
+//        colorsTriadic = ColorDesign().getTriadic(paint)
+//        println("Triadic => " + "Color A["+colorsTriadic[0]+"] Color B[" + colorsTriadic[1]+"]")
+//        colorsTetradic = ColorDesign().getTetradic(paint)
+//        cont = 0
+//        for (item in colorsTetradic)
+//        {
+//            println("Tetradic $cont => $item")
+//        }
 
 
 
@@ -156,8 +172,12 @@ class ColorCode : AppCompatActivity() {
                 valueRedInteger = p1
                 barColor.setBackgroundColor(Color.parseColor("#$valueRed$valueGreen$valueBlue"))
 
-                resultRGB.setText("RGB($valueRedInteger,$valueGreenInteger,$valueBlueInteger)")
-                resultHEX.setText("#$valueRed$valueGreen$valueBlue")
+                cViewModel.setRGBColor(Color.parseColor("#$valueRed$valueGreen$valueBlue"))
+
+
+
+//                resultRGB.setText("RGB($valueRedInteger,$valueGreenInteger,$valueBlueInteger)")
+//                resultHEX.setText("#$valueRed$valueGreen$valueBlue")
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -175,8 +195,8 @@ class ColorCode : AppCompatActivity() {
                 valueGreenInteger = p1
                 barColor.setBackgroundColor(Color.parseColor("#$valueRed$valueGreen$valueBlue"))
 
-                resultRGB.setText("RGB($valueRedInteger,$valueGreenInteger,$valueBlueInteger)")
-                resultHEX.setText("#$valueRed$valueGreen$valueBlue")
+//                resultRGB.setText("RGB($valueRedInteger,$valueGreenInteger,$valueBlueInteger)")
+//                resultHEX.setText("#$valueRed$valueGreen$valueBlue")
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -194,8 +214,8 @@ class ColorCode : AppCompatActivity() {
                 valueBlueInteger = p1
                 barColor.setBackgroundColor(Color.parseColor("#$valueRed$valueGreen$valueBlue"))
 
-                resultRGB.setText("RGB($valueRedInteger,$valueGreenInteger,$valueBlueInteger)")
-                resultHEX.setText("#$valueRed$valueGreen$valueBlue")
+//                resultRGB.setText("RGB($valueRedInteger,$valueGreenInteger,$valueBlueInteger)")
+//                resultHEX.setText("#$valueRed$valueGreen$valueBlue")
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
