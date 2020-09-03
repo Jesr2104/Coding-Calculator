@@ -2,6 +2,7 @@ package justjump.coding_calculator.utilities
 
 import android.graphics.Color
 import android.graphics.Paint
+import justjump.coding_calculator.Functions
 
 class ColorDesign {
 
@@ -85,7 +86,7 @@ class ColorDesign {
      *  @param: paint of the primary color.
      *  @return: String with the RGB color.
      */
-    fun getComplementary(paint: Paint): String {
+    fun getComplementary(paint: Paint): Int {
 
         val colorHSL = getHSLColorFromRGB(paint.color)
 
@@ -100,13 +101,13 @@ class ColorDesign {
         val green = Color.green(color)
         val blue = Color.blue(color)
 
-        return "RGB($red,$green,$blue)"
+        return Color.parseColor("#" + Functions().convertToHex(red)+Functions().convertToHex(green)+Functions().convertToHex(blue))
     }
 
-    fun getSplitComplementary(paint: Paint): Array<String> {
+    fun getSplitComplementary(paint: Paint): Array<Int> {
 
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<String> = arrayOf("0","0")
+        var resultColors: Array<Int> = arrayOf(0,0)
         val color150: FloatArray = FloatArray(3)
         val color210: FloatArray = FloatArray(3)
 
@@ -131,16 +132,16 @@ class ColorDesign {
         val greenColor2 = Color.green(color2)
         val blueColor2 = Color.blue(color2)
 
-        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
-        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
+        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+Functions().convertToHex(greenColor1)+Functions().convertToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+Functions().convertToHex(greenColor2)+Functions().convertToHex(blueColor2))
 
         return resultColors
     }
 
-    fun getAnalogous(paint: Paint): Array<String> {
+    fun getAnalogous(paint: Paint): Array<Int> {
 
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<String> = arrayOf("0","0","0","0","0","0")
+        var resultColors: Array<Int> = arrayOf(0,0,0,0,0,0)
         val color30: FloatArray = FloatArray(3)
         val color60: FloatArray = FloatArray(3)
         val color90: FloatArray = FloatArray(3)
@@ -209,19 +210,19 @@ class ColorDesign {
         val greenColor6 = Color.green(color6)
         val blueColor6 = Color.blue(color6)
 
-        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
-        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
-        resultColors[2] = "RGB($redColor3,$greenColor3,$blueColor3)"
-        resultColors[3] = "RGB($redColor4,$greenColor4,$blueColor4)"
-        resultColors[4] = "RGB($redColor5,$greenColor5,$blueColor5)"
-        resultColors[5] = "RGB($redColor6,$greenColor6,$blueColor6)"
+        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+Functions().convertToHex(greenColor1)+Functions().convertToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+Functions().convertToHex(greenColor2)+Functions().convertToHex(blueColor2))
+        resultColors[2] = Color.parseColor("#" + Functions().convertToHex(redColor3)+Functions().convertToHex(greenColor3)+Functions().convertToHex(blueColor3))
+        resultColors[3] = Color.parseColor("#" + Functions().convertToHex(redColor4)+Functions().convertToHex(greenColor4)+Functions().convertToHex(blueColor4))
+        resultColors[4] = Color.parseColor("#" + Functions().convertToHex(redColor5)+Functions().convertToHex(greenColor5)+Functions().convertToHex(blueColor5))
+        resultColors[5] = Color.parseColor("#" + Functions().convertToHex(redColor6)+Functions().convertToHex(greenColor6)+Functions().convertToHex(blueColor6))
 
         return resultColors
     }
 
-    fun getTriadic(paint: Paint): Array<String> {
+    fun getTriadic(paint: Paint): Array<Int> {
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<String> = arrayOf("0","0")
+        var resultColors: Array<Int> = arrayOf(0,0)
         val color120: FloatArray = FloatArray(3)
         val color240: FloatArray = FloatArray(3)
 
@@ -246,15 +247,15 @@ class ColorDesign {
         val greenColor2 = Color.green(color2)
         val blueColor2 = Color.blue(color2)
 
-        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
-        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
+        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+Functions().convertToHex(greenColor1)+Functions().convertToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+Functions().convertToHex(greenColor2)+Functions().convertToHex(blueColor2))
 
         return resultColors
     }
 
-    fun getTetradic(paint: Paint): Array<String> {
+    fun getTetradic(paint: Paint): Array<Int> {
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<String> = arrayOf("0","0","0","0")
+        var resultColors: Array<Int> = arrayOf(0,0,0,0)
         val color90: FloatArray = FloatArray(3)
         val color180: FloatArray = FloatArray(3)
         val color270: FloatArray = FloatArray(3)
@@ -290,9 +291,9 @@ class ColorDesign {
         val greenColor3 = Color.green(color3)
         val blueColor3 = Color.blue(color3)
 
-        resultColors[0] = "RGB($redColor1,$greenColor1,$blueColor1)"
-        resultColors[1] = "RGB($redColor2,$greenColor2,$blueColor2)"
-        resultColors[2] = "RGB($redColor3,$greenColor3,$blueColor3)"
+        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+Functions().convertToHex(greenColor1)+Functions().convertToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+Functions().convertToHex(greenColor2)+Functions().convertToHex(blueColor2))
+        resultColors[2] = Color.parseColor("#" + Functions().convertToHex(redColor3)+Functions().convertToHex(greenColor3)+Functions().convertToHex(blueColor3))
 
         return resultColors
     }

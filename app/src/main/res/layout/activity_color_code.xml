@@ -473,7 +473,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -483,17 +484,22 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Complemtary Color">
+                    android:text="Complemtary Color"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#a6a4a3">
 
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp">
 
                     <TextView
-                        android:id="@+id/primaryColor"
+                        android:id="@+id/primaryColor1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -507,6 +513,7 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
+                        android:id="@+id/complementaryColor"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -519,21 +526,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Split Complemtary Color">
+                    android:text="Split Complemtary Colors"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#a6a4a3">
 
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp">
 
                     <TextView
+                        android:id="@+id/primaryColor2"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -547,6 +561,7 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
+                        android:id="@+id/splitComplementary1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -554,6 +569,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/splitComplementary2"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -566,21 +583,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Analogous Color">
+                    android:text="Analogous Colors"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#a6a4a3">
 
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp">
 
                     <TextView
+                        android:id="@+id/primaryColor3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -594,6 +618,7 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
+                        android:id="@+id/analogous1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -601,6 +626,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/analogous2"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -608,6 +635,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/analogous3"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -615,6 +644,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/analogous4"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -622,6 +653,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/analogous5"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -634,21 +667,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Triadic Color">
+                    android:text="Triadic Colors"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#a6a4a3">
 
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp">
 
                     <TextView
+                        android:id="@+id/primaryColor4"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -662,6 +702,7 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
+                        android:id="@+id/triadic1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -669,6 +710,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/triadic2"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -681,21 +724,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tetradic Color">
+                    android:text="Tetradic Colors"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#a6a4a3">
 
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp">
 
                     <TextView
+                        android:id="@+id/primaryColor5"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -710,6 +760,7 @@
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
                     <TextView
+                        android:id="@+id/tetradic1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -717,6 +768,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/tetradic2"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
@@ -724,6 +777,8 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/tetradic3"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
