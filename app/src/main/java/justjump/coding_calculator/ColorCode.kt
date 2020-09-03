@@ -5,7 +5,7 @@ import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
-import justjump.coding_calculator.utilities.ComplimentaryColor
+import justjump.coding_calculator.utilities.ColorDesign
 import kotlinx.android.synthetic.main.activity_color_code.*
 
 class ColorCode : AppCompatActivity() {
@@ -23,24 +23,33 @@ class ColorCode : AppCompatActivity() {
 
         var paint = Paint()
         paint.color = Color.parseColor("#FFDD00")
+        println("Color 1 Enviado => #FFDD00")
+        println("Resultado => "+ ColorDesign().getComplementary(paint))
 
-        var data = ComplimentaryColor.getComplimentColor(paint).toString()
+        paint.color = Color.parseColor("#186276")
+        println("Color 2 Enviado => #186276")
+        println("Resultado => "+ ColorDesign().getComplementary(paint))
 
-        println("Prueba -> "+ ComplimentaryColor.getHexStringForARGB(data.toInt()))
+        paint.color = Color.parseColor("#000000")
+        println("Color 3 Enviado => #000000")
+        println("Resultado => "+ ColorDesign().getComplementary(paint))
 
-        paint.color = Color.parseColor("#0021ff")
+        paint.color = Color.parseColor("#FFFFFF")
+        println("Color 4 Enviado => #FFFFFF")
+        println("Resultado => "+ ColorDesign().getComplementary(paint))
 
-        data = ComplimentaryColor.getComplimentColor(paint).toString()
+        paint.color = Color.parseColor("#FFF000")
+        println("Color 5 Enviado => #FFF000")
+        println("Resultado => "+ ColorDesign().getComplementary(paint))
 
-        println("Prueba -> "+ ComplimentaryColor.getHexStringForARGB(data.toInt()))
-
-        "https://www.materialpalette.com/colors"
-
-//        colorflow.complement('#ff0000')
+        paint.color = Color.parseColor("#F0F0F0")
+        println("Color 6 Enviado => #F0F0F0")
+        println("Resultado => "+ ColorDesign().getComplementary(paint))
 
 
 
-                configRedColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+
+        configRedColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
 
                 redValue.text = p1.toString()
