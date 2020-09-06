@@ -21,25 +21,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="#FFDD00"
-                    android:text="HEX"
+                    android:text="RGB"
                     android:layout_marginRight="5dp">
 
                 </TextView>
 
                 <EditText
+                    android:id="@+id/rgbfield_red"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -50,6 +51,7 @@
                 </EditText>
 
                 <EditText
+                    android:id="@+id/rgbfield_green"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -60,6 +62,7 @@
                 </EditText>
 
                 <EditText
+                    android:id="@+id/rgbfield_blue"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -68,6 +71,16 @@
                     android:background="@drawable/shape_background">
 
                 </EditText>
+
+                <ImageButton
+                    android:id="@+id/colorPicker"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:padding="6dp"
+                    android:src="@drawable/icon_select_color"
+                    android:scaleType="fitCenter">
+
+                </ImageButton>
 
             </LinearLayout>
 
@@ -89,12 +102,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="#FFDD00"
-                    android:text="HSL"
+                    android:text="HEX"
                     android:layout_marginRight="5dp">
 
                 </TextView>
 
                 <EditText
+                    android:id="@+id/hexfield_red"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -105,6 +119,7 @@
                 </EditText>
 
                 <EditText
+                    android:id="@+id/hexfield_green"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -115,6 +130,7 @@
                 </EditText>
 
                 <EditText
+                    android:id="@+id/hexfield_blue"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -143,12 +159,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="#FFDD00"
-                    android:text="RGB"
+                    android:text="HSL"
                     android:layout_marginRight="5dp">
 
                 </TextView>
 
                 <EditText
+                    android:id="@+id/hslfield_hue"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -159,6 +176,7 @@
                 </EditText>
 
                 <EditText
+                    android:id="@+id/hslfield_saturation"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
@@ -169,6 +187,7 @@
                 </EditText>
 
                 <EditText
+                    android:id="@+id/hslfield_lightness"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"

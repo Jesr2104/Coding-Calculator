@@ -1,13 +1,18 @@
 package justjump.coding_calculator
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.skydoves.colorpickerview.ColorPickerDialog
+import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
+import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
 import kotlinx.android.synthetic.main.activity_color_code.*
+
 
 class ColorCode : AppCompatActivity() {
 
@@ -31,6 +36,8 @@ class ColorCode : AppCompatActivity() {
             primaryColor4.setBackgroundColor(cViewModel.getRGBColor())
             primaryColor5.setBackgroundColor(cViewModel.getRGBColor())
             barColor.setBackgroundColor(cViewModel.getRGBColor())
+
+            loadDataColor(cViewModel.getRGBColor())
 
             // Complementary color viewer
             complementaryColor.setBackgroundColor(cViewModel.loadComplementaryColor())
@@ -58,12 +65,30 @@ class ColorCode : AppCompatActivity() {
             tetradic1.setBackgroundColor(tetradicColor[0])
             tetradic2.setBackgroundColor(tetradicColor[1])
             tetradic3.setBackgroundColor(tetradicColor[2])
-
-
         }
 
         // this observer works when the expression change
         cViewModel.colorRGB.observe(this@ColorCode, myObserverColor)
+
+        // this event control when you press the color select
+        colorPicker.setOnClickListener(View.OnClickListener {
+            ColorPickerDialog.Builder(this)
+                .setTitle("ColorPicker Dialog")
+                .setPreferenceName("MyColorPickerDialog")
+                .setPositiveButton("confirm",
+                    ColorEnvelopeListener {
+                            envelope, fromUser ->
+                                cViewModel.setRGBColor(envelope.color)
+                    })
+                .setNegativeButton("Cancel") {
+                        dialogInterface, i -> dialogInterface.dismiss()
+                }
+                .attachAlphaSlideBar(false) // the default value is true.
+                .attachBrightnessSlideBar(true) // the default value is true.
+                .setBottomSpace(12) // set a bottom space between the last slidebar and buttons.
+                .show()
+        })
+
 
         configRedColor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
@@ -106,5 +131,31 @@ class ColorCode : AppCompatActivity() {
             override fun onStopTrackingTouch(p0: SeekBar?) {
             }
         })
+    }
+
+    fun loadDataColor(rgbColor: Int) {
+        val r = Color.red(rgbColor)
+        val g = Color.green(rgbColor)
+        val b = Color.blue(rgbColor)
+
+        configRedColor.progress = r
+        configGreenColor.progress = g
+        configBlueColor.progress = b
+
+        rgbfield_red.setText(r.toString())
+        rgbfield_green.setText(g.toString())
+        rgbfield_blue.setText(b.toString())
+
+        hexfield_red.setText(Functions().convertToHex(r))
+        hexfield_green.setText(Functions().convertToHex(g))
+        hexfield_blue.setText(Functions().convertToHex(b))
+
+        val colorHSL = ColorDesign().getHSLColorFromRGB(rgbColor)
+
+        hslfield_hue.setText(((colorHSL[0] * 360).toInt()).toString())
+        hslfield_saturation.setText(((colorHSL[1] * 100).toInt()).toString())
+        hslfield_lightness.setText(((colorHSL[2] * 100).toInt()).toString())
+
+
     }
 }

@@ -12,7 +12,7 @@ class ColorDesign {
      *  @param: colorInt code.
      *  @return: an array containing the 3 HSL values.
      */
-    private fun getHSLColorFromRGB(color: Int): FloatArray {
+    fun getHSLColorFromRGB(color: Int): FloatArray {
 
         val hsl = FloatArray(3)
         val r = Color.red(color) / 255f
@@ -47,7 +47,7 @@ class ColorDesign {
      *  @param: Array<Float> with the 3 HSL values.
      *  @return: an array containing the 3 RGB color values.
      */
-    private fun getRGBColorFromHSL(hsl: FloatArray): Int {
+    fun getRGBColorFromHSL(hsl: FloatArray): Int {
         val r: Float
         val g: Float
         val b: Float
