@@ -2,7 +2,7 @@ package justjump.coding_calculator.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import justjump.coding_calculator.Functions
+import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.extensions.checkInteger
 import justjump.coding_calculator.extensions.checkParenthesis
 import justjump.coding_calculator.extensions.deleteComma

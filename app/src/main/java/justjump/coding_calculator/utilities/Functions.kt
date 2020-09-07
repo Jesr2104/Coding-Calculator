@@ -1,4 +1,4 @@
-package justjump.coding_calculator
+package justjump.coding_calculator.utilities
 
 import com.github.zieiony.calc.Calc
 import java.util.regex.Pattern

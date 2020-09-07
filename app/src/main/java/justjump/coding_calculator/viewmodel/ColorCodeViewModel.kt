@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import justjump.coding_calculator.Functions
+import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.utilities.ColorDesign
 
 class ColorCodeViewModel: ViewModel() {

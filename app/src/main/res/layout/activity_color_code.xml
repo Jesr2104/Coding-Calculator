@@ -517,13 +517,21 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp">
 
-                    <TextView
+<!--                    <TextView-->
+<!--                        android:id="@+id/primaryColor1"-->
+<!--                        android:layout_width="35dp"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:background="@color/material_white">-->
+
+<!--                    </TextView>-->
+
+                    <Button
                         android:id="@+id/primaryColor1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                     <ImageView
                         android:layout_width="35dp"
@@ -531,13 +539,13 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/complementaryColor"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                 </LinearLayout>
             </LinearLayout>
