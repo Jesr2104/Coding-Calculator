@@ -504,7 +504,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Complemtary Color"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textStyle="bold"
                     android:textColor="#a6a4a3">
 
@@ -516,14 +516,6 @@
                     android:gravity="center"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp">
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/primaryColor1"-->
-<!--                        android:layout_width="35dp"-->
-<!--                        android:layout_height="35dp"-->
-<!--                        android:background="@color/material_white">-->
-
-<!--                    </TextView>-->
 
                     <Button
                         android:id="@+id/primaryColor1"
@@ -560,7 +552,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Split Complemtary Colors"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textStyle="bold"
                     android:textColor="#a6a4a3">
 
@@ -573,13 +565,13 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp">
 
-                    <TextView
+                    <Button
                         android:id="@+id/primaryColor2"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                     <ImageView
                         android:layout_width="35dp"
@@ -587,22 +579,22 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/splitComplementary1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/splitComplementary2"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                 </LinearLayout>
             </LinearLayout>
@@ -617,7 +609,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Analogous Colors"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textStyle="bold"
                     android:textColor="#a6a4a3">
 
@@ -630,13 +622,13 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp">
 
-                    <TextView
+                    <Button
                         android:id="@+id/primaryColor3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                     <ImageView
                         android:layout_width="35dp"
@@ -644,49 +636,49 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/analogous1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/analogous2"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/analogous3"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/analogous4"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/analogous5"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                 </LinearLayout>
             </LinearLayout>
@@ -701,7 +693,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Triadic Colors"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textStyle="bold"
                     android:textColor="#a6a4a3">
 
@@ -714,13 +706,13 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp">
 
-                    <TextView
+                    <Button
                         android:id="@+id/primaryColor4"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                     <ImageView
                         android:layout_width="35dp"
@@ -728,22 +720,22 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/triadic1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/triadic2"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                 </LinearLayout>
             </LinearLayout>
@@ -758,7 +750,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Tetradic Colors"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textStyle="bold"
                     android:textColor="#a6a4a3">
 
@@ -771,13 +763,13 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp">
 
-                    <TextView
+                    <Button
                         android:id="@+id/primaryColor5"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -786,34 +778,178 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/tetradic1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/tetradic2"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
-                    <TextView
+                    <Button
                         android:id="@+id/tetradic3"
                         android:layout_marginLeft="5dp"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@color/material_white">
 
-                    </TextView>
+                    </Button>
 
                 </LinearLayout>
             </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="!Save Colors¡"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@color/material_white">
+
+                </Button>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Palette of base colors: "
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/paletteColors"
+                android:layout_width="50dp"
+                android:layout_height="30dp">
+
+            </Button>
 
         </LinearLayout>
 

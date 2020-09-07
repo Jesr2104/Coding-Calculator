@@ -191,8 +191,12 @@ class ColorCode : AppCompatActivity() {
             val newFragment = InfoColorDialog(tetradicColorStore[2])
             newFragment.show(supportFragmentManager, "infoColor")
         })
-
         //------------------------------------------------------------------------------------------
+
+        paletteColors.setOnClickListener(View.OnClickListener {
+            val newFragment = PaletteColorsDialog()
+            newFragment.show(supportFragmentManager, "paletteColors")
+        })
 
 
         // Event of the seekbar of the RGB controls
@@ -239,7 +243,7 @@ class ColorCode : AppCompatActivity() {
         })
     }
 
-    fun loadDataColor(rgbColor: Int) {
+    private fun loadDataColor(rgbColor: Int) {
         val r = Color.red(rgbColor)
         val g = Color.green(rgbColor)
         val b = Color.blue(rgbColor)

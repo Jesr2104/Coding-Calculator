@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialogFragment
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
-import kotlinx.android.synthetic.main.info_color_dialog.view.*
+import kotlinx.android.synthetic.main.dialog_info_color.view.*
 
 class InfoColorDialog(rgbColor: Int) : AppCompatDialogFragment() {
 
@@ -25,7 +25,7 @@ class InfoColorDialog(rgbColor: Int) : AppCompatDialogFragment() {
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
 
-            var viewDialog = inflater.inflate(R.layout.info_color_dialog, null)
+            val viewDialog = inflater.inflate(R.layout.dialog_info_color, null)
 
             // RGB color
             viewDialog.rgb_red_part.text = r.toString() + " "
