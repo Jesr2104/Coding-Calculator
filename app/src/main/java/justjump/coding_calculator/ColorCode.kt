@@ -1,5 +1,6 @@
 package justjump.coding_calculator
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -260,10 +261,11 @@ class ColorCode : AppCompatActivity() {
         })
         //------------------------------------------------------------------------------------------
 
-        // event to control the palette colors list
-        paletteColors.setOnClickListener(View.OnClickListener {
-            val newFragment = PaletteColorsDialog()
-            newFragment.show(supportFragmentManager, "paletteColors")
+        // event to control the new palette colors list
+        paletteColorsNew.setOnClickListener(View.OnClickListener {
+            val paletteColors = Intent(this, PaletteColors::class.java)
+            paletteColors.putExtra("TAG", 1)
+            startActivity(paletteColors)
         })
 
         // Event of the seekbar of the RGB controls

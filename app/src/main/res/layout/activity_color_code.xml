@@ -204,7 +204,7 @@
         <LinearLayout
             android:id="@+id/barColor"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="20dp"
             android:background="@color/material_white"
             android:layout_margin="5dp"
             android:orientation="horizontal">
@@ -291,7 +291,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:text="R"
-                        android:background="@drawable/red_color"
+                        android:background="@color/material_redA700"
                         android:textColor="#231f20"
                         android:textStyle="bold">
 
@@ -311,7 +311,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="0.4"
-                        android:background="@drawable/shape_result"
+                        android:background="@drawable/shape_background"
                         android:indeterminate="false"
                         android:max="255"
                         android:progressTint="#FF0000">
@@ -362,7 +362,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:text="G"
-                        android:background="@drawable/green_color"
+                        android:background="@color/material_greenA700"
                         android:textColor="#231f20"
                         android:textStyle="bold">
 
@@ -382,7 +382,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="0.4"
-                        android:background="@drawable/shape_result"
+                        android:background="@drawable/shape_background"
                         android:indeterminate="false"
                         android:max="255"
                         android:progressTint="#00FF00">
@@ -433,7 +433,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:text="B"
-                        android:background="@drawable/blue_color"
+                        android:background="@color/material_blueA700"
                         android:textColor="#231f20"
                         android:textStyle="bold">
 
@@ -452,7 +452,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="0.4"
-                        android:background="@drawable/shape_result"
+                        android:background="@drawable/shape_background"
                         android:indeterminate="false"
                         android:max="255"
                         android:progressTint="#0000FF">
@@ -969,9 +969,10 @@
             </TextView>
 
             <Button
-                android:id="@+id/paletteColors"
-                android:layout_width="50dp"
-                android:layout_height="30dp">
+                android:id="@+id/paletteColorsNew"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="new">
 
             </Button>
 

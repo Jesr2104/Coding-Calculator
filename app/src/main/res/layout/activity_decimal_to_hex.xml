@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/shape_result"
+            android:background="@drawable/shape_background"
             android:layout_margin="20dp">
         </TextView>
 
@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:orientation="vertical"
-            android:background="@drawable/background_field"
             android:elevation="100dp">
 
             <LinearLayout

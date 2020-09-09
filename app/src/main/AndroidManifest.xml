@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/icon_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".DecimalToHex"></activity>
+        <activity android:name=".PaletteColors"></activity>
+        <activity android:name=".DecimalToHex" />
         <activity android:name=".ColorCode" />
         <activity android:name=".Calculator" />
         <activity android:name=".MainActivity">
