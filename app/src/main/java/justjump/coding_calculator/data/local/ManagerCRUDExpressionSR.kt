@@ -2,17 +2,16 @@ package justjump.coding_calculator.data.local
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.system.Os.remove
 import com.google.gson.Gson
 
 // this object create
-object PreferenceHelper {
+object SRDataExpression {
 
     private val gsonInstance = Gson()
     private var datasharepreferente: SharedPreferences? = null
 
     // this functions create the object of the Shared preference
-    fun customPreference(context: Context): PreferenceHelper {
+    fun customPreference(context: Context): SRDataExpression {
         if (datasharepreferente == null)
             datasharepreferente = context.getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
         return this

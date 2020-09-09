@@ -830,98 +830,122 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/savedcolor1"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor2"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor3"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor4"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor5"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor6"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor7"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor8"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor9"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor10"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor11"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 
                 <Button
+                    android:id="@+id/savedcolor12"
                     android:layout_marginLeft="5dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@color/material_white">
+                    android:background="@color/material_white"
+                    android:visibility="invisible">
 
                 </Button>
 

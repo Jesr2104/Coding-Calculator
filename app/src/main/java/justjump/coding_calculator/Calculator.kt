@@ -13,7 +13,7 @@ import com.github.hamzaahmedkhan.spinnerdialog.callbacks.OnSpinnerOKPressedListe
 import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
-import justjump.coding_calculator.data.local.PreferenceHelper
+import justjump.coding_calculator.data.local.SRDataExpression
 import justjump.coding_calculator.extensions.paintString
 import justjump.coding_calculator.viewmodel.CalculatorViewModel
 import kotlinx.android.synthetic.main.activity_calculator.*
@@ -57,7 +57,7 @@ class Calculator : AppCompatActivity() {
         // this function allow to select one option from the history and load on the expression
         historic.setOnClickListener {
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
-            val myList: ArrayList<String>? = PreferenceHelper.customPreference(this).getlist()
+            val myList: ArrayList<String>? = SRDataExpression.customPreference(this).getlist()
             var dataFieldViewModel = cViewModel.dataFieldExpression.value
 
             if (myList != null) {
@@ -296,7 +296,7 @@ class Calculator : AppCompatActivity() {
         numberResult.setOnClickListener {
             state = cViewModel.result()
             if (state) {
-                with(PreferenceHelper) {
+                with(SRDataExpression) {
                     this.customPreference(this@Calculator)
                     this.setList(cViewModel.dataFieldExpression.value!!)
                     this.setList("=" + cViewModel.dataFieldResult.value!!)

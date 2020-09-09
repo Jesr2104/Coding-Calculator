@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialogFragment
 import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
@@ -14,13 +13,12 @@ import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
 import kotlinx.android.synthetic.main.dialog_info_color.view.*
 
-class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: ColorCodeViewModel) : AppCompatDialogFragment() {
+class InfoColorSavedDialog(view: Context, rgbColor: Int, private val cViewModel: ColorCodeViewModel) : AppCompatDialogFragment() {
 
     private val r = Color.red(rgbColor)
     private val g = Color.green(rgbColor)
     private val b = Color.blue(rgbColor)
     private val rgbColorInt = rgbColor
-    private val viewContext = view
 
     @Override
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -57,25 +55,19 @@ class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: Colo
                     })
 
                 // Add action buttons
-                .setNegativeButton("Load",
+                .setNegativeButton("Delete",
                     DialogInterface.OnClickListener { dialog, id ->
                         // sign in the user ...
-                        cViewModel.setRGBColor(rgbColorInt)
+                        SRDataColors.deleteItem(rgbColorInt)
+                        cViewModel.setRGBColor(cViewModel.getRGBColor())
+
                     })
 
                 // Add action buttons
-                .setPositiveButton("Save",
+                .setPositiveButton("Load",
                     DialogInterface.OnClickListener { dialog, id ->
                         // sign in the user ...
-                        val check = SRDataColors.customPreference(viewContext).setList(rgbColorInt)
-                        if (check){
-                            Toast.makeText(viewContext,"Saved Successful", Toast.LENGTH_LONG).show()
-                            cViewModel.setRGBColor(cViewModel.getRGBColor())
-                        }
-                        else
-                        {
-                            Toast.makeText(viewContext,"List Colors Saved Is Full", Toast.LENGTH_LONG).show()
-                        }
+                        cViewModel.setRGBColor(rgbColorInt)
                     })
 
             // Inflate and set the layout for the dialog
