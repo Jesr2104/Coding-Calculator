@@ -67,14 +67,36 @@ class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: Colo
                 .setPositiveButton("Save",
                     DialogInterface.OnClickListener { dialog, id ->
                         // sign in the user ...
-                        val check = SRDataColors.customPreference(viewContext).setList(rgbColorInt)
-                        if (check){
-                            Toast.makeText(viewContext,"Saved Successful", Toast.LENGTH_LONG).show()
-                            cViewModel.setRGBColor(cViewModel.getRGBColor())
+
+                        var dataSavedList = SRDataColors.getlist()
+                        var isAlreadySaved = true
+
+                        dataSavedList.forEach { item ->
+                            if (item == rgbColorInt) {
+                                isAlreadySaved = false
+                            }
                         }
-                        else
-                        {
-                            Toast.makeText(viewContext,"List Colors Saved Is Full", Toast.LENGTH_LONG).show()
+
+                        if (isAlreadySaved) {
+                            val check =
+                                SRDataColors.customPreference(viewContext).setList(rgbColorInt)
+                            if (check) {
+                                Toast.makeText(viewContext, "Saved Successful", Toast.LENGTH_SHORT)
+                                    .show()
+                                cViewModel.setRGBColor(cViewModel.getRGBColor())
+                            } else {
+                                Toast.makeText(
+                                    viewContext,
+                                    "List Colors Saved Is Full",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        } else {
+                            Toast.makeText(
+                                viewContext,
+                                "the color has already been previously saved",
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                     })
 

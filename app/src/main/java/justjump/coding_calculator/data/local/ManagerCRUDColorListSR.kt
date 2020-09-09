@@ -13,7 +13,7 @@ object SRDataColors {
     // this functions create the object of the Shared preference
     fun customPreference(context: Context): SRDataColors {
         if (datasharepreferente == null)
-            datasharepreferente = context.getSharedPreferences("ListColorsNew", Context.MODE_PRIVATE)
+            datasharepreferente = context.getSharedPreferences("ListColors", Context.MODE_PRIVATE)
         return this
     }
 
@@ -27,8 +27,8 @@ object SRDataColors {
     fun getlist(): ArrayList<Int> {
 
         var dataSaveList: ArrayList<Int> = ArrayList<Int>()
-        if (datasharepreferente?.contains("ListColorsNew")!!) {
-            val json = datasharepreferente?.getString("ListColorsNew", "DEFAULT")
+        if (datasharepreferente?.contains("ListColors")!!) {
+            val json = datasharepreferente?.getString("ListColors", "DEFAULT")
             dataSaveList =
                 gsonInstance.fromJson<ArrayList<Int>>(json, ArrayList<Int>()::class.java)
 
@@ -46,7 +46,7 @@ object SRDataColors {
 
             val json = gsonInstance.toJson(dataSaveList)
             datasharepreferente?.editMe {
-                it.putString("ListColorsNew", json)
+                it.putString("ListColors", json)
             }
 
         } else {
@@ -68,7 +68,7 @@ object SRDataColors {
 
         val json = gsonInstance.toJson(tempData)
         datasharepreferente?.editMe {
-            it.putString("ListColorsNew", json)
+            it.putString("ListColors", json)
         }
     }
 
