@@ -529,7 +529,7 @@
                         android:layout_width="35dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
+                        app:srcCompat="@drawable/white_arrow"/>
 
                     <Button
                         android:id="@+id/complementaryColor"
@@ -577,7 +577,7 @@
                         android:layout_width="35dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
+                        app:srcCompat="@drawable/white_arrow"/>
 
                     <Button
                         android:id="@+id/splitComplementary1"
@@ -634,7 +634,7 @@
                         android:layout_width="35dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
+                        app:srcCompat="@drawable/white_arrow"/>
 
                     <Button
                         android:id="@+id/analogous1"
@@ -718,7 +718,7 @@
                         android:layout_width="35dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
+                        app:srcCompat="@drawable/white_arrow"/>
 
                     <Button
                         android:id="@+id/triadic1"
@@ -776,7 +776,7 @@
                         android:layout_width="35dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_label_important_white_24dp"/>
+                        app:srcCompat="@drawable/white_arrow"/>
 
                     <Button
                         android:id="@+id/tetradic1"

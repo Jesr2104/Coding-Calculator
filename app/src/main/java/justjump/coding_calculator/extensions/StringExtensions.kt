@@ -63,7 +63,7 @@ fun String.paintString(): String {
         if (this[cont] == '(' || this[cont] == ')') {
             resultTemp = resultTemp + colorParenthesis + this[cont] + fontClose
         } else if (this[cont] == '+' || this[cont] == '-' || this[cont] == '*' || this[cont] == '/' || this[cont] == '%') {
-            // I like to change to include the negative sign with the number in white color complete
+            // I like to change to include the negative sign with the number in white_arrow color complete
             resultTemp = resultTemp + colorSign + this[cont] + fontClose
         } else {
             resultTemp += this[cont]
