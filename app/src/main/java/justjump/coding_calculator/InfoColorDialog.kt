@@ -12,7 +12,7 @@ import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
-import kotlinx.android.synthetic.main.dialog_info_color.view.*
+import kotlinx.android.synthetic.main.new_dialog_info_color.view.*
 
 class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: ColorCodeViewModel) : AppCompatDialogFragment() {
 
@@ -30,11 +30,11 @@ class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: Colo
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
 
-            val viewDialog = inflater.inflate(R.layout.dialog_info_color, null)
+            val viewDialog = inflater.inflate(R.layout.new_dialog_info_color, null)
 
             // RGB color
-            viewDialog.rgb_red_part.text = r.toString() + " "
-            viewDialog.rgb_green_part.text = g.toString() + " "
+            viewDialog.rgb_red_part.text = "$r "
+            viewDialog.rgb_green_part.text = "$g "
             viewDialog.rgb_blue_part.text = b.toString()
 
             // change the color on the background to show the color
@@ -42,8 +42,10 @@ class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: Colo
 
             // calculate the HSL Color
             val colorHSL = ColorDesign().getHSLColorFromRGB(rgbColorInt)
-            viewDialog.hsl_part.text =
-                (((colorHSL[0] * 360).toInt()).toString() + " " + ((colorHSL[1] * 100).toInt()).toString() + " " + ((colorHSL[2] * 100).toInt()).toString())
+
+            viewDialog.hsl_partH.text = ((colorHSL[0] * 360).toInt()).toString()
+            viewDialog.hsl_partS.text = ((colorHSL[1] * 100).toInt()).toString()
+            viewDialog.hsl_partL.text = ((colorHSL[2] * 100).toInt()).toString()
 
             // calculate the Hex color
             viewDialog.hex_part.text = "#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}"
