@@ -11,7 +11,7 @@ import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
-import kotlinx.android.synthetic.main.new_dialog_info_color.view.*
+import kotlinx.android.synthetic.main.dialog_info_color.view.*
 
 class InfoColorSavedDialog(view: Context, rgbColor: Int, private val cViewModel: ColorCodeViewModel) : AppCompatDialogFragment() {
 
@@ -27,7 +27,7 @@ class InfoColorSavedDialog(view: Context, rgbColor: Int, private val cViewModel:
             val builder = AlertDialog.Builder(it)
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
-            val viewDialog = inflater.inflate(R.layout.new_dialog_info_color, null)
+            val viewDialog = inflater.inflate(R.layout.dialog_info_color, null)
 
             // RGB color
             viewDialog.rgb_red_part.text = r.toString() + " "

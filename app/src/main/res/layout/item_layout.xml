@@ -4,9 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:padding="4dp"
     android:background="@drawable/shape_background"
-    android:layout_marginBottom="5dp">
+    android:layout_marginBottom="3dp">
 
     <LinearLayout
         android:id="@+id/mainlayout"
@@ -56,4 +56,5 @@
 
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>
