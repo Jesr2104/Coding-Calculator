@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBase">#434143</color>
+
+
+    <color name="Front_ColorGrey">#424242</color>
+    <color name="icon_app_background">#FFDD00</color>
 </resources>

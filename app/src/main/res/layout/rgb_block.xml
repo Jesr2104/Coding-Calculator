@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="30dp"
+                        android:text="R"
+                        android:textColor="#494949"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:background="#FF3D3E">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:layout_gravity="center"
+                    android:gravity="center|center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/controlbarforred"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="255"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/track_seekbarred"
+                        android:thumb="@drawable/thumb_seekbarred"
+                        android:indeterminate="false">
+
+                    </androidx.appcompat.widget.AppCompatSeekBar>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center|center_vertical">
+
+                    <TextView
+                        android:id="@+id/redValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="148"
+                        android:textStyle="bold"
+                        android:minWidth="25dp"
+                        android:textAlignment="center"
+                        android:textSize="12dp"
+                        android:textColor="#FFFFFF"
+                        android:background="#424242">
+
+                    </TextView>
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="30dp"
+                    android:text="G"
+                    android:textColor="#494949"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="#12FF13">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center|center_vertical">
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/controlbarforgreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="255"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/track_seekbargreen"
+                    android:thumb="@drawable/thumb_seekbargreen"
+                    android:indeterminate="false">
+
+                </androidx.appcompat.widget.AppCompatSeekBar>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center|center_vertical">
+
+                <TextView
+                    android:id="@+id/greenValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:minWidth="25dp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"
+                    android:background="#424242">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="30dp"
+                    android:text="B"
+                    android:textColor="#494949"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="#00BDFF">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center|center_vertical">
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/controlbarforblue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="255"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/track_seekbarblue"
+                    android:thumb="@drawable/thumb_seekbarblue"
+                    android:indeterminate="false">
+
+                </androidx.appcompat.widget.AppCompatSeekBar>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center|center_vertical">
+
+                <TextView
+                    android:id="@+id/blueValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="198"
+                    android:minWidth="25dp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"
+                    android:background="#424242">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

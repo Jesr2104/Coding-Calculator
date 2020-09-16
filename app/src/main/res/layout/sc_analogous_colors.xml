@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline25Percent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35">
+
+    </androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/triadic_Colors"
+        android:layout_width="0sp"
+        app:layout_constraintWidth_percent=".1"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline25Percent"
+        app:layout_constraintRight_toRightOf="@id/guideline25Percent"
+        android:elevation="10dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Analogous_Color1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_colors"
+            android:background="#FFDD00"
+            tools:ignore="MissingConstraints">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Analogous_Color2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_colors"
+            android:layout_marginTop="2dp"
+            android:background="#FFDD00"
+            app:layout_constraintTop_toBottomOf="@id/Analogous_Color1"
+            tools:ignore="MissingConstraints">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Analogous_Color3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_colors"
+            android:layout_marginTop="2dp"
+            android:background="#FFDD00"
+            app:layout_constraintTop_toBottomOf="@id/Analogous_Color2"
+            tools:ignore="MissingConstraints">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Analogous_Color4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_colors"
+            android:layout_marginTop="2dp"
+            android:background="#FFDD00"
+            app:layout_constraintTop_toBottomOf="@id/Analogous_Color3"
+            tools:ignore="MissingConstraints">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Analogous_Color5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_colors"
+            android:layout_marginTop="2dp"
+            android:background="#FFDD00"
+            app:layout_constraintTop_toBottomOf="@id/Analogous_Color4"
+            tools:ignore="MissingConstraints">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_analogous_colors"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/Front_ColorGrey"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/triadic_Colors"
+        app:layout_constraintLeft_toLeftOf="@id/guideline25Percent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/triadic_Colors">
+
+        <TextView
+            android:id="@+id/text_system_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:text="Analogous"
+            android:paddingLeft="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:autoSizeTextType="uniform">
+
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
