@@ -10,22 +10,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        calculator.setOnClickListener(){
+        calculator.setOnClickListener() {
             val calculator = Intent(this, Calculator::class.java)
             calculator.putExtra("TAG", 0)
             startActivity(calculator)
         }
 
-        colorCode.setOnClickListener(){
+        colorCode.setOnClickListener() {
             val colorCode = Intent(this, ColorCode::class.java)
             colorCode.putExtra("TAG", 1)
             startActivity(colorCode)
-        }
-
-        decimaltobinary.setOnClickListener(){
-            val decimalToBinary = Intent(this, DecimalToHex::class.java)
-            decimalToBinary.putExtra("TAG", 2)
-            startActivity(decimalToBinary)
         }
     }
 }

@@ -1,7 +1,6 @@
 package justjump.coding_calculator
 
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -15,7 +14,7 @@ import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
-import kotlinx.android.synthetic.main.activity_color_code_new.*
+import kotlinx.android.synthetic.main.activity_color_code.*
 import kotlinx.android.synthetic.main.rgb_block.*
 import kotlinx.android.synthetic.main.save_colors.*
 import kotlinx.android.synthetic.main.sc_analogous_colors.*
@@ -35,7 +34,7 @@ class ColorCode : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_color_code_new)
+        setContentView(R.layout.activity_color_code)
 
         cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
 
@@ -45,11 +44,6 @@ class ColorCode : AppCompatActivity() {
         val myObserverColor = Observer<Int> {
 
             //  Primary color
-//            primaryColor1.setBackgroundColor(cViewModel.getRGBColor())
-//            primaryColor2.setBackgroundColor(cViewModel.getRGBColor())
-//            primaryColor3.setBackgroundColor(cViewModel.getRGBColor())
-//            primaryColor4.setBackgroundColor(cViewModel.getRGBColor())
-//            primaryColor5.setBackgroundColor(cViewModel.getRGBColor())
             layoutHSLText.setBackgroundColor(cViewModel.getRGBColor())
 
             loadDataColor(cViewModel.getRGBColor())
@@ -114,31 +108,6 @@ class ColorCode : AppCompatActivity() {
             val newFragment = InfoColorDialog(this.applicationContext,cViewModel.getRGBColor(),cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
-
-//        primaryColor1.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorDialog(this.applicationContext, cViewModel.getRGBColor(), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        primaryColor2.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorDialog(this.applicationContext, cViewModel.getRGBColor(), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        primaryColor3.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorDialog(this.applicationContext, cViewModel.getRGBColor(), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        primaryColor4.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorDialog(this.applicationContext, cViewModel.getRGBColor(), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        primaryColor5.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorDialog(this.applicationContext, cViewModel.getRGBColor(), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
 
         Color1_Complementary.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext, complementaryColorStore, cViewModel)
@@ -222,51 +191,6 @@ class ColorCode : AppCompatActivity() {
             val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(2), cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
-
-//        savedcolor4.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(3), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor5.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(4), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor6.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(5), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor7.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(6), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor8.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(7), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor9.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(8), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor10.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(9), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor11.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(10), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
-//
-//        savedcolor12.setOnClickListener(View.OnClickListener {
-//            val newFragment = InfoColorSavedDialog(this.applicationContext, SRDataColors.getItem(11), cViewModel)
-//            newFragment.show(supportFragmentManager, "infoColor")
-//        })
         //------------------------------------------------------------------------------------------
 
         // event to control the new palette colors list
@@ -329,19 +253,15 @@ class ColorCode : AppCompatActivity() {
         controlbarforgreen.progress = g
         controlbarforblue.progress = b
 
-//        rgbfield_red.setText(r.toString())
-//        rgbfield_green.setText(g.toString())
-//        rgbfield_blue.setText(b.toString())
-
-//        hexfield_red.setText(Functions().convertToHex(r))
-//        hexfield_green.setText(Functions().convertToHex(g))
-//        hexfield_blue.setText(Functions().convertToHex(b))
+        hexfield_red.setText(Functions().convertToHex(r))
+        hexfield_green.setText(Functions().convertToHex(g))
+        hexfield_blue.setText(Functions().convertToHex(b))
 
         val colorHSL = ColorDesign().getHSLColorFromRGB(rgbColor)
 
-//        hslfield_hue.setText(((colorHSL[0] * 360).toInt()).toString())
-//        hslfield_saturation.setText(((colorHSL[1] * 100).toInt()).toString())
-//        hslfield_lightness.setText(((colorHSL[2] * 100).toInt()).toString())
+        hslfield_hue.setText(((colorHSL[0] * 360).toInt()).toString())
+        hslfield_saturation.setText(((colorHSL[1] * 100).toInt()).toString())
+        hslfield_lightness.setText(((colorHSL[2] * 100).toInt()).toString())
     }
 
     private fun updateColor() {
@@ -352,85 +272,25 @@ class ColorCode : AppCompatActivity() {
                 buttonColor1.visibility = View.VISIBLE
                 buttonColor1.background.setTint(data[0])
             }
-            else
+            else{
                 buttonColor1.visibility = View.INVISIBLE
+            }
 
             if (data.size + 1 > 2){
                 buttonColor2.visibility = View.VISIBLE
                 buttonColor2.background.setTint(data[1])
             }
-            else
+            else{
                 buttonColor2.visibility = View.INVISIBLE
+            }
 
             if (data.size + 1 > 3){
                 buttonColor3.visibility = View.VISIBLE
                 buttonColor3.background.setTint(data[2])
             }
-            else
+            else{
                 buttonColor3.visibility = View.INVISIBLE
-
-//            if (data.size + 1 > 4){
-//                savedcolor4.visibility = View.VISIBLE
-//                savedcolor4.setBackgroundColor(data[3])
-//            }
-//            else
-//                savedcolor4.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 5){
-//                savedcolor5.visibility = View.VISIBLE
-//                savedcolor5.setBackgroundColor(data[4])
-//            }
-//            else
-//                savedcolor5.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 6){
-//                savedcolor6.visibility = View.VISIBLE
-//                savedcolor6.setBackgroundColor(data[5])
-//            }
-//            else
-//                savedcolor6.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 7){
-//                savedcolor7.visibility = View.VISIBLE
-//                savedcolor7.setBackgroundColor(data[6])
-//            }
-//            else
-//                savedcolor7.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 8){
-//                savedcolor8.visibility = View.VISIBLE
-//                savedcolor8.setBackgroundColor(data[7])
-//            }
-//            else
-//                savedcolor8.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 9){
-//                savedcolor9.visibility = View.VISIBLE
-//                savedcolor9.setBackgroundColor(data[8])
-//            }
-//            else
-//                savedcolor9.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 10){
-//                savedcolor10.visibility = View.VISIBLE
-//                savedcolor10.setBackgroundColor(data[9])
-//            }
-//            else
-//                savedcolor10.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 11){
-//                savedcolor11.visibility = View.VISIBLE
-//                savedcolor11.setBackgroundColor(data[10])
-//            }
-//            else
-//                savedcolor11.visibility = View.INVISIBLE
-//
-//            if (data.size + 1 > 12){
-//                savedcolor12.visibility = View.VISIBLE
-//                savedcolor12.setBackgroundColor(data[11])
-//            }
-//            else
-//                savedcolor12.visibility = View.INVISIBLE
+            }
         }else{
             buttonColor1.visibility = View.INVISIBLE
         }
