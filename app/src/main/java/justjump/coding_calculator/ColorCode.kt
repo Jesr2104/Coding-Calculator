@@ -14,14 +14,7 @@ import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
-import kotlinx.android.synthetic.main.activity_color_code.*
-import kotlinx.android.synthetic.main.rgb_block.*
-import kotlinx.android.synthetic.main.save_colors.*
-import kotlinx.android.synthetic.main.sc_analogous_colors.*
-import kotlinx.android.synthetic.main.sc_complementary_color.*
-import kotlinx.android.synthetic.main.sc_split_complementary_color.*
-import kotlinx.android.synthetic.main.sc_tetradic_color.*
-import kotlinx.android.synthetic.main.sc_triadic_color.*
+import kotlinx.android.synthetic.main.new_layout_colorcode.*
 
 class ColorCode : AppCompatActivity() {
 
@@ -34,7 +27,7 @@ class ColorCode : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_color_code)
+        setContentView(R.layout.new_layout_colorcode)
 
         cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
 
@@ -44,7 +37,7 @@ class ColorCode : AppCompatActivity() {
         val myObserverColor = Observer<Int> {
 
             //  Primary color
-            layoutHSLText.setBackgroundColor(cViewModel.getRGBColor())
+            mainColor.setBackgroundColor(cViewModel.getRGBColor())
 
             loadDataColor(cViewModel.getRGBColor())
 
@@ -67,14 +60,14 @@ class ColorCode : AppCompatActivity() {
 
             // Triadic
             triadicColorStore = cViewModel.loadTriadic()
-            triadic_Color1.setBackgroundColor(triadicColorStore[0])
-            triadic_Color2.setBackgroundColor(triadicColorStore[1])
+            Triadic_Color1.setBackgroundColor(triadicColorStore[0])
+            Triadic_Color2.setBackgroundColor(triadicColorStore[1])
 
             // Tetradic
             tetradicColorStore = cViewModel.loadTetradicColor()
-            tetradic_Color1.setBackgroundColor(tetradicColorStore[0])
-            tetradic_Color2.setBackgroundColor(tetradicColorStore[1])
-            tetradic_Color3.setBackgroundColor(tetradicColorStore[2])
+            Tetradic_Color1.setBackgroundColor(tetradicColorStore[0])
+            Tetradic_Color2.setBackgroundColor(tetradicColorStore[1])
+            Tetradic_Color3.setBackgroundColor(tetradicColorStore[2])
 
             // this function need to be update and implement more clear
             updateColor()
@@ -84,7 +77,7 @@ class ColorCode : AppCompatActivity() {
         cViewModel.colorRGB.observe(this@ColorCode, myObserverColor)
 
         // this event control when you press the color select
-        colorPicker.setOnClickListener(View.OnClickListener {
+        ColorPicker.setOnClickListener(View.OnClickListener {
             ColorPickerDialog.Builder(this)
                 .setTitle("ColorPicker Dialog")
                 .setPreferenceName("MyColorPickerDialog")
@@ -104,7 +97,7 @@ class ColorCode : AppCompatActivity() {
 
         // Dialog with the color information
         //------------------------------------------------------------------------------------------
-        layoutHSLText.setOnClickListener(View.OnClickListener {
+        mainColor.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext,cViewModel.getRGBColor(),cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
@@ -149,27 +142,27 @@ class ColorCode : AppCompatActivity() {
             newFragment.show(supportFragmentManager, "infoColor")
         })
 
-        triadic_Color1.setOnClickListener(View.OnClickListener {
+        Triadic_Color1.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext, triadicColorStore[0], cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
 
-        triadic_Color2.setOnClickListener(View.OnClickListener {
+        Triadic_Color2.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext, triadicColorStore[1], cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
 
-        tetradic_Color1.setOnClickListener(View.OnClickListener {
+        Tetradic_Color1.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext, tetradicColorStore[0], cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
 
-        tetradic_Color2.setOnClickListener(View.OnClickListener {
+        Tetradic_Color2.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext, tetradicColorStore[1], cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
 
-        tetradic_Color3.setOnClickListener(View.OnClickListener {
+        Tetradic_Color3.setOnClickListener(View.OnClickListener {
             val newFragment = InfoColorDialog(this.applicationContext, tetradicColorStore[2], cViewModel)
             newFragment.show(supportFragmentManager, "infoColor")
         })
@@ -194,7 +187,7 @@ class ColorCode : AppCompatActivity() {
         //------------------------------------------------------------------------------------------
 
         // event to control the new palette colors list
-        paletteColors.setOnClickListener(View.OnClickListener {
+        BPaletteColors.setOnClickListener(View.OnClickListener {
             val paletteColors = Intent(this, PaletteColors::class.java)
             paletteColors.putExtra("TAG", 1)
             startActivity(paletteColors)
@@ -203,7 +196,7 @@ class ColorCode : AppCompatActivity() {
         // Event of the seekbar of the RGB controls
         controlbarforred.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                redValue.text = p1.toString()
+                RGBValue_RedColor.text = p1.toString()
                 val valueRed = Functions().convertToHex(p1).toString()
                 cViewModel.setRGBColor(Color.parseColor("#$valueRed${cViewModel.getGreen()}${cViewModel.getBlue()}"))
             }
@@ -217,7 +210,7 @@ class ColorCode : AppCompatActivity() {
 
         controlbarforgreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                greenValue.text = p1.toString()
+                RGBValue_GreenColor.text = p1.toString()
                 val valueGreen = Functions().convertToHex(p1).toString()
                 cViewModel.setRGBColor(Color.parseColor("#${cViewModel.getRed()}$valueGreen${cViewModel.getBlue()}"))
             }
@@ -231,7 +224,7 @@ class ColorCode : AppCompatActivity() {
 
         controlbarforblue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                blueValue.text = p1.toString()
+                RGBValue_BlueColor.text = p1.toString()
                 val valueBlue = Functions().convertToHex(p1).toString()
                 cViewModel.setRGBColor(Color.parseColor("#${cViewModel.getRed()}${cViewModel.getGreen()}$valueBlue"))
             }
@@ -253,15 +246,15 @@ class ColorCode : AppCompatActivity() {
         controlbarforgreen.progress = g
         controlbarforblue.progress = b
 
-        hexfield_red.setText(Functions().convertToHex(r))
-        hexfield_green.setText(Functions().convertToHex(g))
-        hexfield_blue.setText(Functions().convertToHex(b))
+        HEX_redValue.setText(Functions().convertToHex(r))
+        HEX_greenValue.setText(Functions().convertToHex(g))
+        HEX_blueValue.setText(Functions().convertToHex(b))
 
         val colorHSL = ColorDesign().getHSLColorFromRGB(rgbColor)
 
-        hslfield_hue.setText(((colorHSL[0] * 360).toInt()).toString())
-        hslfield_saturation.setText(((colorHSL[1] * 100).toInt()).toString())
-        hslfield_lightness.setText(((colorHSL[2] * 100).toInt()).toString())
+        HSL_hueValue.setText(((colorHSL[0] * 360).toInt()).toString())
+        HSL_saturacionValue.setText(((colorHSL[1] * 100).toInt()).toString())
+        HSL_luminosidadValue.setText(((colorHSL[2] * 100).toInt()).toString())
     }
 
     private fun updateColor() {
