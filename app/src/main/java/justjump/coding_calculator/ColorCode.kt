@@ -255,6 +255,15 @@ class ColorCode : AppCompatActivity(){
         })
         //------------------------------------------------------------------------------------------
 
+
+
+        // Dialog to show the controls to change the code color
+        //------------------------------------------------------------------------------------------
+        complementaryInfo.setOnClickListener(View.OnClickListener {
+            val newFragment = InfoSystemDialog()
+            newFragment.show(supportFragmentManager, "infoColor")
+        })
+
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
         HEX_redValue.setOnClickListener {

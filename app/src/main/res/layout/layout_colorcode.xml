@@ -408,6 +408,20 @@
 
     </TextView>
 
+    <ImageButton
+        android:id="@+id/complementaryInfo"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/complementary_color"
+        app:layout_constraintRight_toRightOf="@id/complementary_color"
+        app:layout_constraintBottom_toBottomOf="@id/complementary_color"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp">
+
+    </ImageButton>
+
     <TextView
         android:id="@+id/complementary_color"
         android:layout_width="0dp"
@@ -458,6 +472,20 @@
         android:layout_marginBottom="10dp">
 
     </TextView>
+
+    <ImageButton
+        android:id="@+id/splitComplementaryInfo"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/split_complementary_colors"
+        app:layout_constraintRight_toRightOf="@id/split_complementary_colors"
+        app:layout_constraintBottom_toBottomOf="@id/split_complementary_colors"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp">
+
+    </ImageButton>
 
     <TextView
         android:id="@+id/split_complementary_colors"
@@ -558,6 +586,20 @@
 
     </TextView>
 
+    <ImageButton
+        android:id="@+id/analogousInfo"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/Anlogous_Colors"
+        app:layout_constraintRight_toRightOf="@id/Anlogous_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Anlogous_Colors"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp">
+
+    </ImageButton>
+
     <TextView
         android:id="@+id/Anlogous_Colors"
         android:layout_width="0dp"
@@ -608,6 +650,20 @@
         android:layout_marginBottom="10dp">
 
     </TextView>
+
+    <ImageButton
+        android:id="@+id/triadicInfo"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/Triadic_Colors"
+        app:layout_constraintRight_toRightOf="@id/Triadic_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Triadic_Colors"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp">
+
+    </ImageButton>
 
     <TextView
         android:id="@+id/Triadic_Colors"
@@ -675,6 +731,20 @@
         android:layout_marginBottom="10dp">
 
     </TextView>
+
+    <ImageButton
+        android:id="@+id/tetradicInfo"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/Tetradic_Colors"
+        app:layout_constraintRight_toRightOf="@id/Tetradic_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Tetradic_Colors"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp">
+
+    </ImageButton>
 
     <TextView
         android:id="@+id/Tetradic_Colors"
