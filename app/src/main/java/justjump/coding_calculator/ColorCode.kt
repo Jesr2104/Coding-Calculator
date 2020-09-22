@@ -1,6 +1,7 @@
 package justjump.coding_calculator
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -30,6 +31,7 @@ class ColorCode : AppCompatActivity(){
         setContentView(R.layout.layout_colorcode)
 
         cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         /***************************************************************************/
         // observer
@@ -255,37 +257,6 @@ class ColorCode : AppCompatActivity(){
 
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
-//        HSL_hueValue.setOnClickListener {
-//
-//            val newFragment = InfoChangeValueColorDialog(
-//                HSL_hueValue.text.toString(),
-//                "HUE",
-//                cViewModel.colorRGB
-//            )
-//            newFragment.show(supportFragmentManager, "changeColorValue")
-//
-//        }
-//
-//        HSL_saturacionValue.setOnClickListener {
-//
-//            val newFragment = InfoChangeValueColorDialog(
-//                HSL_saturacionValue.text.toString(),
-//                "SAT",
-//                cViewModel.colorRGB
-//            )
-//            newFragment.show(supportFragmentManager, "changeColorValue")
-//        }
-//
-//        HSL_luminosidadValue.setOnClickListener {
-//
-//            val newFragment = InfoChangeValueColorDialog(
-//                HSL_luminosidadValue.text.toString(),
-//                "LUM",
-//                cViewModel.colorRGB
-//            )
-//            newFragment.show(supportFragmentManager, "changeColorValue")
-//        }
-
         HEX_redValue.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(

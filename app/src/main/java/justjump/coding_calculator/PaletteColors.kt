@@ -7,12 +7,12 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import justjump.coding_calculator.data.local.ListColorsRange
 import kotlinx.android.synthetic.main.element_palette_color.view.*
-import kotlinx.android.synthetic.main.new_activity_palette_colors.*
+import kotlinx.android.synthetic.main.activity_palette_colors.*
 
 class PaletteColors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.new_activity_palette_colors)
+        setContentView(R.layout.activity_palette_colors)
 
         // call to the function to load the list colors
         loadListColors(ListColorsRange().getListColors())

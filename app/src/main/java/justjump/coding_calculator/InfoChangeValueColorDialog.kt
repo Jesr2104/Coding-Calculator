@@ -1,14 +1,15 @@
 package justjump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.Toast
+import android.os.Handler
+import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.lifecycle.MutableLiveData
-import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
 import kotlinx.android.synthetic.main.change_value_color.view.*
 
@@ -18,7 +19,9 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
     private var rangeB: Int = 0
     private var newValue: Int = 0
     private var hexValue: Int = 0
+    var mainHandler: Handler? = null
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
 
@@ -30,16 +33,6 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
             viewDialog.editTextReal.setText(Value)
 
             when(TypeColor){
-                "HUE" -> {
-                    rangeA = 0
-                    rangeB = 359
-                    viewDialog.editText.helperText = "Range [0 - 359]"
-                }
-                "SAT", "LUM" -> {
-                    rangeA = 0
-                    rangeB = 100
-                    viewDialog.editText.helperText = "Range [0 - 100]"
-                }
                 "HEXR","HEXG","HEXB" ->{
                     rangeA = 0
                     rangeB = 255
@@ -49,6 +42,53 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                     rangeA = 0
                     rangeB = 255
                     viewDialog.editText.helperText = "Range [0 - 255]"
+                }
+            }
+
+            // action to do when you keeping press the button
+            val actionToIncrease = object : Runnable {
+                override fun run() {
+                    if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB"){
+                        newValue = viewDialog.editTextReal.text.toString().toInt()
+                        if (newValue > rangeA){
+                            newValue -= 1
+                        }
+
+                        viewDialog.editTextReal.setText(newValue.toString())
+
+                    } else{
+                        hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                        if ( hexValue > rangeA){
+                            hexValue -= 1
+                        }
+
+                        viewDialog.editTextReal.setText(Functions().convertToHex(hexValue).toString())
+                    }
+                    mainHandler?.postDelayed(this, 70)
+                }
+            }
+
+            // action to do when you keeping press the button
+            val actionToDecrease = object : Runnable {
+                override fun run() {
+                    if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB"){
+                        newValue = viewDialog.editTextReal.text.toString().toInt()
+
+                        if (newValue < rangeB){
+                            newValue += 1
+                        }
+
+                        viewDialog.editTextReal.setText(newValue.toString())
+
+                    } else{
+                        hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                        if ( hexValue < rangeB){
+                            hexValue += 1
+                        }
+
+                        viewDialog.editTextReal.setText(Functions().convertToHex(hexValue).toString())
+                    }
+                    mainHandler?.postDelayed(this, 70)
                 }
             }
 
@@ -73,7 +113,28 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                 }
             }
 
-            // event to control the button to decrease the value
+            // event to control the increase the value fast
+            viewDialog.decrease.setOnTouchListener { view, motionEvent ->
+                when (motionEvent.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        if (mainHandler != null)
+                            true
+                        mainHandler = Handler()
+                        mainHandler?.postDelayed(actionToIncrease, 200)
+                        false
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        if (mainHandler == null)
+                            true
+                        mainHandler?.removeCallbacks(actionToIncrease)
+                        mainHandler = null
+                        false
+                    }
+                    else -> false
+                }
+            }
+
+            // event to control the increase the value one by one
             viewDialog.increase.setOnClickListener {
 
                 if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB"){
@@ -95,6 +156,27 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                 }
             }
 
+            // event to control the increase the value fast
+            viewDialog.increase.setOnTouchListener { view, motionEvent ->
+                when (motionEvent.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        if (mainHandler != null)
+                            true
+                        mainHandler = Handler()
+                        mainHandler?.postDelayed(actionToDecrease, 200)
+                        false
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        if (mainHandler == null)
+                            true
+                        mainHandler?.removeCallbacks(actionToDecrease)
+                        mainHandler = null
+                        false
+                    }
+                    else -> false
+                }
+            }
+
             builder.setView(viewDialog)
 
                 // Add action buttons
@@ -107,27 +189,6 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                     DialogInterface.OnClickListener { dialog, id ->
 
                         when (TypeColor){
-                            "HUE" ->{
-                                val hslFromRGB = ColorDesign().getHSLColorFromRGB(colorRGB.value!!)
-                                val newHslColor = FloatArray(3)
-                                newHslColor[0] = viewDialog.editTextReal.text.toString().toFloat() / 360
-                                newHslColor[1] = hslFromRGB[1]
-                                newHslColor[2] = hslFromRGB[2]
-
-                                val rgbFromHSL = ColorDesign().getRGBColorFromHSL(newHslColor)
-
-                                val r = Color.red(rgbFromHSL)
-                                val g = Color.green(rgbFromHSL)
-                                val b = Color.blue(rgbFromHSL)
-
-                                colorRGB.value = Color.rgb(r,g,b)
-                            }
-                            "SAT" ->{
-
-                            }
-                            "LUM" ->{
-
-                            }
                             "HEXR" ->{
                                 val r = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
                                 val g = Color.green(colorRGB.value!!)
