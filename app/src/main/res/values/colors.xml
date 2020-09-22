@@ -9,4 +9,5 @@
     <color name="Front_ColorGrey">#424242</color>
     <color name="Front_ColorDarkGrey">#494949</color>
     <color name="icon_app_background">#FFDD00</color>
+    <color name="color_background">#494949</color>
 </resources>

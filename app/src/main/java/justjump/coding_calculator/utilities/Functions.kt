@@ -38,6 +38,18 @@ class Functions {
         return false
     }
 
+    fun validateHexNumber(hexNumber: String): Boolean
+    {
+        val p = Pattern.compile("[0-9a-fA-F]+")
+        val m = p.matcher(hexNumber)
+        val b = m.matches()
+
+        if (b) {
+            return true
+        }
+        return false
+    }
+
     /**********************************************************************/
     // Function to calculate the media of the number of the array
     /**********************************************************************/
@@ -139,6 +151,13 @@ class Functions {
             }
         }
         return binario.reversed()
+    }
+
+    /**********************************************************************/
+    // Function to convert integer to hexadecimal
+    /**********************************************************************/
+    fun convertHexToDecimal(dataNumber: String): Int {
+        return Integer.parseInt(dataNumber,16);
     }
 
     /**********************************************************************/

@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.utilities.ColorDesign
-import kotlinx.android.synthetic.main.activity_color_code.*
 
 class ColorCodeViewModel: ViewModel() {
 
