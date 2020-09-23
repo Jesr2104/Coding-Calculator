@@ -4,12 +4,10 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDialogFragment
 
-
 class InfoSystemDialog() : AppCompatDialogFragment() {
-
-    @Override
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         return activity?.let {
@@ -17,6 +15,12 @@ class InfoSystemDialog() : AppCompatDialogFragment() {
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
             val viewDialog = inflater.inflate(R.layout.info_system_color, null)
+
+
+            val webView = viewDialog.findViewById<WebView>(R.id.myWebView)
+            val webSettings = webView.settings
+            webSettings.javaScriptEnabled = true
+            webView.loadUrl("file:///android_asset/complementary.html")
 
 
             builder.setView(viewDialog)

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="justjump.coding_calculator">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,9 +13,8 @@
         android:roundIcon="@mipmap/icon_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GammaColors"></activity>
+        <activity android:name=".GammaColors" />
         <activity android:name=".PaletteColors" />
-        <activity android:name=".DecimalToHex" />
         <activity android:name=".ColorCode" />
         <activity android:name=".Calculator" />
         <activity android:name=".MainActivity">
@@ -22,5 +25,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
