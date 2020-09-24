@@ -408,10 +408,10 @@
 
     </TextView>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/complementaryInfo"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_info"
         android:scaleType="center"
         app:layout_constraintTop_toTopOf="@id/complementary_color"
@@ -420,7 +420,7 @@
         android:layout_marginRight="10dp"
         android:elevation="10dp">
 
-    </ImageButton>
+    </ImageView>
 
     <TextView
         android:id="@+id/complementary_color"
@@ -473,10 +473,10 @@
 
     </TextView>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/splitComplementaryInfo"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_info"
         android:scaleType="center"
         app:layout_constraintTop_toTopOf="@id/split_complementary_colors"
@@ -485,7 +485,7 @@
         android:layout_marginRight="10dp"
         android:elevation="10dp">
 
-    </ImageButton>
+    </ImageView>
 
     <TextView
         android:id="@+id/split_complementary_colors"
@@ -494,10 +494,10 @@
         android:background="@color/Front_ColorGrey"
         android:elevation="2dp"
         android:text="Split Complementary"
-        android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:paddingRight="10dp"
         android:gravity="center_vertical|center"
         app:layout_constraintTop_toTopOf="@id/SplitCC_Color1"
         app:layout_constraintBottom_toBottomOf="@id/SplitCC_Color2"
@@ -586,10 +586,10 @@
 
     </TextView>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/analogousInfo"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_info"
         android:scaleType="center"
         app:layout_constraintTop_toTopOf="@id/Anlogous_Colors"
@@ -598,7 +598,7 @@
         android:layout_marginRight="10dp"
         android:elevation="10dp">
 
-    </ImageButton>
+    </ImageView>
 
     <TextView
         android:id="@+id/Anlogous_Colors"
@@ -651,10 +651,10 @@
 
     </TextView>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/triadicInfo"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_info"
         android:scaleType="center"
         app:layout_constraintTop_toTopOf="@id/Triadic_Colors"
@@ -663,7 +663,7 @@
         android:layout_marginRight="10dp"
         android:elevation="10dp">
 
-    </ImageButton>
+    </ImageView>
 
     <TextView
         android:id="@+id/Triadic_Colors"
@@ -732,10 +732,10 @@
 
     </TextView>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/tetradicInfo"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_info"
         android:scaleType="center"
         app:layout_constraintTop_toTopOf="@id/Tetradic_Colors"
@@ -744,7 +744,7 @@
         android:layout_marginRight="10dp"
         android:elevation="10dp">
 
-    </ImageButton>
+    </ImageView>
 
     <TextView
         android:id="@+id/Tetradic_Colors"

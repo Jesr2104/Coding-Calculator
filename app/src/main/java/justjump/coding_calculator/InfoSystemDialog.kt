@@ -4,10 +4,10 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.webkit.WebView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDialogFragment
 
-class InfoSystemDialog() : AppCompatDialogFragment() {
+class InfoSystemDialog(var InfoColorfor: String) : AppCompatDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         return activity?.let {
@@ -15,13 +15,25 @@ class InfoSystemDialog() : AppCompatDialogFragment() {
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
             val viewDialog = inflater.inflate(R.layout.info_system_color, null)
+            val webView = viewDialog.findViewById<ImageView>(R.id.myWebView)
 
-
-            val webView = viewDialog.findViewById<WebView>(R.id.myWebView)
-            val webSettings = webView.settings
-            webSettings.javaScriptEnabled = true
-            webView.loadUrl("file:///android_asset/complementary.html")
-
+            when(InfoColorfor){
+                "IC" -> {
+                    webView.setImageResource(R.drawable.info_complementary_color)
+                }
+                "ISC" -> {
+                    webView.setImageResource(R.drawable.info_split_complementary_color)
+                }
+                "IA" -> {
+                    webView.setImageResource(R.drawable.info_analogous_color)
+                }
+                "ITR" -> {
+                    webView.setImageResource(R.drawable.info_triadic_color)
+                }
+                "ITE" -> {
+                    webView.setImageResource(R.drawable.info_tetradic_color)
+                }
+            }
 
             builder.setView(viewDialog)
 

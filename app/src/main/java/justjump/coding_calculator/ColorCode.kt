@@ -260,7 +260,27 @@ class ColorCode : AppCompatActivity(){
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
         complementaryInfo.setOnClickListener(View.OnClickListener {
-            val newFragment = InfoSystemDialog()
+            val newFragment = InfoSystemDialog("IC")
+            newFragment.show(supportFragmentManager, "infoColor")
+        })
+
+        splitComplementaryInfo.setOnClickListener(View.OnClickListener {
+            val newFragment = InfoSystemDialog("ISC")
+            newFragment.show(supportFragmentManager, "infoColor")
+        })
+
+        analogousInfo.setOnClickListener(View.OnClickListener {
+            val newFragment = InfoSystemDialog("IA")
+            newFragment.show(supportFragmentManager, "infoColor")
+        })
+
+        triadicInfo.setOnClickListener(View.OnClickListener {
+            val newFragment = InfoSystemDialog("ITR")
+            newFragment.show(supportFragmentManager, "infoColor")
+        })
+
+        tetradicInfo.setOnClickListener(View.OnClickListener {
+            val newFragment = InfoSystemDialog("ITE")
             newFragment.show(supportFragmentManager, "infoColor")
         })
 
