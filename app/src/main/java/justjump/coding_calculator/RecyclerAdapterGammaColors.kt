@@ -29,6 +29,7 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
         val item = items?.get(position)
         var checkNumber :Boolean = true
 
+        // code to paint the 3 first item on color white
         item?.get(0)!!.forEach { item ->
             if (!item.isDigit()){
                 checkNumber = false
@@ -91,14 +92,7 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
             codeColor = itemView.findViewById(R.id.codecolor)
             mainLayout = itemView.findViewById(R.id.mainlayout)
 
-            itemView.setOnClickListener(View.OnClickListener {
-//                val position: Int = adapterPosition
-//                Toast.makeText(
-//                    itemView.context,
-//                    "You clicked on item # ${position + 1}",
-//                    Toast.LENGTH_LONG
-//                ).show()
-            })
+            itemView.setOnClickListener {}
         }
     }
 }

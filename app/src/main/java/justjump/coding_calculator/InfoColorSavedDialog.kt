@@ -30,8 +30,8 @@ class InfoColorSavedDialog(view: Context, rgbColor: Int, private val cViewModel:
             val viewDialog = inflater.inflate(R.layout.dialog_info_color, null)
 
             // RGB color
-            viewDialog.rgb_red_part.text = r.toString() + " "
-            viewDialog.rgb_green_part.text = g.toString() + " "
+            viewDialog.rgb_red_part.text = "$r "
+            viewDialog.rgb_green_part.text = "$g "
             viewDialog.rgb_blue_part.text = b.toString()
 
             // change the color on the background to show the color

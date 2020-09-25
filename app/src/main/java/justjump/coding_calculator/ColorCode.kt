@@ -1,7 +1,7 @@
 package justjump.coding_calculator
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
+import android.content.pm.ActivityInfo.*
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -31,7 +31,7 @@ class ColorCode : AppCompatActivity(){
         setContentView(R.layout.layout_colorcode)
 
         cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
 
         /***************************************************************************/
         // observer
@@ -79,211 +79,214 @@ class ColorCode : AppCompatActivity(){
         cViewModel.colorRGB.observe(this@ColorCode, myObserverColor)
 
         // this event control when you press the color select
-        ColorPicker.setOnClickListener(View.OnClickListener {
+        ColorPicker.setOnClickListener {
             ColorPickerDialog.Builder(this)
                 .setTitle("ColorPicker Dialog")
                 .setPreferenceName("MyColorPickerDialog")
                 .setPositiveButton("confirm",
-                    ColorEnvelopeListener { envelope, fromUser ->
+                    ColorEnvelopeListener { envelope, _ ->
                         cViewModel.setRGBColor(envelope.color)
                     })
-                .setNegativeButton("Cancel") { dialogInterface, i ->
+                .setNegativeButton("Cancel") { dialogInterface, _ ->
                     dialogInterface.dismiss()
                 }
                 .attachAlphaSlideBar(false) // the default value is true.
                 .attachBrightnessSlideBar(true) // the default value is true.
                 .setBottomSpace(12) // set a bottom space between the last slidebar and buttons.
                 .show()
-        })
-
+        }
+        //------------------------------------------------------------------------------------------
         // Dialog with the color information
         //------------------------------------------------------------------------------------------
-        mainColor.setOnClickListener(View.OnClickListener {
+        mainColor.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 cViewModel.getRGBColor(),
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Color1_Complementary.setOnClickListener(View.OnClickListener {
+        Color1_Complementary.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 complementaryColorStore,
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        SplitCC_Color1.setOnClickListener(View.OnClickListener {
+        SplitCC_Color1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 splitComplementaryColorStore[0],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        SplitCC_Color2.setOnClickListener(View.OnClickListener {
+        SplitCC_Color2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 splitComplementaryColorStore[1],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Analogous_Color1.setOnClickListener(View.OnClickListener {
+        Analogous_Color1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[0],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Analogous_Color2.setOnClickListener(View.OnClickListener {
+        Analogous_Color2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[1],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Analogous_Color3.setOnClickListener(View.OnClickListener {
+        Analogous_Color3.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[2],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Analogous_Color4.setOnClickListener(View.OnClickListener {
+        Analogous_Color4.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[3],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Analogous_Color5.setOnClickListener(View.OnClickListener {
+        Analogous_Color5.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[4],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Triadic_Color1.setOnClickListener(View.OnClickListener {
+        Triadic_Color1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 triadicColorStore[0],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Triadic_Color2.setOnClickListener(View.OnClickListener {
+        Triadic_Color2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 triadicColorStore[1],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Tetradic_Color1.setOnClickListener(View.OnClickListener {
+        Tetradic_Color1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 tetradicColorStore[0],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Tetradic_Color2.setOnClickListener(View.OnClickListener {
+        Tetradic_Color2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 tetradicColorStore[1],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        Tetradic_Color3.setOnClickListener(View.OnClickListener {
+        Tetradic_Color3.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 tetradicColorStore[2],
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
         //------------------------------------------------------------------------------------------
-
         // Dialog with the saved color information
         //------------------------------------------------------------------------------------------
-        buttonColor1.setOnClickListener(View.OnClickListener {
+        buttonColor1.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
                 this.applicationContext,
                 SRDataColors.getItem(0),
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        buttonColor2.setOnClickListener(View.OnClickListener {
+        buttonColor2.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
                 this.applicationContext,
                 SRDataColors.getItem(1),
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        buttonColor3.setOnClickListener(View.OnClickListener {
+        buttonColor3.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
                 this.applicationContext,
                 SRDataColors.getItem(2),
                 cViewModel
             )
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
         //------------------------------------------------------------------------------------------
-
-
-
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
-        complementaryInfo.setOnClickListener(View.OnClickListener {
+        complementaryInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("IC")
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        splitComplementaryInfo.setOnClickListener(View.OnClickListener {
+        splitComplementaryInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("ISC")
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        analogousInfo.setOnClickListener(View.OnClickListener {
+        analogousInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("IA")
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        triadicInfo.setOnClickListener(View.OnClickListener {
+        triadicInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("ITR")
             newFragment.show(supportFragmentManager, "infoColor")
-        })
+        }
 
-        tetradicInfo.setOnClickListener(View.OnClickListener {
+        tetradicInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("ITE")
             newFragment.show(supportFragmentManager, "infoColor")
-        })
-
+        }
+        //------------------------------------------------------------------------------------------
+        // Dialog to show the controls to change the code color
+        //------------------------------------------------------------------------------------------
+        moreColors.setOnClickListener {
+            val newFragment = ListSavedColorsDialog(this,cViewModel.colorRGB)
+            newFragment.show(supportFragmentManager, "infoColor")
+        }
+        //------------------------------------------------------------------------------------------
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
         HEX_redValue.setOnClickListener {
@@ -343,17 +346,17 @@ class ColorCode : AppCompatActivity(){
             )
             newFragment.show(supportFragmentManager, "changeColorValue")
         }
-
         //------------------------------------------------------------------------------------------
-
         // event to control the new palette colors list
-        BPaletteColors.setOnClickListener(View.OnClickListener {
+        //------------------------------------------------------------------------------------------
+        BPaletteColors.setOnClickListener {
             val paletteColors = Intent(this, PaletteColors::class.java)
             paletteColors.putExtra("TAG", 1)
             startActivity(paletteColors)
-        })
-
+        }
+        //------------------------------------------------------------------------------------------
         // Event of the seekBar of the RGB controls
+        //------------------------------------------------------------------------------------------
         controlbarforred.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_RedColor.text = p1.toString()

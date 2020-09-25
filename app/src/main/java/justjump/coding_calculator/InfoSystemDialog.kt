@@ -7,31 +7,32 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDialogFragment
 
-class InfoSystemDialog(var InfoColorfor: String) : AppCompatDialogFragment() {
+class InfoSystemDialog(var InfoColorFor: String) : AppCompatDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         return activity?.let {
             val builder = AlertDialog.Builder(it)
+
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
             val viewDialog = inflater.inflate(R.layout.info_system_color, null)
-            val webView = viewDialog.findViewById<ImageView>(R.id.myWebView)
+            val imageInformation = viewDialog.findViewById<ImageView>(R.id.myinfo_image)
 
-            when(InfoColorfor){
+            when(InfoColorFor){
                 "IC" -> {
-                    webView.setImageResource(R.drawable.info_complementary_color)
+                    imageInformation.setImageResource(R.drawable.info_complementary_color)
                 }
                 "ISC" -> {
-                    webView.setImageResource(R.drawable.info_split_complementary_color)
+                    imageInformation.setImageResource(R.drawable.info_split_complementary_color)
                 }
                 "IA" -> {
-                    webView.setImageResource(R.drawable.info_analogous_color)
+                    imageInformation.setImageResource(R.drawable.info_analogous_color)
                 }
                 "ITR" -> {
-                    webView.setImageResource(R.drawable.info_triadic_color)
+                    imageInformation.setImageResource(R.drawable.info_triadic_color)
                 }
                 "ITE" -> {
-                    webView.setImageResource(R.drawable.info_tetradic_color)
+                    imageInformation.setImageResource(R.drawable.info_tetradic_color)
                 }
             }
 
@@ -40,7 +41,6 @@ class InfoSystemDialog(var InfoColorfor: String) : AppCompatDialogFragment() {
                 // Add action buttons
                 .setNeutralButton("Ok",
                     DialogInterface.OnClickListener { dialog, id ->
-                        // sign in the user ...
                         dialog.dismiss()
                     })
 
