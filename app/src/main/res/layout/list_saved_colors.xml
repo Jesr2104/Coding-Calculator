@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.02"
         android:layout_marginTop="20dp"
-        android:text="Saved Colors"
+        android:text="@string/saved_colors"
         android:textSize="30dp"
         android:textStyle="bold"
         android:gravity="center|center_vertical"

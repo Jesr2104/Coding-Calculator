@@ -78,10 +78,13 @@ class ColorCode : AppCompatActivity(){
         // this observer works when the expression change
         cViewModel.colorRGB.observe(this@ColorCode, myObserverColor)
 
+        //------------------------------------------------------------------------------------------
         // this event control when you press the color select
+        //------------------------------------------------------------------------------------------
         ColorPicker.setOnClickListener {
+
             ColorPickerDialog.Builder(this)
-                .setTitle("ColorPicker Dialog")
+                .setTitle("Color Picker")
                 .setPreferenceName("MyColorPickerDialog")
                 .setPositiveButton("confirm",
                     ColorEnvelopeListener { envelope, _ ->

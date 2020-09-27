@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_app"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/CodingCalculatorTheme">
         <activity android:name=".GammaColors" />
         <activity android:name=".PaletteColors" />
         <activity android:name=".ColorCode" />

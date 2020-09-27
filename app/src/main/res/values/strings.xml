@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Coding Calculator</string>
+    <string name="complementary">Complementary</string>
+    <string name="split_complementary">Split Complementary</string>
+    <string name="analogous">Analogous</string>
+    <string name="triadic">Triadic</string>
+    <string name="tetradic">Tetradic</string>
+    <string name="saved">Saved</string>
+    <string name="change_color">Change Color</string>
+    <string name="saved_colors">Saved Colors</string>
+    <string name="color_information">Color Information</string>
+    <string name="color_palette">COLOR PALETTE</string>
+    <string name="color_range">COLOR RANGE</string>
 </resources>

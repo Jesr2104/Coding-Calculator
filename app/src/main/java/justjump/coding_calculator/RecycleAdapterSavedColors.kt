@@ -34,7 +34,7 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB:
         val item = listDataColors[position]
 
         val hexColor = "#" + Integer.toHexString(item).substring(2)
-        holder.hexColor?.text = hexColor.toUpperCase()
+        holder.hexColor?.text = "HEX "+hexColor.toUpperCase()
         holder.rgbColor?.text = "RGB(${Color.red(item)},${Color.green(item)},${Color.blue(item)})"
         holder.mainLayout?.setBackgroundColor(item)
 
@@ -57,7 +57,7 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB:
             itemView.setOnClickListener {
                 val position: Int = adapterPosition
 
-                val builderDialog: AlertDialog.Builder = AlertDialog.Builder(itemView.context)
+                val builderDialog: AlertDialog.Builder = AlertDialog.Builder(itemView.context,)
                 builderDialog.setMessage("What do you want to do?")
                 builderDialog.setCancelable(true)
 

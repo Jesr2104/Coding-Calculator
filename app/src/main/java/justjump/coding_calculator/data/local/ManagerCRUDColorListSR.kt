@@ -39,12 +39,17 @@ object SRDataColors {
 
     // this function insert a new element on the list Colors
     fun setList(newData: Int): Boolean {
-        val dataSaveList: ArrayList<kotlin.Int> = getlist()
+        val dataSaveList: ArrayList<Int> = getlist()
+        val dataTemp: ArrayList<Int> = ArrayList()
 
-        if (dataSaveList.size < 12) {
-            dataSaveList.add(newData)
+        if (dataSaveList.size < 35) {
+            dataTemp.add(newData)
 
-            val json = gsonInstance.toJson(dataSaveList)
+            dataSaveList.forEach { item ->
+                dataTemp.add(item)
+            }
+
+            val json = gsonInstance.toJson(dataTemp)
             datasharepreferente?.editMe {
                 it.putString("ListColors", json)
             }

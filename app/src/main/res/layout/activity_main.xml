@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="The Three rule"
+                    android:text="Rule of Three "
                     android:textSize="15sp"
                     android:fontFamily="cursive"
                     android:textStyle="bold"

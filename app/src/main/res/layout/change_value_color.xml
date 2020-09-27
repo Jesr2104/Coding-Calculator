@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:text="Change Color"
+        android:text="@string/change_color"
         android:textColor="#FFF"
         android:background="#414141"
         android:gravity="center|center_vertical"
