@@ -4,8 +4,8 @@
     <color name="Front_ColorGrey">#424242</color>
     <color name="Front_ColorDarkGrey">#494949</color>
     <color name="color_background">#494949</color>
-    <color name="icon_app_background">#FFDD00</color>
     <color name="ColorRGB_R">#FF3D3E</color>
     <color name="ColorRGB_G">#12FF13</color>
     <color name="ColorRGB_B">#00BDFF</color>
+    <color name="yellow_mainColor">#FFDD00</color>
 </resources>

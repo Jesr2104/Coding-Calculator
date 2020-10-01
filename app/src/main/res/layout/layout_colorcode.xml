@@ -17,7 +17,7 @@
 
     </androidx.constraintlayout.widget.Guideline>
 
-    <!--  HSL Value color  -->
+       <!--  HSL Value color  -->
     <TextView
         android:id="@+id/TextHSL"
         android:layout_width="wrap_content"

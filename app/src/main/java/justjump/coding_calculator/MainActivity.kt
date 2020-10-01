@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,10 +17,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(calculator)
         }
 
-        colorCode.setOnClickListener() {
+        harmonicColors.setOnClickListener() {
             val colorCode = Intent(this, ColorCode::class.java)
             colorCode.putExtra("TAG", 1)
             startActivity(colorCode)
+        }
+
+        numericalSystem.setOnClickListener() {
+            val numericalSystems = Intent(this, NumericalSystems::class.java)
+            numericalSystems.putExtra("TAG", 2)
+            startActivity(numericalSystems)
         }
     }
 }
