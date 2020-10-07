@@ -1,11 +1,10 @@
 package justjump.coding_calculator
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.view.SurfaceControl
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_extra_calculations.*
 
 class ExtraCalculations : AppCompatActivity() {
@@ -13,12 +12,34 @@ class ExtraCalculations : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extra_calculations)
 
-        val fragmentAverage: Fragment_Average = Fragment_Average()
+        val fragmentAverage = Fragment_Average()
+        val fragmentPercentage = Fragment_Percentage()
+        val fragmentRuleOfThree = Fragment_RuleOfThree()
+
+        val colors = intArrayOf(
+            Color.rgb(190,190,190),
+            Color.rgb(255,221,0)
+        )
+
+        val states = arrayOf(
+            intArrayOf(android.R.attr.state_enabled, -android.R.attr.state_checked),
+            intArrayOf(android.R.attr.state_enabled, android.R.attr.state_checked)
+        )
+
+        navigationBar_view.itemTextColor = ColorStateList(states, colors)
+        navigationBar_view.itemIconTintList = null
 
         makeCurrentFragment(fragmentAverage)
 
-        // Falta establecer el cambio de fragment cuando se preciona el resto de botones
-        //https://www.youtube.com/watch?v=fODp1hZxfng&t=285s
+
+        navigationBar_view.setOnNavigationItemSelectedListener {
+            when (it.itemId){
+                R.id.NavBar_average -> makeCurrentFragment(fragmentAverage)
+                R.id.NavBar_Percentage -> makeCurrentFragment(fragmentPercentage)
+                R.id.NavBar_ruleOfTree -> makeCurrentFragment(fragmentRuleOfThree)
+            }
+            true
+        }
     }
 
     fun makeCurrentFragment(fragment: Fragment) {
@@ -26,6 +47,5 @@ class ExtraCalculations : AppCompatActivity() {
             replace(R.id.fragmentLayout, fragment)
             commit()
         }
-
     }
 }

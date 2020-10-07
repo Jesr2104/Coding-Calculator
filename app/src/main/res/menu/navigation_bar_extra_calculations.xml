@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/NavBar_average"
+        android:title="Average"
+        android:icon="@drawable/navb_average"/>
+
+    <item
+        android:id="@+id/NavBar_Percentage"
+        android:title="Percentage"
+        android:icon="@drawable/navb_percentage"/>
+
+    <item
+        android:id="@+id/NavBar_ruleOfTree"
+        android:title="Rule of three"
+        android:icon="@drawable/navb_ruleofthree"/>
+
+</menu>
