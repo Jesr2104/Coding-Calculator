@@ -1,10 +1,12 @@
 package justjump.coding_calculator
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_colorcode.*
+import kotlinx.android.synthetic.main.fragment__rule_of_three.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +35,16 @@ class Fragment_RuleOfThree : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        var view = inflater.inflate(R.layout.fragment__rule_of_three, container, false)
+
+        view.ruleOfThreeInfo.setOnClickListener{
+            val newFragment = InfoRuleOfThreeDialog()
+            newFragment.show(requireActivity().getSupportFragmentManager(), "changeColorValue")
+        }
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__rule_of_three, container, false)
+        return view
     }
 
     companion object {
