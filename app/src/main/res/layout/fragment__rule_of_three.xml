@@ -98,7 +98,7 @@
                     android:paddingTop="5dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
-                    android:text="0"
+                    android:text=""
                     android:textColor="#646464"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -151,7 +151,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView"
                 app:layout_constraintHorizontal_weight="7"
                 app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fieldNumber"
@@ -163,7 +169,7 @@
                     android:paddingBottom="15dp"
                     android:textColor="@color/Front_ColorDarkGrey"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,7 +199,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView1"
                 app:layout_constraintHorizontal_weight="7"
                 app:layout_constraintStart_toStartOf="@+id/textView1"
-                app:layout_constraintTop_toBottomOf="@+id/textView1">
+                app:layout_constraintTop_toBottomOf="@+id/textView1"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/TextValueB"
@@ -237,7 +249,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView2"
                 app:layout_constraintHorizontal_weight="7"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/TextValueC"
@@ -263,6 +281,7 @@
                 android:textSize="50dp"
                 android:textStyle="bold|italic"
                 android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="5"

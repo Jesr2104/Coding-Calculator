@@ -78,7 +78,13 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fieldNumber"
@@ -106,7 +112,13 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fieldNumbe"
@@ -175,7 +187,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintHorizontal_weight="5.5"
             android:textAlignment="viewEnd"
-            android:text="100"
+            android:text="..."
             android:textSize="20dp"
             android:textStyle="bold|italic"
             android:textColor="#BEBEBE"
@@ -210,7 +222,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintHorizontal_weight="5.5"
             android:textAlignment="viewEnd"
-            android:text="20%"
+            android:text="..."
             android:textSize="20dp"
             android:textStyle="bold|italic"
             android:textColor="#BEBEBE"
@@ -245,7 +257,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintHorizontal_weight="5.5"
             android:textAlignment="viewEnd"
-            android:text="20"
+            android:text="..."
             android:textSize="20dp"
             android:textStyle="bold|italic"
             android:textColor="#BEBEBE"
@@ -310,7 +322,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintHorizontal_weight="5.5"
             android:textAlignment="viewEnd"
-            android:text="120"
+            android:text="..."
             android:textSize="20dp"
             android:textStyle="bold|italic"
             android:textColor="#BEBEBE"
@@ -346,7 +358,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintHorizontal_weight="5.5"
             android:textAlignment="viewEnd"
-            android:text="80"
+            android:text="..."
             android:textSize="20dp"
             android:textStyle="bold|italic"
             android:textColor="#BEBEBE"
