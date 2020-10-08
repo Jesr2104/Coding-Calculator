@@ -15,7 +15,7 @@ import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.ColorCodeViewModel
-import kotlinx.android.synthetic.main.layout_colorcode.*
+import kotlinx.android.synthetic.main.activity_colorcode.*
 
 class ColorCode : AppCompatActivity(){
 
@@ -28,7 +28,7 @@ class ColorCode : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_colorcode)
+        setContentView(R.layout.activity_colorcode)
 
         cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
         requestedOrientation = SCREEN_ORIENTATION_PORTRAIT

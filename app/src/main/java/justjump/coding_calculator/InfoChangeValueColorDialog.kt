@@ -11,7 +11,7 @@ import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.lifecycle.MutableLiveData
 import justjump.coding_calculator.utilities.Functions
-import kotlinx.android.synthetic.main.change_value_color.view.*
+import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
 
 class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var colorRGB: MutableLiveData<Int>): AppCompatDialogFragment() {
 
@@ -27,7 +27,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
 
             val builder = AlertDialog.Builder(it)
             val inflater = requireActivity().layoutInflater
-            val viewDialog = inflater.inflate(R.layout.change_value_color, null)
+            val viewDialog = inflater.inflate(R.layout.dialog_change_value_color, null)
 
             // insert the value previous in the field to change
             viewDialog.editTextReal.setText(Value)

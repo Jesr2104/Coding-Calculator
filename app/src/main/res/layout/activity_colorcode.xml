@@ -436,8 +436,7 @@
         app:layout_constraintBottom_toBottomOf="@id/Color1_Complementary"
         app:layout_constraintTop_toTopOf="@id/Color1_Complementary"
         app:layout_constraintLeft_toLeftOf="@id/guideline35Percent"
-        app:layout_constraintRight_toRightOf="parent"
-        >
+        app:layout_constraintRight_toRightOf="parent">
 
     </TextView>
 

@@ -15,7 +15,7 @@ class InfoSystemDialog(var InfoColorFor: String) : AppCompatDialogFragment() {
 
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater;
-            val viewDialog = inflater.inflate(R.layout.info_system_color, null)
+            val viewDialog = inflater.inflate(R.layout.dialog_info_system_color, null)
             val imageInformation = viewDialog.findViewById<ImageView>(R.id.myinfo_image)
 
             when(InfoColorFor){
