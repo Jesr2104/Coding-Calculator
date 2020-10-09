@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/icon_app"
         android:supportsRtl="true"
         android:theme="@style/CodingCalculatorTheme">
-        <activity android:name=".ExtraCalculations"/>
+        <activity android:name="JustJump.coding_calculator.Converter"></activity>
+        <activity android:name=".ExtraCalculations" />
         <activity android:name=".NumericalSystems" />
         <activity android:name=".GammaColors" />
         <activity android:name=".PaletteColors" />
@@ -20,6 +21,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

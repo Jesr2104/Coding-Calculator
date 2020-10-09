@@ -39,9 +39,9 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:paddingLeft="15dp"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:paddingRight="15dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Title">
@@ -121,7 +121,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/background_dark_newfields"
-            android:padding="12dp"
+            android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutBlock2">
@@ -169,7 +169,8 @@
                     android:paddingBottom="15dp"
                     android:textColor="@color/Front_ColorDarkGrey"
                     android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -217,7 +218,8 @@
                     android:paddingBottom="15dp"
                     android:textColor="@color/Front_ColorDarkGrey"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -267,7 +269,8 @@
                     android:paddingBottom="15dp"
                     android:textColor="@color/Front_ColorDarkGrey"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -278,7 +281,7 @@
                 android:gravity="center"
                 android:text="X?"
                 android:textColor="@color/yellow_mainColor"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:textStyle="bold|italic"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="20dp"
@@ -302,7 +305,7 @@
             android:background="@drawable/separator_line"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutBlock3" />
