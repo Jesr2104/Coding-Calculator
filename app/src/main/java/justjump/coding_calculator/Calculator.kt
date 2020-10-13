@@ -16,7 +16,7 @@ import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import justjump.coding_calculator.data.local.SRDataExpression
 import justjump.coding_calculator.extensions.paintString
 import justjump.coding_calculator.viewmodel.CalculatorViewModel
-import kotlinx.android.synthetic.main.activity_calculator1.*
+import kotlinx.android.synthetic.main.activity_calculator.*
 
 /***************************************************************************/
 // Calculator functions
@@ -30,7 +30,7 @@ class Calculator : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calculator1)
+        setContentView(R.layout.activity_calculator)
 
         var state = false
         cViewModel = ViewModelProviders.of(this).get(CalculatorViewModel::class.java)
