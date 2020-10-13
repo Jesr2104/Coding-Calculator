@@ -1,6 +1,5 @@
 package justjump.coding_calculator
 
-import JustJump.coding_calculator.Converter
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,29 +11,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        calculator.setOnClickListener() {
+        card_calculator.setOnClickListener() {
             val calculator = Intent(this, Calculator::class.java)
             startActivity(calculator)
         }
 
-        harmonicColors.setOnClickListener() {
-            val colorCode = Intent(this, ColorCode::class.java)
-            startActivity(colorCode)
+        card_converter.setOnClickListener() {
+            val converter = Intent(this, Converter::class.java)
+            startActivity(converter)
         }
 
-        numericalSystem.setOnClickListener() {
+        card_numerical_systems.setOnClickListener() {
             val numericalSystems = Intent(this, NumericalSystems::class.java)
             startActivity(numericalSystems)
         }
 
-        extraCalculators.setOnClickListener() {
-            val extrasCalculators = Intent(this, ExtraCalculations::class.java)
-            startActivity(extrasCalculators)
+        card_harmonic_colors.setOnClickListener() {
+            val colorCode = Intent(this, ColorCode::class.java)
+            startActivity(colorCode)
         }
 
-        converter.setOnClickListener() {
-            val converter = Intent(this, Converter::class.java)
-            startActivity(converter)
+        card_extra_calculator.setOnClickListener() {
+            val extrasCalculators = Intent(this, ExtraCalculations::class.java)
+            startActivity(extrasCalculators)
         }
     }
 }

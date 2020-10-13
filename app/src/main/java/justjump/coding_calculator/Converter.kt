@@ -1,4 +1,4 @@
-package JustJump.coding_calculator
+package justjump.coding_calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
