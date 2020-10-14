@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="justjump.coding_calculator.NumericalSystems"
-    android:background="@color/Front_ColorDarkGrey">
+    android:background="@drawable/background_app">
 
     <TextView
         android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/Front_ColorGrey"
-        android:textColor="@color/yellow_mainColor"
+        android:textColor="@color/material_white"
         android:text="Numerical Systems"
         android:fontFamily="cursive"
         android:textStyle="bold"
@@ -34,12 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Title"
-        android:background="@drawable/background_dark_newfields"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:paddingRight="15dp"
         android:paddingLeft="15dp"
         android:elevation="20dp">
@@ -51,7 +50,7 @@
             android:text="Number:"
             android:textStyle="bold|italic"
             android:textColor="@color/yellow_mainColor"
-            android:textSize="20sp"
+            android:textSize="30sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -89,7 +88,7 @@
                 android:maxLines="1"
                 android:paddingTop="18dp"
                 android:paddingBottom="18dp"
-                android:text="2104"/>
+                android:text=""/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,7 +155,6 @@
         android:textColor="@color/yellow_mainColor"
         android:textStyle="bold|italic"
         android:textSize="30dp"
-        android:layout_marginTop="25dp"
         android:layout_marginRight="45dp"
         android:layout_marginLeft="45dp">
 
@@ -165,8 +163,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/background_dark_newfields"
-        android:padding="15dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,232 +171,165 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="50dp"
-        android:layout_marginTop="10dp"
         android:clickable="true"
         android:focusable="true"
         android:elevation="20dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutResultBinary"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/titleBinary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center|center_vertical"
+            android:text="Binary:"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/resultBinary">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/resultBinary"
+            android:layout_width="0dp"
             android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="right|center_vertical"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:background="@drawable/background_white_corner"
-            android:padding="1dp"
-            app:layout_constraintBottom_toTopOf="@id/layoutResultOctal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleBinary"
+            app:layout_constraintBottom_toTopOf="@id/titleOctal">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/titleOctal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center|center_vertical"
+            android:text="Octal:"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultBinary"
+            app:layout_constraintBottom_toTopOf="@id/resultOctal">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/resultOctal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/background_white_corner"
+            android:gravity="right|center_vertical"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/titleOctal"
+            app:layout_constraintBottom_toTopOf="@id/titleDecimal">
 
-            <TextView
-                android:id="@+id/titleBinary"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/background_grey_corner"
-                android:gravity="center|center_vertical"
-                android:padding="10dp"
-                android:text="Binary:"
-                android:textColor="#BEBEBE"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/resultBinary"
-                app:layout_constraintTop_toTopOf="parent">
+        </TextView>
 
-            </TextView>
+        <TextView
+            android:id="@+id/titleDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center|center_vertical"
+            android:text="Decimal:"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultOctal"
+            app:layout_constraintBottom_toTopOf="@id/resultDecimal">
 
-            <TextView
-                android:id="@+id/resultBinary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:autoSizeTextType="uniform"
-                android:gravity="right"
-                android:paddingTop="5dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="100000111000"
-                android:textColor="#646464"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="7"
-                app:layout_constraintLeft_toRightOf="@id/titleBinary"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        </TextView>
 
-            </TextView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutResultOctal"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/resultDecimal"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:autoSizeTextType="uniform"
             android:background="@drawable/background_white_corner"
-            android:padding="1dp"
-            app:layout_constraintBottom_toTopOf="@id/layoutResultDecimal"
+            android:gravity="right|center_vertical"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutResultBinary">
+            app:layout_constraintTop_toBottomOf="@+id/titleDecimal"
+            app:layout_constraintBottom_toTopOf="@id/titleHex">
 
-            <TextView
-                android:id="@+id/titleOctal"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/background_grey_corner"
-                android:gravity="center|center_vertical"
-                android:padding="10dp"
-                android:text="Octal:"
-                android:textColor="#BEBEBE"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/resultOctal"
-                app:layout_constraintTop_toTopOf="parent">
+        </TextView>
 
-            </TextView>
-
-            <TextView
-                android:id="@+id/resultOctal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:autoSizeTextType="uniform"
-                android:gravity="right"
-                android:paddingTop="5dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="4070"
-                android:textColor="#646464"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="7"
-                app:layout_constraintLeft_toRightOf="@id/titleOctal"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutResultDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_white_corner"
-            android:padding="1dp"
-            app:layout_constraintBottom_toTopOf="@id/layoutResultHex"
+        <TextView
+            android:id="@+id/titleHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center|center_vertical"
+            android:text="Hex:"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutResultOctal">
+            app:layout_constraintTop_toBottomOf="@+id/resultDecimal"
+            app:layout_constraintBottom_toTopOf="@id/resultHex">
 
-            <TextView
-                android:id="@+id/titleDecimal"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/background_grey_corner"
-                android:gravity="center|center_vertical"
-                android:padding="10dp"
-                android:text="Decimal:"
-                android:textColor="#BEBEBE"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/resultDecimal"
-                app:layout_constraintTop_toTopOf="parent">
+        </TextView>
 
-            </TextView>
-
-            <TextView
-                android:id="@+id/resultDecimal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:autoSizeTextType="uniform"
-                android:gravity="right"
-                android:paddingTop="5dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="2104"
-                android:textColor="#646464"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="7"
-                app:layout_constraintLeft_toRightOf="@id/titleDecimal"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutResultHex"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/resultHex"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:autoSizeTextType="uniform"
             android:background="@drawable/background_white_corner"
-            android:padding="1dp"
+            android:gravity="right|center_vertical"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutResultDecimal">
+            app:layout_constraintTop_toBottomOf="@+id/titleHex">
 
-            <TextView
-                android:id="@+id/titleHex"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/background_grey_corner"
-                android:gravity="center|center_vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="10dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:text="Hex:"
-                android:textColor="#BEBEBE"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/resultHex"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/resultHex"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:autoSizeTextType="uniform"
-                android:gravity="right"
-                android:paddingTop="5dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:text="838"
-                android:textColor="#646464"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_weight="7"
-                app:layout_constraintLeft_toRightOf="@id/titleHex"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

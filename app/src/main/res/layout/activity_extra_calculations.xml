@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="justjump.coding_calculator.ExtraCalculations"
-    android:background="@color/Front_ColorDarkGrey">
+    android:background="@drawable/background_app">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationBar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Front_ColorGrey"
-        app:itemTextColor="#BEBEBE"
+        android:background="@color/yellow_mainColor"
+        app:itemTextColor="#434143"
         app:menu="@menu/navigation_bar_extra_calculations"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -20,357 +20,364 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Percentage"
-            android:textColor="@color/yellow_mainColor"
+            android:textColor="@color/material_white"
             android:textSize="35dp"
             android:textStyle="bold"
             android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        </TextView>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/block_data"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="6"
-            android:text="Value"
-            android:textColor="@color/yellow_mainColor"
-            android:textSize="20dp"
-            app:layout_constraintRight_toLeftOf="@+id/textView"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Title"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"
-            android:textStyle="bold|italic">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="4"
-            android:text="Percentage %"
-            android:textColor="@color/yellow_mainColor"
-            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/Title"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/Title"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:gravity="center"
-            android:textStyle="bold|italic">
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@drawable/background_light_newfields"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:padding="10dp">
 
-        </TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fieldFor_Number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="7"
-            app:layout_constraintLeft_toLeftOf="@id/textView2"
-            app:layout_constraintTop_toBottomOf="@id/textView2"
-            app:layout_constraintRight_toRightOf="@id/textView2"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            app:endIconMode="clear_text"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fieldNumber"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Front_ColorDarkGrey"
-                android:textStyle="bold"
-                android:gravity="right|center_vertical"
-                android:textSize="15sp"
-                android:maxLines="1"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:inputType="numberDecimal"/>
+                app:layout_constraintHorizontal_weight="6"
+                android:text="Value"
+                android:textColor="@color/yellow_mainColor"
+                android:textSize="20dp"
+                app:layout_constraintRight_toLeftOf="@+id/textView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:textStyle="bold|italic">
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fieldFor_Numbe"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="7"
-            app:layout_constraintLeft_toLeftOf="@id/textView"
-            app:layout_constraintTop_toBottomOf="@id/textView"
-            app:layout_constraintRight_toRightOf="@id/textView"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            app:endIconMode="clear_text"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fieldNumbe"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Front_ColorDarkGrey"
-                android:textStyle="bold"
-                android:gravity="right|center_vertical"
-                android:textSize="15sp"
-                android:maxLines="1"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:layout_gravity="center"
-                android:inputType="numberDecimal"/>
+                app:layout_constraintHorizontal_weight="4"
+                android:text="Pcent %"
+                android:textColor="@color/yellow_mainColor"
+                android:textSize="20dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/textView2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:textStyle="bold|italic">
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fieldFor_Number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_weight="7"
+                app:layout_constraintLeft_toLeftOf="@id/textView2"
+                app:layout_constraintTop_toBottomOf="@id/textView2"
+                app:layout_constraintRight_toRightOf="@id/textView2"
+                android:layout_marginTop="5dp"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                app:endIconMode="clear_text"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fieldNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Front_ColorDarkGrey"
+                    android:textStyle="bold"
+                    android:gravity="right|center_vertical"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:inputType="numberDecimal"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fieldFor_Numbe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_weight="7"
+                app:layout_constraintLeft_toLeftOf="@id/textView"
+                app:layout_constraintTop_toBottomOf="@id/textView"
+                app:layout_constraintRight_toRightOf="@id/textView"
+                android:layout_marginTop="5dp"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                app:endIconMode="clear_text"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fieldNumbe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Front_ColorDarkGrey"
+                    android:textStyle="bold"
+                    android:gravity="right|center_vertical"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_gravity="center"
+                    android:inputType="numberDecimal"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calculatorButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#646464"
+            android:backgroundTint="@color/black_grey_calculator"
             android:text="Calculate"
-            android:textColor="#BEBEBE"
+            android:textColor="@color/yellow_mainColor"
             android:textSize="25dp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fieldFor_Number"
-            app:cornerRadius="25dp">
+            app:layout_constraintTop_toBottomOf="@+id/block_data"
+            app:cornerRadius="12dp">
 
         </com.google.android.material.button.MaterialButton>
 
-        <View
-            android:id="@+id/firstSeparator"
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/separator_line"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/calculatorButton"/>
-
-        <TextView
-            android:id="@+id/textValue"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="4.5"
-            android:text="Value"
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/firstSeparator"
-            app:layout_constraintLeft_toLeftOf="@id/firstSeparator"
-            app:layout_constraintRight_toLeftOf="@id/textResultValue">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculatorButton"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="25dp"
+            app:layout_constraintVertical_bias="0.0"
+            android:background="@drawable/background_light_newfields"
+            android:elevation="15dp">
 
-        </TextView>
+            <TextView
+                android:id="@+id/textValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Value"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_weight="4.5"
+                app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textResultValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="5.5"
-            android:textAlignment="viewEnd"
-            android:text="..."
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/firstSeparator"
-            app:layout_constraintRight_toRightOf="@id/firstSeparator"
-            app:layout_constraintLeft_toRightOf="@id/textValue">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/textResultValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="0"
+                android:textAlignment="viewEnd"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                app:layout_constraintHorizontal_weight="5.5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textValue"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textPercentage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="4.5"
-            android:text="Percentage"
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/textValue"
-            app:layout_constraintLeft_toLeftOf="@id/firstSeparator"
-            app:layout_constraintRight_toLeftOf="@id/textResultValue">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/textPercentage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Percentage"
+                android:textColor="#BEBEBE"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_weight="4.5"
+                app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                app:layout_constraintTop_toBottomOf="@id/textValue">
 
-        <TextView
-            android:id="@+id/textResultPercentage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="5.5"
-            android:textAlignment="viewEnd"
-            android:text="..."
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/textResultValue"
-            app:layout_constraintRight_toRightOf="@id/firstSeparator"
-            app:layout_constraintLeft_toRightOf="@id/textValue">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/textResultPercentage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="0%"
+                android:textAlignment="viewEnd"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                app:layout_constraintHorizontal_weight="5.5"
+                app:layout_constraintLeft_toRightOf="@id/textValue"
+                app:layout_constraintStart_toEndOf="@+id/textPercentage"
+                app:layout_constraintTop_toBottomOf="@id/textResultValue">
 
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="4.5"
-            android:text="Result"
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/textPercentage"
-            app:layout_constraintLeft_toLeftOf="@id/firstSeparator"
-            app:layout_constraintRight_toLeftOf="@id/textResultValue">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/textResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Result"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_weight="4.5"
+                app:layout_constraintRight_toLeftOf="@id/textResultValue"
+                app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                app:layout_constraintTop_toBottomOf="@id/textPercentage">
 
-        <TextView
-            android:id="@+id/textResultNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="5.5"
-            android:textAlignment="viewEnd"
-            android:text="..."
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/textResultPercentage"
-            app:layout_constraintRight_toRightOf="@id/firstSeparator"
-            app:layout_constraintLeft_toRightOf="@id/textValue">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/textResultNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="0"
+                android:textAlignment="viewEnd"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                app:layout_constraintHorizontal_weight="5.5"
+                app:layout_constraintLeft_toRightOf="@id/textValue"
+                app:layout_constraintStart_toEndOf="@+id/textResult"
+                app:layout_constraintTop_toBottomOf="@id/textResultPercentage">
 
-        <TextView
-            android:id="@+id/titleResult"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="6"
-            android:textAlignment="viewEnd"
-            android:text="Result"
-            android:textSize="15dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/textResult"
-            app:layout_constraintLeft_toLeftOf="@id/textResult">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/titleResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:text="Result"
+                android:textAlignment="viewEnd"
+                android:textColor="#BEBEBE"
+                android:textSize="15dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_weight="6"
+                app:layout_constraintLeft_toLeftOf="@id/textResult"
+                app:layout_constraintTop_toBottomOf="@id/textResult">
 
-
-        <View
-            android:id="@+id/secondSeparator"
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/separator_line"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleResult"/>
-
-        <TextView
-            android:id="@+id/textAddition"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="4.5"
-            android:text="Addition"
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="@color/yellow_mainColor"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/secondSeparator"
-            app:layout_constraintLeft_toLeftOf="@id/firstSeparator"
-            app:layout_constraintRight_toLeftOf="@id/textResultValue">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/additionResult"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="5.5"
-            android:textAlignment="viewEnd"
-            android:text="..."
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/secondSeparator"
-            app:layout_constraintRight_toRightOf="@id/firstSeparator"
-            app:layout_constraintLeft_toRightOf="@id/textValue">
-
-        </TextView>
+            </TextView>
 
 
-        <TextView
-            android:id="@+id/textSubtration"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="4.5"
-            android:text="Subtration"
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="@color/yellow_mainColor"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/textAddition"
-            app:layout_constraintLeft_toLeftOf="@id/firstSeparator"
-            app:layout_constraintRight_toLeftOf="@id/textResultValue">
+            <View
+                android:id="@+id/secondSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/separator_line_light"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleResult" />
 
-        </TextView>
+            <TextView
+                android:id="@+id/textAddition"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Addition"
+                android:textColor="@color/yellow_mainColor"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_weight="4.5"
+                app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                app:layout_constraintTop_toBottomOf="@id/secondSeparator">
 
-        <TextView
-            android:id="@+id/subtrationResult"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="5.5"
-            android:textAlignment="viewEnd"
-            android:text="..."
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:textColor="#BEBEBE"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/additionResult"
-            app:layout_constraintRight_toRightOf="@id/firstSeparator"
-            app:layout_constraintLeft_toRightOf="@id/textValue">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:id="@+id/additionResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="0"
+                android:textAlignment="viewEnd"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                app:layout_constraintHorizontal_weight="5.5"
+                app:layout_constraintLeft_toRightOf="@id/textValue"
+                app:layout_constraintStart_toEndOf="@+id/textAddition"
+                app:layout_constraintTop_toBottomOf="@id/secondSeparator">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/textSubtration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Subtration"
+                android:textColor="@color/yellow_mainColor"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintHorizontal_weight="4.5"
+                app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                app:layout_constraintTop_toBottomOf="@id/textAddition">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/subtrationResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="0"
+                android:textAlignment="viewEnd"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                app:layout_constraintLeft_toRightOf="@id/textValue"
+                app:layout_constraintStart_toEndOf="@+id/textSubtration"
+                app:layout_constraintTop_toBottomOf="@id/additionResult">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

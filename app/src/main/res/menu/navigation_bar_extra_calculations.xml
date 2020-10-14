@@ -4,16 +4,16 @@
     <item
         android:id="@+id/NavBar_average"
         android:title="Average"
-        android:icon="@drawable/navb_average"/>
+        android:icon="@drawable/ic_nav_average"/>
 
     <item
         android:id="@+id/NavBar_Percentage"
         android:title="Percentage"
-        android:icon="@drawable/navb_percentage"/>
+        android:icon="@drawable/ic_nav_percentage"/>
 
     <item
         android:id="@+id/NavBar_ruleOfTree"
         android:title="Rule of three"
-        android:icon="@drawable/navb_ruleofthree"/>
+        android:icon="@drawable/ic_nav_rule_of_three"/>
 
 </menu>
