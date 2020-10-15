@@ -2,6 +2,7 @@ package justjump.coding_calculator.utilities
 
 import com.github.zieiony.calc.Calc
 import java.util.regex.Pattern
+import kotlin.math.pow
 
 class Functions {
 
@@ -38,8 +39,10 @@ class Functions {
         return false
     }
 
-    fun validateHexNumber(hexNumber: String): Boolean
-    {
+    /**********************************************************************/
+    // Function to validate hexadecimal number
+    /**********************************************************************/
+    fun validateHexNumber(hexNumber: String): Boolean {
         val p = Pattern.compile("[0-9a-fA-F]+")
         val m = p.matcher(hexNumber)
         val b = m.matches()
@@ -72,6 +75,23 @@ class Functions {
     }
 
     /**********************************************************************/
+    // Function to discount calculator
+    /**********************************************************************/
+    fun discountCalculator(quantity: Double, discount: Double): Array<String> {
+        val n1: Double = quantity - ((discount / 100) * quantity)
+        val n2: Double = (discount / 100) * quantity
+
+        return arrayOf(n1.toString(), n2.toString())
+    }
+
+    /**********************************************************************/
+    // Function to calculate color in RGB to hex
+    /**********************************************************************/
+    fun colorGenerator(R: Int, G: Int, B: Int): String {
+        return "#" + convertToHex(R) + convertToHex(G) + convertToHex(B)
+    }
+
+    /**********************************************************************/
     // Function to convert integer to binary
     /**********************************************************************/
     fun convertToBinary(dataNumber: Int): String? {
@@ -88,6 +108,14 @@ class Functions {
         binary = "$binary $number"
 
         return binary.reversed()
+    }
+
+    /**********************************************************************/
+    // Function to convert integer to binary
+    /**********************************************************************/
+    fun convertToOctal(dataNumber: Int): String? {
+
+        return Integer.toOctalString(dataNumber)
     }
 
     /**********************************************************************/
@@ -157,80 +185,22 @@ class Functions {
     // Function to convert integer to hexadecimal
     /**********************************************************************/
     fun convertHexToDecimal(dataNumber: String): Int {
-        return Integer.parseInt(dataNumber,16);
+        return Integer.parseInt(dataNumber, 16);
     }
 
     /**********************************************************************/
-    // Function to discount calculator
+    // Function to convert octal to decimal
     /**********************************************************************/
-    fun discountCalculator(quantity: Double, discount: Double): Array<String> {
-        val n1: Double = quantity - ((discount / 100) * quantity)
-        val n2: Double = (discount / 100) * quantity
-
-        return arrayOf(n1.toString(), n2.toString())
+    fun convertOctalToDecimal(value: String): Int {
+        return Integer.parseInt(value, 8)
     }
 
     /**********************************************************************/
-    // Function to calculate color in RGB to hex
+    // Function to convert binary to decimal
     /**********************************************************************/
-    fun colorGenerator(R: Int, G: Int, B: Int): String {
-        return "#" + convertToHex(R) + convertToHex(G) + convertToHex(B)
+    fun convertBinaryToDecimal(value: String): Int {
+        return Integer.parseInt(value, 2)
     }
 
-    /**********************************************************************/
-    // Function to calculate color in hex to RGB
-    // function incomplete
-    // function incomplete
-    // function incomplete
-    // function incomplete
-    /**********************************************************************/
-    fun colorGenerator(colorHex: String): String {
-        /*var cont: Int = 1
-        var R = 0
-        var G = 0
-        var B = 0
-        var result: Int = 0
 
-
-        for (item in colorHex.toCharArray()) {
-            result = 0
-            if (cont == 2 || cont == 3) {
-                println("grupo 1 " + item)
-
-                when (item) {
-                    'A' -> {
-                        result = (10 * 16)
-                    }
-                    'B' -> {
-                        result = (11 * 16)
-                    }
-                    'C' -> {
-                        result = (12 * 16)
-                    }
-                    'D' -> {
-                        result = (13 * 16)
-                    }
-                    'E' -> {
-                        result = (14 * 16)
-                    }
-                    'F' -> {
-                        result = (15 * 16)
-                    }
-                    else -> {
-                        println("KKKKKKKKKKKKKKKKKKKK->    " + item)
-                        result = item.toInt() * 16
-                    }
-                }
-                println("grupo 1 " + result)
-            }
-            if (cont == 4 || cont == 5) {
-                println("grupo 2 " + item)
-            }
-            if (cont == 6 || cont == 7) {
-                println("grupo 3 " + item)
-            }
-            cont++
-        }*/
-        return "#ffffff"
-    }
 }
