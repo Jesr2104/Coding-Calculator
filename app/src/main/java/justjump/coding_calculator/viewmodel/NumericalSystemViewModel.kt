@@ -12,6 +12,10 @@ class NumericalSystemViewModel: ViewModel() {
     var resultOctal = MutableLiveData<String>()
     var resultHex = MutableLiveData<String>()
 
+    init {
+        dataNumber.value = ""
+    }
+
     fun getSystemNumber(typeSNumber: String) {
 
         when(typeSNumber) {
@@ -33,7 +37,7 @@ class NumericalSystemViewModel: ViewModel() {
                 if (dataNumber.value!!.isNotEmpty()) {
 
                     //here I'm gonna change the value of dataNumber to decimal
-                    var newDecimalNumber = Functions().convertOctalToDecimal(dataNumber.value!!)
+                    val newDecimalNumber = Functions().convertOctalToDecimal(dataNumber.value!!)
 
                     resultBinary.value = Functions().convertToBinary(newDecimalNumber)
                     resultDecimal.value = newDecimalNumber.toString()
@@ -49,7 +53,7 @@ class NumericalSystemViewModel: ViewModel() {
                 if (dataNumber.value!!.isNotEmpty()){
 
                     //here I'm gonna change the value of dataNumber to decimal
-                    var newDecimalNumber = Functions().convertBinaryToDecimal(dataNumber.value!!)
+                    val newDecimalNumber = Functions().convertBinaryToDecimal(dataNumber.value!!)
 
                     resultOctal.value = Functions().convertToOctal(newDecimalNumber)
                     resultDecimal.value = newDecimalNumber.toString()
@@ -67,7 +71,7 @@ class NumericalSystemViewModel: ViewModel() {
                 if (dataNumber.value!!.isNotEmpty()){
 
                     //here I'm gonna change the value of dataNumber to decimal
-                    var newDecimalNumber = Functions().convertHexToDecimal(dataNumber.value!!)
+                    val newDecimalNumber = Functions().convertHexToDecimal(dataNumber.value!!)
 
                     resultBinary.value = Functions().convertToBinary(newDecimalNumber)
                     resultOctal.value = Functions().convertToOctal(newDecimalNumber)
