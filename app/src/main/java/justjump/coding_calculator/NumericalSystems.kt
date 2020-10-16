@@ -8,6 +8,7 @@ import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.NumericalSystemViewModel
 import kotlinx.android.synthetic.main.activity_numerical_systems.*
 
@@ -112,16 +113,45 @@ class NumericalSystems : AppCompatActivity() {
 
         fieldNumber.addTextChangedListener(object : TextWatcher {
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun afterTextChanged(p0: Editable?) {
-                cViewModel.dataNumber.value = fieldNumber.text.toString()
+
+                // checkedId is the RadioButton selected
+                val intSelectButton: Int = radioGroup!!.checkedRadioButtonId
+                val radioButton = findViewById<RadioButton>(intSelectButton)
+
+                when (radioButton.text) {
+                    "Dec" -> {
+
+                    }
+                    "Oct" -> {
+
+                    }
+                    "Bin" -> {
+
+                    }
+                    "Hex" -> {
+
+                        val text: String = p0.toString()
+                        val length: Int = text.length
+
+                        //If the String length is bigger than zero and it's not composed only by the following characters: A to F and/or 0 to 9
+                        if (!Functions().validateHexNumber(text) && length > 0) {
+                            //Delete the last character if the last character is not validate to hexadecimal
+                            p0!!.delete(length - 1, length)
+                        }
+                        else
+                        {
+                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                        }
+
+                    }
+                }
+
+
             }
         })
     }
