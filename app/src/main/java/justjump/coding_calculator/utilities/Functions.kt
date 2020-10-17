@@ -2,7 +2,6 @@ package justjump.coding_calculator.utilities
 
 import com.github.zieiony.calc.Calc
 import java.util.regex.Pattern
-import kotlin.math.pow
 
 class Functions {
 
@@ -45,6 +44,20 @@ class Functions {
     fun validateHexNumber(hexNumber: String): Boolean {
         val p = Pattern.compile("[0-9a-fA-F]+")
         val m = p.matcher(hexNumber)
+        val b = m.matches()
+
+        if (b) {
+            return true
+        }
+        return false
+    }
+
+    /**********************************************************************/
+    // Function to validate binary number
+    /**********************************************************************/
+    fun validateBinaryNumber(binary: String): Boolean {
+        val p = Pattern.compile("\\b[01]+\\b")
+        val m = p.matcher(binary)
         val b = m.matches()
 
         if (b) {
