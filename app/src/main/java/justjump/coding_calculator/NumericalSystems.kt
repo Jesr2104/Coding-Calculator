@@ -125,10 +125,32 @@ class NumericalSystems : AppCompatActivity() {
 
                 when (radioButton.text) {
                     "Dec" -> {
+                        val text: String = p0.toString()
+                        val length: Int = text.length
 
+                        //If the String length is bigger than zero and it's not composed only by the following characters: 0 and 1
+                        if (!Functions().validateDecimalNumber(text) && length > 0) {
+                            //Delete the last character if the last character is not validate to binary
+                            p0!!.delete(length - 1, length)
+                        }
+                        else
+                        {
+                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                        }
                     }
                     "Oct" -> {
+                        val text: String = p0.toString()
+                        val length: Int = text.length
 
+                        //If the String length is bigger than zero and it's not composed only by the following characters: 0 and 1
+                        if (!Functions().validateOctalNumber(text) && length > 0) {
+                            //Delete the last character if the last character is not validate to binary
+                            p0!!.delete(length - 1, length)
+                        }
+                        else
+                        {
+                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                        }
                     }
                     "Bin" -> {
                         val text: String = p0.toString()

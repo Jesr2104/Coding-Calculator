@@ -56,8 +56,36 @@ class Functions {
     // Function to validate binary number
     /**********************************************************************/
     fun validateBinaryNumber(binary: String): Boolean {
-        val p = Pattern.compile("\\b[01]+\\b")
+        val p = Pattern.compile("[01]+")
         val m = p.matcher(binary)
+        val b = m.matches()
+
+        if (b) {
+            return true
+        }
+        return false
+    }
+
+    /**********************************************************************/
+    // Function to validate octal number
+    /**********************************************************************/
+    fun validateOctalNumber(octal: String): Boolean {
+        val p = Pattern.compile("[0-7]+")
+        val m = p.matcher(octal)
+        val b = m.matches()
+
+        if (b) {
+            return true
+        }
+        return false
+    }
+
+    /**********************************************************************/
+    // Function to validate decimal number
+    /**********************************************************************/
+    fun validateDecimalNumber(octal: String): Boolean {
+        val p = Pattern.compile("[0-9]+")
+        val m = p.matcher(octal)
         val b = m.matches()
 
         if (b) {
@@ -198,7 +226,7 @@ class Functions {
     // Function to convert integer to hexadecimal
     /**********************************************************************/
     fun convertHexToDecimal(dataNumber: String): Int {
-        return Integer.parseInt(dataNumber, 16);
+        return Integer.parseInt(dataNumber, 16)
     }
 
     /**********************************************************************/
@@ -214,6 +242,4 @@ class Functions {
     fun convertBinaryToDecimal(value: String): Int {
         return Integer.parseInt(value, 2)
     }
-
-
 }
