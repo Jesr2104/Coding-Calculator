@@ -94,7 +94,7 @@
                 app:boxStrokeWidthFocused="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fieldNumber"
+                    android:id="@+id/TextValueA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/Front_ColorDarkGrey"

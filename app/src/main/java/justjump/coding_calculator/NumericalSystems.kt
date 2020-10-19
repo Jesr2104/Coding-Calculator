@@ -71,15 +71,15 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    fieldNumber.filters = filterArray
+                    TextValueA.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()) {
-                        if (fieldNumber.text.toString().length >= 15) {
+                    if (TextValueA.text.toString().isNotEmpty()) {
+                        if (TextValueA.text.toString().length >= 15) {
                             fieldFor_Number.error = "The number is much larger than I allow"
-                            fieldNumber.setText("")
-                        } else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())) {
+                            TextValueA.setText("")
+                        } else if (!Functions().validateDecimalNumber(TextValueA.text.toString())) {
                             fieldFor_Number.error = "The Number is not correct in this system"
-                            fieldNumber.setText("")
+                            TextValueA.setText("")
                         }
                     }
 
@@ -99,12 +99,12 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    fieldNumber.filters = filterArray
+                    TextValueA.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()) {
-                        if (!Functions().validateBinaryNumber(fieldNumber.text.toString())) {
+                    if (TextValueA.text.toString().isNotEmpty()) {
+                        if (!Functions().validateBinaryNumber(TextValueA.text.toString())) {
                             fieldFor_Number.error = "Number is not correct in this system"
-                            fieldNumber.setText("")
+                            TextValueA.setText("")
                         }
                     }
 
@@ -124,15 +124,15 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    fieldNumber.filters = filterArray
+                    TextValueA.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()) {
-                        if (fieldNumber.text.toString().length >= 15) {
+                    if (TextValueA.text.toString().isNotEmpty()) {
+                        if (TextValueA.text.toString().length >= 15) {
                             fieldFor_Number.error = "The number is much larger than I allow"
-                            fieldNumber.setText("")
-                        } else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())) {
+                            TextValueA.setText("")
+                        } else if (!Functions().validateDecimalNumber(TextValueA.text.toString())) {
                             fieldFor_Number.error = "The Number is not correct in this system"
-                            fieldNumber.setText("")
+                            TextValueA.setText("")
                         }
                     }
 
@@ -152,15 +152,15 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    fieldNumber.filters = filterArray
+                    TextValueA.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()) {
-                        if (fieldNumber.text.toString().length >= 15) {
+                    if (TextValueA.text.toString().isNotEmpty()) {
+                        if (TextValueA.text.toString().length >= 15) {
                             fieldFor_Number.error = "The number is much larger than I allow"
-                            fieldNumber.setText("")
-                        } else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())) {
+                            TextValueA.setText("")
+                        } else if (!Functions().validateDecimalNumber(TextValueA.text.toString())) {
                             fieldFor_Number.error = "The Number is not correct in this system"
-                            fieldNumber.setText("")
+                            TextValueA.setText("")
                         }
                     }
 
@@ -183,7 +183,7 @@ class NumericalSystems : AppCompatActivity() {
         //------------------------------------------------------------------------------------------
         // event to control when the field change the value tu check if this is valid.
         //------------------------------------------------------------------------------------------
-        fieldNumber.addTextChangedListener(object : TextWatcher {
+        TextValueA.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
@@ -202,7 +202,7 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateDecimalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                            cViewModel.dataNumber.value = TextValueA.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
                                 fieldFor_Number.isErrorEnabled = false
@@ -216,7 +216,7 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateOctalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                            cViewModel.dataNumber.value = TextValueA.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
                                 fieldFor_Number.isErrorEnabled = false
@@ -230,7 +230,7 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateBinaryNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                            cViewModel.dataNumber.value = TextValueA.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
                                 fieldFor_Number.isErrorEnabled = false
@@ -244,7 +244,7 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateHexNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = fieldNumber.text.toString()
+                            cViewModel.dataNumber.value = TextValueA.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
                                 fieldFor_Number.isErrorEnabled = false

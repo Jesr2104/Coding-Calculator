@@ -14,7 +14,7 @@ class ExtraCalculations : AppCompatActivity() {
 
         val fragmentAverage = Fragment_Average()
         val fragmentPercentage = Fragment_Percentage()
-        val fragmentRuleOfThree = Fragment_RuleOfThree()
+        val fragmentRuleOfThree = FragmentRuleOfThree()
 
         val colors = intArrayOf(
             Color.rgb(0,0,0),// no seleccionado
