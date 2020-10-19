@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="justjump.coding_calculator.Fragment_Percentage">
+    tools:context="justjump.coding_calculator.FragmentPercentage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 app:boxStrokeWidthFocused="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/TextValueA"
+                    android:id="@+id/fieldNumberValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/Front_ColorDarkGrey"
@@ -128,7 +128,7 @@
                 app:boxStrokeWidthFocused="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fieldNumbe"
+                    android:id="@+id/fieldNumberPercentage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/Front_ColorDarkGrey"

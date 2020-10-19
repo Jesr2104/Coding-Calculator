@@ -13,7 +13,7 @@ class ExtraCalculations : AppCompatActivity() {
         setContentView(R.layout.activity_extra_calculations)
 
         val fragmentAverage = Fragment_Average()
-        val fragmentPercentage = Fragment_Percentage()
+        val fragmentPercentage = FragmentPercentage()
         val fragmentRuleOfThree = FragmentRuleOfThree()
 
         val colors = intArrayOf(
