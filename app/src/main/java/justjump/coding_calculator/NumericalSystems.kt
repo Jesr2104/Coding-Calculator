@@ -14,7 +14,6 @@ import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.viewmodel.NumericalSystemViewModel
 import kotlinx.android.synthetic.main.activity_numerical_systems.*
 
-
 class NumericalSystems : AppCompatActivity() {
 
     lateinit var cViewModel: NumericalSystemViewModel
@@ -57,6 +56,9 @@ class NumericalSystems : AppCompatActivity() {
         // this observer works when the expression change
         cViewModel.dataNumber.observe(this@NumericalSystems, myObserverColor)
 
+        //------------------------------------------------------------------------------------------
+        // event to control when the user change the type of the numerical system.
+        //------------------------------------------------------------------------------------------
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
 
             // checkedId is the RadioButton selected
@@ -71,14 +73,12 @@ class NumericalSystems : AppCompatActivity() {
 
                     fieldNumber.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()){
-                        if (fieldNumber.text.toString().length >= 15)
-                        {
-                            fieldNumber.error = "The number is much larger than I allow"
+                    if (fieldNumber.text.toString().isNotEmpty()) {
+                        if (fieldNumber.text.toString().length >= 15) {
+                            fieldFor_Number.error = "The number is much larger than I allow"
                             fieldNumber.setText("")
-                        }
-                        else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())){
-                            fieldNumber.error = "The Number is not correct in this system"
+                        } else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())) {
+                            fieldFor_Number.error = "The Number is not correct in this system"
                             fieldNumber.setText("")
                         }
                     }
@@ -101,9 +101,9 @@ class NumericalSystems : AppCompatActivity() {
 
                     fieldNumber.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()){
-                        if (!Functions().validateBinaryNumber(fieldNumber.text.toString())){
-                            fieldNumber.error = "Number is not correct in this system"
+                    if (fieldNumber.text.toString().isNotEmpty()) {
+                        if (!Functions().validateBinaryNumber(fieldNumber.text.toString())) {
+                            fieldFor_Number.error = "Number is not correct in this system"
                             fieldNumber.setText("")
                         }
                     }
@@ -126,14 +126,12 @@ class NumericalSystems : AppCompatActivity() {
 
                     fieldNumber.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()){
-                        if (fieldNumber.text.toString().length >= 15)
-                        {
-                            fieldNumber.error = "The number is much larger than I allow"
+                    if (fieldNumber.text.toString().isNotEmpty()) {
+                        if (fieldNumber.text.toString().length >= 15) {
+                            fieldFor_Number.error = "The number is much larger than I allow"
                             fieldNumber.setText("")
-                        }
-                        else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())){
-                            fieldNumber.error = "The Number is not correct in this system"
+                        } else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())) {
+                            fieldFor_Number.error = "The Number is not correct in this system"
                             fieldNumber.setText("")
                         }
                     }
@@ -150,20 +148,18 @@ class NumericalSystems : AppCompatActivity() {
                 }
 
                 "Hex" -> {
-                    val maxLength = 15
+                    val maxLength = 14
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
                     fieldNumber.filters = filterArray
 
-                    if (fieldNumber.text.toString().isNotEmpty()){
-                        if (fieldNumber.text.toString().length >= 15)
-                        {
-                            fieldNumber.error = "The number is much larger than I allow"
+                    if (fieldNumber.text.toString().isNotEmpty()) {
+                        if (fieldNumber.text.toString().length >= 15) {
+                            fieldFor_Number.error = "The number is much larger than I allow"
                             fieldNumber.setText("")
-                        }
-                        else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())){
-                            fieldNumber.error = "The Number is not correct in this system"
+                        } else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())) {
+                            fieldFor_Number.error = "The Number is not correct in this system"
                             fieldNumber.setText("")
                         }
                     }
@@ -180,10 +176,13 @@ class NumericalSystems : AppCompatActivity() {
                 }
             }
 
-            // update of the interface
+            // update of number when you selected a different numerical system
             cViewModel.dataNumber.value = cViewModel.dataNumber.value
         }
 
+        //------------------------------------------------------------------------------------------
+        // event to control when the field change the value tu check if this is valid.
+        //------------------------------------------------------------------------------------------
         fieldNumber.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -192,7 +191,6 @@ class NumericalSystems : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
 
-                // checkedId is the RadioButton selected
                 val intSelectButton: Int = radioGroup!!.checkedRadioButtonId
                 val radioButton = findViewById<RadioButton>(intSelectButton)
 
@@ -203,9 +201,12 @@ class NumericalSystems : AppCompatActivity() {
 
                         if (!Functions().validateDecimalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
-                        }
-                        else {
+                        } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
+
+                            if (cViewModel.dataNumber.value!!.isNotEmpty()) {
+                                fieldFor_Number.isErrorEnabled = false
+                            }
                         }
                     }
                     "Oct" -> {
@@ -216,6 +217,10 @@ class NumericalSystems : AppCompatActivity() {
                             p0!!.delete(length - 1, length)
                         } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
+
+                            if (cViewModel.dataNumber.value!!.isNotEmpty()) {
+                                fieldFor_Number.isErrorEnabled = false
+                            }
                         }
                     }
                     "Bin" -> {
@@ -226,6 +231,10 @@ class NumericalSystems : AppCompatActivity() {
                             p0!!.delete(length - 1, length)
                         } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
+
+                            if (cViewModel.dataNumber.value!!.isNotEmpty()) {
+                                fieldFor_Number.isErrorEnabled = false
+                            }
                         }
                     }
                     "Hex" -> {
@@ -236,6 +245,10 @@ class NumericalSystems : AppCompatActivity() {
                             p0!!.delete(length - 1, length)
                         } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
+
+                            if (cViewModel.dataNumber.value!!.isNotEmpty()) {
+                                fieldFor_Number.isErrorEnabled = false
+                            }
                         }
                     }
                 }

@@ -75,7 +75,9 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            app:boxStrokeWidthFocused="0dp"
+            app:errorTextColor="@color/ColorRGB_R"
+            app:errorIconTint="@color/ColorRGB_R">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fieldNumber"
@@ -90,7 +92,7 @@
                 android:paddingBottom="18dp"
                 android:text=""
                 android:inputType="text"
-                android:maxLength="15"/>
+                android:maxLength="15" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

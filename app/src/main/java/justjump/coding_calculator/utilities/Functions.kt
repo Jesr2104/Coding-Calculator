@@ -9,8 +9,7 @@ class Functions {
     // Function to solve the basic mathematical expressions
     /**********************************************************************/
     fun basicEquations(expression: String): String {
-        if(validateExpression(expression))
-        {
+        if (validateExpression(expression)) {
             return Calc().evaluate(expression).toString()
         }
         return "0"
@@ -21,7 +20,8 @@ class Functions {
     /**********************************************************************/
     private fun validateExpression(data: String): Boolean {
 
-        val p = Pattern.compile("((\\()*(-?\\d+(\\.\\d+)?)(\\))*[+/*-])*((\\()*-?\\d+(\\.\\d+)?(\\))*)")
+        val p =
+            Pattern.compile("((\\()*(-?\\d+(\\.\\d+)?)(\\))*[+/*-])*((\\()*-?\\d+(\\.\\d+)?(\\))*)")
         val m = p.matcher(data)
         val b = m.matches()
 
@@ -92,7 +92,7 @@ class Functions {
     /**********************************************************************/
     fun convertDecToHex(dataNumber: Int): String {
         var number = dataNumber
-        var binario = ""
+        var resultHexadecimal = ""
         var rest: Int
 
         do {
@@ -100,26 +100,26 @@ class Functions {
             number /= 16
 
             when (rest) {
-                10 -> binario += "A"
-                11 -> binario += "B"
-                12 -> binario += "C"
-                13 -> binario += "D"
-                14 -> binario += "E"
-                15 -> binario += "F"
-                else -> binario = "$binario$rest"
+                10 -> resultHexadecimal += "A"
+                11 -> resultHexadecimal += "B"
+                12 -> resultHexadecimal += "C"
+                13 -> resultHexadecimal += "D"
+                14 -> resultHexadecimal += "E"
+                15 -> resultHexadecimal += "F"
+                else -> resultHexadecimal = "$resultHexadecimal$rest"
             }
         } while (number >= 16)
 
         when (number) {
-            10 -> binario += "A"
-            11 -> binario += "B"
-            12 -> binario += "C"
-            13 -> binario += "D"
-            14 -> binario += "E"
-            15 -> binario += "F"
-            else -> binario = "$binario$number"
+            10 -> resultHexadecimal += "A"
+            11 -> resultHexadecimal += "B"
+            12 -> resultHexadecimal += "C"
+            13 -> resultHexadecimal += "D"
+            14 -> resultHexadecimal += "E"
+            15 -> resultHexadecimal += "F"
+            else -> resultHexadecimal = "$resultHexadecimal$number"
         }
-        return binario.reversed()
+        return resultHexadecimal.reversed()
     }
 
     /**********************************************************************/
@@ -127,7 +127,7 @@ class Functions {
     /**********************************************************************/
     fun convertDecToHex(dataNumber: Long): String {
         var number = dataNumber
-        var binario = ""
+        var resultHexadecimal = ""
         var rest: Long
 
         do {
@@ -135,26 +135,35 @@ class Functions {
             number /= 16
 
             when (rest) {
-                10L -> binario += "A"
-                11L -> binario += "B"
-                12L -> binario += "C"
-                13L -> binario += "D"
-                14L -> binario += "E"
-                15L -> binario += "F"
-                else -> binario = "$binario$rest"
+                10L -> resultHexadecimal += "A"
+                11L -> resultHexadecimal += "B"
+                12L -> resultHexadecimal += "C"
+                13L -> resultHexadecimal += "D"
+                14L -> resultHexadecimal += "E"
+                15L -> resultHexadecimal += "F"
+                else -> resultHexadecimal = "$resultHexadecimal$rest"
             }
         } while (number >= 16)
 
         when (number) {
-            10L -> binario += "A"
-            11L -> binario += "B"
-            12L -> binario += "C"
-            13L -> binario += "D"
-            14L -> binario += "E"
-            15L -> binario += "F"
-            else -> binario = "$binario$number"
+            10L -> resultHexadecimal += "A"
+            11L -> resultHexadecimal += "B"
+            12L -> resultHexadecimal += "C"
+            13L -> resultHexadecimal += "D"
+            14L -> resultHexadecimal += "E"
+            15L -> resultHexadecimal += "F"
+            else -> {
+                resultHexadecimal = "$resultHexadecimal$number"
+            }
         }
-        return binario.reversed()
+        val result = resultHexadecimal.reversed()
+
+        if ( result[0] == '0') {
+            return result.substring(1,result.length)
+
+        }
+
+        return result
     }
 
     /**********************************************************************/
@@ -198,74 +207,49 @@ class Functions {
         return Integer.parseInt(value, 2).toString()
     }
 
-
-
-
-
-
-
-
-
-
     /**********************************************************************/
-    // Function to convert binary to decimal
+    // Function to convert octal to decimal
     /**********************************************************************/
-    fun convertBinaryToDecimal(value: Long): String {
-        var decValue = 0L
+    fun convertOctalToDecimal(value: Long): String {
+        var resultDecimalValue = 0L
         var base = 1L
         var temp = value
 
         while (temp > 0) {
             val lastDigit = temp % 10L
             temp /= 10L
-            decValue += lastDigit * base
-            base *= 2L
+
+            resultDecimalValue += lastDigit * base
+            base *= 8L
         }
-        return decValue.toString()
+        return resultDecimalValue.toString()
     }
 
-    fun convertBinaryToDecimal1(value: Long): String {
-        var decValue:Long = 0
-        var base:Long = 1
-        var temp:Long = value
+    /**********************************************************************/
+    // Function to convert hexadecimal to decimal
+    /**********************************************************************/
+    fun convertHexToDecimal(value: String): String {
+        val hexNumber = value.toUpperCase()
+        val hexString = "0123456789ABCDEF"
 
-        while (temp > 0) {
-            val lastDigit: Long = temp % 10
-            temp /= 10
-            decValue += lastDigit * base
-            base *= 2
+        var num = 0L
+        for (element in hexNumber) {
+            val index = hexString.indexOf(element).toLong()
+            num = 16 * num + index
         }
-        return decValue.toString()
+        return num.toString()
     }
 
 
-
-
-
-
-
-
-    /**********************************************************************/
-    // Function to convert integer to hexadecimal
-    /**********************************************************************/
-    fun convertHexToDecimal(dataNumber: String): Int {
-        return Integer.parseInt(dataNumber, 16)
-        // falta por cambiar por que no es la manera correcta de cuncionamiento ademas se
-        // se esta usando un numero entero y tiene un rango demasiado corto de numeros.
-    }
-
-    /**********************************************************************/
-    // Function to convert octal to decimal
-    /**********************************************************************/
-//    fun convertOctalToDecimal(value: String): Int {
-//        return Integer.parseInt(value, 8)
-//    }
-
-
-
-
-
-
+    //*********************************************************************************
+    //*********************************************************************************
+    //*********************************************************************************
+    //*********************************************************************************
+    //*******************           Funciones aun sin usar              ***************
+    //*********************************************************************************
+    //*********************************************************************************
+    //*********************************************************************************
+    //*********************************************************************************
 
 
     /**********************************************************************/

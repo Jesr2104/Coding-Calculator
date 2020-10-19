@@ -16,6 +16,12 @@ class NumericalSystemViewModel: ViewModel() {
         dataNumber.value = ""
     }
 
+    /**
+     *  this function have the control of the update of the calculate numerical systems.
+     *
+     *  @param: the param of the function is the type of system selected.
+     *  @return: none.
+     */
     fun getSystemNumber(typeSNumber: String) {
 
         when(typeSNumber) {
@@ -51,37 +57,35 @@ class NumericalSystemViewModel: ViewModel() {
             }
 
             "Oct" -> {
-//                if (dataNumber.value!!.isNotEmpty()) {
-//
-//                    //here I'm gonna change the value of dataNumber to decimal
-//                    val newDecimalNumber = Functions().convertOctalToDecimal(dataNumber.value!!)
-//
-//                    resultBinary.value = Functions().convertToBinary(newDecimalNumber)
-//                    resultDecimal.value = newDecimalNumber.toString()
-//                    resultHex.value = Functions().convertToHex(newDecimalNumber)
-//                } else {
-//                    resultBinary.value = ""
-//                    resultDecimal.value = ""
-//                    resultHex.value = ""
-//                }
+                if (dataNumber.value!!.isNotEmpty()) {
+
+                    val newDecimalNumber = Functions().convertOctalToDecimal(dataNumber.value!!.toLong())
+
+                    resultBinary.value = Functions().convertDecToBin(newDecimalNumber.toLong())
+                    resultDecimal.value = newDecimalNumber.toString()
+                    resultHex.value = Functions().convertDecToHex(newDecimalNumber.toLong())
+                } else {
+                    resultBinary.value = ""
+                    resultDecimal.value = ""
+                    resultHex.value = ""
+                }
             }
 
             "Hex" -> {
-//                if (dataNumber.value!!.isNotEmpty()){
-//
-//                    //here I'm gonna change the value of dataNumber to decimal
-//                    val newDecimalNumber = Functions().convertHexToDecimal(dataNumber.value!!)
-//
-//                    resultBinary.value = Functions().convertToBinary(newDecimalNumber)
-//                    resultOctal.value = Functions().convertToOctal(newDecimalNumber)
-//                    resultDecimal.value = newDecimalNumber.toString()
-//                }
-//                else
-//                {
-//                    resultBinary.value = ""
-//                    resultOctal.value = ""
-//                    resultDecimal.value = ""
-//                }
+                if (dataNumber.value!!.isNotEmpty()){
+
+                    val newDecimalNumber = Functions().convertHexToDecimal(dataNumber.value!!)
+
+                    resultBinary.value = Functions().convertDecToBin(newDecimalNumber.toLong())
+                    resultOctal.value = Functions().convertDecToOct(newDecimalNumber.toLong())
+                    resultDecimal.value = newDecimalNumber
+                }
+                else
+                {
+                    resultBinary.value = ""
+                    resultOctal.value = ""
+                    resultDecimal.value = ""
+                }
             }
         }
     }

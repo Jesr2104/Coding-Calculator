@@ -57,12 +57,12 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                         viewDialog.editTextReal.setText(newValue.toString())
 
                     } else{
-                        hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                        hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
                         if ( hexValue > rangeA){
                             hexValue -= 1
                         }
 
-                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
+                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
                     }
                     mainHandler?.postDelayed(this, 70)
                 }
@@ -81,12 +81,12 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                         viewDialog.editTextReal.setText(newValue.toString())
 
                     } else{
-                        hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                        hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
                         if ( hexValue < rangeB){
                             hexValue += 1
                         }
 
-                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
+                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
                     }
                     mainHandler?.postDelayed(this, 70)
                 }
@@ -104,12 +104,12 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                     viewDialog.editTextReal.setText(newValue.toString())
 
                 } else{
-                    hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                    hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
                     if ( hexValue > rangeA){
                         hexValue -= 1
                     }
 
-                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
+                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
                 }
             }
 
@@ -147,12 +147,12 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                     viewDialog.editTextReal.setText(newValue.toString())
 
                 } else{
-                    hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                    hexValue = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
                     if ( hexValue < rangeB){
                         hexValue += 1
                     }
 
-                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
+                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
                 }
             }
 
@@ -190,7 +190,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
 
                         when (TypeColor){
                             "HEXR" ->{
-                                val r = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                val r = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
                                 val g = Color.green(colorRGB.value!!)
                                 val b = Color.blue(colorRGB.value!!)
 
@@ -198,7 +198,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                             }
                             "HEXG" ->{
                                 val r = Color.red(colorRGB.value!!)
-                                val g = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                val g = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
                                 val b = Color.blue(colorRGB.value!!)
 
                                 colorRGB.value = Color.rgb(r,g,b)
@@ -206,7 +206,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                             "HEXB" ->{
                                 val r = Color.red(colorRGB.value!!)
                                 val g = Color.green(colorRGB.value!!)
-                                val b = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                val b = Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString()).toInt()
 
                                 colorRGB.value = Color.rgb(r,g,b)
                             }
