@@ -2,6 +2,8 @@ package justjump.coding_calculator
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
+import android.text.InputFilter.LengthFilter
 import android.text.TextWatcher
 import android.view.View
 import android.widget.RadioButton
@@ -61,10 +63,26 @@ class NumericalSystems : AppCompatActivity() {
             val intSelectButton: Int = radioGroup!!.checkedRadioButtonId
             val radioButton = findViewById<RadioButton>(intSelectButton)
 
-            cViewModel.dataNumber.value = cViewModel.dataNumber.value
-
             when(radioButton.text){
                 "Dec" -> {
+                    val maxLength = 15
+                    val filterArray = arrayOfNulls<InputFilter>(1)
+                    filterArray[0] = LengthFilter(maxLength)
+
+                    fieldNumber.filters = filterArray
+
+                    if (fieldNumber.text.toString().isNotEmpty()){
+                        if (fieldNumber.text.toString().length >= 15)
+                        {
+                            fieldNumber.error = "The number is much larger than I allow"
+                            fieldNumber.setText("")
+                        }
+                        else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())){
+                            fieldNumber.error = "The Number is not correct in this system"
+                            fieldNumber.setText("")
+                        }
+                    }
+
                     titleDecimal.visibility = View.GONE
                     resultDecimal.visibility = View.GONE
 
@@ -75,18 +93,21 @@ class NumericalSystems : AppCompatActivity() {
                     titleHex.visibility = View.VISIBLE
                     resultHex.visibility = View.VISIBLE
                 }
-                "Oct" -> {
-                    titleOctal.visibility = View.GONE
-                    resultOctal.visibility = View.GONE
 
-                    titleDecimal.visibility = View.VISIBLE
-                    resultDecimal.visibility = View.VISIBLE
-                    titleBinary.visibility = View.VISIBLE
-                    resultBinary.visibility = View.VISIBLE
-                    titleHex.visibility = View.VISIBLE
-                    resultHex.visibility = View.VISIBLE
-                }
                 "Bin" -> {
+                    val maxLength = 30
+                    val filterArray = arrayOfNulls<InputFilter>(1)
+                    filterArray[0] = LengthFilter(maxLength)
+
+                    fieldNumber.filters = filterArray
+
+                    if (fieldNumber.text.toString().isNotEmpty()){
+                        if (!Functions().validateBinaryNumber(fieldNumber.text.toString())){
+                            fieldNumber.error = "Number is not correct in this system"
+                            fieldNumber.setText("")
+                        }
+                    }
+
                     titleBinary.visibility = View.GONE
                     resultBinary.visibility = View.GONE
 
@@ -97,7 +118,56 @@ class NumericalSystems : AppCompatActivity() {
                     titleHex.visibility = View.VISIBLE
                     resultHex.visibility = View.VISIBLE
                 }
+
+                "Oct" -> {
+                    val maxLength = 15
+                    val filterArray = arrayOfNulls<InputFilter>(1)
+                    filterArray[0] = LengthFilter(maxLength)
+
+                    fieldNumber.filters = filterArray
+
+                    if (fieldNumber.text.toString().isNotEmpty()){
+                        if (fieldNumber.text.toString().length >= 15)
+                        {
+                            fieldNumber.error = "The number is much larger than I allow"
+                            fieldNumber.setText("")
+                        }
+                        else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())){
+                            fieldNumber.error = "The Number is not correct in this system"
+                            fieldNumber.setText("")
+                        }
+                    }
+
+                    titleOctal.visibility = View.GONE
+                    resultOctal.visibility = View.GONE
+
+                    titleDecimal.visibility = View.VISIBLE
+                    resultDecimal.visibility = View.VISIBLE
+                    titleBinary.visibility = View.VISIBLE
+                    resultBinary.visibility = View.VISIBLE
+                    titleHex.visibility = View.VISIBLE
+                    resultHex.visibility = View.VISIBLE
+                }
+
                 "Hex" -> {
+                    val maxLength = 15
+                    val filterArray = arrayOfNulls<InputFilter>(1)
+                    filterArray[0] = LengthFilter(maxLength)
+
+                    fieldNumber.filters = filterArray
+
+                    if (fieldNumber.text.toString().isNotEmpty()){
+                        if (fieldNumber.text.toString().length >= 15)
+                        {
+                            fieldNumber.error = "The number is much larger than I allow"
+                            fieldNumber.setText("")
+                        }
+                        else if (!Functions().validateDecimalNumber(fieldNumber.text.toString())){
+                            fieldNumber.error = "The Number is not correct in this system"
+                            fieldNumber.setText("")
+                        }
+                    }
+
                     titleHex.visibility = View.GONE
                     resultHex.visibility = View.GONE
 
@@ -109,6 +179,9 @@ class NumericalSystems : AppCompatActivity() {
                     resultBinary.visibility = View.VISIBLE
                 }
             }
+
+            // update of the interface
+            cViewModel.dataNumber.value = cViewModel.dataNumber.value
         }
 
         fieldNumber.addTextChangedListener(object : TextWatcher {
@@ -128,13 +201,10 @@ class NumericalSystems : AppCompatActivity() {
                         val text: String = p0.toString()
                         val length: Int = text.length
 
-                        //If the String length is bigger than zero and it's not composed only by the following characters: 0 and 1
                         if (!Functions().validateDecimalNumber(text) && length > 0) {
-                            //Delete the last character if the last character is not validate to binary
                             p0!!.delete(length - 1, length)
                         }
-                        else
-                        {
+                        else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
                         }
                     }
@@ -142,13 +212,9 @@ class NumericalSystems : AppCompatActivity() {
                         val text: String = p0.toString()
                         val length: Int = text.length
 
-                        //If the String length is bigger than zero and it's not composed only by the following characters: 0 and 1
                         if (!Functions().validateOctalNumber(text) && length > 0) {
-                            //Delete the last character if the last character is not validate to binary
                             p0!!.delete(length - 1, length)
-                        }
-                        else
-                        {
+                        } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
                         }
                     }
@@ -156,34 +222,23 @@ class NumericalSystems : AppCompatActivity() {
                         val text: String = p0.toString()
                         val length: Int = text.length
 
-                        //If the String length is bigger than zero and it's not composed only by the following characters: 0 and 1
                         if (!Functions().validateBinaryNumber(text) && length > 0) {
-                            //Delete the last character if the last character is not validate to binary
                             p0!!.delete(length - 1, length)
-                        }
-                        else
-                        {
+                        } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
                         }
                     }
                     "Hex" -> {
-
                         val text: String = p0.toString()
                         val length: Int = text.length
 
-                        //If the String length is bigger than zero and it's not composed only by the following characters: A to F and/or 0 to 9
                         if (!Functions().validateHexNumber(text) && length > 0) {
-                            //Delete the last character if the last character is not validate to hexadecimal
                             p0!!.delete(length - 1, length)
-                        }
-                        else
-                        {
+                        } else {
                             cViewModel.dataNumber.value = fieldNumber.text.toString()
                         }
                     }
                 }
-
-
             }
         })
     }

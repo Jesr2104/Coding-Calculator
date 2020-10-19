@@ -48,7 +48,7 @@ class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: Colo
             viewDialog.hsl_partL.text = ((colorHSL[2] * 100).toInt()).toString()
 
             // calculate the Hex color
-            viewDialog.hex_part.text = "#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}"
+            viewDialog.hex_part.text = "#${Functions().convertDecToHex(r)}${Functions().convertDecToHex(g)}${Functions().convertDecToHex(b)}"
             builder.setView(viewDialog)
 
                 // Add action buttons

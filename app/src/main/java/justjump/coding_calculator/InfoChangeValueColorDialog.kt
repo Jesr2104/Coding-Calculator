@@ -62,7 +62,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                             hexValue -= 1
                         }
 
-                        viewDialog.editTextReal.setText(Functions().convertToHex(hexValue).toString())
+                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
                     }
                     mainHandler?.postDelayed(this, 70)
                 }
@@ -86,7 +86,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                             hexValue += 1
                         }
 
-                        viewDialog.editTextReal.setText(Functions().convertToHex(hexValue).toString())
+                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
                     }
                     mainHandler?.postDelayed(this, 70)
                 }
@@ -109,7 +109,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                         hexValue -= 1
                     }
 
-                    viewDialog.editTextReal.setText(Functions().convertToHex(hexValue).toString())
+                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
                 }
             }
 
@@ -152,7 +152,7 @@ class InfoChangeValueColorDialog(var Value: String, var TypeColor: String, var c
                         hexValue += 1
                     }
 
-                    viewDialog.editTextReal.setText(Functions().convertToHex(hexValue).toString())
+                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue).toString())
                 }
             }
 

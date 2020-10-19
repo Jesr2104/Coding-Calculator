@@ -100,7 +100,7 @@ class ColorDesign {
         val green = Color.green(color)
         val blue = Color.blue(color)
 
-        return Color.parseColor("#" + Functions().convertToHex(red)+ Functions().convertToHex(green)+ Functions().convertToHex(blue))
+        return Color.parseColor("#" + Functions().convertDecToHex(red)+ Functions().convertDecToHex(green)+ Functions().convertDecToHex(blue))
     }
 
     fun getSplitComplementary(paint: Paint): Array<Int> {
@@ -131,8 +131,8 @@ class ColorDesign {
         val greenColor2 = Color.green(color2)
         val blueColor2 = Color.blue(color2)
 
-        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+ Functions().convertToHex(greenColor1)+ Functions().convertToHex(blueColor1))
-        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+ Functions().convertToHex(greenColor2)+ Functions().convertToHex(blueColor2))
+        resultColors[0] = Color.parseColor("#" + Functions().convertDecToHex(redColor1)+ Functions().convertDecToHex(greenColor1)+ Functions().convertDecToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertDecToHex(redColor2)+ Functions().convertDecToHex(greenColor2)+ Functions().convertDecToHex(blueColor2))
 
         return resultColors
     }
@@ -209,12 +209,12 @@ class ColorDesign {
         val greenColor6 = Color.green(color6)
         val blueColor6 = Color.blue(color6)
 
-        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+ Functions().convertToHex(greenColor1)+ Functions().convertToHex(blueColor1))
-        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+ Functions().convertToHex(greenColor2)+ Functions().convertToHex(blueColor2))
-        resultColors[2] = Color.parseColor("#" + Functions().convertToHex(redColor3)+ Functions().convertToHex(greenColor3)+ Functions().convertToHex(blueColor3))
-        resultColors[3] = Color.parseColor("#" + Functions().convertToHex(redColor4)+ Functions().convertToHex(greenColor4)+ Functions().convertToHex(blueColor4))
-        resultColors[4] = Color.parseColor("#" + Functions().convertToHex(redColor5)+ Functions().convertToHex(greenColor5)+ Functions().convertToHex(blueColor5))
-        resultColors[5] = Color.parseColor("#" + Functions().convertToHex(redColor6)+ Functions().convertToHex(greenColor6)+ Functions().convertToHex(blueColor6))
+        resultColors[0] = Color.parseColor("#" + Functions().convertDecToHex(redColor1)+ Functions().convertDecToHex(greenColor1)+ Functions().convertDecToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertDecToHex(redColor2)+ Functions().convertDecToHex(greenColor2)+ Functions().convertDecToHex(blueColor2))
+        resultColors[2] = Color.parseColor("#" + Functions().convertDecToHex(redColor3)+ Functions().convertDecToHex(greenColor3)+ Functions().convertDecToHex(blueColor3))
+        resultColors[3] = Color.parseColor("#" + Functions().convertDecToHex(redColor4)+ Functions().convertDecToHex(greenColor4)+ Functions().convertDecToHex(blueColor4))
+        resultColors[4] = Color.parseColor("#" + Functions().convertDecToHex(redColor5)+ Functions().convertDecToHex(greenColor5)+ Functions().convertDecToHex(blueColor5))
+        resultColors[5] = Color.parseColor("#" + Functions().convertDecToHex(redColor6)+ Functions().convertDecToHex(greenColor6)+ Functions().convertDecToHex(blueColor6))
 
         return resultColors
     }
@@ -246,8 +246,8 @@ class ColorDesign {
         val greenColor2 = Color.green(color2)
         val blueColor2 = Color.blue(color2)
 
-        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+ Functions().convertToHex(greenColor1)+ Functions().convertToHex(blueColor1))
-        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+ Functions().convertToHex(greenColor2)+ Functions().convertToHex(blueColor2))
+        resultColors[0] = Color.parseColor("#" + Functions().convertDecToHex(redColor1)+ Functions().convertDecToHex(greenColor1)+ Functions().convertDecToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertDecToHex(redColor2)+ Functions().convertDecToHex(greenColor2)+ Functions().convertDecToHex(blueColor2))
 
         return resultColors
     }
@@ -290,9 +290,9 @@ class ColorDesign {
         val greenColor3 = Color.green(color3)
         val blueColor3 = Color.blue(color3)
 
-        resultColors[0] = Color.parseColor("#" + Functions().convertToHex(redColor1)+ Functions().convertToHex(greenColor1)+ Functions().convertToHex(blueColor1))
-        resultColors[1] = Color.parseColor("#" + Functions().convertToHex(redColor2)+ Functions().convertToHex(greenColor2)+ Functions().convertToHex(blueColor2))
-        resultColors[2] = Color.parseColor("#" + Functions().convertToHex(redColor3)+ Functions().convertToHex(greenColor3)+ Functions().convertToHex(blueColor3))
+        resultColors[0] = Color.parseColor("#" + Functions().convertDecToHex(redColor1)+ Functions().convertDecToHex(greenColor1)+ Functions().convertDecToHex(blueColor1))
+        resultColors[1] = Color.parseColor("#" + Functions().convertDecToHex(redColor2)+ Functions().convertDecToHex(greenColor2)+ Functions().convertDecToHex(blueColor2))
+        resultColors[2] = Color.parseColor("#" + Functions().convertDecToHex(redColor3)+ Functions().convertDecToHex(greenColor3)+ Functions().convertDecToHex(blueColor3))
 
         return resultColors
     }

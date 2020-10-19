@@ -30,15 +30,17 @@ class ColorCodeViewModel: ViewModel() {
 
     fun getRed(): String? {
         val r = Color.red(getRGBColor())
-        return Functions().convertToHex(r)
+        return Functions().convertDecToHex(r)
     }
+
     fun getGreen(): String? {
         val g = Color.green(getRGBColor())
-        return Functions().convertToHex(g)
+        return Functions().convertDecToHex(g)
     }
+
     fun getBlue(): String? {
         val b = Color.blue(getRGBColor())
-        return Functions().convertToHex(b)
+        return Functions().convertDecToHex(b)
     }
 
     fun loadComplementaryColor(): Int {
@@ -47,7 +49,7 @@ class ColorCodeViewModel: ViewModel() {
         val g = Color.green(getRGBColor())
         val b = Color.blue(getRGBColor())
 
-        paint.color = Color.parseColor("#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}")
+        paint.color = Color.parseColor("#${Functions().convertDecToHex(r)}${Functions().convertDecToHex(g)}${Functions().convertDecToHex(b)}")
         return ColorDesign().getComplementary(paint)
     }
 
@@ -57,7 +59,7 @@ class ColorCodeViewModel: ViewModel() {
         val g = Color.green(getRGBColor())
         val b = Color.blue(getRGBColor())
 
-        paint.color = Color.parseColor("#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}")
+        paint.color = Color.parseColor("#${Functions().convertDecToHex(r)}${Functions().convertDecToHex(g)}${Functions().convertDecToHex(b)}")
         return ColorDesign().getSplitComplementary(paint)
     }
 
@@ -67,7 +69,7 @@ class ColorCodeViewModel: ViewModel() {
         val g = Color.green(getRGBColor())
         val b = Color.blue(getRGBColor())
 
-        paint.color = Color.parseColor("#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}")
+        paint.color = Color.parseColor("#${Functions().convertDecToHex(r)}${Functions().convertDecToHex(g)}${Functions().convertDecToHex(b)}")
         return ColorDesign().getAnalogous(paint)
     }
 
@@ -77,7 +79,7 @@ class ColorCodeViewModel: ViewModel() {
         val g = Color.green(getRGBColor())
         val b = Color.blue(getRGBColor())
 
-        paint.color = Color.parseColor("#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}")
+        paint.color = Color.parseColor("#${Functions().convertDecToHex(r)}${Functions().convertDecToHex(g)}${Functions().convertDecToHex(b)}")
         return ColorDesign().getTriadic(paint)
     }
 
@@ -87,7 +89,7 @@ class ColorCodeViewModel: ViewModel() {
         val g = Color.green(getRGBColor())
         val b = Color.blue(getRGBColor())
 
-        paint.color = Color.parseColor("#${Functions().convertToHex(r)}${Functions().convertToHex(g)}${Functions().convertToHex(b)}")
+        paint.color = Color.parseColor("#${Functions().convertDecToHex(r)}${Functions().convertDecToHex(g)}${Functions().convertDecToHex(b)}")
         return ColorDesign().getTetradic(paint)
     }
 }
