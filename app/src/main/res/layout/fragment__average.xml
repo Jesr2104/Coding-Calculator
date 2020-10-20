@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="justjump.coding_calculator.Fragment_Average">
+    tools:context="justjump.coding_calculator.FragmentAverage">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,88 +34,111 @@
 
             </TextView>
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Title"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/background_light_newfields"
                 android:padding="15dp"
-                android:elevation="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="20dp">
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Title">
 
-                <TextView
-                    android:id="@+id/textTitle"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Values:"
-                    android:textColor="@color/yellow_mainColor"
-                    android:textSize="20sp"
-                    android:textStyle="bold|italic"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:elevation="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:chipSpacingHorizontal="5dp">
 
-                <!-- Chips can be declared here, or added dynamically. -->
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_1"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
+                    <TextView
+                        android:id="@+id/textTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Values:"
+                        android:textColor="@color/yellow_mainColor"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fieldForvalue"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintEnd_toStartOf="@+id/InsertNewValue"
+                    app:layout_constraintStart_toStartOf="@+id/chipGroup"
+                    app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/newChipNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="right|center_vertical"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/Front_ColorDarkGrey"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/InsertNewValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chip 1" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Insert"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_add_value"
+                    app:layout_constraintEnd_toEndOf="@+id/chipGroup"
+                    app:layout_constraintTop_toBottomOf="@+id/chipGroup">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_2"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chip 2" />
+                </com.google.android.material.button.MaterialButton>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_3"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chip 3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_4"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chip 4" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_5"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chip 5" />
-
-            </com.google.android.material.chip.ChipGroup>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutBlock2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
                 android:background="@drawable/background_light_newfields"
                 android:elevation="20dp"
                 android:paddingLeft="15dp"
                 android:paddingTop="10dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chipGroup">
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
                 <TextView
                     android:id="@+id/textTitle2"
