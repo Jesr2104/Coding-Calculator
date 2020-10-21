@@ -8,7 +8,7 @@ import justjump.coding_calculator.extensions.checkParenthesis
 import justjump.coding_calculator.extensions.deleteComma
 import java.text.DecimalFormat
 
-class CalculatorViewModel: ViewModel() {
+class ViewModelCalculator: ViewModel() {
 
     var dataFieldResult = MutableLiveData<String>()
     var dataFieldExpression = MutableLiveData<String>()

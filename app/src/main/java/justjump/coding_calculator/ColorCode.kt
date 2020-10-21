@@ -14,12 +14,12 @@ import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
 import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
-import justjump.coding_calculator.viewmodel.ColorCodeViewModel
+import justjump.coding_calculator.viewmodel.ViewModelColorCode
 import kotlinx.android.synthetic.main.activity_colorcode.*
 
 class ColorCode : AppCompatActivity(){
 
-    lateinit var cViewModel: ColorCodeViewModel
+    lateinit var cViewModel: ViewModelColorCode
     private var complementaryColorStore: Int = 0
     private lateinit var splitComplementaryColorStore: Array<Int>
     private lateinit var analogousColorStore: Array<Int>
@@ -30,7 +30,7 @@ class ColorCode : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_colorcode)
 
-        cViewModel = ViewModelProviders.of(this).get(ColorCodeViewModel::class.java)
+        cViewModel = ViewModelProviders.of(this).get(ViewModelColorCode::class.java)
         requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
 
         /***************************************************************************/

@@ -91,7 +91,7 @@
                 android:paddingTop="18dp"
                 android:paddingBottom="18dp"
                 android:text=""
-                android:inputType="text"
+                android:inputType="number"
                 android:maxLength="15" />
 
         </com.google.android.material.textfield.TextInputLayout>

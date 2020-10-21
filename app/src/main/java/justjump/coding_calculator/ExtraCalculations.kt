@@ -1,5 +1,6 @@
 package justjump.coding_calculator
 
+import android.content.pm.ActivityInfo
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -11,6 +12,8 @@ class ExtraCalculations : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extra_calculations)
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val fragmentAverage = FragmentAverage()
         val fragmentPercentage = FragmentPercentage()

@@ -1,28 +1,33 @@
 package justjump.coding_calculator
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.text.InputFilter.LengthFilter
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import justjump.coding_calculator.utilities.Functions
-import justjump.coding_calculator.viewmodel.NumericalSystemViewModel
+import justjump.coding_calculator.viewmodel.ViewModelNumericalSystem
 import kotlinx.android.synthetic.main.activity_numerical_systems.*
 
 class NumericalSystems : AppCompatActivity() {
 
-    lateinit var cViewModel: NumericalSystemViewModel
+    lateinit var cViewModel: ViewModelNumericalSystem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_numerical_systems)
 
-        cViewModel = ViewModelProviders.of(this).get(NumericalSystemViewModel::class.java)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        cViewModel = ViewModelProviders.of(this).get(ViewModelNumericalSystem::class.java)
 
         /***************************************************************************/
         // observer
@@ -73,6 +78,9 @@ class NumericalSystems : AppCompatActivity() {
 
                     TextValueA.filters = filterArray
 
+                    // change keyboard for number
+                    TextValueA.inputType = InputType.TYPE_CLASS_NUMBER
+
                     if (TextValueA.text.toString().isNotEmpty()) {
                         if (TextValueA.text.toString().length >= 15) {
                             fieldFor_Number.error = "The number is much larger than I allow"
@@ -92,6 +100,7 @@ class NumericalSystems : AppCompatActivity() {
                     resultBinary.visibility = View.VISIBLE
                     titleHex.visibility = View.VISIBLE
                     resultHex.visibility = View.VISIBLE
+                    Toast.makeText(this, "Decimal", Toast.LENGTH_SHORT).show()
                 }
 
                 "Bin" -> {
@@ -100,6 +109,9 @@ class NumericalSystems : AppCompatActivity() {
                     filterArray[0] = LengthFilter(maxLength)
 
                     TextValueA.filters = filterArray
+
+                    // change keyboard for number
+                    TextValueA.inputType = InputType.TYPE_CLASS_NUMBER
 
                     if (TextValueA.text.toString().isNotEmpty()) {
                         if (!Functions().validateBinaryNumber(TextValueA.text.toString())) {
@@ -117,6 +129,7 @@ class NumericalSystems : AppCompatActivity() {
                     resultOctal.visibility = View.VISIBLE
                     titleHex.visibility = View.VISIBLE
                     resultHex.visibility = View.VISIBLE
+                    Toast.makeText(this, "Binary", Toast.LENGTH_SHORT).show()
                 }
 
                 "Oct" -> {
@@ -125,6 +138,9 @@ class NumericalSystems : AppCompatActivity() {
                     filterArray[0] = LengthFilter(maxLength)
 
                     TextValueA.filters = filterArray
+
+                    // change keyboard for number
+                    TextValueA.inputType = InputType.TYPE_CLASS_NUMBER
 
                     if (TextValueA.text.toString().isNotEmpty()) {
                         if (TextValueA.text.toString().length >= 15) {
@@ -145,6 +161,7 @@ class NumericalSystems : AppCompatActivity() {
                     resultBinary.visibility = View.VISIBLE
                     titleHex.visibility = View.VISIBLE
                     resultHex.visibility = View.VISIBLE
+                    Toast.makeText(this, "Octal", Toast.LENGTH_SHORT).show()
                 }
 
                 "Hex" -> {
@@ -153,6 +170,9 @@ class NumericalSystems : AppCompatActivity() {
                     filterArray[0] = LengthFilter(maxLength)
 
                     TextValueA.filters = filterArray
+
+                    // change keyboard for text to include letter
+                    TextValueA.inputType = InputType.TYPE_CLASS_TEXT
 
                     if (TextValueA.text.toString().isNotEmpty()) {
                         if (TextValueA.text.toString().length >= 15) {
@@ -173,6 +193,7 @@ class NumericalSystems : AppCompatActivity() {
                     resultOctal.visibility = View.VISIBLE
                     titleBinary.visibility = View.VISIBLE
                     resultBinary.visibility = View.VISIBLE
+                    Toast.makeText(this, "Hexadecimal", Toast.LENGTH_SHORT).show()
                 }
             }
 

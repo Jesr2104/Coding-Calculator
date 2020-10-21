@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import justjump.coding_calculator.utilities.Functions
 import justjump.coding_calculator.utilities.ColorDesign
 
-class ColorCodeViewModel: ViewModel() {
+class ViewModelColorCode: ViewModel() {
 
     var colorRGB = MutableLiveData<Int>()
 

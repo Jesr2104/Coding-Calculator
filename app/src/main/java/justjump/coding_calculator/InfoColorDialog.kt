@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import justjump.coding_calculator.data.local.SRDataColors
 import justjump.coding_calculator.utilities.ColorDesign
 import justjump.coding_calculator.utilities.Functions
-import justjump.coding_calculator.viewmodel.ColorCodeViewModel
+import justjump.coding_calculator.viewmodel.ViewModelColorCode
 import kotlinx.android.synthetic.main.dialog_info_color.view.*
 
-class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: ColorCodeViewModel) : AppCompatDialogFragment() {
+class InfoColorDialog(view: Context, rgbColor: Int, private val cViewModel: ViewModelColorCode) : AppCompatDialogFragment() {
 
     private val r = Color.red(rgbColor)
     private val g = Color.green(rgbColor)

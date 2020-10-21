@@ -1,6 +1,7 @@
 package justjump.coding_calculator
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Handler
 import android.text.Html
@@ -15,7 +16,7 @@ import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import justjump.coding_calculator.data.local.SRDataExpression
 import justjump.coding_calculator.extensions.paintString
-import justjump.coding_calculator.viewmodel.CalculatorViewModel
+import justjump.coding_calculator.viewmodel.ViewModelCalculator
 import kotlinx.android.synthetic.main.activity_calculator.*
 
 /***************************************************************************/
@@ -25,15 +26,17 @@ import kotlinx.android.synthetic.main.activity_calculator.*
 class Calculator : AppCompatActivity() {
 
     var mainHandler: Handler? = null
-    lateinit var cViewModel: CalculatorViewModel
+    lateinit var cViewModel: ViewModelCalculator
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         var state = false
-        cViewModel = ViewModelProviders.of(this).get(CalculatorViewModel::class.java)
+        cViewModel = ViewModelProviders.of(this).get(ViewModelCalculator::class.java)
 
         /***************************************************************************/
         // observer

@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import justjump.coding_calculator.utilities.Functions
 
-class NumericalSystemViewModel: ViewModel() {
+class ViewModelNumericalSystem: ViewModel() {
 
     var dataNumber = MutableLiveData<String>()
     var resultDecimal = MutableLiveData<String>()
