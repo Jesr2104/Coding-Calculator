@@ -272,14 +272,13 @@ class Functions {
     /**********************************************************************/
     // Function to calculate the media of the number of the array
     /**********************************************************************/
-    fun average(values: Array<Double>): Double {
+    fun average(values: ArrayList<String>): Double {
         var result = 0.0
-        var i = 0
+
         for (item in values) {
-            result += item
-            i++
+            result += item.toDouble()
         }
-        result /= i
+        result /= values.size
         return result
     }
 }

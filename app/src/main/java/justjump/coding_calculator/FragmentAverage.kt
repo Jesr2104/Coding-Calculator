@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
+import justjump.coding_calculator.utilities.Functions
 import kotlinx.android.synthetic.main.fragment__average.*
 import kotlinx.android.synthetic.main.fragment__average.view.*
+import java.text.DecimalFormat
 
 class FragmentAverage : Fragment() {
     override fun onCreateView(
@@ -26,7 +27,6 @@ class FragmentAverage : Fragment() {
                 chip.text = newChipNumber.text.toString()
                 chip.isCloseIconVisible = true
                 chip.setOnCloseIconClickListener { chipGroup.removeView(chip) }
-                //chip.elevation = 15F
                 //chip.setTextAppearanceResource();
                 chipGroup.addView(chip)
 
@@ -36,38 +36,22 @@ class FragmentAverage : Fragment() {
         }
 
         view.check_result.setOnClickListener {
+            val format = DecimalFormat()
+            format.maximumFractionDigits = 4
+            val dataArray: ArrayList<String> = arrayListOf()
+            val count = this.chipGroup.childCount
+            var i = 1
 
-//            val count = this.chipGroup.childCount
-//            var i = 0
-//
-//            while(i < count) {
-//
-//                val chip = (this.chipGroup.getChildAt(i) as Chip).text.toString()
-//                Toast.makeText(this.context, "${chip.toString()}", Toast.LENGTH_SHORT).show()
-//
-//
-//            }
+            while(i < count) {
 
+                val chip = chipGroup.getChildAt(i) as Chip
+                dataArray.add(chip.text.toString())
+                i++
+            }
 
-
-
-
-
-
-
-
-//            val count = this.chipGroup.childCount
-//            var i = 0
-//
-//            while(i < count) {
-//
-//                val new = chipGroup.getChildAt(i)
-//                new.
-//
-//
-//                Toast.makeText(this.context, "${i}", Toast.LENGTH_SHORT).show()
-//                i++
-//            }
+            // calculates the percentage of the inserted values
+            val result = Functions().average(dataArray)
+            view.resultField.text = format.format(result).toString()
         }
 
         return view
