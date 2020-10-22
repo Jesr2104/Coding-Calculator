@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:text="Area"
                 android:textStyle="bold"
-                android:textColor="@color/Front_ColorGrey"
+                android:textColor="@color/Light_grey_deselect"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/Button_Area"
                 app:layout_constraintStart_toStartOf="@+id/Button_Area"
@@ -273,14 +273,14 @@
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" >
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/Title_TypeConvert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Type Convert Title"
+                android:text="Area"
                 android:textColor="#BEBEBE"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -296,30 +296,38 @@
                 android:backgroundTint="@color/black_grey_calculator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/Title_TypeConvert"
                 android:layout_marginTop="15dp"
-                android:elevation="15dp"/>
+                android:elevation="15dp"
+                android:textAllCaps="false"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutA"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusBottomStart="15dp"
                 app:boxCornerRadiusTopEnd="15dp"
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/btnMenuPopupA"
-                app:layout_constraintStart_toStartOf="@+id/btnMenuPopupA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnMenuPopupA">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
                     android:paddingTop="15dp"
-                    android:paddingBottom="15dp">
+                    android:paddingBottom="15dp"
+                    android:textColor="#646464"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -337,28 +345,36 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutA" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutA"
+                android:textAllCaps="false"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutB"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusBottomStart="15dp"
                 app:boxCornerRadiusTopEnd="15dp"
                 app:boxCornerRadiusTopStart="15dp"
-                android:layout_marginTop="5dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/btnMenuPopupB"
-                app:layout_constraintStart_toStartOf="@+id/btnMenuPopupB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnMenuPopupB">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
                     android:paddingTop="15dp"
-                    android:paddingBottom="15dp">
+                    android:paddingBottom="15dp"
+                    android:textColor="#646464"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
 
                 </com.google.android.material.textfield.TextInputEditText>
 

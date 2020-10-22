@@ -25,6 +25,8 @@ class Converter : AppCompatActivity() {
 
             textArea.setTextColor(Color.rgb(150,150,150))
 
+            Title_TypeConvert.text = "Area"
+
             // change color lost selection
             textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -43,6 +45,8 @@ class Converter : AppCompatActivity() {
             menuSelected = R.menu.convert_length
 
             textLength.setTextColor(Color.rgb(150,150,150))
+
+            Title_TypeConvert.text = "Length"
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -63,6 +67,8 @@ class Converter : AppCompatActivity() {
 
             textTime.setTextColor(Color.rgb(150,150,150))
 
+            Title_TypeConvert.text = "Time"
+
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -81,6 +87,8 @@ class Converter : AppCompatActivity() {
             menuSelected = R.menu.convert_temperature
 
             textTemp.setTextColor(Color.rgb(150,150,150))
+
+            Title_TypeConvert.text = "Temperature"
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -101,6 +109,8 @@ class Converter : AppCompatActivity() {
 
             textVolume.setTextColor(Color.rgb(150,150,150))
 
+            Title_TypeConvert.text = "Volume"
+
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -119,6 +129,8 @@ class Converter : AppCompatActivity() {
             menuSelected = R.menu.convert_mass
 
             textWeight.setTextColor(Color.rgb(150,150,150))
+
+            Title_TypeConvert.text = "Weight"
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -139,6 +151,8 @@ class Converter : AppCompatActivity() {
 
             textData.setTextColor(Color.rgb(150,150,150))
 
+            Title_TypeConvert.text = "Data"
+
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -157,6 +171,8 @@ class Converter : AppCompatActivity() {
             menuSelected = R.menu.convert_speed
 
             textSpeed.setTextColor(Color.rgb(150,150,150))
+
+            Title_TypeConvert.text = "Speed"
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
