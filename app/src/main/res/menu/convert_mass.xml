@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/MenuMass_Tons"
+        android:title="Tons (T)" />
+
+    <item
+        android:id="@+id/MenuMass_Uk_Tons"
+        android:title="Uk Tons (T)" />
+
+    <item
+        android:id="@+id/MenuMass_Us_Tons"
+        android:title="Us Tons  (T)" />
+
+    <item
+        android:id="@+id/MenuMass_Pounds"
+        android:title="Pounds (LB)" />
+
+    <item
+        android:id="@+id/MenuMass_Ounces"
+        android:title="Ounces (OZ)" />
+
+    <item
+        android:id="@+id/MenuMass_Kilogrammes"
+        android:title="Kilogrammes (KG)" />
+
+    <item
+        android:id="@+id/MenuMass_Grams"
+        android:title="Grams (G)" />
+
+</menu>

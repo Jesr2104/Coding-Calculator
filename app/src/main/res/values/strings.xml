@@ -24,4 +24,5 @@
     <string name="numerical_systems">Numerical Systems</string>
     <string name="calculator">Calculator</string>
     <string name="description_extras">Other calculator features </string>
+    <string name="Select_option">Select Option</string>
 </resources>

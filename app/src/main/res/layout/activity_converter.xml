@@ -47,200 +47,208 @@
             android:background="@color/yellow_mainColor">
 
             <ImageButton
-                android:id="@+id/imageButton1"
+                android:id="@+id/Button_Area"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:backgroundTint="@android:color/transparent"
-                app:layout_constraintBottom_toTopOf="@id/text1"
+                app:layout_constraintBottom_toTopOf="@id/textArea"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imageButton2"
+                app:layout_constraintRight_toLeftOf="@id/Button_Length"
                 app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/ic_area"/>
 
             <TextView
-                android:id="@+id/text1"
+                android:id="@+id/textArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Area"
                 android:textStyle="bold"
+                android:textColor="@color/Front_ColorGrey"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton1"
-                app:layout_constraintStart_toStartOf="@+id/imageButton1"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton1">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Area"
+                app:layout_constraintStart_toStartOf="@+id/Button_Area"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Area">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/Button_Length"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/text2"
-                app:layout_constraintLeft_toRightOf="@id/imageButton1"
-                app:layout_constraintRight_toLeftOf="@id/imageButton3"
+                app:layout_constraintBottom_toTopOf="@id/textLength"
+                app:layout_constraintLeft_toRightOf="@id/Button_Area"
+                app:layout_constraintRight_toLeftOf="@id/Button_Time"
                 app:layout_constraintTop_toTopOf="parent"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_length"/>
 
             <TextView
-                android:id="@+id/text2"
+                android:id="@+id/textLength"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Length"
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton2"
-                app:layout_constraintStart_toStartOf="@+id/imageButton2"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton2">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Length"
+                app:layout_constraintStart_toStartOf="@+id/Button_Length"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Length">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/Button_Time"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/text3"
-                app:layout_constraintLeft_toRightOf="@id/imageButton2"
-                app:layout_constraintRight_toLeftOf="@id/imageButton4"
+                app:layout_constraintBottom_toTopOf="@id/textTime"
+                app:layout_constraintLeft_toRightOf="@id/Button_Length"
+                app:layout_constraintRight_toLeftOf="@id/Button_Temp"
                 app:layout_constraintTop_toTopOf="parent"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_time"/>
 
             <TextView
-                android:id="@+id/text3"
+                android:id="@+id/textTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Time"
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-                app:layout_constraintStart_toStartOf="@+id/imageButton3"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton3">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Time"
+                app:layout_constraintStart_toStartOf="@+id/Button_Time"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Time">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/Button_Temp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_temp"
-                app:layout_constraintBottom_toTopOf="@id/text4"
-                app:layout_constraintLeft_toRightOf="@id/imageButton3"
-                app:layout_constraintRight_toLeftOf="@id/imageButton5"
+                app:layout_constraintBottom_toTopOf="@id/textTemp"
+                app:layout_constraintLeft_toRightOf="@id/Button_Time"
+                app:layout_constraintRight_toLeftOf="@id/Button_Volume"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text4"
+                android:id="@+id/textTemp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Temp."
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-                app:layout_constraintStart_toStartOf="@+id/imageButton4"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton4">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Temp"
+                app:layout_constraintStart_toStartOf="@+id/Button_Temp"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Temp">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton5"
+                android:id="@+id/Button_Volume"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/text5"
-                app:layout_constraintLeft_toRightOf="@id/imageButton4"
-                app:layout_constraintRight_toLeftOf="@id/imageButton6"
+                app:layout_constraintBottom_toTopOf="@id/textVolume"
+                app:layout_constraintLeft_toRightOf="@id/Button_Temp"
+                app:layout_constraintRight_toLeftOf="@id/Button_Weight"
                 app:layout_constraintTop_toTopOf="parent"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_volume"/>
 
             <TextView
-                android:id="@+id/text5"
+                android:id="@+id/textVolume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Volume"
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton5"
-                app:layout_constraintStart_toStartOf="@+id/imageButton5"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton5">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Volume"
+                app:layout_constraintStart_toStartOf="@+id/Button_Volume"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Volume">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/Button_Weight"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/text6"
-                app:layout_constraintLeft_toRightOf="@id/imageButton5"
-                app:layout_constraintRight_toLeftOf="@id/imageButton7"
+                app:layout_constraintBottom_toTopOf="@id/textWeight"
+                app:layout_constraintLeft_toRightOf="@id/Button_Volume"
+                app:layout_constraintRight_toLeftOf="@id/Button_Data"
                 app:layout_constraintTop_toTopOf="parent"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_weight"/>
 
             <TextView
-                android:id="@+id/text6"
+                android:id="@+id/textWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weight"
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton6"
+                app:layout_constraintEnd_toEndOf="@+id/Button_Weight"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/imageButton6"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton6">
+                app:layout_constraintStart_toStartOf="@+id/Button_Weight"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Weight">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton7"
+                android:id="@+id/Button_Data"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/text7"
-                app:layout_constraintLeft_toRightOf="@id/imageButton6"
+                app:layout_constraintBottom_toTopOf="@id/textData"
+                app:layout_constraintLeft_toRightOf="@id/Button_Weight"
                 app:layout_constraintTop_toTopOf="parent"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_data"/>
 
             <TextView
-                android:id="@+id/text7"
+                android:id="@+id/textData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Data"
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton7"
-                app:layout_constraintStart_toStartOf="@+id/imageButton7"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton7">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Data"
+                app:layout_constraintStart_toStartOf="@+id/Button_Data"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Data">
 
             </TextView>
 
             <ImageButton
-                android:id="@+id/imageButton8"
+                android:id="@+id/Button_Speed"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/text8"
-                app:layout_constraintLeft_toRightOf="@id/imageButton7"
+                app:layout_constraintBottom_toTopOf="@id/textSpeed"
+                app:layout_constraintLeft_toRightOf="@id/Button_Data"
                 app:layout_constraintTop_toTopOf="parent"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_speed"/>
 
             <TextView
-                android:id="@+id/text8"
+                android:id="@+id/textSpeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Speed"
+                android:textColor="@color/Front_ColorGrey"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton8"
-                app:layout_constraintStart_toStartOf="@+id/imageButton8"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton8">
+                app:layout_constraintEnd_toEndOf="@+id/Button_Speed"
+                app:layout_constraintStart_toStartOf="@+id/Button_Speed"
+                app:layout_constraintTop_toBottomOf="@+id/Button_Speed">
 
             </TextView>
 
@@ -248,12 +256,116 @@
 
     </HorizontalScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Type Convert Title"
+                android:textColor="#BEBEBE"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMenuPopupA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Select_option"
+                app:icon="@drawable/ic_arrow_down"
+                app:iconGravity="end"
+                android:backgroundTint="@color/black_grey_calculator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                android:layout_marginTop="15dp"
+                android:elevation="15dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/btnMenuPopupA"
+                app:layout_constraintStart_toStartOf="@+id/btnMenuPopupA"
+                app:layout_constraintTop_toBottomOf="@+id/btnMenuPopupA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMenuPopupB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black_grey_calculator"
+                android:elevation="15dp"
+                android:text="@string/Select_option"
+                app:icon="@drawable/ic_arrow_down"
+                app:iconGravity="end"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutA" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                android:layout_marginTop="5dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/btnMenuPopupB"
+                app:layout_constraintStart_toStartOf="@+id/btnMenuPopupB"
+                app:layout_constraintTop_toBottomOf="@+id/btnMenuPopupB">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
