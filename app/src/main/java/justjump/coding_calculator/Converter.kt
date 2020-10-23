@@ -1,29 +1,124 @@
 package justjump.coding_calculator
 
-import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.PopupMenu
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_converter.*
 
+class Converter : AppCompatActivity(){
 
-class Converter : AppCompatActivity() {
+    private val menuAreaList = listOf(
+        "Acres (AC)",
+        "Ares (A)",
+        "Hectares (HA)",
+        "Squares Centimetres (CM²)",
+        "Squares Feet (FT²)",
+        "Squares Inches (IN²)",
+        "Squares Metres (M²)"
+    )
+    private val menuLengthList = listOf(
+        "Millimetres (MM)",
+        "Centimetres (CM)",
+        "Metres (M)",
+        "Kilometres (KM)",
+        "Inches (IN)",
+        "Feet (FT)",
+        "Yards (YD)",
+        "Mile (MI)",
+        "Nautical (NM)",
+        "Mils (MIL)"
+    )
+    private val menuTimeList = listOf(
+        "Milliseconds (MS)",
+        "Seconds (S)",
+        "Minutes (Min)",
+        "Hours (H)",
+        "Days (D)",
+        "Weeks (WK)"
+    )
+    private val menuTemperatureList = listOf(
+        "Celsius (°C)",
+        "Fahrenheit (°F)",
+        "Kelvin (K)"
+    )
+    private val menuVolumeList = listOf(
+        "Uk Gallons (GAS)",
+        "Us Gallons (GAS)",
+        "Litres (L)",
+        "Millilitres (ML)",
+        "Cubic Centimetres (CC, CM³)",
+        "Cubic Metres (M³)",
+        "Cubic Inches (IN³)",
+        "Cubic Feet (FT³)"
+    )
+    private val menuWeightList = listOf(
+        "Tons (T)",
+        "Uk Tons (T)",
+        "Us Tons  (T)",
+        "Pounds (LB)",
+        "Ounces (OZ)",
+        "Kilogrammes (KG)",
+        "Grams (G)"
+    )
+    private val menuDataList = listOf(
+        "Bits (Bit)",
+        "Bytes (B)",
+        "Kilobytes (KB)",
+        "Megabytes (MB)",
+        "Gigabytes (GB)",
+        "Terabytes (TB)",
+        "Petabytes (PB)",
+        "Exabytes (XB)",
+        "Zettabytes (ZB)",
+        "Yottabytes (YB)",
+        "Brontonbytes (BB)",
+        "Geopbytes (GPB)"
+    )
+    private val menuSpeedList = listOf(
+        "Metres per second (M/S)",
+        "Metres per hour (M/H)",
+        "kilometres per second (KM/S)",
+        "kilometres per hour (KM/H)",
+        "Inches per second (IN/H)",
+        "Inches per hour (IN/H)",
+        "Feet per second (FT/S)",
+        "Feet per hour (FT/H)",
+        "Miles per second (MI/S)",
+        "Miles per hour (MI/H)",
+        "Knots (KN)"
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_converter)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        var converterSelect = 1
-        var menuSelected = R.menu.convert_area
 
+        val adapterMenu = ArrayAdapter(
+            this,
+            R.layout.support_simple_spinner_dropdown_item,
+            menuAreaList
+        )
+        SpinnerMenuA.adapter = adapterMenu
+        SpinnerMenuB.adapter = adapterMenu
+
+        // Event when you press button Area
         Button_Area.setOnClickListener {
-            converterSelect = 1
-            menuSelected = R.menu.convert_area
 
-            textArea.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuAreaList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textArea.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Area"
 
@@ -36,15 +131,21 @@ class Converter : AppCompatActivity() {
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Length.setOnClickListener {
-            converterSelect = 2
-            menuSelected = R.menu.convert_length
 
-            textLength.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuLengthList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textLength.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Length"
 
@@ -57,15 +158,21 @@ class Converter : AppCompatActivity() {
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Time.setOnClickListener {
-            converterSelect = 3
-            menuSelected = R.menu.convert_time
 
-            textTime.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuTimeList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textTime.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Time"
 
@@ -78,15 +185,21 @@ class Converter : AppCompatActivity() {
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Temp.setOnClickListener {
-            converterSelect = 4
-            menuSelected = R.menu.convert_temperature
 
-            textTemp.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuTemperatureList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textTemp.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Temperature"
 
@@ -99,15 +212,21 @@ class Converter : AppCompatActivity() {
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Volume.setOnClickListener {
-            converterSelect = 5
-            menuSelected = R.menu.convert_volume
 
-            textVolume.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuVolumeList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textVolume.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Volume"
 
@@ -120,15 +239,21 @@ class Converter : AppCompatActivity() {
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Weight.setOnClickListener {
-            converterSelect = 6
-            menuSelected = R.menu.convert_mass
 
-            textWeight.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuWeightList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textWeight.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Weight"
 
@@ -141,15 +266,21 @@ class Converter : AppCompatActivity() {
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Data.setOnClickListener {
-            converterSelect = 7
-            menuSelected = R.menu.convert_data
 
-            textData.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuDataList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textData.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Data"
 
@@ -162,15 +293,21 @@ class Converter : AppCompatActivity() {
             textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
         Button_Speed.setOnClickListener {
-            converterSelect = 8
-            menuSelected = R.menu.convert_speed
 
-            textSpeed.setTextColor(Color.rgb(150,150,150))
+            val adapterMenu = ArrayAdapter(
+                this,
+                R.layout.support_simple_spinner_dropdown_item,
+                menuSpeedList
+            )
+            SpinnerMenuA.adapter = adapterMenu
+            SpinnerMenuB.adapter = adapterMenu
+
+            textSpeed.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Speed"
 
@@ -183,36 +320,51 @@ class Converter : AppCompatActivity() {
             textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
             textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
 
-            btnMenuPopupA.text = getString(R.string.Select_option)
-            btnMenuPopupB.text = getString(R.string.Select_option)
+            dataA.setText("")
+            dataB.setText("")
         }
 
-        btnMenuPopupA.setOnClickListener {
-            val popup = PopupMenu(applicationContext, it)
-            val inflater = popup.menuInflater
-            inflater.inflate(menuSelected, popup.menu)
+        dataA.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {
 
-            popup.setOnMenuItemClickListener { item ->
-                btnMenuPopupA.text = item.title
-                Toast.makeText(this, "You Clicked : ${item.title}", Toast.LENGTH_SHORT).show()
-                true
+                when (SpinnerMenuA.selectedItem.toString()) {
+                    "Acres (AC)" -> {
+
+                        SpinnerMenuB.selectedItem.toString()
+
+                    }
+                    "Ares (A)" -> {
+
+                    }
+                    "Hectares (HA)" -> {
+
+                    }
+                    "Squares Centimetres (CM²)" -> {
+
+                    }
+                    "Squares Feet (FT²)" -> {
+
+                    }
+                    "Squares Inches (IN²)" -> {
+
+                    }
+                    "Squares Metres (M²)" -> {
+
+                    }
+                }
             }
+        })
 
-            popup.show()
-        }
+        dataB.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {
 
-        btnMenuPopupB.setOnClickListener {
-            val popup = PopupMenu(applicationContext, it)
-            val inflater = popup.menuInflater
-            inflater.inflate(menuSelected, popup.menu)
-
-            popup.setOnMenuItemClickListener { item ->
-                btnMenuPopupB.text = item.title
-                Toast.makeText(this, "You Clicked : ${item.title}", Toast.LENGTH_SHORT).show()
-                true
+                val text: String = SpinnerMenuA.selectedItem.toString()
+                //Toast.makeText(applicationContext, "$text", Toast.LENGTH_SHORT).show()
             }
-
-            popup.show()
-        }
+        })
     }
 }

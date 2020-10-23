@@ -286,28 +286,24 @@
 
             </TextView>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMenuPopupA"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/SpinnerMenuA"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/Select_option"
-                app:icon="@drawable/ic_arrow_down"
-                app:iconGravity="end"
-                android:backgroundTint="@color/black_grey_calculator"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Title_TypeConvert"
                 android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:elevation="15dp"
-                android:textAllCaps="false"/>
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayoutA"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayoutA"
+                app:layout_constraintTop_toBottomOf="@+id/Title_TypeConvert" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutA"
+                app:layout_constraintWidth_percent="0.75"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusBottomStart="15dp"
                 app:boxCornerRadiusTopEnd="15dp"
@@ -316,9 +312,10 @@
                 app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnMenuPopupA">
+                app:layout_constraintTop_toBottomOf="@+id/SpinnerMenuA">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dataA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
@@ -333,28 +330,24 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMenuPopupB"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/SpinnerMenuB"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/black_grey_calculator"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:elevation="15dp"
-                android:text="@string/Select_option"
-                app:icon="@drawable/ic_arrow_down"
-                app:iconGravity="end"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutA"
-                android:textAllCaps="false"/>
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayoutB"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayoutB"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutA" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutB"
+                app:layout_constraintWidth_percent="0.75"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusBottomStart="15dp"
                 app:boxCornerRadiusTopEnd="15dp"
@@ -363,9 +356,10 @@
                 app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnMenuPopupB">
+                app:layout_constraintTop_toBottomOf="@+id/SpinnerMenuB">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dataB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
