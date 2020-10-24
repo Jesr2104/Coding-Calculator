@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import justjump.coding_calculator.utilities.ConvertUtilities
 import kotlinx.android.synthetic.main.activity_converter.*
 
 class Converter : AppCompatActivity(){
@@ -107,6 +108,9 @@ class Converter : AppCompatActivity(){
         SpinnerMenuA.adapter = adapterMenu
         SpinnerMenuB.adapter = adapterMenu
 
+        // valor to check what system of convert is selected
+        var systemOfConvert: Int = 1
+
         // Event when you press button Area
         Button_Area.setOnClickListener {
 
@@ -117,6 +121,8 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+
+            systemOfConvert = 1
 
             textArea.setTextColor(Color.rgb(150, 150, 150))
 
@@ -145,6 +151,8 @@ class Converter : AppCompatActivity(){
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
 
+            systemOfConvert = 2
+
             textLength.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Length"
@@ -171,6 +179,8 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+
+            systemOfConvert = 3
 
             textTime.setTextColor(Color.rgb(150, 150, 150))
 
@@ -199,6 +209,8 @@ class Converter : AppCompatActivity(){
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
 
+            systemOfConvert = 4
+
             textTemp.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Temperature"
@@ -225,6 +237,8 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+
+            systemOfConvert = 5
 
             textVolume.setTextColor(Color.rgb(150, 150, 150))
 
@@ -253,6 +267,8 @@ class Converter : AppCompatActivity(){
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
 
+            systemOfConvert = 6
+
             textWeight.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Weight"
@@ -279,6 +295,8 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+
+            systemOfConvert = 7
 
             textData.setTextColor(Color.rgb(150, 150, 150))
 
@@ -307,6 +325,8 @@ class Converter : AppCompatActivity(){
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
 
+            systemOfConvert = 8
+
             textSpeed.setTextColor(Color.rgb(150, 150, 150))
 
             Title_TypeConvert.text = "Speed"
@@ -329,31 +349,15 @@ class Converter : AppCompatActivity(){
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
-                when (SpinnerMenuA.selectedItem.toString()) {
-                    "Acres (AC)" -> {
+                val resultValue = ConvertUtilities().checkConvert(
+                    systemOfConvert,
+                    dataA.text.toString().toDouble(),
+                    SpinnerMenuA.selectedItem.toString(),
+                    SpinnerMenuB.selectedItem.toString()
+                )
 
-                        SpinnerMenuB.selectedItem.toString()
-
-                    }
-                    "Ares (A)" -> {
-
-                    }
-                    "Hectares (HA)" -> {
-
-                    }
-                    "Squares Centimetres (CM²)" -> {
-
-                    }
-                    "Squares Feet (FT²)" -> {
-
-                    }
-                    "Squares Inches (IN²)" -> {
-
-                    }
-                    "Squares Metres (M²)" -> {
-
-                    }
-                }
+                // Insert the value on the result field
+                dataB.setText(resultValue)
             }
         })
 
