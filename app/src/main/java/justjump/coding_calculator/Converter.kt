@@ -5,92 +5,96 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import justjump.coding_calculator.utilities.ConvertUtilities
 import kotlinx.android.synthetic.main.activity_converter.*
 
+
 class Converter : AppCompatActivity(){
 
     private val menuAreaList = listOf(
-        "Acres (AC)",
-        "Ares (A)",
-        "Hectares (HA)",
-        "Squares Centimetres (CM²)",
-        "Squares Feet (FT²)",
-        "Squares Inches (IN²)",
-        "Squares Metres (M²)"
+        "Acres (ac)",
+        "Ares (a)",
+        "Hectares (ha)",
+        "Squares centimetres (cm²)",
+        "Squares feet (ft²)",
+        "Squares inches (in²)",
+        "Squares metres (m²)"
     )
     private val menuLengthList = listOf(
-        "Millimetres (MM)",
-        "Centimetres (CM)",
-        "Metres (M)",
-        "Kilometres (KM)",
-        "Inches (IN)",
-        "Feet (FT)",
-        "Yards (YD)",
-        "Mile (MI)",
-        "Nautical (NM)",
-        "Mils (MIL)"
+        "Millimetres (mm)",
+        "Centimetres (cm)",
+        "Cetres (m)",
+        "Kilometres (km)",
+        "Inches (in)",
+        "Feet (ft)",
+        "Yards (yd)",
+        "Mile (mi)",
+        "Nautical (nm)",
+        "Mils (mil)"
     )
     private val menuTimeList = listOf(
-        "Milliseconds (MS)",
-        "Seconds (S)",
-        "Minutes (Min)",
-        "Hours (H)",
-        "Days (D)",
-        "Weeks (WK)"
+        "Milliseconds (ms)",
+        "Seconds (s)",
+        "Minutes (min)",
+        "Hours (h)",
+        "Days (d)",
+        "Weeks (wk)"
     )
     private val menuTemperatureList = listOf(
-        "Celsius (°C)",
-        "Fahrenheit (°F)",
-        "Kelvin (K)"
+        "Celsius (°c)",
+        "Fahrenheit (°f)",
+        "Kelvin (k)"
     )
     private val menuVolumeList = listOf(
-        "Uk Gallons (GAS)",
-        "Us Gallons (GAS)",
-        "Litres (L)",
-        "Millilitres (ML)",
-        "Cubic Centimetres (CC, CM³)",
-        "Cubic Metres (M³)",
-        "Cubic Inches (IN³)",
-        "Cubic Feet (FT³)"
+        "Uk gallons (gas)",
+        "Us gallons (gas)",
+        "Litres (l)",
+        "Millilitres (ml)",
+        "Cubic centimetres (cc, cm³)",
+        "Cubic metres (m³)",
+        "Cubic inches (in³)",
+        "Cubic feet (ft³)"
     )
     private val menuWeightList = listOf(
-        "Tons (T)",
-        "Uk Tons (T)",
-        "Us Tons  (T)",
-        "Pounds (LB)",
-        "Ounces (OZ)",
-        "Kilogrammes (KG)",
-        "Grams (G)"
+        "Tons (t)",
+        "Uk tons (t)",
+        "Us tons  (t)",
+        "Pounds (lb)",
+        "Ounces (oz)",
+        "Kilogrammes (kg)",
+        "Grams (g)"
     )
     private val menuDataList = listOf(
-        "Bits (Bit)",
-        "Bytes (B)",
-        "Kilobytes (KB)",
-        "Megabytes (MB)",
-        "Gigabytes (GB)",
-        "Terabytes (TB)",
-        "Petabytes (PB)",
-        "Exabytes (XB)",
-        "Zettabytes (ZB)",
-        "Yottabytes (YB)",
-        "Brontonbytes (BB)",
-        "Geopbytes (GPB)"
+        "Bits (bit)",
+        "Bytes (b)",
+        "Kilobytes (kb)",
+        "Megabytes (mb)",
+        "Gigabytes (gb)",
+        "Terabytes (tb)",
+        "Petabytes (pb)",
+        "Exabytes (xb)",
+        "Zettabytes (zb)",
+        "Yottabytes (yb)",
+        "Brontonbytes (bb)",
+        "Geopbytes (gpb)"
     )
     private val menuSpeedList = listOf(
-        "Metres per second (M/S)",
-        "Metres per hour (M/H)",
-        "kilometres per second (KM/S)",
-        "kilometres per hour (KM/H)",
-        "Inches per second (IN/H)",
-        "Inches per hour (IN/H)",
-        "Feet per second (FT/S)",
-        "Feet per hour (FT/H)",
-        "Miles per second (MI/S)",
-        "Miles per hour (MI/H)",
-        "Knots (KN)"
+        "Metres per second (m/s)",
+        "Metres per hour (m/h)",
+        "Kilometres per second (km/s)",
+        "Kilometres per hour (km/h)",
+        "Inches per second (in/h)",
+        "Inches per hour (in/h)",
+        "Feet per second (ft/s)",
+        "Feet per hour (ft/h)",
+        "Miles per second (mi/s)",
+        "Miles per hour (mi/h)",
+        "Knots (kn)"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -343,20 +347,42 @@ class Converter : AppCompatActivity(){
             dataB.setText("")
         }
 
+        // this event control when the user change the metric but the value is done on the field.
+        SpinnerMenuA.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
+                if (dataA.text.toString().isNotEmpty()) {
+                    val resultValue = ConvertUtilities().checkConvert(
+                        systemOfConvert,
+                        dataA.text.toString().toDouble(),
+                        SpinnerMenuA.selectedItem.toString(),
+                        SpinnerMenuB.selectedItem.toString()
+                    )
+
+                    // Insert the value on the result field
+                    dataB.setText(resultValue)
+                }
+            }
+            override fun onNothingSelected(parentView: AdapterView<*>?) {}
+        }
+
         dataA.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
-                val resultValue = ConvertUtilities().checkConvert(
-                    systemOfConvert,
-                    dataA.text.toString().toDouble(),
-                    SpinnerMenuA.selectedItem.toString(),
-                    SpinnerMenuB.selectedItem.toString()
-                )
+                if (dataA.text.toString().isNotEmpty()) {
+                    val resultValue = ConvertUtilities().checkConvert(
+                        systemOfConvert,
+                        dataA.text.toString().toDouble(),
+                        SpinnerMenuA.selectedItem.toString(),
+                        SpinnerMenuB.selectedItem.toString()
+                    )
 
-                // Insert the value on the result field
-                dataB.setText(resultValue)
+                    // Insert the value on the result field
+                    dataB.setText(resultValue)
+                } else {
+                    dataB.setText("")
+                }
             }
         })
 

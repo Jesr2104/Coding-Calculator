@@ -1,5 +1,6 @@
 package justjump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
@@ -16,7 +17,6 @@ import androidx.lifecycle.MutableLiveData
 import justjump.coding_calculator.utilities.Functions
 import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
 
-
 class InfoChangeValueColorDialog(
     var Value: String,
     var TypeColor: String,
@@ -29,6 +29,7 @@ class InfoChangeValueColorDialog(
     private var hexValue: Int = 0
     var mainHandler: Handler? = null
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
 
@@ -216,9 +217,6 @@ class InfoChangeValueColorDialog(
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun afterTextChanged(p0: Editable?) {
 
-                    // evitar poder insertar letras
-                    // evitar insertar en haxadecimal valores con letras diferentes a "abcdf"
-
                     val text: String = p0.toString()
                     val length: Int = text.length
 
@@ -247,33 +245,6 @@ class InfoChangeValueColorDialog(
 
                                 // we can insert just number of 2 digit
                                 if (text.length > 2) {
-                                    p0!!.delete(length - 1, length)
-                                }
-
-                                if (!(text.contains('0') ||
-                                            text.contains('1') ||
-                                            text.contains('2') ||
-                                            text.contains('3') ||
-                                            text.contains('4') ||
-                                            text.contains('5') ||
-                                            text.contains('6') ||
-                                            text.contains('7') ||
-                                            text.contains('8') ||
-                                            text.contains('9') ||
-                                            text.contains('A') ||
-                                            text.contains('a') ||
-                                            text.contains('B') ||
-                                            text.contains('b') ||
-                                            text.contains('C') ||
-                                            text.contains('c') ||
-                                            text.contains('D') ||
-                                            text.contains('d') ||
-                                            text.contains('E') ||
-                                            text.contains('e') ||
-                                            text.contains('F') ||
-                                            text.contains('f'))
-                                ) {
-
                                     p0!!.delete(length - 1, length)
                                 }
 
