@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="#484848">
 
-    <EditText
+    <TextView
         android:id="@+id/Titlefield"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:paddingBottom="15dp"
         android:elevation="20dp">
 
-    </EditText>
+    </TextView>
 
     <ImageButton
         android:id="@+id/increase"
@@ -61,7 +61,7 @@
             android:gravity="center|center_vertical"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:textColor="#FFF"/>
+            android:textColor="#FFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
