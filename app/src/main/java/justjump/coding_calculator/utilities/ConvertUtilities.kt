@@ -985,138 +985,138 @@ class ConvertUtilities {
                             result = (value * 2240).toString()
                         }
                         "Ounces (oz)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 35840).toString()
                         }
                         "Kilogrammes (kg)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1016.0469088).toString()
                         }
                         "Grams (g)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1016046.9088).toString()
                         }
                     }
                 }
                 "US tons  (t)"  -> {
                     when (spinnerB) {
                         "Tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.90718474).toString()
                         }
                         "UK tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.8928571429).toString()
                         }
                         "US tons  (t)"  -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Pounds (lb)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 2000).toString()
                         }
                         "Ounces (oz)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 32000).toString()
                         }
                         "Kilogrammes (kg)" -> {
-                            result = (value * ).toString()
+                            result = (value * 907.18474).toString()
                         }
                         "Grams (g)" -> {
-                            result = (value * ).toString()
+                            result = (value * 907184.74).toString()
                         }
                     }
                 }
                 "Pounds (lb)"  -> {
                     when (spinnerB) {
                         "Tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0004535924).toString()
                         }
                         "UK tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0004464286).toString()
                         }
                         "US tons  (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0005).toString()
                         }
                         "Pounds (lb)"  -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Ounces (oz)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 16).toString()
                         }
                         "Kilogrammes (kg)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.45359237).toString()
                         }
                         "Grams (g)" -> {
-                            result = (value * ).toString()
+                            result = (value * 453.59237).toString()
                         }
                     }
                 }
                 "Ounces (oz)"  -> {
                     when (spinnerB) {
                         "Tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000283495).toString()
                         }
                         "UK tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000279018).toString()
                         }
                         "US tons  (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.00003124).toString()
                         }
                         "Pounds (lb)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0625).toString()
                         }
                         "Ounces (oz)"  -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Kilogrammes (kg)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0283495231).toString()
                         }
                         "Grams (g)" -> {
-                            result = (value * ).toString()
+                            result = (value * 28.3495231).toString()
                         }
                     }
                 }
                 "Kilogrammes (kg)" -> {
                     when (spinnerB) {
                         "Tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.001).toString()
                         }
                         "UK tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0009842065).toString()
                         }
                         "US tons  (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0011023113).toString()
                         }
                         "Pounds (lb)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 2.2046226218).toString()
                         }
                         "Ounces (oz)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 35.2739619496).toString()
                         }
                         "Kilogrammes (kg)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Grams (g)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1000).toString()
                         }
                     }
                 }
                 "Grams (g)" -> {
                     when (spinnerB) {
                         "Tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.000001).toString()
                         }
                         "UK tons (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 9.84206528E-7).toString()
                         }
                         "US tons  (t)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000011023).toString()
                         }
                         "Pounds (lb)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0022046226218).toString()
                         }
                         "Ounces (oz)"  -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0352739619496).toString()
                         }
                         "Kilogrammes (kg)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.001).toString()
                         }
                         "Grams (g)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                     }
                 }
@@ -1127,480 +1127,224 @@ class ConvertUtilities {
                 "Bits (bit)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.125).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0001220703).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.19209290E-7).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.16415322E-10).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.13686838E-13).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.11022302E-16).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.084202172E-19).toString()
                         }
                     }
                 }
                 "Bytes (B)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0009765625).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.53674316E-7).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.31322575E-10).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.09494702E-13).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8.88178419E-16).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8.673617379E-19).toString()
                         }
                     }
                 }
                 "Kilobytes (KB)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8192).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1024).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0009765625).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.53674316E-7).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.31322575E-10).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.09494702E-13).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8.88178419E-16).toString()
                         }
                     }
                 }
                 "Megabytes (MB)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8388608).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1048576).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1024).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0009765625).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.53674316E-7).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.31322575E-10).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.09494702E-13).toString()
                         }
                     }
                 }
                 "Gigabytes (GB)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8589934592).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1073741824).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1048576).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1024).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.000976562).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.53674316E-7).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.31322575E-10).toString()
                         }
                     }
                 }
                 "Terabytes (TB)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8796093022208).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1099511627776).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1073741824).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1048576).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1024).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.000976562).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9.53674316E-7).toString()
                         }
                     }
                 }
                 "Petabytes (PB)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9007199254740992).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1125899906842624).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1099511687776).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1073741824).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1048576).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1024).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.000976562).toString()
                         }
                     }
                 }
                 "Exabytes (XB)" -> {
                     when (spinnerB) {
                         "Bits (bit)" -> {
-                            result = (value * ).toString()
+                            result = (value * 9223372036855E6).toString()
                         }
                         "Bytes (B)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1152921504607E6).toString()
                         }
                         "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1125899907E6).toString()
                         }
                         "Megabytes (MB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 109951163E-4).toString()
                         }
                         "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1073741824).toString()
                         }
                         "Terabytes (TB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1048576).toString()
                         }
                         "Petabytes (PB)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1024).toString()
                         }
                         "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
-                        }
-                    }
-                }
-                "Zettabytes (ZB)" -> {
-                    when (spinnerB) {
-                        "Bits (bit)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Bytes (B)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Megabytes (MB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Terabytes (TB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Petabytes (PB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
-                        }
-                    }
-                }
-                "Yottabytes (YB)" -> {
-                    when (spinnerB) {
-                        "Bits (bit)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Bytes (B)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Megabytes (MB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Terabytes (TB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Petabytes (PB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
-                        }
-                    }
-                }
-                "Brontonbytes (BB)" -> {
-                    when (spinnerB) {
-                        "Bits (bit)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Bytes (B)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Megabytes (MB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Terabytes (TB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Petabytes (PB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
-                        }
-                    }
-                }
-                "Geopbytes (GPB)" -> {
-                    when (spinnerB) {
-                        "Bits (bit)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Bytes (B)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Kilobytes (KB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Megabytes (MB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Gigabytes (GB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Terabytes (TB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Petabytes (PB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Exabytes (XB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Zettabytes (ZB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Yottabytes (YB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Brontonbytes (BB)" -> {
-                            result = (value * ).toString()
-                        }
-                        "Geopbytes (GPB)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                     }
                 }
@@ -1611,407 +1355,407 @@ class ConvertUtilities {
                 "Metres per second (m/s)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3600).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.001).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.6).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 39.3700787402).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 141732.28346457).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3.280839895).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 11811.023622047).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0006213712).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 2.2369362921).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.9438444924).toString()
                         }
                     }
                 }
                 "Metres per hour (m/h)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0002777778).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 2.77777778E-7).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.001).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 0.010936133).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 39.3700787402).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0009113444).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3.280839895).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.72603109E-7).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0006213712).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0005399538).toString()
                         }
                     }
                 }
                 "Kilometres per second (km/s)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1000).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3600000).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3600).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 39370.078740158).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 141723283.46457).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3280.8398950131).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 11811023.622047).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.6213711922).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 2236.9362920544).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1943.8444924406).toString()
                         }
                     }
                 }
                 "Kilometres per hour (km/h)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.2777778).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1000).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.000277777).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 10.9361329834).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 39370.078740158).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.9113444153).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3280.8398950131).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0001726031).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.6213711922).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.5399568035).toString()
                         }
                     }
                 }
                 "Inches per second (in/h)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0254).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 91.44).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000254).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.09144).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = value.toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3600).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.08333).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 300).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000157828).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0568181818).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0493736501).toString()
                         }
                     }
                 }
                 "Inches per hour (in/h)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000070556).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0254).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 7.05555556E-9).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000254).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 0.0002777778).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000231481).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.08333).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 4.38411897E-9).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000157828).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000137149).toString()
                         }
                     }
                 }
                 "Feet per second (ft/s)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.3048).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1097.27).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0003048).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.09728).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 12).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 43200).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3600).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0001893939).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.6818181818).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.5924838013).toString()
                         }
                     }
                 }
                 "Feet per hour (ft/h)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0000846667).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.3048).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 8.46666667E-8).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0003048).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 0.00333333).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 12).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0002777778).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 5.26094276E-8).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0001893939).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0001645788).toString()
                         }
                     }
                 }
                 "Miles per second (mi/s)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1609.344).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 5793638.4).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.609344).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 5793.6384).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 63360).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 228096000).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 5280).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 19008000).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3600).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 3128.3144708423).toString()
                         }
                     }
                 }
                 "Miles per hour (mi/h)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.44704).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1609.344).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.00044704).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.609344).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 17.6).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 63360).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.4666666667).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 5280).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.0002777778).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.8689762419).toString()
                         }
                     }
                 }
                 "Knots (kn)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.51444444).toString()
                         }
                         "Metres per hour (m/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1852).toString()
                         }
                         "Kilometres per second (km/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.00051444444).toString()
                         }
                         "Kilometres per hour (km/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.852).toString()
                         }
-                        "Inches per second (in/h)" -> {
-                            result = (value * ).toString()
+                        "Inches per second (in/s)" -> {
+                            result = (value * 20.2537182852).toString()
                         }
                         "Inches per hour (in/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 72913.385826772).toString()
                         }
                         "Feet per second (ft/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.6878098571).toString()
                         }
                         "Feet per hour (ft/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 6076.1154855643).toString()
                         }
                         "Miles per second (mi/s)" -> {
-                            result = (value * ).toString()
+                            result = (value * 0.000319661).toString()
                         }
                         "Miles per hour (mi/h)" -> {
-                            result = (value * ).toString()
+                            result = (value * 1.150779448).toString()
                         }
                         "Knots (kn)" -> {
-                            result = (value * ).toString()
+                            result = value.toString()
                         }
                     }
                 }

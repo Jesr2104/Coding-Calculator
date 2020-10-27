@@ -77,18 +77,14 @@ class Converter : AppCompatActivity(){
         "Gigabytes (gb)",
         "Terabytes (tb)",
         "Petabytes (pb)",
-        "Exabytes (xb)",
-        "Zettabytes (zb)",
-        "Yottabytes (yb)",
-        "Brontonbytes (bb)",
-        "Geopbytes (gpb)"
+        "Exabytes (xb)"
     )
     private val menuSpeedList = listOf(
         "Metres per second (m/s)",
         "Metres per hour (m/h)",
         "Kilometres per second (km/s)",
         "Kilometres per hour (km/h)",
-        "Inches per second (in/h)",
+        "Inches per second (in/s)",
         "Inches per hour (in/h)",
         "Feet per second (ft/s)",
         "Feet per hour (ft/h)",
