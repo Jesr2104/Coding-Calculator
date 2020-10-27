@@ -1135,7 +1135,7 @@ class ConvertUtilities {
                         "Kilobytes (KB)" -> {
                             result = (value * 0.0001220703).toString()
                         }
-                        "Megabytes (MB)" -> {
+                        "Megabytes (MG)" -> {
                             result = (value * 1.19209290E-7).toString()
                         }
                         "Gigabytes (GB)" -> {
@@ -1500,7 +1500,7 @@ class ConvertUtilities {
                         }
                     }
                 }
-                "Inches per second (in/h)" -> {
+                "Inches per second (in/s)" -> {
                     when (spinnerB) {
                         "Metres per second (m/s)" -> {
                             result = (value * 0.0254).toString()

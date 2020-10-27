@@ -28,13 +28,13 @@ class Converter : AppCompatActivity(){
     private val menuLengthList = listOf(
         "Millimetres (mm)",
         "Centimetres (cm)",
-        "Cetres (m)",
+        "Metres (m)",
         "Kilometres (km)",
         "Inches (in)",
         "Feet (ft)",
         "Yards (yd)",
-        "Mile (mi)",
-        "Nautical (nm)",
+        "Miles (mi)",
+        "Nautical miles (NM)",
         "Mils (mil)"
     )
     private val menuTimeList = listOf(
@@ -46,13 +46,13 @@ class Converter : AppCompatActivity(){
         "Weeks (wk)"
     )
     private val menuTemperatureList = listOf(
-        "Celsius (°c)",
-        "Fahrenheit (°f)",
-        "Kelvin (k)"
+        "Celsius (°C)",
+        "Fahrenheit (°F)",
+        "Kelvin (K)"
     )
     private val menuVolumeList = listOf(
-        "Uk gallons (gas)",
-        "Us gallons (gas)",
+        "UK gallons (gal)",
+        "US gallons (gal)",
         "Litres (l)",
         "Millilitres (ml)",
         "Cubic centimetres (cc, cm³)",
@@ -62,8 +62,8 @@ class Converter : AppCompatActivity(){
     )
     private val menuWeightList = listOf(
         "Tons (t)",
-        "Uk tons (t)",
-        "Us tons  (t)",
+        "UK tons (t)",
+        "US tons  (t)",
         "Pounds (lb)",
         "Ounces (oz)",
         "Kilogrammes (kg)",
@@ -71,13 +71,13 @@ class Converter : AppCompatActivity(){
     )
     private val menuDataList = listOf(
         "Bits (bit)",
-        "Bytes (b)",
-        "Kilobytes (kb)",
-        "Megabytes (mb)",
-        "Gigabytes (gb)",
-        "Terabytes (tb)",
-        "Petabytes (pb)",
-        "Exabytes (xb)"
+        "Bytes (B)",
+        "Kilobytes (KB)",
+        "Megabytes (MB)",
+        "Gigabytes (GB)",
+        "Terabytes (TB)",
+        "Petabytes (PB)",
+        "Exabytes (XB)"
     )
     private val menuSpeedList = listOf(
         "Metres per second (m/s)",
@@ -361,6 +361,8 @@ class Converter : AppCompatActivity(){
             override fun onNothingSelected(parentView: AdapterView<*>?) {}
         }
 
+        val statePrint = true
+
         dataA.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -387,8 +389,19 @@ class Converter : AppCompatActivity(){
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
-                val text: String = SpinnerMenuA.selectedItem.toString()
-                //Toast.makeText(applicationContext, "$text", Toast.LENGTH_SHORT).show()
+//                if (dataB.text.toString().isNotEmpty()) {
+//                    val resultValue = ConvertUtilities().checkConvert(
+//                        systemOfConvert,
+//                        dataB.text.toString().toDouble(),
+//                        SpinnerMenuB.selectedItem.toString(),
+//                        SpinnerMenuA.selectedItem.toString()
+//                    )
+//
+//                    // Insert the value on the result field
+//                    dataA.setText(resultValue)
+//                } else {
+//                    dataA.setText("")
+//                }
             }
         })
     }
