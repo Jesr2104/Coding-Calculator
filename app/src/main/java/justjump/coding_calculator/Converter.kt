@@ -11,11 +11,13 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import justjump.coding_calculator.utilities.ConvertUtilities
+import justjump.coding_calculator.utilities.PrefixText
+import justjump.coding_calculator.utilities.ValidateExponential
 import kotlinx.android.synthetic.main.activity_converter.*
 
+class Converter : AppCompatActivity() {
 
-class Converter : AppCompatActivity(){
-
+    var statePrint = true
     private val menuAreaList = listOf(
         "Acres (ac)",
         "Ares (a)",
@@ -104,8 +106,10 @@ class Converter : AppCompatActivity(){
             R.layout.support_simple_spinner_dropdown_item,
             menuAreaList
         )
+
         SpinnerMenuA.adapter = adapterMenu
         SpinnerMenuB.adapter = adapterMenu
+        SpinnerMenuB.setSelection(1)
 
         // valor to check what system of convert is selected
         var systemOfConvert: Int = 1
@@ -120,6 +124,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 1
 
@@ -149,6 +154,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 2
 
@@ -178,6 +184,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 3
 
@@ -207,6 +214,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 4
 
@@ -236,6 +244,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 5
 
@@ -265,6 +274,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 6
 
@@ -294,6 +304,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 7
 
@@ -323,6 +334,7 @@ class Converter : AppCompatActivity(){
             )
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 8
 
@@ -345,41 +357,124 @@ class Converter : AppCompatActivity(){
 
         // this event control when the user change the metric but the value is done on the field.
         SpinnerMenuA.onItemSelectedListener = object : OnItemSelectedListener {
-            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
                 if (dataA.text.toString().isNotEmpty()) {
-                    val resultValue = ConvertUtilities().checkConvert(
-                        systemOfConvert,
-                        dataA.text.toString().toDouble(),
-                        SpinnerMenuA.selectedItem.toString(),
-                        SpinnerMenuB.selectedItem.toString()
-                    )
+                    if (statePrint) {
+                        if (dataA.text.toString().isNotEmpty()) {
 
-                    // Insert the value on the result field
-                    dataB.setText(resultValue)
+                            //calculator the prefix
+                            textInputLayoutA.prefixText =
+                                PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
+                            textInputLayoutB.prefixText =
+                                PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+
+                            val resultValue = ConvertUtilities().checkConvert(
+                                systemOfConvert,
+                                dataA.text.toString().toDouble(),
+                                SpinnerMenuA.selectedItem.toString(),
+                                SpinnerMenuB.selectedItem.toString()
+                            )
+
+                            // Insert the value on the result field
+                            statePrint = false
+                            dataB.setText(resultValue)
+                            statePrint = true
+                        } else {
+                            dataB.setText("")
+                            textInputLayoutA.prefixText = ""
+                            textInputLayoutB.prefixText = ""
+                        }
+                    }
                 }
             }
+
             override fun onNothingSelected(parentView: AdapterView<*>?) {}
         }
 
-        val statePrint = true
+        SpinnerMenuB.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (statePrint) {
+                    if (dataB.text.toString().isNotEmpty()) {
+
+                        //calculator the prefix
+                        textInputLayoutA.prefixText =
+                            PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
+                        textInputLayoutB.prefixText =
+                            PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+
+                        val resultValue = ConvertUtilities().checkConvert(
+                            systemOfConvert,
+                            dataB.text.toString().toDouble(),
+                            SpinnerMenuB.selectedItem.toString(),
+                            SpinnerMenuA.selectedItem.toString()
+                        )
+
+                        // Insert the value on the result field
+                        statePrint = false
+                        dataA.setText(resultValue)
+                        statePrint = true
+                    } else {
+                        dataA.setText("")
+                        textInputLayoutA.prefixText = ""
+                        textInputLayoutB.prefixText = ""
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
 
         dataA.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
-                if (dataA.text.toString().isNotEmpty()) {
-                    val resultValue = ConvertUtilities().checkConvert(
-                        systemOfConvert,
-                        dataA.text.toString().toDouble(),
-                        SpinnerMenuA.selectedItem.toString(),
-                        SpinnerMenuB.selectedItem.toString()
-                    )
+                if (statePrint) {
+                    if (dataA.text.toString().isNotEmpty()) {
 
-                    // Insert the value on the result field
-                    dataB.setText(resultValue)
-                } else {
-                    dataB.setText("")
+                        var resultValue = ""
+
+                        //calculator the prefix
+                        textInputLayoutA.prefixText = PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
+                        textInputLayoutB.prefixText = PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+
+                        if (dataA.text.toString().contains('E') || dataA.text.toString().contains('e')) {
+                            if (ValidateExponential().validate(dataA.text.toString())) {
+                                resultValue = ConvertUtilities().checkConvert(
+                                    systemOfConvert,
+                                    dataA.text.toString().toDouble(),
+                                    SpinnerMenuA.selectedItem.toString(),
+                                    SpinnerMenuB.selectedItem.toString()
+                                )
+                            }
+                        } else {
+                            resultValue = ConvertUtilities().checkConvert(
+                                systemOfConvert,
+                                dataA.text.toString().toDouble(),
+                                SpinnerMenuA.selectedItem.toString(),
+                                SpinnerMenuB.selectedItem.toString()
+                            )
+                        }
+
+                        // Insert the value on the result field
+                        statePrint = false
+                        dataB.setText(resultValue)
+                        statePrint = true
+                    } else {
+                        if (dataB.text!!.isNotEmpty()) {
+                            dataB.setText("")
+                        }
+                    }
                 }
             }
         })
@@ -389,19 +484,43 @@ class Converter : AppCompatActivity(){
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
-//                if (dataB.text.toString().isNotEmpty()) {
-//                    val resultValue = ConvertUtilities().checkConvert(
-//                        systemOfConvert,
-//                        dataB.text.toString().toDouble(),
-//                        SpinnerMenuB.selectedItem.toString(),
-//                        SpinnerMenuA.selectedItem.toString()
-//                    )
-//
-//                    // Insert the value on the result field
-//                    dataA.setText(resultValue)
-//                } else {
-//                    dataA.setText("")
-//                }
+                if (statePrint) {
+                    if (dataB.text.toString().isNotEmpty()) {
+
+                        var resultValue = ""
+
+                        //calculator the prefix
+                        textInputLayoutA.prefixText = PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
+                        textInputLayoutB.prefixText = PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+
+                        if (dataB.text.toString().contains('E') || dataB.text.toString().contains('e')) {
+                            if (ValidateExponential().validate(dataB.text.toString())) {
+                                resultValue = ConvertUtilities().checkConvert(
+                                    systemOfConvert,
+                                    dataB.text.toString().toDouble(),
+                                    SpinnerMenuB.selectedItem.toString(),
+                                    SpinnerMenuA.selectedItem.toString()
+                                )
+                            }
+                        } else {
+                            resultValue = ConvertUtilities().checkConvert(
+                                systemOfConvert,
+                                dataB.text.toString().toDouble(),
+                                SpinnerMenuB.selectedItem.toString(),
+                                SpinnerMenuA.selectedItem.toString()
+                            )
+                        }
+
+                        // Insert the value on the result field
+                        statePrint = false
+                        dataA.setText(resultValue)
+                        statePrint = true
+                    } else {
+                        if (dataA.text!!.isNotEmpty()) {
+                            dataA.setText("")
+                        }
+                    }
+                }
             }
         })
     }
