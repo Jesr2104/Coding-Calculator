@@ -103,9 +103,10 @@ class Converter : AppCompatActivity() {
 
         val adapterMenu = ArrayAdapter(
             this,
-            R.layout.support_simple_spinner_dropdown_item,
+            R.layout.spinner_item,
             menuAreaList
         )
+        adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
         SpinnerMenuA.adapter = adapterMenu
         SpinnerMenuB.adapter = adapterMenu

@@ -296,7 +296,7 @@
                 android:elevation="15dp"
                 app:layout_constraintEnd_toEndOf="@+id/textInputLayoutA"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayoutA"
-                app:layout_constraintTop_toBottomOf="@+id/Title_TypeConvert" />
+                app:layout_constraintTop_toBottomOf="@+id/Title_TypeConvert"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutA"
