@@ -120,9 +120,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuAreaList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -150,9 +152,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuLengthList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -180,9 +184,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuTimeList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -210,9 +216,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuTemperatureList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -240,9 +248,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuVolumeList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -270,9 +280,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuWeightList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -300,9 +312,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuDataList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
@@ -330,9 +344,11 @@ class Converter : AppCompatActivity() {
 
             val adapterMenu = ArrayAdapter(
                 this,
-                R.layout.support_simple_spinner_dropdown_item,
+                R.layout.spinner_item,
                 menuSpeedList
             )
+            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
             SpinnerMenuA.adapter = adapterMenu
             SpinnerMenuB.adapter = adapterMenu
             SpinnerMenuB.setSelection(1)
