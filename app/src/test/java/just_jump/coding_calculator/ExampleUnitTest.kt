@@ -1,4 +1,4 @@
-package justjump.coding_calculator
+package just_jump.coding_calculator
 
 import org.junit.Test
 

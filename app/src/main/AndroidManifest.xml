@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="justjump.coding_calculator">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.just_jump.coding_calculator">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,14 +12,14 @@
         android:roundIcon="@mipmap/icon_app"
         android:supportsRtl="true"
         android:theme="@style/CodingCalculatorTheme">
-        <activity android:name=".ExtraCalculations" />
-        <activity android:name=".Converter"/>
-        <activity android:name=".NumericalSystems" />
-        <activity android:name=".GammaColors" />
-        <activity android:name=".PaletteColors" />
-        <activity android:name=".ColorCode" />
-        <activity android:name=".Calculator" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.just_jump.coding_calculator.ExtraCalculations" />
+        <activity android:name="com.just_jump.coding_calculator.com.just_jump.coding_calculator.Converter"/>
+        <activity android:name="com.just_jump.coding_calculator.NumericalSystems" />
+        <activity android:name="com.just_jump.coding_calculator.GammaColors" />
+        <activity android:name="com.just_jump.coding_calculator.PaletteColors" />
+        <activity android:name="com.just_jump.coding_calculator.com.just_jump.coding_calculator.ColorCode" />
+        <activity android:name="com.just_jump.coding_calculator.com.just_jump.coding_calculator.Calculator" />
+        <activity android:name="com.just_jump.coding_calculator.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

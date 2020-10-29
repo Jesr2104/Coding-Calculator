@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="justjump.coding_calculator.NumericalSystems"
+    tools:context="just_jump.coding_calculator.NumericalSystems"
     android:background="@drawable/background_app">
 
     <TextView
