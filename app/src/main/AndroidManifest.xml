@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/CodingCalculatorTheme">
         <activity android:name="com.just_jump.coding_calculator.ExtraCalculations" />
-        <activity android:name="com.just_jump.coding_calculator.com.just_jump.coding_calculator.Converter"/>
+        <activity android:name="com.just_jump.coding_calculator.Converter"/>
         <activity android:name="com.just_jump.coding_calculator.NumericalSystems" />
         <activity android:name="com.just_jump.coding_calculator.GammaColors" />
         <activity android:name="com.just_jump.coding_calculator.PaletteColors" />
-        <activity android:name="com.just_jump.coding_calculator.com.just_jump.coding_calculator.ColorCode" />
-        <activity android:name="com.just_jump.coding_calculator.com.just_jump.coding_calculator.Calculator" />
+        <activity android:name="com.just_jump.coding_calculator.ColorCode" />
+        <activity android:name="com.just_jump.coding_calculator.Calculator" />
         <activity android:name="com.just_jump.coding_calculator.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
