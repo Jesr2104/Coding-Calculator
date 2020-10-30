@@ -94,6 +94,7 @@
                         android:id="@+id/newChipNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/insert_new_value"
                         android:layout_gravity="center"
                         android:gravity="right|center_vertical"
                         android:inputType="numberDecimal"

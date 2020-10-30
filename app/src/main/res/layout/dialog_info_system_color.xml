@@ -18,6 +18,7 @@
                 android:id="@+id/myinfo_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/color_systems_information"
                 android:adjustViewBounds="true"
                 tools:ignore="MissingConstraints" />
 

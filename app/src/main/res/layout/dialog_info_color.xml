@@ -77,7 +77,7 @@
                         android:textSize="17dp"
                         android:text="R"
                         android:textStyle="bold"
-                        android:textColor="#494949"
+                        android:textColor="@color/color_text_contrast"
                         android:background="#fd4046"
                         android:textAlignment="center">
 
@@ -87,6 +87,7 @@
                         android:id="@+id/rgb_red_part"
                         android:layout_width="50dp"
                         android:layout_height="25dp"
+                        android:contentDescription="@string/value_red_color"
                         android:text="118"
                         android:textStyle="bold"
                         android:textColor="#fff"
@@ -109,7 +110,7 @@
                         android:textSize="17dp"
                         android:text="G"
                         android:textStyle="bold"
-                        android:textColor="#494949"
+                        android:textColor="@color/color_text_contrast"
                         android:background="#1ffe17"
                         android:textAlignment="center">
 
@@ -119,6 +120,7 @@
                         android:id="@+id/rgb_green_part"
                         android:layout_width="50dp"
                         android:layout_height="25dp"
+                        android:contentDescription="@string/value_green_color"
                         android:text="0"
                         android:textStyle="bold"
                         android:textColor="#fff"
@@ -138,10 +140,10 @@
                     <TextView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:textSize="17dp"
+                        android:textSize="17sp"
                         android:text="B"
                         android:textStyle="bold"
-                        android:textColor="#494949"
+                        android:textColor="@color/color_text_contrast"
                         android:background="#04bbff"
                         android:textAlignment="center">
 
@@ -151,6 +153,7 @@
                         android:id="@+id/rgb_blue_part"
                         android:layout_width="50dp"
                         android:layout_height="25dp"
+                        android:contentDescription="@string/value_color_blue"
                         android:text="58"
                         android:textStyle="bold"
                         android:textColor="#fff"
@@ -198,6 +201,7 @@
                         android:id="@+id/hex_part"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/hex_color_code"
                         android:layout_marginLeft="15dp"
                         android:text="#76003A"
                         android:textAlignment="center"

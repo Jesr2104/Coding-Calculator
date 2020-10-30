@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="just_jump.coding_calculator.ExtraCalculations"
+    tools:context="com.just_jump.coding_calculator.ExtraCalculations"
     android:background="@drawable/background_app">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

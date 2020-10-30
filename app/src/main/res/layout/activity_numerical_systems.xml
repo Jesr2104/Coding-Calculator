@@ -83,6 +83,7 @@
                 android:id="@+id/TextValueA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/value_to_convert"
                 android:textColor="@color/Front_ColorDarkGrey"
                 android:textStyle="bold"
                 android:gravity="right|center_vertical"

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Coding Calculator</string>
     <string name="complementary">Complementary</string>
-    <string name="split_complementary">Split Complementary</string>
+    <string name="split_complementary">Split Comp.</string>
     <string name="analogous">Analogous</string>
     <string name="triadic">Triadic</string>
     <string name="tetradic">Tetradic</string>
@@ -25,4 +25,83 @@
     <string name="calculator">Calculator</string>
     <string name="description_extras">Other calculator features </string>
     <string name="Select_option">Select Option</string>
+
+    <!-- Text for contentDescription for harmony colors -->
+
+    <string name="tetradic_color_2">Tetradic color 2</string>
+    <string name="tetradic_color_3">Tetradic color 3</string>
+    <string name="tetradic_color_1">Tetradic color 1</string>
+
+    <string name="triadic_color_2">Triadic color 2</string>
+    <string name="triadic_color_1">Triadic color 1</string>
+
+    <string name="analogous_color_5">Analogous color 5</string>
+    <string name="analogous_color_4">Analogous color 4</string>
+    <string name="analogous_color_3">Analogous color 3</string>
+    <string name="analogous_color_2">Analogous color 2</string>
+    <string name="analogous_color_1">Analogous color 1</string>
+
+    <string name="splitCC_color_2">Split complementary  color 2</string>
+    <string name="splitCC_color_1">Split complementary color 1</string>
+
+    <string name="complementary_color_1">Complementary color 1</string>
+
+
+    <string name="area_button">Area button</string>
+    <string name="length_button">Length button</string>
+    <string name="time_button">Time button</string>
+    <string name="temperature_button">Temperature button</string>
+    <string name="volume_button">Volume button</string>
+    <string name="weight_button">Weight button</string>
+    <string name="data_button">Data button</string>
+    <string name="speed_button">Speed button</string>
+    <string name="color_piker_button">Color piker button</string>
+    <string name="palette_of_color">Palette of color</string>
+    <string name="value_a">Value A</string>
+    <string name="value_b">Value B</string>
+    <string name="value_c">Value C</string>
+    <string name="color_systems_information">Color systems information</string>
+    <string name="complementary_color_information">Complementary color information</string>
+    <string name="split_complementary_information">Split complementary information</string>
+    <string name="analogous_color_information">Analogous color information</string>
+    <string name="triadic_color_information">Triadic color information</string>
+    <string name="tetradic_color_information">Tetradic color information</string>
+    <string name="rgb_bar_color_red">RGB bar color red</string>
+    <string name="rgb_bar_color_green">RGB bar color green</string>
+    <string name="rgb_bar_color_blue">RGB bar color blue</string>
+    <string name="value_a_converter">Value A Converter</string>
+    <string name="value_b_converter">Value B Converter</string>
+    <string name="increase_value">Increase value</string>
+    <string name="value_color">value color</string>
+    <string name="decrease_value">Decrease value</string>
+    <string name="value_to_convert">Value to convert</string>
+    <string name="value_of_percentage">Value of percentage</string>
+    <string name="history_of_expression">History of expression</string>
+    <string name="delete_character">Delete character</string>
+    <string name="main_color_selected">Main color selected</string>
+    <string name="insert_new_value">Insert new value</string>
+    <string name="rule_of_three_information">Rule of three information</string>
+    <string name="more_saved_color">More saved color</string>
+    <string name="value_red_hex">value red HEX</string>
+    <string name="value_green_hex">Value green HEX</string>
+    <string name="value_blue_hex">Value blue HEX</string>
+    <string name="value_hue_hsl">Value Hue HSL</string>
+    <string name="value_lightness_hsl">Value Lightness HSL</string>
+    <string name="value_saturation_hsl">Value saturation HSL</string>
+    <string name="prcentage_button">Prcentage button</string>
+    <string name="average_button">Average Button</string>
+    <string name="rule_of_three_button">Rule of three button</string>
+    <string name="rule_of_three">Rule of three</string>
+    <string name="percentage">Percentage</string>
+    <string name="average">Average</string>
+    <string name="value_rgb_color_red">Value RGB color red</string>
+    <string name="value_rgb_color_green">Value RGB color green</string>
+    <string name="value_rgb_color_blue">Value RGB color blue</string>
+    <string name="saved_color_1">saved color 1</string>
+    <string name="saved_color_2">saved color 2</string>
+    <string name="saved_color_3">saved color 3</string>
+    <string name="value_red_color">Value red color</string>
+    <string name="value_green_color">value green color</string>
+    <string name="value_color_blue">value color blue</string>
+    <string name="hex_color_code">Hex color code</string>
 </resources>

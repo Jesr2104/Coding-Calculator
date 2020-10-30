@@ -11,4 +11,5 @@
     <color name="color_text_calculsator_dark">#231f20</color>
     <color name="black_grey_calculator">#231f20</color>
     <color name="Light_grey_deselect">#969696</color>
+    <color name="color_text_contrast">#3D3D3D</color>
 </resources>
