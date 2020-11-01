@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.utilities.Functions
+import com.just_jump.coding_calculator.utilities.HideKeyboard
 import kotlinx.android.synthetic.main.fragment__rule_of_three.*
 import kotlinx.android.synthetic.main.fragment__rule_of_three.view.*
 import java.text.DecimalFormat
@@ -38,6 +39,9 @@ class FragmentRuleOfThree : Fragment() {
                 format.maximumFractionDigits = 6
 
                 result.text = format.format(calculatorResult)
+
+                // we hide the keyboard to show the result of the rule of three calculations
+                this.activity?.let { it1 -> HideKeyboard(it1) }
             }
             else
             {

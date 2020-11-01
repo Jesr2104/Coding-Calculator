@@ -99,10 +99,8 @@ class Calculator : AppCompatActivity() {
                             cViewModel.dataFieldExpression.value = dataFieldViewModel
                         }
 
-                        override fun onMultiSelection(
-                            data: List<SpinnerModel>,
-                            selectedPosition: Int
-                        ) {/* It will never send Multi selection data in SINGLE_SELECTION Mode*/
+                        override fun onMultiSelection(data: List<SpinnerModel>,selectedPosition: Int) {
+                            /* It will never send Multi selection data in SINGLE_SELECTION Mode*/
                         }
 
                     }, 0

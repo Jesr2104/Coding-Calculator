@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import com.just_jump.coding_calculator.utilities.Functions
+import com.just_jump.coding_calculator.utilities.HideKeyboard
 import kotlinx.android.synthetic.main.fragment__average.*
 import kotlinx.android.synthetic.main.fragment__average.view.*
 import java.text.DecimalFormat
 
+
 class FragmentAverage : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle? ): View? {
+        savedInstanceState: Bundle?
+    ): View? {
 
         val view = inflater.inflate(R.layout.fragment__average, container, false)
 
@@ -31,6 +34,9 @@ class FragmentAverage : Fragment() {
 
                 // clean the field
                 newChipNumber.setText("")
+
+                // hide the keyboard when we insert a new element because could be the last
+                this.activity?.let { it1 -> HideKeyboard(it1) }
             }
         }
 
@@ -55,4 +61,6 @@ class FragmentAverage : Fragment() {
 
         return view
     }
+
+
 }

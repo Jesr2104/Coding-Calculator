@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.just_jump.coding_calculator.utilities.Functions
+import com.just_jump.coding_calculator.utilities.HideKeyboard
 import kotlinx.android.synthetic.main.fragment__percentage.*
 import kotlinx.android.synthetic.main.fragment__percentage.view.*
 import java.text.DecimalFormat
@@ -36,6 +37,9 @@ class FragmentPercentage : Fragment() {
 
                 val resultSubtration = view.fieldNumberValue.text.toString().toDouble() - resultTemp
                 view.subtrationResult.text = format.format(resultSubtration)
+
+                // we hide the keyboard to show the result of the percentage calculations
+                this.activity?.let { it1 -> HideKeyboard(it1) }
             }
             else
             {
