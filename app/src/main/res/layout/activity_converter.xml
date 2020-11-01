@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_app">
@@ -13,10 +12,10 @@
         android:layout_height="wrap_content"
         android:background="@color/Front_ColorGrey"
         android:textColor="@color/material_white"
-        android:text="Converter"
+        android:text="@string/converter"
         android:fontFamily="cursive"
         android:textStyle="bold"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:gravity="center|center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -47,219 +46,414 @@
             android:paddingRight="25dp"
             android:background="@color/yellow_mainColor">
 
-            <ImageButton
-                android:id="@+id/Button_Area"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="@string/area_button"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Area"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
-                app:layout_constraintBottom_toTopOf="@id/textArea"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/card_Length"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/Button_Length"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_area"/>
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textArea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Area"
-                android:textStyle="bold"
-                android:textColor="@color/Light_grey_deselect"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Area"
-                app:layout_constraintStart_toStartOf="@+id/Button_Area"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Area">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            </TextView>
+                    <ImageView
+                        android:id="@+id/Button_Area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/area_button"
+                        app:layout_constraintBottom_toTopOf="@id/textArea"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_area"/>
 
-            <ImageButton
-                android:id="@+id/Button_Length"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="@string/length_button"
-                android:layout_marginLeft="25dp"
-                app:layout_constraintBottom_toTopOf="@id/textLength"
-                app:layout_constraintLeft_toRightOf="@id/Button_Area"
-                app:layout_constraintRight_toLeftOf="@id/Button_Time"
-                app:layout_constraintTop_toTopOf="parent"
+                    <TextView
+                        android:id="@+id/textArea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/area"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Area"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Area"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Area">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Length"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_length"/>
-
-            <TextView
-                android:id="@+id/textLength"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Length"
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Length"
-                app:layout_constraintStart_toStartOf="@+id/Button_Length"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Length">
+                app:layout_constraintRight_toLeftOf="@id/card_Time"
+                app:layout_constraintLeft_toRightOf="@id/card_Area"
+                app:layout_constraintTop_toTopOf="parent">
 
-            </TextView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/Button_Time"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:contentDescription="@string/time_button"
-                app:layout_constraintBottom_toTopOf="@id/textTime"
-                app:layout_constraintLeft_toRightOf="@id/Button_Length"
-                app:layout_constraintRight_toLeftOf="@id/Button_Temp"
-                app:layout_constraintTop_toTopOf="parent"
+                    <ImageView
+                        android:id="@+id/Button_Length"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/length_button"
+                        app:layout_constraintBottom_toTopOf="@id/textLength"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_length"/>
+
+                    <TextView
+                        android:id="@+id/textLength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/length"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Length"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Length"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Length">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Time"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_time"/>
-
-            <TextView
-                android:id="@+id/textTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Time"
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Time"
-                app:layout_constraintStart_toStartOf="@+id/Button_Time"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Time">
+                app:layout_constraintRight_toLeftOf="@id/card_Temp"
+                app:layout_constraintLeft_toRightOf="@id/card_Length"
+                app:layout_constraintTop_toTopOf="parent">
 
-            </TextView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/Button_Temp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:contentDescription="@string/temperature_button"
+                    <ImageView
+                        android:id="@+id/Button_Time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/length_button"
+                        app:layout_constraintBottom_toTopOf="@id/textTime"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_time"/>
+
+                    <TextView
+                        android:id="@+id/textTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Time"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Time"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Time">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Temp"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_temp"
-                app:layout_constraintBottom_toTopOf="@id/textTemp"
-                app:layout_constraintLeft_toRightOf="@id/Button_Time"
-                app:layout_constraintRight_toLeftOf="@id/Button_Volume"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Temp."
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Temp"
-                app:layout_constraintStart_toStartOf="@+id/Button_Temp"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Temp">
+                app:layout_constraintRight_toLeftOf="@id/card_Volume"
+                app:layout_constraintLeft_toRightOf="@id/card_Time"
+                app:layout_constraintTop_toTopOf="parent">
 
-            </TextView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/Button_Volume"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:contentDescription="@string/volume_button"
-                app:layout_constraintBottom_toTopOf="@id/textVolume"
-                app:layout_constraintLeft_toRightOf="@id/Button_Temp"
-                app:layout_constraintRight_toLeftOf="@id/Button_Weight"
-                app:layout_constraintTop_toTopOf="parent"
+                    <ImageView
+                        android:id="@+id/Button_Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/temperature_button"
+                        app:layout_constraintBottom_toTopOf="@id/textTemp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_temp"/>
+
+                    <TextView
+                        android:id="@+id/textTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/temp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Temp"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Temp"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Temp">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Volume"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_volume"/>
-
-            <TextView
-                android:id="@+id/textVolume"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Volume"
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Volume"
-                app:layout_constraintStart_toStartOf="@+id/Button_Volume"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Volume">
+                app:layout_constraintRight_toLeftOf="@id/card_Weight"
+                app:layout_constraintLeft_toRightOf="@id/card_Temp"
+                app:layout_constraintTop_toTopOf="parent">
 
-            </TextView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/Button_Weight"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:contentDescription="@string/weight_button"
-                app:layout_constraintBottom_toTopOf="@id/textWeight"
-                app:layout_constraintLeft_toRightOf="@id/Button_Volume"
-                app:layout_constraintRight_toLeftOf="@id/Button_Data"
-                app:layout_constraintTop_toTopOf="parent"
+                    <ImageView
+                        android:id="@+id/Button_Volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/volume_button"
+                        app:layout_constraintBottom_toTopOf="@id/textVolume"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_volume"/>
+
+                    <TextView
+                        android:id="@+id/textVolume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/volume"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Volume"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Volume"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Volume">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Weight"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_weight"/>
-
-            <TextView
-                android:id="@+id/textWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weight"
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Weight"
+                app:layout_constraintRight_toLeftOf="@id/card_Data"
+                app:layout_constraintLeft_toRightOf="@id/card_Volume"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/Button_Weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/weight_button"
+                        app:layout_constraintBottom_toTopOf="@id/textWeight"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_weight"/>
+
+                    <TextView
+                        android:id="@+id/textWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weight"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Weight"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Weight"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Weight">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Data"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/card_Speed"
+                app:layout_constraintLeft_toRightOf="@id/card_Weight"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/Button_Data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/data_button"
+                        app:layout_constraintBottom_toTopOf="@id/textData"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_data"/>
+
+                    <TextView
+                        android:id="@+id/textData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Data"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Data"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Data">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_Speed"
+                android:layout_width="70dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/Button_Weight"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Weight">
-
-            </TextView>
-
-            <ImageButton
-                android:id="@+id/Button_Data"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:contentDescription="@string/data_button"
-                app:layout_constraintBottom_toTopOf="@id/textData"
-                app:layout_constraintLeft_toRightOf="@id/Button_Weight"
-                app:layout_constraintTop_toTopOf="parent"
-                android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_data"/>
-
-            <TextView
-                android:id="@+id/textData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Data"
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Data"
-                app:layout_constraintStart_toStartOf="@+id/Button_Data"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Data">
+                app:layout_constraintLeft_toRightOf="@id/card_Data"
+                app:layout_constraintTop_toTopOf="parent">
 
-            </TextView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/Button_Speed"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:contentDescription="@string/speed_button"
-                app:layout_constraintBottom_toTopOf="@id/textSpeed"
-                app:layout_constraintLeft_toRightOf="@id/Button_Data"
-                app:layout_constraintTop_toTopOf="parent"
-                android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_speed"/>
+                    <ImageView
+                        android:id="@+id/Button_Speed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/speed_button"
+                        app:layout_constraintBottom_toTopOf="@id/textSpeed"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_speed"/>
 
-            <TextView
-                android:id="@+id/textSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Speed"
-                android:textColor="@color/Front_ColorGrey"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/Button_Speed"
-                app:layout_constraintStart_toStartOf="@+id/Button_Speed"
-                app:layout_constraintTop_toBottomOf="@+id/Button_Speed">
+                    <TextView
+                        android:id="@+id/textSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/speed"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_converter_items"
+                        android:textColor="@color/Light_grey_deselect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/Button_Speed"
+                        app:layout_constraintStart_toStartOf="@+id/Button_Speed"
+                        app:layout_constraintTop_toBottomOf="@+id/Button_Speed">
 
-            </TextView>
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -287,9 +481,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Area"
+                android:text="@string/area"
                 android:textColor="#BEBEBE"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -303,6 +497,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:elevation="15dp"
+                android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="@+id/textInputLayoutA"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayoutA"
                 app:layout_constraintTop_toBottomOf="@+id/Title_TypeConvert"/>

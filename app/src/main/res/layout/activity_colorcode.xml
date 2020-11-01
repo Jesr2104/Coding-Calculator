@@ -22,12 +22,12 @@
         android:id="@+id/TextHSL"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="HSL"
+        android:text="@string/hsl"
         android:textColor="#FFF"
         android:textAllCaps="true"
         android:gravity="center"
         android:rotation="-90"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="bottom|center_vertical"
         tools:ignore="MissingConstraints"
@@ -44,9 +44,10 @@
         android:gravity="center_vertical|center_horizontal"
         android:textAllCaps="true"
         android:textColor="#FFF"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:text="284"
+        android:elevation="3dp"
+        android:text=""
         android:background="@color/Front_ColorGrey"
         android:minWidth="52dp"
         tools:ignore="MissingConstraints"
@@ -64,9 +65,10 @@
         android:gravity="center_vertical|center_horizontal"
         android:textAllCaps="true"
         android:textColor="#FFF"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:text="100"
+        android:elevation="3dp"
+        android:text=""
         android:background="@color/Front_ColorGrey"
         android:minWidth="52dp"
         android:layout_marginTop="5dp"
@@ -84,9 +86,10 @@
         android:gravity="center_vertical|center_horizontal"
         android:textAllCaps="true"
         android:textColor="#FFF"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:text="38"
+        android:elevation="3dp"
+        android:text=""
         android:background="@color/Front_ColorGrey"
         android:minWidth="52dp"
         android:layout_marginTop="5dp"
@@ -101,12 +104,12 @@
         android:id="@+id/TextHex"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="HEX"
+        android:text="@string/hex"
         android:textColor="#FFF"
         android:textAllCaps="true"
         android:gravity="center"
         android:rotation="-90"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="bottom|center_vertical"
         tools:ignore="MissingConstraints"
@@ -123,9 +126,10 @@
         android:gravity="center_vertical|center_horizontal"
         android:textAllCaps="true"
         android:textColor="#FFF"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:text="284"
+        android:elevation="3dp"
+        android:text=""
         android:background="@color/Front_ColorGrey"
         android:minWidth="52dp"
         tools:ignore="MissingConstraints"
@@ -143,9 +147,10 @@
         android:gravity="center_vertical|center_horizontal"
         android:textAllCaps="true"
         android:textColor="#FFF"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:text="100"
+        android:elevation="3dp"
+        android:text=""
         android:background="@color/Front_ColorGrey"
         android:minWidth="52dp"
         android:layout_marginTop="5dp"
@@ -163,12 +168,13 @@
         android:gravity="center_vertical|center_horizontal"
         android:textAllCaps="true"
         android:textColor="#FFF"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:text="38"
+        android:text=""
         android:background="@color/Front_ColorGrey"
         android:minWidth="52dp"
         android:layout_marginTop="5dp"
+        android:elevation="3dp"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toRightOf="@id/TextHSL"
         app:layout_constraintTop_toBottomOf="@id/HEX_greenValue">
@@ -182,7 +188,7 @@
         android:layout_height="70dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/Front_ColorGrey"
-        android:elevation="10dp"
+        android:elevation="5dp"
         android:contentDescription="@string/palette_of_color"
         android:scaleType="centerInside"
         android:src="@drawable/icon_colors_palette"
@@ -201,7 +207,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/color_piker_button"
         android:backgroundTint="@color/Front_ColorGrey"
-        android:elevation="10dp"
+        android:elevation="5dp"
         android:scaleType="centerInside"
         android:src="@drawable/ic_select_color"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -237,16 +243,16 @@
         android:layout_marginTop="10dp"
         android:background="@color/ColorRGB_R"
         android:minWidth="30dp"
-        android:text="R"
+        android:text="@string/r"
         android:gravity="center|center_vertical"
         android:textColor="@color/color_text_contrast"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/guideline35Percent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/controlbarforred"
         app:layout_constraintBottom_toTopOf="@id/GreencolorBT"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         tools:ignore="MissingConstraints">
 
     </TextView>
@@ -276,17 +282,17 @@
         android:contentDescription="@string/value_rgb_color_red"
         android:background="#424242"
         android:minWidth="25dp"
-        android:text="0"
+        android:text="@string/inicialValue"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/RedcolorBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/controlbarforred"
         app:layout_constraintTop_toTopOf="@+id/RedcolorBT"
-        android:layout_marginRight="10dp">
+        android:layout_marginEnd="10dp">
 
     </TextView>
 
@@ -297,16 +303,16 @@
         android:layout_height="0dp"
         android:background="@color/ColorRGB_G"
         android:minWidth="30dp"
-        android:text="G"
+        android:text="@string/g"
         android:gravity="center|center_vertical"
         android:textColor="@color/color_text_contrast"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
         app:layout_constraintTop_toBottomOf="@+id/RedcolorBT"
         app:layout_constraintRight_toLeftOf="@id/controlbarforgreen"
         app:layout_constraintBottom_toTopOf="@id/bluecolorBT"
-        android:layout_marginLeft="10dp">
+        android:layout_marginStart="10dp">
 
     </TextView>
 
@@ -334,17 +340,17 @@
         android:contentDescription="@string/value_rgb_color_green"
         android:background="#424242"
         android:minWidth="25dp"
-        android:text="0"
+        android:text="@string/inicialValue"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/GreencolorBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/controlbarforgreen"
         app:layout_constraintTop_toBottomOf="@+id/RedcolorBT"
-        android:layout_marginRight="10dp">
+        android:layout_marginEnd="10dp">
 
     </TextView>
 
@@ -354,16 +360,16 @@
         android:layout_height="0dp"
         android:background="@color/ColorRGB_B"
         android:minWidth="30dp"
-        android:text="B"
+        android:text="@string/b"
         android:gravity="center|center_vertical"
         android:textColor="@color/color_text_contrast"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
         app:layout_constraintTop_toBottomOf="@+id/GreencolorBT"
         app:layout_constraintRight_toLeftOf="@id/controlbarforblue"
         app:layout_constraintBottom_toTopOf="@id/Color1_Complementary"
-        android:layout_marginLeft="10dp">
+        android:layout_marginStart="10dp">
 
     </TextView>
 
@@ -391,17 +397,17 @@
         android:contentDescription="@string/value_rgb_color_blue"
         android:background="#424242"
         android:minWidth="25dp"
-        android:text="0"
+        android:text="@string/inicialValue"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/bluecolorBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/controlbarforblue"
         app:layout_constraintTop_toBottomOf="@+id/GreencolorBT"
-        android:layout_marginRight="10dp">
+        android:layout_marginEnd="10dp">
 
     </TextView>
 
@@ -413,7 +419,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/complementary_color"
@@ -435,7 +441,7 @@
         app:layout_constraintTop_toTopOf="@id/complementary_color"
         app:layout_constraintRight_toRightOf="@id/complementary_color"
         app:layout_constraintBottom_toBottomOf="@id/complementary_color"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:elevation="10dp">
 
     </ImageView>
@@ -464,7 +470,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/split_complementary_colors"
@@ -481,7 +487,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/split_complementary_colors"
@@ -502,7 +508,7 @@
         app:layout_constraintTop_toTopOf="@id/split_complementary_colors"
         app:layout_constraintRight_toRightOf="@id/split_complementary_colors"
         app:layout_constraintBottom_toBottomOf="@id/split_complementary_colors"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:elevation="10dp">
 
     </ImageView>
@@ -517,7 +523,8 @@
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingRight="10dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp"
         android:gravity="center_vertical|center"
         app:layout_constraintTop_toTopOf="@id/SplitCC_Color1"
         app:layout_constraintBottom_toBottomOf="@id/SplitCC_Color2"
@@ -532,7 +539,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
@@ -549,7 +556,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
@@ -566,7 +573,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
@@ -583,7 +590,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
@@ -600,7 +607,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
@@ -621,7 +628,7 @@
         app:layout_constraintTop_toTopOf="@id/Anlogous_Colors"
         app:layout_constraintRight_toRightOf="@id/Anlogous_Colors"
         app:layout_constraintBottom_toBottomOf="@id/Anlogous_Colors"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:elevation="10dp">
 
     </ImageView>
@@ -651,7 +658,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Triadic_Colors"
@@ -668,7 +675,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Triadic_Colors"
@@ -689,7 +696,7 @@
         app:layout_constraintTop_toTopOf="@id/Triadic_Colors"
         app:layout_constraintRight_toRightOf="@id/Triadic_Colors"
         app:layout_constraintBottom_toBottomOf="@id/Triadic_Colors"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:elevation="10dp">
 
     </ImageView>
@@ -719,7 +726,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Tetradic_Colors"
@@ -736,7 +743,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Tetradic_Colors"
@@ -753,7 +760,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FFDD00"
-        android:elevation="10dp"
+        android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/Tetradic_Colors"
@@ -774,7 +781,7 @@
         app:layout_constraintTop_toTopOf="@id/Tetradic_Colors"
         app:layout_constraintRight_toRightOf="@id/Tetradic_Colors"
         app:layout_constraintBottom_toBottomOf="@id/Tetradic_Colors"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:elevation="10dp">
 
     </ImageView>
@@ -810,9 +817,9 @@
         android:text="@string/saved"
         android:textStyle="bold"
         android:textColor="@color/material_white"
-        android:textSize="18dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="5dp"
+        android:textSize="18sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
         app:layout_constraintEnd_toStartOf="@id/buttonColor1">
@@ -830,9 +837,8 @@
         android:layout_marginRight="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonSaved"
-        app:layout_constraintEnd_toStartOf="@id/buttonColor2">
-
-        <!--        android:visibility="invisible"-->
+        app:layout_constraintEnd_toStartOf="@id/buttonColor2"
+        android:visibility="invisible">
 
     </Button>
 
@@ -845,7 +851,8 @@
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonColor1"
-        app:layout_constraintEnd_toStartOf="@id/buttonColor3">
+        app:layout_constraintEnd_toStartOf="@id/buttonColor3"
+        android:visibility="invisible">
 
     </Button>
 
@@ -860,7 +867,8 @@
         android:layout_marginLeft="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonColor2"
-        app:layout_constraintEnd_toStartOf="@id/moreColors">
+        app:layout_constraintEnd_toStartOf="@id/moreColors"
+        android:visibility="invisible">
 
     </Button>
 
@@ -877,7 +885,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/buttonColor3"
-        android:layout_marginRight="2dp">
+        android:layout_marginEnd="2dp">
 
     </ImageButton>
 

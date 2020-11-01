@@ -104,4 +104,23 @@
     <string name="value_green_color">value green color</string>
     <string name="value_color_blue">value color blue</string>
     <string name="hex_color_code">Hex color code</string>
+
+    <string name="result">Result: "\</string>
+    <string name="History">History</string>
+    <string name="speed">Speed</string>
+    <string name="data">Data</string>
+    <string name="weight">Weight</string>
+    <string name="volume">Volume</string>
+    <string name="temp">Temp.</string>
+    <string name="time">Time</string>
+    <string name="length">Length</string>
+    <string name="area">Area</string>
+    <string name="hsl">HSL</string>
+    <string name="hex">HEX</string>
+    <string name="r">R</string>
+    <string name="g">G</string>
+    <string name="b">B</string>
+    <string name="inicialValue">0</string>
+
+
 </resources>

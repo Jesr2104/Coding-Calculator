@@ -363,7 +363,7 @@ class ColorCode : AppCompatActivity(){
         controlbarforred.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_RedColor.text = p1.toString()
-                val valueRed = Functions().convertDecToHex(p1).toString()
+                val valueRed = Functions().convertDecToHex(p1)
                 cViewModel.setRGBColor(Color.parseColor("#$valueRed${cViewModel.getGreen()}${cViewModel.getBlue()}"))
             }
 
@@ -377,7 +377,7 @@ class ColorCode : AppCompatActivity(){
         controlbarforgreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_GreenColor.text = p1.toString()
-                val valueGreen = Functions().convertDecToHex(p1).toString()
+                val valueGreen = Functions().convertDecToHex(p1)
                 cViewModel.setRGBColor(Color.parseColor("#${cViewModel.getRed()}$valueGreen${cViewModel.getBlue()}"))
             }
 
@@ -391,7 +391,7 @@ class ColorCode : AppCompatActivity(){
         controlbarforblue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_BlueColor.text = p1.toString()
-                val valueBlue = Functions().convertDecToHex(p1).toString()
+                val valueBlue = Functions().convertDecToHex(p1)
                 cViewModel.setRGBColor(Color.parseColor("#${cViewModel.getRed()}${cViewModel.getGreen()}$valueBlue"))
             }
 

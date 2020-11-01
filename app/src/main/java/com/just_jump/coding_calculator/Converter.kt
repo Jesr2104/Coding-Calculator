@@ -113,10 +113,10 @@ class Converter : AppCompatActivity() {
         SpinnerMenuB.setSelection(1)
 
         // valor to check what system of convert is selected
-        var systemOfConvert: Int = 1
+        var systemOfConvert = 1
 
         // Event when you press button Area
-        Button_Area.setOnClickListener {
+        card_Area.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -133,7 +133,7 @@ class Converter : AppCompatActivity() {
 
             textArea.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Area"
+            Title_TypeConvert.text = getString(R.string.area)
 
             // change color lost selection
             textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -148,7 +148,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Length.setOnClickListener {
+        card_Length.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -165,7 +165,7 @@ class Converter : AppCompatActivity() {
 
             textLength.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Length"
+            Title_TypeConvert.text = getString(R.string.length)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -180,7 +180,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Time.setOnClickListener {
+        card_Time.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -197,7 +197,7 @@ class Converter : AppCompatActivity() {
 
             textTime.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Time"
+            Title_TypeConvert.text = getString(R.string.time)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -212,7 +212,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Temp.setOnClickListener {
+        card_Temp.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -229,7 +229,7 @@ class Converter : AppCompatActivity() {
 
             textTemp.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Temperature"
+            Title_TypeConvert.text = getString(R.string.temp)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -244,7 +244,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Volume.setOnClickListener {
+        card_Volume.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -261,7 +261,7 @@ class Converter : AppCompatActivity() {
 
             textVolume.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Volume"
+            Title_TypeConvert.text = getString(R.string.volume)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -276,7 +276,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Weight.setOnClickListener {
+        card_Weight.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -293,7 +293,7 @@ class Converter : AppCompatActivity() {
 
             textWeight.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Weight"
+            Title_TypeConvert.text = getString(R.string.weight)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -308,7 +308,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Data.setOnClickListener {
+        card_Data.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -325,7 +325,7 @@ class Converter : AppCompatActivity() {
 
             textData.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Data"
+            Title_TypeConvert.text = getString(R.string.data)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
@@ -340,7 +340,7 @@ class Converter : AppCompatActivity() {
             dataB.setText("")
         }
 
-        Button_Speed.setOnClickListener {
+        card_Speed.setOnClickListener {
 
             val adapterMenu = ArrayAdapter(
                 this,
@@ -357,7 +357,7 @@ class Converter : AppCompatActivity() {
 
             textSpeed.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = "Speed"
+            Title_TypeConvert.text = getString(R.string.speed)
 
             // change color lost selection
             textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))

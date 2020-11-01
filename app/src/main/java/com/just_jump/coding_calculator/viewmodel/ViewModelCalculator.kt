@@ -279,7 +279,7 @@ class ViewModelCalculator: ViewModel() {
                         dataString[dataString.length - 1] == '%' ||
                         dataString[dataString.length - 1] == '(')
             ) {
-                dataString = dataString.toString() + "%"
+                dataString += "%"
             }
         }
         dataFieldExpression.postValue(dataString)

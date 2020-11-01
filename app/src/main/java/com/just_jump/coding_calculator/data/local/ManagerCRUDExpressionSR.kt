@@ -40,7 +40,7 @@ object SRDataExpression {
     // this function insert a new element on the list of the expressions
     fun setList(newData: String) {
 
-        val maxData = 10
+        val maxData = 16
         var dataSaveList: ArrayList<String> = getlist()
         val tempData: ArrayList<String> = ArrayList()
 

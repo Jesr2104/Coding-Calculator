@@ -74,12 +74,12 @@ class Calculator : AppCompatActivity() {
 
             val spinnerSingleSelectDialogFragment =
                 SpinnerDialogFragment.newInstance(
-                    SpinnerSelectionType.SINGLE_SELECTION, "History", arraySpinnerModel,
+                    SpinnerSelectionType.SINGLE_SELECTION, getString(R.string.History), arraySpinnerModel,
                     object :
                         OnSpinnerOKPressedListener {
                         override fun onSingleSelection(data: SpinnerModel, selectedPosition: Int) {
                             when {
-                                data.text[0] != '=' -> {
+                                data.text[0] != 'R' -> {
                                     dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text).paintString()).toString()
                                     tResult.text = ""
                                 }
@@ -91,7 +91,7 @@ class Calculator : AppCompatActivity() {
                                     if (data.text[1] == '-') {
                                         dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + "(" + data.text.substring(1,data.text.length) + ")").paintString()).toString()
                                     } else {
-                                        dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text.substring(1,data.text.length)).paintString()).toString()
+                                        dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text.substring(8,data.text.length)).paintString()).toString()
                                     }
                                     cViewModel.dataFieldResult.value = ""
                                 }
@@ -107,7 +107,7 @@ class Calculator : AppCompatActivity() {
                 )
             spinnerSingleSelectDialogFragment.showSearchBar = false
             spinnerSingleSelectDialogFragment.buttonText = "Load Data"
-            spinnerSingleSelectDialogFragment.themeColorResId = resources.getColor(R.color.colorBase)
+            spinnerSingleSelectDialogFragment.themeColorResId = resources.getColor(R.color.color_text_contrast)
             spinnerSingleSelectDialogFragment.show(
                 supportFragmentManager,
                 "SpinnerDialogFragmentSingle"
@@ -268,8 +268,9 @@ class Calculator : AppCompatActivity() {
         }
 
         // this Listener when you keep press the button to clear
-        numberBackSpace.setOnTouchListener { view, motionEvent ->
+        numberBackSpace.setOnTouchListener { _, motionEvent ->
             state = cViewModel.correctResult()
+
             when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
@@ -300,7 +301,7 @@ class Calculator : AppCompatActivity() {
                 with(SRDataExpression) {
                     this.customPreference(this@Calculator)
                     this.setList(cViewModel.dataFieldExpression.value!!)
-                    this.setList("=" + cViewModel.dataFieldResult.value!!)
+                    this.setList(getString(R.string.result) + cViewModel.dataFieldResult.value!!)
                     state = true
                 }
 
