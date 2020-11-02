@@ -1,21 +1,22 @@
 package com.just_jump.coding_calculator
 
 import android.content.Intent
-import android.content.pm.ActivityInfo.*
+import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.skydoves.colorpickerview.ColorPickerDialog
-import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
+import androidx.lifecycle.ViewModelProvider
 import com.just_jump.coding_calculator.data.local.SRDataColors
 import com.just_jump.coding_calculator.utilities.ColorDesign
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.viewmodel.ViewModelColorCode
+import com.skydoves.colorpickerview.ColorPickerDialog
+import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
 import kotlinx.android.synthetic.main.activity_colorcode.*
+
 
 class ColorCode : AppCompatActivity(){
 
@@ -30,7 +31,7 @@ class ColorCode : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_colorcode)
 
-        cViewModel = ViewModelProviders.of(this).get(ViewModelColorCode::class.java)
+        cViewModel = ViewModelProvider(this)[ViewModelColorCode::class.java]
         requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
 
         /***************************************************************************/
@@ -286,7 +287,7 @@ class ColorCode : AppCompatActivity(){
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
         moreColors.setOnClickListener {
-            val newFragment = ListSavedColorsDialog(this,cViewModel.colorRGB)
+            val newFragment = ListSavedColorsDialog(this, cViewModel.colorRGB)
             newFragment.show(supportFragmentManager, "infoColor")
         }
         //------------------------------------------------------------------------------------------
