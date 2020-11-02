@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.just_jump.coding_calculator.utilities.ConvertUtilities
 import com.just_jump.coding_calculator.utilities.PrefixText
 import com.just_jump.coding_calculator.utilities.ValidateExponential
@@ -118,15 +119,15 @@ class Converter : AppCompatActivity() {
         // Event when you press button Area
         card_Area.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuAreaList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 1
@@ -136,13 +137,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.area)
 
             // change color lost selection
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -150,15 +151,15 @@ class Converter : AppCompatActivity() {
 
         card_Length.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuLengthList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 2
@@ -168,13 +169,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.length)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -182,15 +183,15 @@ class Converter : AppCompatActivity() {
 
         card_Time.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuTimeList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 3
@@ -200,13 +201,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.time)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -214,15 +215,15 @@ class Converter : AppCompatActivity() {
 
         card_Temp.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuTemperatureList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 4
@@ -232,13 +233,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.temp)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -246,15 +247,15 @@ class Converter : AppCompatActivity() {
 
         card_Volume.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuVolumeList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 5
@@ -264,13 +265,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.volume)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -278,15 +279,15 @@ class Converter : AppCompatActivity() {
 
         card_Weight.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuWeightList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 6
@@ -296,13 +297,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.weight)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -310,15 +311,15 @@ class Converter : AppCompatActivity() {
 
         card_Data.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuDataList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 7
@@ -328,13 +329,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.data)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textSpeed.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -342,15 +343,15 @@ class Converter : AppCompatActivity() {
 
         card_Speed.setOnClickListener {
 
-            val adapterMenu = ArrayAdapter(
+            val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
                 menuSpeedList
             )
-            adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenu
-            SpinnerMenuB.adapter = adapterMenu
+            SpinnerMenuA.adapter = adapterMenuList
+            SpinnerMenuB.adapter = adapterMenuList
             SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 8
@@ -360,13 +361,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.speed)
 
             // change color lost selection
-            textArea.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textLength.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTime.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textTemp.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textVolume.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textWeight.setTextColor(resources.getColor(R.color.Front_ColorGrey))
-            textData.setTextColor(resources.getColor(R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
