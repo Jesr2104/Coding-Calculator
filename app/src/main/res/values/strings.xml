@@ -121,6 +121,7 @@
     <string name="g">G</string>
     <string name="b">B</string>
     <string name="inicialValue">0</string>
+    <string name="color">COLOR:</string>
 
 
 </resources>

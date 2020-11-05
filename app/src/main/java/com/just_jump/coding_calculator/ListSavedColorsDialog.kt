@@ -25,7 +25,7 @@ class ListSavedColorsDialog(contextA: Context, colorRGB: MutableLiveData<Int>): 
             val data = SRDataColors.customPreference(newContext).getlist()
 
             layout.recycleViewFields.layoutManager = LinearLayoutManager(context)
-            layout.recycleViewFields.adapter = RecycleAdapterSavedColors(data,newColorRGB)
+            //layout.recycleViewFields.adapter = RecycleAdapterSavedColors(data,newColorRGB)
 
             // Inflate and set the layout for the dialog
             builder.setView(layout)

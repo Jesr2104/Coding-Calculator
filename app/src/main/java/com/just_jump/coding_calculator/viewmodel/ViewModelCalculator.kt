@@ -456,12 +456,12 @@ class ViewModelCalculator: ViewModel() {
 
             if (dataResult.checkParenthesis()) {
                 val format = DecimalFormat()
-                val dataString = Functions().basicEquations(dataResult)
+                val dataStringInfo = Functions().basicEquations(dataResult)
                 format.maximumFractionDigits = 5
 
-                if (dataString != "#2104")
+                if (dataStringInfo != "#2104")
                 {
-                    resultData = format.format(dataString.toDouble()).checkInteger()
+                    resultData = format.format(dataStringInfo.toDouble()).checkInteger()
                 }
                 else
                 {
@@ -473,15 +473,14 @@ class ViewModelCalculator: ViewModel() {
             }
         } else {
             if (dataString.isNotEmpty()) {
-                val checkExp = dataString.toString()
-                if (checkExp.checkParenthesis()) {
-                    val dataString = Functions().basicEquations(checkExp)
+                if (dataString.checkParenthesis()) {
+                    val dataStringInfo = Functions().basicEquations(dataString)
                     val format = DecimalFormat()
                     format.maximumFractionDigits = 5
 
-                    if (dataString != "#2104")
+                    if (dataStringInfo != "#2104")
                     {
-                        resultData = format.format(dataString.toDouble()).checkInteger()
+                        resultData = format.format(dataStringInfo.toDouble()).checkInteger()
                     }
                     else
                     {

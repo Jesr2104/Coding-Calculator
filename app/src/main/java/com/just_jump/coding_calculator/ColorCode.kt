@@ -17,7 +17,6 @@ import com.skydoves.colorpickerview.ColorPickerDialog
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
 import kotlinx.android.synthetic.main.activity_colorcode.*
 
-
 class ColorCode : AppCompatActivity(){
 
     lateinit var cViewModel: ViewModelColorCode
@@ -26,6 +25,16 @@ class ColorCode : AppCompatActivity(){
     private lateinit var analogousColorStore: Array<Int>
     private lateinit var triadicColorStore: Array<Int>
     private lateinit var tetradicColorStore: Array<Int>
+
+    override fun onResume() {
+        cViewModel.setRGBColor(cViewModel.getRGBColor())
+        super.onResume()
+    }
+
+    override fun onPause() {
+        cViewModel.setRGBColor(cViewModel.getRGBColor())
+        super.onPause()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -287,8 +296,10 @@ class ColorCode : AppCompatActivity(){
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
         moreColors.setOnClickListener {
-            val newFragment = ListSavedColorsDialog(this, cViewModel.colorRGB)
-            newFragment.show(supportFragmentManager, "infoColor")
+            val listSavedColors = Intent(this, ListSavedColors::class.java)
+            startActivity(listSavedColors)
+
+            cViewModel.colorRGB.value=cViewModel.colorRGB.value
         }
         //------------------------------------------------------------------------------------------
         // Dialog to show the controls to change the code color

@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/Front_ColorGrey"
                 android:textColor="@color/material_white"
-                android:text="Average"
+                android:text="@string/average"
                 android:fontFamily="cursive"
                 android:textStyle="bold"
                 android:textSize="35dp"

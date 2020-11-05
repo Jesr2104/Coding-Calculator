@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.just_jump.coding_calculator.data.local.SRDataColors
 
-class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB: MutableLiveData<Int>): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
-
-    private val newColorRGB = newColorRGB
+class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(
@@ -22,7 +19,7 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB:
             parent,
             false
         )
-        return ViewHolder(view,newColorRGB)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -40,12 +37,12 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB:
         holder.codeColor = item
     }
 
-    class ViewHolder(itemView: View, newColorRGB: MutableLiveData<Int>) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var rgbColor: TextView? = null
         var hexColor: TextView? = null
         var mainLayout: LinearLayout? = null
         var codeColor: Int = 0
-        var ColorRGB = newColorRGB
+        //var colorRGB = newColorRGB
 
         init {
             rgbColor = itemView.findViewById(R.id.rgbColor)
@@ -69,7 +66,7 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB:
                     builderDialog.setPositiveButton(
                         "Load",
                         DialogInterface.OnClickListener { dialog, id ->
-                            ColorRGB.value = codeColor
+                            //colorRGB.value = codeColor
                             dialog.dismiss()
 
                         })
@@ -78,7 +75,7 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, newColorRGB:
                         "Delete",
                         DialogInterface.OnClickListener { dialog, id ->
                             SRDataColors.deleteItem(codeColor)
-                            ColorRGB.value = ColorRGB.value
+                            //colorRGB.value = colorRGB.value
                         })
 
                 val alert: AlertDialog = builderDialog.create()
