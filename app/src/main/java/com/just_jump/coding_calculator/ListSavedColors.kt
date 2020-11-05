@@ -1,12 +1,13 @@
 package com.just_jump.coding_calculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.just_jump.coding_calculator.data.local.SRDataColors
 import kotlinx.android.synthetic.main.activity_list_saved_colors.*
 
-class ListSavedColors() : AppCompatActivity(){
+class ListSavedColors() : AppCompatActivity(), RVSavedColorInt{
 
     lateinit var adapter: NewRecycleAdapterSavedColors
     lateinit var data: ArrayList<Int>
@@ -18,8 +19,14 @@ class ListSavedColors() : AppCompatActivity(){
         data = SRDataColors.customPreference(this).getlist()
 
         recycleViewFields.layoutManager = LinearLayoutManager(this)
-        adapter = NewRecycleAdapterSavedColors(data)
+        adapter = NewRecycleAdapterSavedColors(data,this)
         recycleViewFields.adapter = adapter
-        recycleViewFields.setHasFixedSize(true)
+    }
+
+    override fun colorIntValue(colorInt: Int) {
+        val resultIntent = Intent()
+        resultIntent.putExtra("loadColor", colorInt)
+        setResult(RESULT_OK,resultIntent)
+        finish()
     }
 }

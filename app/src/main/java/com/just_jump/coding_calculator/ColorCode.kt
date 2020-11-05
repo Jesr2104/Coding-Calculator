@@ -6,7 +6,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.just_jump.coding_calculator.data.local.SRDataColors
@@ -34,6 +36,31 @@ class ColorCode : AppCompatActivity(){
     override fun onPause() {
         cViewModel.setRGBColor(cViewModel.getRGBColor())
         super.onPause()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        if(requestCode == 1){
+            if (resultCode == RESULT_OK){
+                val resultTemp = data!!.getIntExtra("loadColor",0)
+
+                if(resultTemp != 0){
+                    cViewModel.colorRGB.value = resultTemp
+                }
+            }
+        }
+
+//        if(requestCode == 1){
+//            if (resultCode == RESULT_OK){
+//                val resultTemp = data!!.getStringExtra("loadColor")
+//
+//                if(resultTemp!!.isNotEmpty()){
+//                    cViewModel.colorRGB.value = Color.parseColor(resultTemp)
+//                }
+//            }
+//        }
+
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -297,9 +324,7 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         moreColors.setOnClickListener {
             val listSavedColors = Intent(this, ListSavedColors::class.java)
-            startActivity(listSavedColors)
-
-            cViewModel.colorRGB.value=cViewModel.colorRGB.value
+            startActivityForResult(listSavedColors,1)
         }
         //------------------------------------------------------------------------------------------
         // Dialog to show the controls to change the code color

@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.just_jump.coding_calculator.data.local.SRDataColors
 import kotlinx.android.synthetic.main.item_color_saved.view.*
 
-class NewRecycleAdapterSavedColors(var listDataColors: ArrayList<Int>): RecyclerView.Adapter<NewRecycleAdapterSavedColors.ViewHolder>() {
+class NewRecycleAdapterSavedColors(var listDataColors: ArrayList<Int>,var RVSavedColorInt: RVSavedColorInt): RecyclerView.Adapter<NewRecycleAdapterSavedColors.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return listDataColors.count()
@@ -36,11 +37,14 @@ class NewRecycleAdapterSavedColors(var listDataColors: ArrayList<Int>): Recycler
             }
 
             itemView.loadSavedColor.setOnClickListener{
-                loadItem()
+                loadItem(layoutPosition)
             }
         }
 
         fun render(item: Int){
+
+            println(listDataColors)
+
             val hexColor = "#" + Integer.toHexString(item).substring(2)
             itemView.colorCodeHex.text = "HEX "+hexColor.toUpperCase()
             itemView.colorCodeRGB.text = "RGB(${Color.red(item)},${Color.green(item)},${Color.blue(item)})"
@@ -56,7 +60,7 @@ class NewRecycleAdapterSavedColors(var listDataColors: ArrayList<Int>): Recycler
         notifyItemRemoved(position)
     }
 
-    fun loadItem(){
-
+    fun loadItem(position: Int){
+        RVSavedColorInt.colorIntValue(listDataColors[position])
     }
 }
