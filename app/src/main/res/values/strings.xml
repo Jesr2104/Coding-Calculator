@@ -9,8 +9,8 @@
     <string name="change_color">Change Color</string>
     <string name="saved_colors">Saved Colors</string>
     <string name="color_information">Color Information</string>
-    <string name="color_palette">COLOR PALETTE</string>
-    <string name="color_range">COLOR RANGE</string>
+    <string name="color_palette">Color palette</string>
+    <string name="color_range">Color Range</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Text_inforRuleOfThree">When we got to the hotel they gave us a map with the places of interest in the city, and they told us that 5 centimeters of the map represents 600 meters of reality. Today we want to go to a park that is 8 centimeters from the hotel on the map. How far from the hotel is this park? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learned:</string>

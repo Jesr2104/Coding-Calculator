@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListSavedColors"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:id="@+id/mainLayoutSavedColor">
 
     <TextView
         android:id="@+id/Title"

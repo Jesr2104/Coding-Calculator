@@ -2,6 +2,7 @@ package com.just_jump.coding_calculator
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,16 @@ class PaletteColors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_palette_colors)
+
+        val gradientDrawable = GradientDrawable(
+            GradientDrawable.Orientation.BOTTOM_TOP,
+            intArrayOf(
+                Color.parseColor("#212121"),
+                Color.parseColor("#616161")
+            )
+        )
+        mainlayout.background = gradientDrawable
+
 
         // call to the function to load the list colors
         loadListColors(ListColorsRange().getListColors())

@@ -1,86 +1,65 @@
 package com.just_jump.coding_calculator
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.just_jump.coding_calculator.data.local.SRDataColors
+import kotlinx.android.synthetic.main.item_color_saved.view.*
 
-class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
+class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, var RVSavedColorInt: RVSavedColorInt): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
+
+    override fun getItemCount(): Int {
+        return listDataColors.count()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_saved_layout,
+            R.layout.item_color_saved,
             parent,
             false
         )
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return listDataColors?.count()!!
-    }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listDataColors[position]
-
-        val hexColor = "#" + Integer.toHexString(item).substring(2)
-        holder.hexColor?.text = "HEX "+hexColor.toUpperCase()
-        holder.rgbColor?.text = "RGB(${Color.red(item)},${Color.green(item)},${Color.blue(item)})"
-        holder.mainLayout?.setBackgroundColor(item)
-
-        holder.codeColor = item
+        holder.render(item)
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var rgbColor: TextView? = null
-        var hexColor: TextView? = null
-        var mainLayout: LinearLayout? = null
-        var codeColor: Int = 0
-        //var colorRGB = newColorRGB
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         init {
-            rgbColor = itemView.findViewById(R.id.rgbColor)
-            hexColor = itemView.findViewById(R.id.hexColor)
-            mainLayout = itemView.findViewById(R.id.mainlayout)
+            itemView.deleteSavedColor.setOnClickListener{
+                removeItem(layoutPosition)
+            }
 
-
-            itemView.setOnClickListener {
-                val position: Int = adapterPosition
-
-                val builderDialog: AlertDialog.Builder = AlertDialog.Builder(itemView.context,)
-                builderDialog.setMessage("What do you want to do?")
-                builderDialog.setCancelable(true)
-
-                    builderDialog.setNeutralButton(
-                        "Close",
-                        DialogInterface.OnClickListener { dialog, id ->
-                            dialog.dismiss()
-                        })
-
-                    builderDialog.setPositiveButton(
-                        "Load",
-                        DialogInterface.OnClickListener { dialog, id ->
-                            //colorRGB.value = codeColor
-                            dialog.dismiss()
-
-                        })
-
-                    builderDialog.setNegativeButton(
-                        "Delete",
-                        DialogInterface.OnClickListener { dialog, id ->
-                            SRDataColors.deleteItem(codeColor)
-                            //colorRGB.value = colorRGB.value
-                        })
-
-                val alert: AlertDialog = builderDialog.create()
-                alert.show()
+            itemView.loadSavedColor.setOnClickListener{
+                loadItem(layoutPosition)
             }
         }
+
+        fun render(item: Int){
+
+            println(listDataColors)
+
+            val hexColor = "#" + Integer.toHexString(item).substring(2)
+            itemView.colorCodeHex.text = "HEX "+hexColor.toUpperCase()
+            itemView.colorCodeRGB.text = "RGB(${Color.red(item)},${Color.green(item)},${Color.blue(item)})"
+            itemView.colorSaved.setBackgroundColor(item)
+        }
+    }
+
+    fun removeItem(position: Int) {
+        // first remove from the database
+        SRDataColors.deleteItem(listDataColors[position])
+        listDataColors.removeAt(position)
+
+        notifyItemRemoved(position)
+    }
+
+    fun loadItem(position: Int){
+        RVSavedColorInt.colorIntValue(listDataColors[position])
     }
 }

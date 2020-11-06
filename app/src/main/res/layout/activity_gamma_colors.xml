@@ -2,27 +2,27 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="just_jump.coding_calculator.GammaColors"
     android:orientation="vertical"
-    android:background="#494949">
+    android:background="#494949"
+    android:id="@+id/mainLayoutGamma">
 
     <TextView
         android:id="@+id/titleColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/color_range"
-        android:layout_marginTop="15dp"
+        android:fontFamily="cursive"
         android:textStyle="bold"
-        android:textSize="25dp"
-        android:textAlignment="center"
-        android:padding="0dp"
-        android:textColor="#ffffff"
-        android:paddingRight="25dp"
-        android:background="#404040"
-        android:elevation="20dp">
+        android:textSize="35dp"
+        android:gravity="center|center_vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="25dp"
+        android:elevation="15dp"
+        android:background="@color/Front_ColorGrey"
+        android:textColor="@color/material_white">
 
     </TextView>
 

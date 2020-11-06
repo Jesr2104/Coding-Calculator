@@ -1,6 +1,8 @@
 package com.just_jump.coding_calculator
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_list_saved_colors.*
 
 class ListSavedColors() : AppCompatActivity(), RVSavedColorInt{
 
-    lateinit var adapter: NewRecycleAdapterSavedColors
+    lateinit var adapter: RecycleAdapterSavedColors
     lateinit var data: ArrayList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +21,17 @@ class ListSavedColors() : AppCompatActivity(), RVSavedColorInt{
         data = SRDataColors.customPreference(this).getlist()
 
         recycleViewFields.layoutManager = LinearLayoutManager(this)
-        adapter = NewRecycleAdapterSavedColors(data,this)
+        adapter = RecycleAdapterSavedColors(data,this)
         recycleViewFields.adapter = adapter
+
+        val gradientDrawable = GradientDrawable(
+            GradientDrawable.Orientation.BOTTOM_TOP,
+            intArrayOf(
+                Color.parseColor("#212121"),
+                Color.parseColor("#616161")
+            )
+        )
+        mainLayoutSavedColor.background = gradientDrawable
     }
 
     override fun colorIntValue(colorInt: Int) {
