@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBase">#434143</color>
     <color name="Front_ColorGrey">#424242</color>
     <color name="Front_ColorDarkGrey">#434143</color>
     <color name="color_background">#494949</color>
@@ -8,7 +7,7 @@
     <color name="ColorRGB_G">#12FF13</color>
     <color name="ColorRGB_B">#00BDFF</color>
     <color name="yellow_mainColor">#FFDD00</color>
-    <color name="color_text_calculsator_dark">#231f20</color>
+    <color name="color_text_calculator_dark">#231f20</color>
     <color name="black_grey_calculator">#231f20</color>
     <color name="Light_grey_deselect">#969696</color>
     <color name="Background_CardSavedColor">#D8D8D8</color>

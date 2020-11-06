@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.just_jump.coding_calculator.data.local.SRDataColors
 import kotlinx.android.synthetic.main.item_color_saved.view.*
 
-class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, var RVSavedColorInt: RVSavedColorInt): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
+class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, private var RVSavedColorInt: RVSavedColorInt): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return listDataColors.count()

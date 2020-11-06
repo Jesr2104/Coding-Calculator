@@ -17,7 +17,7 @@
         android:text="@string/calculator"
         android:fontFamily="cursive"
         android:textStyle="bold"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:gravity="center|center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -51,7 +51,8 @@
             android:text=""
             android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
-            android:textSize="35sp">
+            android:textSize="35sp"
+            tools:targetApi="o">
 
         </TextView>
 
@@ -64,7 +65,8 @@
             android:text=""
             android:textAlignment="textEnd"
             android:textColor="#FFDD00"
-            android:textSize="45sp">
+            android:textSize="45sp"
+            tools:targetApi="o">
 
         </TextView>
 
@@ -91,12 +93,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:backgroundTint="#FFDD00"
-            android:layout_marginRight="2dp"
-            android:text="("
+            android:layout_marginEnd="2dp"
+            android:text="@string/openParenthesis"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/color_text_calculsator_dark"
+            android:textColor="@color/color_text_calculator_dark"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/numberCloseParenthesis"
             app:layout_constraintLeft_toLeftOf="@+id/numberAllClear"
@@ -108,13 +110,13 @@
             android:id="@+id/numberCloseParenthesis"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
             android:backgroundTint="#FFDD00"
-            android:text=")"
+            android:text="@string/closeParenthesis"
             android:textSize="20sp"
             android:gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/color_text_calculsator_dark"
+            android:textColor="@color/color_text_calculator_dark"
             app:layout_constraintBottom_toTopOf="@+id/numberAllClear"
             app:layout_constraintLeft_toRightOf="@id/numberOpenParenthesis"
             app:layout_constraintRight_toRightOf="@+id/numberAllClear"
@@ -132,7 +134,7 @@
             android:scaleType="centerInside"
             android:textStyle="bold"
             android:gravity="center_horizontal"
-            android:textColor="@color/color_text_calculsator_dark"
+            android:textColor="@color/color_text_calculator_dark"
             app:layout_constraintBottom_toTopOf="@+id/numberDivide"
             app:layout_constraintEnd_toEndOf="@+id/numberDivide"
             app:layout_constraintHorizontal_weight="0.25"
@@ -148,19 +150,20 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:backgroundTint="#FFDD00"
-            android:text="+/-"
+            android:text="@string/plus_less"
             android:autoSizeMaxTextSize="35sp"
             app:autoSizeTextType="uniform"
             android:textStyle="bold"
             android:gravity="center|center_vertical"
-            android:textColor="@color/color_text_calculsator_dark"
+            android:textColor="@color/color_text_calculator_dark"
             app:layout_constraintBottom_toTopOf="@+id/numberMultiply"
             app:layout_constraintEnd_toEndOf="@+id/numberBackSpace"
             app:layout_constraintHorizontal_weight="0.50"
             app:layout_constraintLeft_toRightOf="@id/historic"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="@+id/numberMultiply"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="o">
 
         </Button>
 
@@ -168,9 +171,9 @@
             android:id="@+id/numberAllClear"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:backgroundTint="#231f20"
-            android:text="AC"
+            android:text="@string/allClean"
             android:gravity="center|center_vertical"
             android:autoSizeMaxTextSize="25sp"
             app:autoSizeTextType="uniform"
@@ -180,7 +183,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/numberDivide"
             app:layout_constraintTop_toBottomOf="@id/numberOpenParenthesis"
-            app:layout_constraintBottom_toTopOf="@id/number7">
+            app:layout_constraintBottom_toTopOf="@id/number7"
+            tools:targetApi="o">
 
         </Button>
 
@@ -188,7 +192,7 @@
             android:id="@+id/numberDivide"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="/"
+            android:text="@string/divide"
             android:autoSizeMaxTextSize="30sp"
             app:autoSizeTextType="uniform"
             android:textStyle="bold"
@@ -201,7 +205,8 @@
             app:layout_constraintBottom_toTopOf="@id/number8"
             android:backgroundTint="#231f20"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp">
+            android:layout_marginLeft="5dp"
+            tools:targetApi="o">
 
         </Button>
 
@@ -209,7 +214,7 @@
             android:id="@+id/numberMultiply"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="X"
+            android:text="@string/multiply"
             android:autoSizeMaxTextSize="30sp"
             app:autoSizeTextType="uniform"
             android:textStyle="bold"
@@ -222,7 +227,8 @@
             app:layout_constraintTop_toBottomOf="@id/historic"
             app:layout_constraintBottom_toTopOf="@id/number9"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp">
+            android:layout_marginLeft="5dp"
+            tools:targetApi="o">
 
         </Button>
 
@@ -240,7 +246,7 @@
             app:layout_constraintLeft_toRightOf="@id/numberMultiply"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@id/numberLess"
-            android:layout_marginLeft="5dp">
+            android:layout_marginStart="5dp">
 
         </ImageButton>
 
@@ -248,9 +254,9 @@
             android:id="@+id/number7"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:backgroundTint="#231f20"
-            android:text="7"
+            android:text="@string/number_7"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -267,7 +273,7 @@
             android:id="@+id/number8"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="8"
+            android:text="@string/number_8"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -287,7 +293,7 @@
             android:id="@+id/number9"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="9"
+            android:text="@string/number_9"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -309,7 +315,7 @@
             android:layout_height="0dp"
             android:backgroundTint="#231f20"
             app:layout_constraintHorizontal_weight="0.25"
-            android:text="-"
+            android:text="@string/subtract"
             android:autoSizeMaxTextSize="30sp"
             app:autoSizeTextType="uniform"
             android:textStyle="bold"
@@ -319,7 +325,8 @@
             app:layout_constraintLeft_toRightOf="@id/number9"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@id/numberPlus"
-            android:layout_marginLeft="5dp">
+            android:layout_marginStart="5dp"
+            tools:targetApi="o">
 
         </Button>
 
@@ -327,9 +334,9 @@
             android:id="@+id/number4"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:backgroundTint="#231f20"
-            android:text="4"
+            android:text="@string/number_4"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -346,7 +353,7 @@
             android:id="@+id/number5"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="5"
+            android:text="@string/number_5"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -366,7 +373,7 @@
             android:id="@+id/number6"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="6"
+            android:text="@string/number_6"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -386,9 +393,9 @@
             android:id="@+id/numberPlus"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:backgroundTint="#231f20"
-            android:text="+"
+            android:text="@string/add"
             android:autoSizeMaxTextSize="40sp"
             app:autoSizeTextType="uniform"
             android:textStyle="bold"
@@ -398,7 +405,8 @@
             app:layout_constraintHorizontal_weight="0.25"
             app:layout_constraintLeft_toRightOf="@id/number6"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/numberLess">
+            app:layout_constraintTop_toBottomOf="@id/numberLess"
+            tools:targetApi="o">
 
         </Button>
 
@@ -406,9 +414,9 @@
             android:id="@+id/number1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:backgroundTint="#231f20"
-            android:text="1"
+            android:text="@string/number_1"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -425,7 +433,7 @@
             android:id="@+id/number2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="2"
+            android:text="@string/number_2"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -445,7 +453,7 @@
             android:id="@+id/number3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="3"
+            android:text="@string/number_3"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -465,9 +473,9 @@
             android:id="@+id/numberResult"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:backgroundTint="#231f20"
-            android:text="="
+            android:text="@string/result_equal"
             android:autoSizeMaxTextSize="30sp"
             app:autoSizeTextType="uniform"
             android:textStyle="bold"
@@ -477,7 +485,8 @@
             app:layout_constraintHorizontal_weight="0.25"
             app:layout_constraintLeft_toRightOf="@id/number3"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/numberPlus">
+            app:layout_constraintTop_toBottomOf="@id/numberPlus"
+            tools:targetApi="o">
 
         </Button>
 
@@ -485,9 +494,9 @@
             android:id="@+id/numberPercentage"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:backgroundTint="#231f20"
-            android:text="%"
+            android:text="@string/percentage_calculator"
             android:textColor="@color/yellow_mainColor"
             android:autoSizeMaxTextSize="40sp"
             app:autoSizeTextType="uniform"
@@ -497,7 +506,8 @@
             app:layout_constraintHorizontal_weight="0.25"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/number0"
-            app:layout_constraintTop_toBottomOf="@id/number1">
+            app:layout_constraintTop_toBottomOf="@id/number1"
+            tools:targetApi="o">
 
         </Button>
 
@@ -508,7 +518,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:backgroundTint="#231f20"
-            android:text="0"
+            android:text="@string/number_0"
             android:textColor="@color/material_white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -525,10 +535,10 @@
             android:id="@+id/numberPoint"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
             android:backgroundTint="#231f20"
-            android:text="."
+            android:text="@string/point"
             android:textColor="@color/yellow_mainColor"
             app:autoSizeTextType="uniform"
             android:autoSizeMaxTextSize="40sp"
@@ -538,13 +548,11 @@
             app:layout_constraintHorizontal_weight="0.25"
             app:layout_constraintLeft_toRightOf="@id/number0"
             app:layout_constraintRight_toLeftOf="@id/numberResult"
-            app:layout_constraintTop_toBottomOf="@id/number3">
+            app:layout_constraintTop_toBottomOf="@id/number3"
+            tools:targetApi="o">
 
         </Button>
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

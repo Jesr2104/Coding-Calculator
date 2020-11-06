@@ -50,6 +50,7 @@
                 android:id="@+id/ColorInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/palette_item"
                 app:layout_constraintBottom_toBottomOf="@id/newLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/newLayout"

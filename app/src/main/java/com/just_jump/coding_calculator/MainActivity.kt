@@ -14,27 +14,27 @@ class MainActivity : AppCompatActivity() {
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        card_calculator.setOnClickListener() {
+        card_calculator.setOnClickListener {
             val calculator = Intent(this, Calculator::class.java)
             startActivity(calculator)
         }
 
-        card_converter.setOnClickListener() {
+        card_converter.setOnClickListener {
             val converter = Intent(this, Converter::class.java)
             startActivity(converter)
         }
 
-        card_numerical_systems.setOnClickListener() {
+        card_numerical_systems.setOnClickListener {
             val numericalSystems = Intent(this, NumericalSystems::class.java)
             startActivity(numericalSystems)
         }
 
-        card_harmonic_colors.setOnClickListener() {
+        card_harmonic_colors.setOnClickListener {
             val colorCode = Intent(this, ColorCode::class.java)
             startActivity(colorCode)
         }
 
-        card_extra_calculator.setOnClickListener() {
+        card_extra_calculator.setOnClickListener {
             val extrasCalculators = Intent(this, ExtraCalculations::class.java)
             startActivity(extrasCalculators)
         }

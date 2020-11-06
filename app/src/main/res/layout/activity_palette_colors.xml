@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/mainlayout">
+    android:id="@+id/mainLayoutPalette">
 
     <TextView
         android:id="@+id/titleColor"
@@ -17,7 +17,7 @@
         android:text="@string/color_palette"
         android:fontFamily="cursive"
         android:textStyle="bold"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:gravity="center|center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"

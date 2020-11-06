@@ -2,19 +2,18 @@ package com.just_jump.coding_calculator
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDialogFragment
 
-class InfoSystemDialog(var InfoColorFor: String) : AppCompatDialogFragment() {
+class InfoSystemDialog(private var InfoColorFor: String) : AppCompatDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         return activity?.let {
             val builder = AlertDialog.Builder(it)
 
             // Get the layout inflater
-            val inflater = requireActivity().layoutInflater;
+            val inflater = requireActivity().layoutInflater
             val viewDialog = inflater.inflate(R.layout.dialog_info_system_color, null)
             val imageInformation = viewDialog.findViewById<ImageView>(R.id.myinfo_image)
 
@@ -39,13 +38,12 @@ class InfoSystemDialog(var InfoColorFor: String) : AppCompatDialogFragment() {
             builder.setView(viewDialog)
 
                 // Add action buttons
-                .setNeutralButton("Ok",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        dialog.dismiss()
-                    })
+                .setNeutralButton("Ok") { dialog, _ ->
+                    dialog.dismiss()
+                }
 
             // Inflate and set the layout for the dialog
-            builder.create();
+            builder.create()
 
         } ?: throw IllegalStateException("Activity cannot be null")
     }

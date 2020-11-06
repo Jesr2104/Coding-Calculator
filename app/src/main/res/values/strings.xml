@@ -12,8 +12,7 @@
     <string name="color_palette">Color palette</string>
     <string name="color_range">Color Range</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Text_inforRuleOfThree">When we got to the hotel they gave us a map with the places of interest in the city, and they told us that 5 centimeters of the map represents 600 meters of reality. Today we want to go to a park that is 8 centimeters from the hotel on the map. How far from the hotel is this park? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learned:</string>
+    <string name="Text_infoRuleOfThree">When we got to the hotel they gave us a map with the places of interest in the city, and they told us that 5 centimeters of the map represents 600 meters of reality. Today we want to go to a park that is 8 centimeters from the hotel on the map. How far from the hotel is this park? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learned:</string>
     <string name="converter">Converter</string>
     <string name="coding_calculator_title">Coding Calculator</string>
     <string name="description_calculator">It provides the fundamental operations and calculations.</string>
@@ -24,7 +23,6 @@
     <string name="numerical_systems">Numerical Systems</string>
     <string name="calculator">Calculator</string>
     <string name="description_extras">Other calculator features </string>
-    <string name="Select_option">Select Option</string>
 
     <!-- Text for contentDescription for harmony colors -->
 
@@ -49,7 +47,6 @@
 
     <string name="area_button">Area button</string>
     <string name="length_button">Length button</string>
-    <string name="time_button">Time button</string>
     <string name="temperature_button">Temperature button</string>
     <string name="volume_button">Volume button</string>
     <string name="weight_button">Weight button</string>
@@ -57,9 +54,6 @@
     <string name="speed_button">Speed button</string>
     <string name="color_piker_button">Color piker button</string>
     <string name="palette_of_color">Palette of color</string>
-    <string name="value_a">Value A</string>
-    <string name="value_b">Value B</string>
-    <string name="value_c">Value C</string>
     <string name="color_systems_information">Color systems information</string>
     <string name="complementary_color_information">Complementary color information</string>
     <string name="split_complementary_information">Split complementary information</string>
@@ -88,7 +82,7 @@
     <string name="value_hue_hsl">Value Hue HSL</string>
     <string name="value_lightness_hsl">Value Lightness HSL</string>
     <string name="value_saturation_hsl">Value saturation HSL</string>
-    <string name="prcentage_button">Prcentage button</string>
+    <string name="percentage_button">Percentage button</string>
     <string name="average_button">Average Button</string>
     <string name="rule_of_three_button">Rule of three button</string>
     <string name="rule_of_three">Rule of three</string>
@@ -115,13 +109,57 @@
     <string name="time">Time</string>
     <string name="length">Length</string>
     <string name="area">Area</string>
-    <string name="hsl">HSL</string>
-    <string name="hex">HEX</string>
-    <string name="r">R</string>
-    <string name="g">G</string>
-    <string name="b">B</string>
-    <string name="inicialValue">0</string>
+    <string name="initialValue">0</string>
     <string name="color">COLOR:</string>
+    <string name="openParenthesis">(</string>
+    <string name="closeParenthesis">)</string>
+    <string name="plus_less">+/-</string>
+    <string name="allClean">AC</string>
+    <string name="divide">/</string>
+    <string name="multiply">X</string>
+    <string name="number_7">7</string>
+    <string name="number_8">8</string>
+    <string name="number_9">9</string>
+    <string name="subtract">-</string>
+    <string name="number_4">4</string>
+    <string name="number_5">5</string>
+    <string name="number_6">6</string>
+    <string name="add">+</string>
+    <string name="number_1">1</string>
+    <string name="number_2">2</string>
+    <string name="number_3">3</string>
+    <string name="result_equal">=</string>
+    <string name="percentage_calculator">%</string>
+    <string name="number_0">0</string>
+    <string name="point">.</string>
+    <string name="icon_calculator">IconCalculator</string>
+    <string name="icon_convert">Icon_convert</string>
+    <string name="icon_numerical_systems">Icon_Numerical Systems</string>
+    <string name="icon_color_harmonic">Icon_Color_harmonic</string>
+    <string name="icon_extras">Icon_Extras</string>
+    <string name="image_expression">Image_expression</string>
+    <string name="image_expression2">Image_expression2</string>
+    <string name="image_expression_example">Image_expression_example</string>
+    <string name="palette_item">palette_item</string>
+    <string name="r">R</string>
+    <string name="_118">118</string>
+    <string name="g">G</string>
+    <string name="_0">0</string>
+    <string name="b">B</string>
+    <string name="_58">58</string>
+    <string name="hex">HEX</string>
+    <string name="_76003a">#76003A</string>
+    <string name="hsl">HSL</string>
+    <string name="_330">330</string>
+    <string name="_100">100</string>
+    <string name="_23">23</string>
+    <string name="value_a">Value A</string>
+    <string name="value_b">Value B</string>
+    <string name="value_c">Value C</string>
+    <string name="x">X?</string>
+    <string name="result2text">Result:</string>
+    <string name="xs">X:</string>
+    <string name="calculate">Calculate</string>
 
 
 </resources>

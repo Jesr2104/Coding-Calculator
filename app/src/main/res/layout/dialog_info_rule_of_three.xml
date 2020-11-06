@@ -3,7 +3,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Front_ColorGrey">
@@ -14,7 +13,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/Title"
@@ -40,6 +39,7 @@
                 android:layout_width="300dp"
                 android:layout_height="85dp"
                 android:src="@drawable/equation"
+                android:contentDescription="@string/image_expression"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -55,7 +55,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageView"
-                android:text="@string/Text_inforRuleOfThree"
+                android:text="@string/Text_infoRuleOfThree"
                 android:textColor="#BEBEBE"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
@@ -69,6 +69,7 @@
                 android:id="@+id/exampleRuleOfThree"
                 android:layout_width="300dp"
                 android:layout_height="110dp"
+                android:contentDescription="@string/image_expression2"
                 android:src="@drawable/example_rule_of_three"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"

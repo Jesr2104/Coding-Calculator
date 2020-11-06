@@ -88,10 +88,10 @@ class Calculator : AppCompatActivity() {
                                     cViewModel.dataFieldResult.value = ""
                                 }
                                 else -> {
-                                    if (data.text[1] == '-') {
-                                        dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + "(" + data.text.substring(1,data.text.length) + ")").paintString()).toString()
+                                    dataFieldViewModel = if (data.text[1] == '-') {
+                                        Html.fromHtml((dataFieldViewModel.toString() + "(" + data.text.substring(1,data.text.length) + ")").paintString()).toString()
                                     } else {
-                                        dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text.substring(8,data.text.length)).paintString()).toString()
+                                        Html.fromHtml((dataFieldViewModel.toString() + data.text.substring(8,data.text.length)).paintString()).toString()
                                     }
                                     cViewModel.dataFieldResult.value = ""
                                 }

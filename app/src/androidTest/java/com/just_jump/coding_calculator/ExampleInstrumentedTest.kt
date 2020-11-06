@@ -1,4 +1,4 @@
-package just_jump.coding_calculator
+package com.just_jump.coding_calculator
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

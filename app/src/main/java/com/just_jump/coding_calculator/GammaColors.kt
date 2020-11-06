@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.just_jump.coding_calculator.data.local.ListColorsRange
 import kotlinx.android.synthetic.main.activity_gamma_colors.*
-import kotlinx.android.synthetic.main.activity_palette_colors.*
 
 class GammaColors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

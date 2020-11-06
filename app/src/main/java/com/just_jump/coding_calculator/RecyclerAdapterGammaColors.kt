@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -25,13 +26,14 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n", "DefaultLocale")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items?.get(position)
-        var checkNumber :Boolean = true
+        var checkNumber = true
 
         // code to paint the 3 first item on color white
-        item?.get(0)!!.forEach { item ->
-            if (!item.isDigit()){
+        item?.get(0)!!.forEach {
+            if (!it.isDigit()){
                 checkNumber = false
             }
         }
@@ -90,7 +92,7 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
             rgbColor = itemView.findViewById(R.id.rgbColor)
             hexColor = itemView.findViewById(R.id.hexColor)
             codeColor = itemView.findViewById(R.id.codecolor)
-            mainLayout = itemView.findViewById(R.id.mainlayout)
+            mainLayout = itemView.findViewById(R.id.mainLayoutPalette)
 
             itemView.setOnClickListener {}
         }

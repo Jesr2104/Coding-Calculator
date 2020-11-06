@@ -143,16 +143,16 @@ class ViewModelCalculator: ViewModel() {
         if (dataString.isNotEmpty()) {
             // we check if we have already another arithmetic sigh to change for this one
             if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
-                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
-                    dataString = (dataString.substring(0, dataString.length - 1) + "+")
+                dataString = if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    (dataString.substring(0, dataString.length - 1) + "+")
                 } else {
-                    dataString = (dataString.substring(0, dataString.length - 1))
+                    (dataString.substring(0, dataString.length - 1))
                 }
             }
             // if we don't have any arithmetic sign we need just to put the new one
             else {
                 if (dataString[dataString.length - 1] != '(') {
-                    dataString = (dataString + "+")
+                    dataString = ("$dataString+")
                 }
             }
         }
@@ -180,10 +180,10 @@ class ViewModelCalculator: ViewModel() {
 
         if (dataString.isNotEmpty()) {
             if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
-                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
-                    dataString = dataString.substring(0, dataString.length - 1) + "*"
+                dataString = if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    dataString.substring(0, dataString.length - 1) + "*"
                 } else {
-                    dataString = dataString.substring(0, dataString.length - 1)
+                    dataString.substring(0, dataString.length - 1)
                 }
             } else {
                 if (dataString[dataString.length - 1] != '(') {
@@ -200,10 +200,10 @@ class ViewModelCalculator: ViewModel() {
 
         if (dataString.isNotEmpty()) {
             if (dataString[dataString.length - 1] == '+' || dataString[dataString.length - 1] == '-' || dataString[dataString.length - 1] == '*' || dataString[dataString.length - 1] == '/') {
-                if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
-                    dataString = dataString.substring(0, dataString.length - 1) + "/"
+                dataString = if (!(dataString[dataString.length - 2] == '(' && dataString[dataString.length - 1] == '-')) {
+                    dataString.substring(0, dataString.length - 1) + "/"
                 } else {
-                    dataString = dataString.substring(0, dataString.length - 1)
+                    dataString.substring(0, dataString.length - 1)
                 }
             } else {
                 if (dataString[dataString.length - 1] != '(') {
@@ -288,14 +288,14 @@ class ViewModelCalculator: ViewModel() {
     // this function insert open parenthesis '('
     fun openParenthesis(){
         var dataString = "" + dataFieldExpression.value
-        if (dataString.isNotEmpty()) {
+        dataString += if (dataString.isNotEmpty()) {
             if (dataString[dataString.length - 1] == ')' || dataString[dataString.length - 1].isDigit()) {
-                dataString += "*("
+                "*("
             } else {
-                dataString += "("
+                "("
             }
         } else {
-            dataString += "("
+            "("
         }
         dataFieldExpression.postValue(dataString)
     }
@@ -303,13 +303,10 @@ class ViewModelCalculator: ViewModel() {
     // this function insert close parenthesis ')'
     fun closeParenthesis(){
         var dataString = "" + dataFieldExpression.value
-        if (dataString.isNotEmpty())
-        {
-            dataString += ")"
-        }
-        else
-        {
-            dataString += "("
+        dataString += if (dataString.isNotEmpty()) {
+            ")"
+        } else {
+            "("
         }
 
         dataFieldExpression.postValue(dataString)

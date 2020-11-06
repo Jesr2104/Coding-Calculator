@@ -22,7 +22,7 @@ class PaletteColors : AppCompatActivity() {
                 Color.parseColor("#616161")
             )
         )
-        mainlayout.background = gradientDrawable
+        mainLayoutPalette.background = gradientDrawable
 
 
         // call to the function to load the list colors

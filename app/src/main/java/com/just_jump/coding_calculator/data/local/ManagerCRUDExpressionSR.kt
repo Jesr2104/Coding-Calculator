@@ -62,12 +62,4 @@ object SRDataExpression {
             it.putString("HistoryData", json)
         }
     }
-
-    // this function to delete the file with the list of the history
-    fun deleteList()
-    {
-        datasharepreferente?.editMe {
-            it.remove("HistoryData")
-        }
-    }
 }

@@ -2,15 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="just_jump.coding_calculator.FragmentRuleOfThree">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/Title"
@@ -25,7 +26,7 @@
                 android:paddingBottom="10dp"
                 android:text="@string/rule_of_three"
                 android:textColor="@color/material_white"
-                android:textSize="35dp"
+                android:textSize="35sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
                 android:layout_width="300dp"
                 android:layout_height="85dp"
                 android:layout_marginTop="20dp"
+                android:contentDescription="@string/image_expression_example"
                 android:background="@drawable/background_light_newfields"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
@@ -79,9 +81,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Value A"
+                    android:text="@string/value_a"
                     android:textColor="@color/yellow_mainColor"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="5"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -119,7 +121,8 @@
                         android:paddingBottom="15dp"
                         android:textColor="@color/Front_ColorDarkGrey"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,11 +130,11 @@
                     android:id="@+id/textView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:gravity="center"
-                    android:text="Value B"
+                    android:text="@string/value_b"
                     android:textColor="@color/yellow_mainColor"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="5"
                     app:layout_constraintLeft_toRightOf="@+id/textView"
@@ -169,7 +172,8 @@
                         android:paddingBottom="15dp"
                         android:textColor="@color/Front_ColorDarkGrey"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,9 +183,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="Value C"
+                    android:text="@string/value_c"
                     android:textColor="@color/yellow_mainColor"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="@+id/fieldFor_Number"
                     app:layout_constraintHorizontal_weight="5"
@@ -221,7 +225,8 @@
                         android:paddingBottom="15dp"
                         android:textColor="@color/Front_ColorDarkGrey"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -229,12 +234,12 @@
                     android:id="@+id/textView3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="X?"
+                    android:text="@string/x"
                     android:textColor="@color/yellow_mainColor"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -272,7 +277,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="Result:"
+                    android:text="@string/result2text"
                     android:textColor="@color/yellow_mainColor"
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
@@ -297,7 +302,7 @@
                         android:background="@drawable/background_grey_corner"
                         android:gravity="center|center_vertical"
                         android:padding="10dp"
-                        android:text="X:"
+                        android:text="@string/xs"
                         android:textColor="#BEBEBE"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -316,7 +321,7 @@
                         android:autoSizeTextType="uniform"
                         android:gravity="right"
                         android:paddingTop="5dp"
-                        android:paddingRight="10dp"
+                        android:paddingEnd="10dp"
                         android:paddingBottom="5dp"
                         android:text=""
                         android:textColor="#646464"
@@ -326,7 +331,9 @@
                         app:layout_constraintHorizontal_weight="8.5"
                         app:layout_constraintLeft_toRightOf="@id/titleBinary"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:targetApi="o"
+                        tools:ignore="RtlHardcoded,RtlSymmetry">
 
                     </TextView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -339,9 +346,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black_grey_calculator"
-                android:text="Calculate"
+                android:text="@string/calculate"
                 android:textColor="@color/yellow_mainColor"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 app:cornerRadius="12dp"
                 app:layout_constraintLeft_toLeftOf="parent"

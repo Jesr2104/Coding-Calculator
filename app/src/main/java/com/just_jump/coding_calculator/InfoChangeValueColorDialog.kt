@@ -3,7 +3,6 @@ package com.just_jump.coding_calculator
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -18,9 +17,9 @@ import com.just_jump.coding_calculator.utilities.Functions
 import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
 
 class InfoChangeValueColorDialog(
-    var Value: String,
+    private var Value: String,
     var TypeColor: String,
-    var colorRGB: MutableLiveData<Int>
+    private var colorRGB: MutableLiveData<Int>
 ) : AppCompatDialogFragment() {
 
     private var rangeA: Int = 0
@@ -50,7 +49,7 @@ class InfoChangeValueColorDialog(
                     viewDialog.editTextReal.inputType = InputType.TYPE_CLASS_TEXT
 
                     val filter =
-                        InputFilter { source, start, end, dest, dstart, dend ->
+                        InputFilter { source, _, _, _, _, _ ->
                             val blockCharacterSet =
                                 "~#^|$%*!@/()-'\":;,?{}=!$^';,?×÷<>{}€£¥₩%~`¤♡♥_|《》¡¿°•○●□■◇◆♧♣▲▼▶◀↑↓←→☆★▪:-);-):-D:-(:'(:O ghijklmnñopqrstuvwxyzGHIJKLMNÑOPQRSTUVWXYZ"
                             if (source != null && blockCharacterSet.contains("" + source)) {
@@ -145,7 +144,7 @@ class InfoChangeValueColorDialog(
             }
 
             // event to control the increase the value fast
-            viewDialog.decrease.setOnTouchListener { view, motionEvent ->
+            viewDialog.decrease.setOnTouchListener { _, motionEvent ->
                 when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
@@ -190,7 +189,7 @@ class InfoChangeValueColorDialog(
             }
 
             // event to control the increase the value fast
-            viewDialog.increase.setOnTouchListener { view, motionEvent ->
+            viewDialog.increase.setOnTouchListener { _, motionEvent ->
                 when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
@@ -215,6 +214,8 @@ class InfoChangeValueColorDialog(
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+                @SuppressLint("SetTextI18n")
                 override fun afterTextChanged(p0: Editable?) {
 
                     val text: String = p0.toString()
@@ -267,86 +268,83 @@ class InfoChangeValueColorDialog(
             builder.setView(viewDialog)
 
                 // Add action buttons
-                .setNegativeButton("Cancel",
-                    DialogInterface.OnClickListener { dialog, id ->
-                    })
+                .setNegativeButton("Cancel") { _, _ -> }
 
                 // Add action buttons
-                .setPositiveButton("Ok",
-                    DialogInterface.OnClickListener { dialog, id ->
+                .setPositiveButton("Ok") { _, _ ->
 
-                        when (TypeColor) {
-                            "HEXR" -> {
-                                if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
-                                    val r =
-                                        Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
-                                            .toInt()
-                                    val g = Color.green(colorRGB.value!!)
-                                    val b = Color.blue(colorRGB.value!!)
+                    when (TypeColor) {
+                        "HEXR" -> {
+                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                                val r =
+                                    Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                        .toInt()
+                                val g = Color.green(colorRGB.value!!)
+                                val b = Color.blue(colorRGB.value!!)
 
-                                    colorRGB.value = Color.rgb(r, g, b)
-                                }
-                            }
-                            "HEXG" -> {
-                                if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
-                                    val r = Color.red(colorRGB.value!!)
-                                    val g =
-                                        Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
-                                            .toInt()
-                                    val b = Color.blue(colorRGB.value!!)
-
-                                    colorRGB.value = Color.rgb(r, g, b)
-                                }
-                            }
-                            "HEXB" -> {
-                                if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
-                                    val r = Color.red(colorRGB.value!!)
-                                    val g = Color.green(colorRGB.value!!)
-                                    val b =
-                                        Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
-                                            .toInt()
-
-                                    colorRGB.value = Color.rgb(r, g, b)
-                                }
-                            }
-                            "RGBR" -> {
-                                if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
-                                    val g = Color.green(colorRGB.value!!)
-                                    val b = Color.blue(colorRGB.value!!)
-
-                                    colorRGB.value = Color.rgb(
-                                        viewDialog.editTextReal.text.toString().toInt(),
-                                        g,
-                                        b
-                                    )
-                                }
-                            }
-                            "RGBG" -> {
-                                if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
-                                    val r = Color.red(colorRGB.value!!)
-                                    val b = Color.blue(colorRGB.value!!)
-
-                                    colorRGB.value = Color.rgb(
-                                        r,
-                                        viewDialog.editTextReal.text.toString().toInt(),
-                                        b
-                                    )
-                                }
-                            }
-                            "RGBB" -> {
-                                if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
-                                    val r = Color.red(colorRGB.value!!)
-                                    val g = Color.green(colorRGB.value!!)
-
-                                    colorRGB.value = Color.rgb(
-                                        r,
-                                        g,
-                                        viewDialog.editTextReal.text.toString().toInt()
-                                    )
-                                }
+                                colorRGB.value = Color.rgb(r, g, b)
                             }
                         }
-                    })
+                        "HEXG" -> {
+                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                                val r = Color.red(colorRGB.value!!)
+                                val g =
+                                    Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                        .toInt()
+                                val b = Color.blue(colorRGB.value!!)
+
+                                colorRGB.value = Color.rgb(r, g, b)
+                            }
+                        }
+                        "HEXB" -> {
+                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                                val r = Color.red(colorRGB.value!!)
+                                val g = Color.green(colorRGB.value!!)
+                                val b =
+                                    Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                        .toInt()
+
+                                colorRGB.value = Color.rgb(r, g, b)
+                            }
+                        }
+                        "RGBR" -> {
+                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                                val g = Color.green(colorRGB.value!!)
+                                val b = Color.blue(colorRGB.value!!)
+
+                                colorRGB.value = Color.rgb(
+                                    viewDialog.editTextReal.text.toString().toInt(),
+                                    g,
+                                    b
+                                )
+                            }
+                        }
+                        "RGBG" -> {
+                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                                val r = Color.red(colorRGB.value!!)
+                                val b = Color.blue(colorRGB.value!!)
+
+                                colorRGB.value = Color.rgb(
+                                    r,
+                                    viewDialog.editTextReal.text.toString().toInt(),
+                                    b
+                                )
+                            }
+                        }
+                        "RGBB" -> {
+                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                                val r = Color.red(colorRGB.value!!)
+                                val g = Color.green(colorRGB.value!!)
+
+                                colorRGB.value = Color.rgb(
+                                    r,
+                                    g,
+                                    viewDialog.editTextReal.text.toString().toInt()
+                                )
+                            }
+                        }
+                    }
+                }
 
             builder.create()
 

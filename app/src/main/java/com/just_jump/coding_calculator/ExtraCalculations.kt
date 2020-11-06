@@ -45,7 +45,7 @@ class ExtraCalculations : AppCompatActivity() {
         }
     }
 
-    fun makeCurrentFragment(fragment: Fragment) {
+    private fun makeCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragmentLayout, fragment)
             commit()

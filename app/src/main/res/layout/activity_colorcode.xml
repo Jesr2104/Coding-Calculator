@@ -32,7 +32,7 @@
         android:layout_gravity="bottom|center_vertical"
         tools:ignore="MissingConstraints"
         app:layout_constraintTop_toTopOf="@id/HSL_hueValue"
-        app:layout_constraintBottom_toBottomOf="@id/HSL_luminosidadValue">
+        app:layout_constraintBottom_toBottomOf="@id/HSL_LightnessValue">
 
     </TextView>
 
@@ -58,7 +58,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/HSL_saturacionValue"
+        android:id="@+id/HSL_saturationValue"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:contentDescription="@string/value_lightness_hsl"
@@ -79,7 +79,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/HSL_luminosidadValue"
+        android:id="@+id/HSL_LightnessValue"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:contentDescription="@string/value_saturation_hsl"
@@ -95,7 +95,7 @@
         android:layout_marginTop="5dp"
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toRightOf="@id/TextHSL"
-        app:layout_constraintTop_toBottomOf="@id/HSL_saturacionValue">
+        app:layout_constraintTop_toBottomOf="@id/HSL_saturationValue">
 
     </TextView>
 
@@ -237,7 +237,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/RedcolorBT"
+        android:id="@+id/RedColorBT"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -250,15 +250,15 @@
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/guideline35Percent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/controlbarforred"
-        app:layout_constraintBottom_toTopOf="@id/GreencolorBT"
+        app:layout_constraintRight_toLeftOf="@id/controlBarRed"
+        app:layout_constraintBottom_toTopOf="@id/GreenColorBT"
         android:layout_marginStart="10dp"
         tools:ignore="MissingConstraints">
 
     </TextView>
 
     <androidx.appcompat.widget.AppCompatSeekBar
-        android:id="@+id/controlbarforred"
+        android:id="@+id/controlBarRed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/rgb_bar_color_red"
@@ -267,9 +267,9 @@
         android:progressDrawable="@drawable/track_seekbarred"
         android:thumb="@drawable/thumb_seekbarred"
         android:indeterminate="false"
-        app:layout_constraintLeft_toRightOf="@id/RedcolorBT"
-        app:layout_constraintTop_toTopOf="@id/RedcolorBT"
-        app:layout_constraintBottom_toBottomOf="@id/RedcolorBT"
+        app:layout_constraintLeft_toRightOf="@id/RedColorBT"
+        app:layout_constraintTop_toTopOf="@id/RedColorBT"
+        app:layout_constraintBottom_toBottomOf="@id/RedColorBT"
         app:layout_constraintRight_toLeftOf="@id/RGBValue_RedColor"
         tools:ignore="MissingConstraints">
 
@@ -282,23 +282,23 @@
         android:contentDescription="@string/value_rgb_color_red"
         android:background="#424242"
         android:minWidth="25dp"
-        android:text="@string/inicialValue"
+        android:text="@string/initialValue"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/RedcolorBT"
+        app:layout_constraintBottom_toBottomOf="@+id/RedColorBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/controlbarforred"
-        app:layout_constraintTop_toTopOf="@+id/RedcolorBT"
+        app:layout_constraintStart_toEndOf="@+id/controlBarRed"
+        app:layout_constraintTop_toTopOf="@+id/RedColorBT"
         android:layout_marginEnd="10dp">
 
     </TextView>
 
 
     <TextView
-        android:id="@+id/GreencolorBT"
+        android:id="@+id/GreenColorBT"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@color/ColorRGB_G"
@@ -309,15 +309,15 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
-        app:layout_constraintTop_toBottomOf="@+id/RedcolorBT"
-        app:layout_constraintRight_toLeftOf="@id/controlbarforgreen"
-        app:layout_constraintBottom_toTopOf="@id/bluecolorBT"
+        app:layout_constraintTop_toBottomOf="@+id/RedColorBT"
+        app:layout_constraintRight_toLeftOf="@id/controlBarGreen"
+        app:layout_constraintBottom_toTopOf="@id/blueColorBT"
         android:layout_marginStart="10dp">
 
     </TextView>
 
     <androidx.appcompat.widget.AppCompatSeekBar
-        android:id="@+id/controlbarforgreen"
+        android:id="@+id/controlBarGreen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/rgb_bar_color_green"
@@ -326,9 +326,9 @@
         android:progress="0"
         android:progressDrawable="@drawable/track_seekbargreen"
         android:thumb="@drawable/thumb_seekbargreen"
-        app:layout_constraintBottom_toBottomOf="@+id/GreencolorBT"
-        app:layout_constraintLeft_toRightOf="@+id/GreencolorBT"
-        app:layout_constraintTop_toBottomOf="@+id/RedcolorBT"
+        app:layout_constraintBottom_toBottomOf="@+id/GreenColorBT"
+        app:layout_constraintLeft_toRightOf="@+id/GreenColorBT"
+        app:layout_constraintTop_toBottomOf="@+id/RedColorBT"
         app:layout_constraintRight_toLeftOf="@id/RGBValue_GreenColor">
 
     </androidx.appcompat.widget.AppCompatSeekBar>
@@ -340,22 +340,22 @@
         android:contentDescription="@string/value_rgb_color_green"
         android:background="#424242"
         android:minWidth="25dp"
-        android:text="@string/inicialValue"
+        android:text="@string/initialValue"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/GreencolorBT"
+        app:layout_constraintBottom_toBottomOf="@+id/GreenColorBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/controlbarforgreen"
-        app:layout_constraintTop_toBottomOf="@+id/RedcolorBT"
+        app:layout_constraintStart_toEndOf="@+id/controlBarGreen"
+        app:layout_constraintTop_toBottomOf="@+id/RedColorBT"
         android:layout_marginEnd="10dp">
 
     </TextView>
 
     <TextView
-        android:id="@+id/bluecolorBT"
+        android:id="@+id/blueColorBT"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@color/ColorRGB_B"
@@ -366,15 +366,15 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
-        app:layout_constraintTop_toBottomOf="@+id/GreencolorBT"
-        app:layout_constraintRight_toLeftOf="@id/controlbarforblue"
+        app:layout_constraintTop_toBottomOf="@+id/GreenColorBT"
+        app:layout_constraintRight_toLeftOf="@id/controlBarBlue"
         app:layout_constraintBottom_toTopOf="@id/Color1_Complementary"
         android:layout_marginStart="10dp">
 
     </TextView>
 
     <androidx.appcompat.widget.AppCompatSeekBar
-        android:id="@+id/controlbarforblue"
+        android:id="@+id/controlBarBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/rgb_bar_color_blue"
@@ -383,9 +383,9 @@
         android:progress="0"
         android:progressDrawable="@drawable/track_seekbarblue"
         android:thumb="@drawable/thumb_seekbarblue"
-        app:layout_constraintBottom_toBottomOf="@+id/bluecolorBT"
-        app:layout_constraintLeft_toRightOf="@+id/bluecolorBT"
-        app:layout_constraintTop_toBottomOf="@+id/GreencolorBT"
+        app:layout_constraintBottom_toBottomOf="@+id/blueColorBT"
+        app:layout_constraintLeft_toRightOf="@+id/blueColorBT"
+        app:layout_constraintTop_toBottomOf="@+id/GreenColorBT"
         app:layout_constraintRight_toLeftOf="@id/RGBValue_BlueColor">
 
     </androidx.appcompat.widget.AppCompatSeekBar>
@@ -397,16 +397,16 @@
         android:contentDescription="@string/value_rgb_color_blue"
         android:background="#424242"
         android:minWidth="25dp"
-        android:text="@string/inicialValue"
+        android:text="@string/initialValue"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bluecolorBT"
+        app:layout_constraintBottom_toBottomOf="@+id/blueColorBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/controlbarforblue"
-        app:layout_constraintTop_toBottomOf="@+id/GreencolorBT"
+        app:layout_constraintStart_toEndOf="@+id/controlBarBlue"
+        app:layout_constraintTop_toBottomOf="@+id/GreenColorBT"
         android:layout_marginEnd="10dp">
 
     </TextView>
@@ -424,7 +424,7 @@
         tools:ignore="MissingConstraints"
         app:layout_constraintLeft_toLeftOf="@id/complementary_color"
         app:layout_constraintRight_toLeftOf="@+id/complementary_color"
-        app:layout_constraintTop_toBottomOf="@id/bluecolorBT"
+        app:layout_constraintTop_toBottomOf="@id/blueColorBT"
         app:layout_constraintBottom_toTopOf="@id/SplitCC_Color1"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp">
@@ -542,8 +542,8 @@
         android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
-        app:layout_constraintRight_toLeftOf="@+id/Anlogous_Colors"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
         app:layout_constraintTop_toBottomOf="@id/SplitCC_Color2"
         app:layout_constraintBottom_toTopOf="@id/Analogous_Color2"
         android:layout_marginBottom="2dp">
@@ -559,8 +559,8 @@
         android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
-        app:layout_constraintRight_toLeftOf="@+id/Anlogous_Colors"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
         app:layout_constraintTop_toBottomOf="@id/Analogous_Color1"
         app:layout_constraintBottom_toTopOf="@id/Analogous_Color3"
         android:layout_marginBottom="2dp">
@@ -576,8 +576,8 @@
         android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
-        app:layout_constraintRight_toLeftOf="@+id/Anlogous_Colors"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
         app:layout_constraintTop_toBottomOf="@id/Analogous_Color2"
         app:layout_constraintBottom_toTopOf="@id/Analogous_Color4"
         android:layout_marginBottom="2dp">
@@ -593,8 +593,8 @@
         android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
-        app:layout_constraintRight_toLeftOf="@+id/Anlogous_Colors"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
         app:layout_constraintTop_toBottomOf="@id/Analogous_Color3"
         app:layout_constraintBottom_toTopOf="@id/Analogous_Color5"
         android:layout_marginBottom="2dp">
@@ -610,8 +610,8 @@
         android:elevation="3dp"
         app:layout_constraintWidth_percent=".16"
         tools:ignore="MissingConstraints"
-        app:layout_constraintLeft_toLeftOf="@id/Anlogous_Colors"
-        app:layout_constraintRight_toLeftOf="@+id/Anlogous_Colors"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
         app:layout_constraintTop_toBottomOf="@id/Analogous_Color4"
         app:layout_constraintBottom_toTopOf="@id/Triadic_Color1"
         android:layout_marginBottom="10dp">
@@ -625,16 +625,16 @@
         android:contentDescription="@string/analogous_color_information"
         android:src="@drawable/ic_info"
         android:scaleType="center"
-        app:layout_constraintTop_toTopOf="@id/Anlogous_Colors"
-        app:layout_constraintRight_toRightOf="@id/Anlogous_Colors"
-        app:layout_constraintBottom_toBottomOf="@id/Anlogous_Colors"
+        app:layout_constraintTop_toTopOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toRightOf="@id/Analogous_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Analogous_Colors"
         android:layout_marginEnd="10dp"
         android:elevation="10dp">
 
     </ImageView>
 
     <TextView
-        android:id="@+id/Anlogous_Colors"
+        android:id="@+id/Analogous_Colors"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/Front_ColorGrey"

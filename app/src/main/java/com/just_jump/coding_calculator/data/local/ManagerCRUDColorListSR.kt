@@ -26,7 +26,7 @@ object SRDataColors {
     // this function get the Array list of the history of Colors
     fun getlist(): ArrayList<Int> {
 
-        var dataSaveList: ArrayList<Int> = ArrayList<Int>()
+        var dataSaveList: ArrayList<Int> = ArrayList()
         if (datasharepreferente?.contains("ListColors")!!) {
             val json = datasharepreferente?.getString("ListColors", "DEFAULT")
             dataSaveList =
@@ -62,8 +62,8 @@ object SRDataColors {
 
     // this function to delete one of the color of the list
     fun deleteItem(newData: Int) {
-        val dataSavedList: ArrayList<kotlin.Int> = getlist()
-        val tempData: ArrayList<kotlin.Int> = ArrayList()
+        val dataSavedList: ArrayList<Int> = getlist()
+        val tempData: ArrayList<Int> = ArrayList()
 
         dataSavedList.forEach { item ->
             if (item != newData) {
@@ -78,7 +78,7 @@ object SRDataColors {
     }
 
     fun getItem(idItem: Int): Int {
-        val dataSaveList: ArrayList<kotlin.Int> = getlist()
+        val dataSaveList: ArrayList<Int> = getlist()
 
         return dataSaveList[idItem]
     }

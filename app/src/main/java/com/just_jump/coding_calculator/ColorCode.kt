@@ -6,9 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.just_jump.coding_calculator.data.local.SRDataColors
@@ -268,7 +266,6 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         buttonColor1.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
-                this.applicationContext,
                 SRDataColors.getItem(0),
                 cViewModel
             )
@@ -277,7 +274,6 @@ class ColorCode : AppCompatActivity(){
 
         buttonColor2.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
-                this.applicationContext,
                 SRDataColors.getItem(1),
                 cViewModel
             )
@@ -286,7 +282,6 @@ class ColorCode : AppCompatActivity(){
 
         buttonColor3.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
-                this.applicationContext,
                 SRDataColors.getItem(2),
                 cViewModel
             )
@@ -397,7 +392,7 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         // Event of the seekBar of the RGB controls
         //------------------------------------------------------------------------------------------
-        controlbarforred.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        controlBarRed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_RedColor.text = p1.toString()
                 val valueRed = Functions().convertDecToHex(p1)
@@ -411,7 +406,7 @@ class ColorCode : AppCompatActivity(){
             }
         })
 
-        controlbarforgreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        controlBarGreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_GreenColor.text = p1.toString()
                 val valueGreen = Functions().convertDecToHex(p1)
@@ -425,7 +420,7 @@ class ColorCode : AppCompatActivity(){
             }
         })
 
-        controlbarforblue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        controlBarBlue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 RGBValue_BlueColor.text = p1.toString()
                 val valueBlue = Functions().convertDecToHex(p1)
@@ -445,9 +440,9 @@ class ColorCode : AppCompatActivity(){
         val g = Color.green(rgbColor)
         val b = Color.blue(rgbColor)
 
-        controlbarforred.progress = r
-        controlbarforgreen.progress = g
-        controlbarforblue.progress = b
+        controlBarRed.progress = r
+        controlBarGreen.progress = g
+        controlBarBlue.progress = b
 
         HEX_redValue.text = Functions().convertDecToHex(r)
         HEX_greenValue.text = Functions().convertDecToHex(g)
@@ -456,8 +451,8 @@ class ColorCode : AppCompatActivity(){
         val colorHSL = ColorDesign().getHSLColorFromRGB(rgbColor)
 
         HSL_hueValue.text = ((colorHSL[0] * 360).toInt()).toString()
-        HSL_saturacionValue.text = ((colorHSL[1] * 100).toInt()).toString()
-        HSL_luminosidadValue.text = ((colorHSL[2] * 100).toInt()).toString()
+        HSL_saturationValue.text = ((colorHSL[1] * 100).toInt()).toString()
+        HSL_LightnessValue.text = ((colorHSL[2] * 100).toInt()).toString()
     }
 
     private fun updateColor() {

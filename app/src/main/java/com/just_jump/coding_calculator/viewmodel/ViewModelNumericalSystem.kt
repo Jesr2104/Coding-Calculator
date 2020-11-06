@@ -62,7 +62,7 @@ class ViewModelNumericalSystem: ViewModel() {
                     val newDecimalNumber = Functions().convertOctalToDecimal(dataNumber.value!!.toLong())
 
                     resultBinary.value = Functions().convertDecToBin(newDecimalNumber.toLong())
-                    resultDecimal.value = newDecimalNumber.toString()
+                    resultDecimal.value = newDecimalNumber
                     resultHex.value = Functions().convertDecToHex(newDecimalNumber.toLong())
                 } else {
                     resultBinary.value = ""

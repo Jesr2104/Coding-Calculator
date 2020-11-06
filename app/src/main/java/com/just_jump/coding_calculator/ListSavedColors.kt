@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.just_jump.coding_calculator.data.local.SRDataColors
 import kotlinx.android.synthetic.main.activity_list_saved_colors.*
 
-class ListSavedColors() : AppCompatActivity(), RVSavedColorInt{
+class ListSavedColors : AppCompatActivity(), RVSavedColorInt{
 
-    lateinit var adapter: RecycleAdapterSavedColors
+    private lateinit var adapter: RecycleAdapterSavedColors
     lateinit var data: ArrayList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {

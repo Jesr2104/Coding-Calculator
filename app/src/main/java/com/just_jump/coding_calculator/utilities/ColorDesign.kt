@@ -2,6 +2,8 @@ package com.just_jump.coding_calculator.utilities
 
 import android.graphics.Color
 import android.graphics.Paint
+import kotlin.math.max
+import kotlin.math.min
 
 class ColorDesign {
 
@@ -18,8 +20,8 @@ class ColorDesign {
         val g = Color.green(color) / 255f
         val b = Color.blue(color) / 255f
 
-        val max = Math.max(r, Math.max(g, b))
-        val min = Math.min(r, Math.min(g, b))
+        val max = max(r, max(g, b))
+        val min = min(r, min(g, b))
         hsl[2] = (max + min) / 2
 
         if (max == min) {
@@ -46,7 +48,7 @@ class ColorDesign {
      *  @param: Array<Float> with the 3 HSL values.
      *  @return: an array containing the 3 RGB color values.
      */
-    fun getRGBColorFromHSL(hsl: FloatArray): Int {
+    private fun getRGBColorFromHSL(hsl: FloatArray): Int {
         val r: Float
         val g: Float
         val b: Float
@@ -106,9 +108,9 @@ class ColorDesign {
     fun getSplitComplementary(paint: Paint): Array<Int> {
 
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<Int> = arrayOf(0,0)
-        val color150: FloatArray = FloatArray(3)
-        val color210: FloatArray = FloatArray(3)
+        val resultColors: Array<Int> = arrayOf(0,0)
+        val color150 = FloatArray(3)
+        val color210 = FloatArray(3)
 
         // with this code we calculate the complementary
         color150[0] = (((colorHSL[0] * 360) + 150) % 360) / 360
@@ -140,13 +142,13 @@ class ColorDesign {
     fun getAnalogous(paint: Paint): Array<Int> {
 
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<Int> = arrayOf(0,0,0,0,0,0)
-        val color30: FloatArray = FloatArray(3)
-        val color60: FloatArray = FloatArray(3)
-        val color90: FloatArray = FloatArray(3)
-        val color120: FloatArray = FloatArray(3)
-        val color150: FloatArray = FloatArray(3)
-        val color180: FloatArray = FloatArray(3)
+        val resultColors: Array<Int> = arrayOf(0,0,0,0,0,0)
+        val color30 = FloatArray(3)
+        val color60 = FloatArray(3)
+        val color90 = FloatArray(3)
+        val color120 = FloatArray(3)
+        val color150 = FloatArray(3)
+        val color180 = FloatArray(3)
 
         // with this code we calculate the complementary
         color30[0] = (((colorHSL[0] * 360) + 30) % 360) / 360
@@ -221,9 +223,9 @@ class ColorDesign {
 
     fun getTriadic(paint: Paint): Array<Int> {
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<Int> = arrayOf(0,0)
-        val color120: FloatArray = FloatArray(3)
-        val color240: FloatArray = FloatArray(3)
+        val resultColors: Array<Int> = arrayOf(0,0)
+        val color120 = FloatArray(3)
+        val color240 = FloatArray(3)
 
         // with this code we calculate the complementary
         color120[0] = (((colorHSL[0] * 360) + 120) % 360) / 360
@@ -254,10 +256,10 @@ class ColorDesign {
 
     fun getTetradic(paint: Paint): Array<Int> {
         val colorHSL = getHSLColorFromRGB(paint.color)
-        var resultColors: Array<Int> = arrayOf(0,0,0,0)
-        val color90: FloatArray = FloatArray(3)
-        val color180: FloatArray = FloatArray(3)
-        val color270: FloatArray = FloatArray(3)
+        val resultColors: Array<Int> = arrayOf(0,0,0,0)
+        val color90 = FloatArray(3)
+        val color180 = FloatArray(3)
+        val color270 = FloatArray(3)
 
         // with this code we calculate the complementary
         color90[0] = (((colorHSL[0] * 360) + 90) % 360) / 360
