@@ -3,6 +3,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Front_ColorGrey">
@@ -26,11 +27,12 @@
                 android:paddingBottom="10dp"
                 android:text="Example,\nRule Of Three."
                 android:textColor="@color/yellow_mainColor"
-                android:textSize="35dp"
+                android:textSize="35sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText">
 
             </TextView>
 
@@ -61,7 +63,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="15dp"
                 android:textStyle="bold|italic"
-                android:textSize="15dp">
+                android:textSize="15sp">
 
             </TextView>
 
@@ -82,9 +84,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Solution: The park is 960 meters from the hotel."
+                android:text="@string/solution_the_park_is_960_meters_from_the_hotel"
                 android:textColor="#BEBEBE"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold|italic"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="30dp"

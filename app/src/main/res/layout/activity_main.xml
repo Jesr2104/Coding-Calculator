@@ -84,8 +84,8 @@
                     app:layout_constraintLeft_toRightOf="@id/icon1Calculator"
                     android:background="@drawable/background_dark_newfields"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="2dp">
 
@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/description_calculator"
                         android:textColor="@color/material_white"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginStart="10dp">
 
                     </TextView>
 
@@ -159,8 +159,8 @@
                     app:layout_constraintLeft_toRightOf="@id/icon2Calculator"
                     android:background="@drawable/background_dark_newfields"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="2dp">
 
@@ -180,7 +180,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/description_converter"
                         android:textColor="@color/material_white"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginStart="10dp">
 
                     </TextView>
 
@@ -234,8 +234,8 @@
                     app:layout_constraintLeft_toRightOf="@id/icon3Calculator"
                     android:background="@drawable/background_dark_newfields"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="2dp">
 
@@ -255,7 +255,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/description_numerical_systems"
                         android:textColor="@color/material_white"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginStart="10dp">
 
                     </TextView>
 
@@ -309,8 +309,8 @@
                     app:layout_constraintLeft_toRightOf="@id/icon4Calculator"
                     android:background="@drawable/background_dark_newfields"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="2dp">
 
@@ -330,7 +330,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/description_harmony"
                         android:textColor="@color/material_white"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginStart="10dp">
 
                     </TextView>
 
@@ -384,15 +384,15 @@
                     app:layout_constraintLeft_toRightOf="@id/icon5Calculator"
                     android:background="@drawable/background_dark_newfields"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="2dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Extras"
+                        android:text="@string/extras"
                         android:fontFamily="cursive"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -405,7 +405,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/description_extras"
                         android:textColor="@color/material_white"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginStart="10dp">
 
                     </TextView>
 

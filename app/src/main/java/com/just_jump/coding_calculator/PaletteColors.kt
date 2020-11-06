@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -29,6 +30,7 @@ class PaletteColors : AppCompatActivity() {
         loadListColors(ListColorsRange().getListColors())
     }
 
+    @SuppressLint("SetTextI18n", "DefaultLocale", "InflateParams")
     private fun loadListColors(itemList: Array<Array<String>>) {
         for (item in itemList) {
 

@@ -20,8 +20,8 @@ class ExtraCalculations : AppCompatActivity() {
         val fragmentRuleOfThree = FragmentRuleOfThree()
 
         val colors = intArrayOf(
-            Color.rgb(0,0,0),// no seleccionado
-            Color.rgb(150,150,150)// Seleccionado
+            Color.rgb(0,0,0),// no select
+            Color.rgb(150,150,150)// Select
         )
 
         val states = arrayOf(

@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator.utilities
 
+import android.annotation.SuppressLint
 import com.github.zieiony.calc.Calc
 import java.util.regex.Pattern
 
@@ -228,6 +229,7 @@ class Functions {
     /**********************************************************************/
     // Function to convert hexadecimal to decimal
     /**********************************************************************/
+    @SuppressLint("DefaultLocale")
     fun convertHexToDecimal(value: String): String {
         val hexNumber = value.toUpperCase()
         val hexString = "0123456789ABCDEF"

@@ -160,6 +160,35 @@
     <string name="result2text">Result:</string>
     <string name="xs">X:</string>
     <string name="calculate">Calculate</string>
-
+    <string name="extras">Extras</string>
+    <string name="number">Number:</string>
+    <string name="dec">Dec</string>
+    <string name="bin">Bin</string>
+    <string name="oct">Oct</string>
+    <string name="hex1">Hex</string>
+    <string name="result1">Result:</string>
+    <string name="binary">Binary:</string>
+    <string name="octal">Octal:</string>
+    <string name="decimal">Decimal:</string>
+    <string name="hex2">Hex:</string>
+    <string name="values">Values:</string>
+    <string name="insert">Insert</string>
+    <string name="pcent">Pcent %</string>
+    <string name="value">Value</string>
+    <string name="percentage_0">0%</string>
+    <string name="result_without_point">Result</string>
+    <string name="increase">Increase</string>
+    <string name="decrease">Decrease</string>
+    <string name="load">Load</string>
+    <string name="delete">Delete</string>
+    <string name="_42_164_138">(42,164,138)</string>
+    <string name="rgb">RGB.</string>
+    <string name="hexadecimal">Hexadecimal.</string>
+    <string name="_4aa48a">#4AA48A</string>
+    <string name="color_code">Color Code</string>
+    <string name="rgb_color">RGB Color</string>
+    <string name="hex_color">Hex. COLOR</string>
+    <string name="name_color">Name Color</string>
+    <string name="solution_the_park_is_960_meters_from_the_hotel">Solution: The park is 960 meters from the hotel.</string>
 
 </resources>

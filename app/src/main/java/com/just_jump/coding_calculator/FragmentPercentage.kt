@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment__percentage.view.*
 import java.text.DecimalFormat
 
 class FragmentPercentage : Fragment() {
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#484848">
+    android:background="@color/Front_ColorGrey">
 
     <TextView
         android:id="@+id/TitleField"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:gravity="center|center_vertical"
             android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="#FFF" />
 
     </com.google.android.material.textfield.TextInputLayout>

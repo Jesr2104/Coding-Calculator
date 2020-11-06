@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="normal"
-            android:text="Hexadecimal."
+            android:text="@string/hexadecimal"
             app:layout_constraintTop_toBottomOf="@id/titleColorSaved"
             app:layout_constraintLeft_toLeftOf="parent">
 
@@ -46,7 +46,7 @@
             android:id="@+id/colorCodeHex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#4AA48A"
+            android:text="@string/_4aa48a"
             android:textStyle="bold"
             android:layout_marginStart="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -58,7 +58,7 @@
             android:id="@+id/titleRGB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RGB."
+            android:text="@string/rgb"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/colorCodeHex">
 
@@ -68,7 +68,7 @@
             android:id="@+id/colorCodeRGB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(42,164,138)"
+            android:text="@string/_42_164_138"
             android:textStyle="bold"
             android:layout_marginStart="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -80,7 +80,7 @@
             android:id="@+id/colorSaved"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             app:layout_constraintBottom_toBottomOf="@+id/colorCodeRGB"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/titleHexadecimal"
@@ -93,7 +93,7 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Load"
+            android:text="@string/load"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,10 +104,10 @@
             android:id="@+id/deleteSavedColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"
+            android:text="@string/delete"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             app:layout_constraintStart_toEndOf="@+id/loadSavedColor"
             app:layout_constraintTop_toBottomOf="@+id/colorCodeRGB" />
 

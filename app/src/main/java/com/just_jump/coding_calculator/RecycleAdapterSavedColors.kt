@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,7 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, private var 
             }
         }
 
+        @SuppressLint("SetTextI18n", "DefaultLocale")
         fun render(item: Int){
 
             println(listDataColors)

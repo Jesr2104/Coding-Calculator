@@ -19,11 +19,11 @@
             android:id="@+id/codecolor"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Color Code"
-            android:textSize="20dp">
+            android:text="@string/color_code"
+            android:textSize="20sp">
 
         </TextView>
 
@@ -37,20 +37,20 @@
                 android:id="@+id/rgbColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="RGB Color"
-                android:layout_marginRight="10dp"
+                android:text="@string/rgb_color"
+                android:layout_marginEnd="10dp"
                 android:textStyle="bold">
 
             </TextView>
 
             <TextView
                 android:id="@+id/hexColor"
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hex. COLOR"
-                android:textSize="30dp">
+                android:text="@string/hex_color"
+                android:textSize="30sp">
 
             </TextView>
 

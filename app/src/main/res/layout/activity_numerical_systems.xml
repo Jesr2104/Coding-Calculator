@@ -2,6 +2,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_app">
@@ -12,10 +13,10 @@
         android:layout_height="wrap_content"
         android:background="@color/Front_ColorGrey"
         android:textColor="@color/material_white"
-        android:text="Numerical Systems"
+        android:text="@string/numerical_systems"
         android:fontFamily="cursive"
         android:textStyle="bold"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:gravity="center|center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -45,7 +46,7 @@
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Number:"
+            android:text="@string/number"
             android:textStyle="bold|italic"
             android:textColor="@color/yellow_mainColor"
             android:textSize="30sp"
@@ -91,7 +92,8 @@
                 android:paddingBottom="18dp"
                 android:text=""
                 android:inputType="number"
-                android:maxLength="15" />
+                android:maxLength="15"
+                tools:ignore="RtlHardcoded" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,7 +113,7 @@
                 android:id="@+id/rb_decimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dec"
+                android:text="@string/dec"
                 android:textStyle="bold"
                 android:textColor="@color/material_white"
                 android:buttonTint="@color/yellow_mainColor"/>
@@ -120,7 +122,7 @@
                 android:id="@+id/rb_binary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bin"
+                android:text="@string/bin"
                 android:textStyle="bold"
                 android:textColor="@color/material_white"
                 android:buttonTint="@color/yellow_mainColor"/>
@@ -129,7 +131,7 @@
                 android:id="@+id/rb_octal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oct"
+                android:text="@string/oct"
                 android:textStyle="bold"
                 android:textColor="@color/material_white"
                 android:buttonTint="@color/yellow_mainColor"/>
@@ -138,7 +140,7 @@
                 android:id="@+id/rb_hexadecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hex"
+                android:text="@string/hex1"
                 android:textStyle="bold"
                 android:textColor="@color/material_white"
                 android:buttonTint="@color/yellow_mainColor"/>
@@ -151,13 +153,13 @@
         android:id="@+id/textBlock2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result:"
+        android:text="@string/result1"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutBlock1"
         android:textColor="@color/yellow_mainColor"
         android:textStyle="bold|italic"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:layout_marginRight="45dp"
         android:layout_marginLeft="45dp">
 
@@ -184,12 +186,12 @@
             android:id="@+id/titleBinary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:gravity="center|center_vertical"
-            android:text="Binary:"
+            android:text="@string/binary"
             android:textColor="#BEBEBE"
             android:textStyle="bold"
-            android:textSize="19dp"
+            android:textSize="19sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -213,7 +215,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleBinary"
-            app:layout_constraintBottom_toTopOf="@id/titleOctal">
+            app:layout_constraintBottom_toTopOf="@id/titleOctal"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
 
         </TextView>
 
@@ -221,12 +225,12 @@
             android:id="@+id/titleOctal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:gravity="center|center_vertical"
-            android:text="Octal:"
+            android:text="@string/octal"
             android:textColor="#BEBEBE"
             android:textStyle="bold"
-            android:textSize="19dp"
+            android:textSize="19sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -250,7 +254,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleOctal"
-            app:layout_constraintBottom_toTopOf="@id/titleDecimal">
+            app:layout_constraintBottom_toTopOf="@id/titleDecimal"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
 
         </TextView>
 
@@ -258,13 +264,13 @@
             android:id="@+id/titleDecimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:gravity="center|center_vertical"
             android:visibility="gone"
-            android:text="Decimal:"
+            android:text="@string/decimal"
             android:textColor="#BEBEBE"
             android:textStyle="bold"
-            android:textSize="19dp"
+            android:textSize="19sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -289,7 +295,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleDecimal"
-            app:layout_constraintBottom_toTopOf="@id/titleHex">
+            app:layout_constraintBottom_toTopOf="@id/titleHex"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
 
         </TextView>
 
@@ -297,12 +305,12 @@
             android:id="@+id/titleHex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:gravity="center|center_vertical"
-            android:text="Hex:"
+            android:text="@string/hex2"
             android:textColor="#BEBEBE"
             android:textStyle="bold"
-            android:textSize="19dp"
+            android:textSize="19sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -326,7 +334,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleHex">
+            app:layout_constraintTop_toBottomOf="@+id/titleHex"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
 
         </TextView>
 
