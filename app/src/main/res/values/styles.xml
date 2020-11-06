@@ -5,6 +5,6 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#424242</item>
         <item name="colorPrimaryDark">#494949</item>
-
+        
     </style>
 </resources>
