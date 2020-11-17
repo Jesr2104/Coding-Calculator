@@ -48,16 +48,6 @@ class ColorCode : AppCompatActivity(){
             }
         }
 
-//        if(requestCode == 1){
-//            if (resultCode == RESULT_OK){
-//                val resultTemp = data!!.getStringExtra("loadColor")
-//
-//                if(resultTemp!!.isNotEmpty()){
-//                    cViewModel.colorRGB.value = Color.parseColor(resultTemp)
-//                }
-//            }
-//        }
-
         super.onActivityResult(requestCode, resultCode, data)
     }
 

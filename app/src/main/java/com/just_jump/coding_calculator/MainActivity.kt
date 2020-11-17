@@ -4,37 +4,37 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-
+import com.just_jump.coding_calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        card_calculator.setOnClickListener {
+        binding.cardCalculator.setOnClickListener {
             val calculator = Intent(this, Calculator::class.java)
             startActivity(calculator)
         }
 
-        card_converter.setOnClickListener {
+        binding.cardConverter.setOnClickListener {
             val converter = Intent(this, Converter::class.java)
             startActivity(converter)
         }
 
-        card_numerical_systems.setOnClickListener {
+        binding.cardNumericalSystems.setOnClickListener {
             val numericalSystems = Intent(this, NumericalSystems::class.java)
             startActivity(numericalSystems)
         }
 
-        card_harmonic_colors.setOnClickListener {
+        binding.cardHarmonicColors.setOnClickListener {
             val colorCode = Intent(this, ColorCode::class.java)
             startActivity(colorCode)
         }
 
-        card_extra_calculator.setOnClickListener {
+        binding.cardExtraCalculator.setOnClickListener {
             val extrasCalculators = Intent(this, ExtraCalculations::class.java)
             startActivity(extrasCalculators)
         }

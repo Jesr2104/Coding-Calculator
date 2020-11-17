@@ -287,8 +287,8 @@ class Calculator : AppCompatActivity() {
                         false
                     }
                     else -> false
-                }
             }
+        }
 
         /***************************************************************************/
         // Result expression
