@@ -12,7 +12,8 @@
     <string name="color_palette">Color palette</string>
     <string name="color_range">Color Range</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="Text_infoRuleOfThree">When we got to the hotel they gave us a map with the places of interest in the city, and they told us that 5 centimeters of the map represents 600 meters of reality. Today we want to go to a park that is 8 centimeters from the hotel on the map. How far from the hotel is this park? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learned:</string>
+    <string name="Text_infoRuleOfThree_direct">When we got to the hotel they gave us a map with the places of interest in the city, and they told us that 5 centimeters of the map represents 600 meters of reality. Today we want to go to a park that is 8 centimeters from the hotel on the map. How far from the hotel is this park? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learnt:</string>
+    <string name="Text_infoRuleOfThree_inverse">Yesterday, 2 trucks transported goods from the port to the warehouse. Today, 3 trucks, the same size as yesterday, will have to make 6 trips to transport the same amount of goods from the warehouse to the mall. How many trips did the trucks make yesterday? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learnt:</string>
     <string name="converter">Converter</string>
     <string name="coding_calculator_title">Coding Calculator</string>
     <string name="description_calculator">It provides the fundamental operations and calculations.</string>
@@ -189,6 +190,10 @@
     <string name="rgb_color">RGB Color</string>
     <string name="hex_color">Hex. COLOR</string>
     <string name="name_color">Name Color</string>
-    <string name="solution_the_park_is_960_meters_from_the_hotel">Solution: The park is 960 meters from the hotel.</string>
+    <string name="solution_1">Solution: The park is 960 meters from the hotel.</string>
+    <string name="solution_2">Solution: Yesterday, 2 trucks made 9 trips.</string>
+    <string name="direct">Direct</string>
+    <string name="inverse">Inverse</string>
+    <string name="proportions_type">Proportions type</string>
 
 </resources>

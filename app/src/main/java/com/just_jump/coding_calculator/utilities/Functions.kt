@@ -245,8 +245,15 @@ class Functions {
     /**********************************************************************/
     // Function to do rule of three
     /**********************************************************************/
-    fun ruleOfThree(a: Double, b: Double, c: Double): Double {
+    fun ruleOfThreeDirect(a: Double, b: Double, c: Double): Double {
         return ((b * c) / a)
+    }
+
+    /**********************************************************************/
+    // Function to do rule of three
+    /**********************************************************************/
+    fun ruleOfThreeInverse(a: Double, b: Double, c: Double): Double {
+        return ((a * b) / c)
     }
 
     /**********************************************************************/

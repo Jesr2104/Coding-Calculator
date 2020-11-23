@@ -93,7 +93,7 @@
                 android:text=""
                 android:inputType="number"
                 android:maxLength="15"
-                tools:ignore="RtlHardcoded" />
+                tools:ignore="RtlHardcoded"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

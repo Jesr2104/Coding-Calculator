@@ -14,8 +14,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.just_jump.coding_calculator.utilities.Functions
+import com.just_jump.coding_calculator.utilities.myFilter
 import com.just_jump.coding_calculator.viewmodel.ViewModelNumericalSystem
 import kotlinx.android.synthetic.main.activity_numerical_systems.*
+import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
 
 class NumericalSystems : AppCompatActivity() {
 
@@ -166,10 +168,12 @@ class NumericalSystems : AppCompatActivity() {
 
                 "Hex" -> {
                     val maxLength = 14
-                    val filterArray = arrayOfNulls<InputFilter>(1)
-                    filterArray[0] = LengthFilter(maxLength)
 
-                    TextValueA.filters = filterArray
+                    // this code allow to filter the input on the filter
+                    TextValueA.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+
+                    // filter to just allow the hexadecimal charters
+                    TextValueA.filters = arrayOf(myFilter,LengthFilter(maxLength))
 
                     // change keyboard for text to include letter
                     TextValueA.inputType = InputType.TYPE_CLASS_TEXT
@@ -271,6 +275,7 @@ class NumericalSystems : AppCompatActivity() {
                                 fieldFor_Number.isErrorEnabled = false
                             }
                         }
+
                     }
                 }
             }

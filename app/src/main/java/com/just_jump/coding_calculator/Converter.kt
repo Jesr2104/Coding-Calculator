@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.just_jump.coding_calculator.utilities.ConvertUtilities
@@ -19,6 +20,8 @@ import kotlinx.android.synthetic.main.activity_converter.*
 class Converter : AppCompatActivity() {
 
     var statePrint = true
+    // this var is for check when the user press temp to control negative number
+    var stateTemp: Boolean = false
     private val menuAreaList = listOf(
         "Acres (ac)",
         "Ares (a)",
@@ -119,6 +122,7 @@ class Converter : AppCompatActivity() {
         // Event when you press button Area
         card_Area.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -151,6 +155,7 @@ class Converter : AppCompatActivity() {
 
         card_Length.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -183,6 +188,7 @@ class Converter : AppCompatActivity() {
 
         card_Time.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -215,6 +221,7 @@ class Converter : AppCompatActivity() {
 
         card_Temp.setOnClickListener {
 
+            stateTemp = true
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -247,6 +254,7 @@ class Converter : AppCompatActivity() {
 
         card_Volume.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -279,6 +287,7 @@ class Converter : AppCompatActivity() {
 
         card_Weight.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -311,6 +320,7 @@ class Converter : AppCompatActivity() {
 
         card_Data.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -343,6 +353,7 @@ class Converter : AppCompatActivity() {
 
         card_Speed.setOnClickListener {
 
+            stateTemp = false
             val adapterMenuList = ArrayAdapter(
                 this,
                 R.layout.spinner_item,
@@ -457,16 +468,27 @@ class Converter : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
+                if (!stateTemp) {
+                    if (dataA.text.toString() == "-") {
+                        p0!!.delete(p0.length - 1, p0.length)
+                    }
+                }
+
                 if (statePrint) {
-                    if (dataA.text.toString().isNotEmpty()) {
+                    if (dataA.text.toString()
+                            .isNotEmpty() && dataA.text.toString() != "." && dataA.text.toString() != "-") {
 
                         var resultValue = ""
 
                         //calculator the prefix
-                        textInputLayoutA.prefixText = PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
-                        textInputLayoutB.prefixText = PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+                        textInputLayoutA.prefixText =
+                            PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
+                        textInputLayoutB.prefixText =
+                            PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
 
-                        if (dataA.text.toString().contains('E') || dataA.text.toString().contains('e')) {
+                        if (dataA.text.toString().contains('E') || dataA.text.toString()
+                                .contains('e')
+                        ) {
                             if (ValidateExponential().validate(dataA.text.toString())) {
                                 resultValue = ConvertUtilities().checkConvert(
                                     systemOfConvert,
@@ -491,6 +513,8 @@ class Converter : AppCompatActivity() {
                     } else {
                         if (dataB.text!!.isNotEmpty()) {
                             dataB.setText("")
+                            textInputLayoutA.prefixText = ""
+                            textInputLayoutB.prefixText = ""
                         }
                     }
                 }
@@ -502,8 +526,14 @@ class Converter : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
+                if (!stateTemp) {
+                    if (dataB.text.toString() == "-") {
+                        p0!!.delete(p0.length - 1, p0.length)
+                    }
+                }
+
                 if (statePrint) {
-                    if (dataB.text.toString().isNotEmpty()) {
+                    if (dataB.text.toString().isNotEmpty() && dataB.text.toString() != "." && dataB.text.toString() != "-") {
 
                         var resultValue = ""
 
@@ -536,6 +566,8 @@ class Converter : AppCompatActivity() {
                     } else {
                         if (dataA.text!!.isNotEmpty()) {
                             dataA.setText("")
+                            textInputLayoutA.prefixText = ""
+                            textInputLayoutB.prefixText = ""
                         }
                     }
                 }

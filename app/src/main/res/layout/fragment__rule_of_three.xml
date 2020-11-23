@@ -34,22 +34,92 @@
 
             </TextView>
 
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/imageView"
                 android:layout_width="300dp"
-                android:layout_height="85dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/image_expression_example"
                 android:background="@drawable/background_light_newfields"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:src="@drawable/equation"
                 android:elevation="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Title" />
+                app:layout_constraintTop_toBottomOf="@+id/Title">
+
+                <TextView
+                    android:id="@+id/TextProportions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/material_white"
+                    android:textStyle="bold"
+                    android:text="@string/proportions_type"
+                    android:gravity="center_horizontal"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <View
+                    android:id="@+id/secondSeparator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/separator_line_light"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TextProportions" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TextProportions">
+
+                    <RadioButton
+                        android:id="@+id/direct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/direct"
+                        android:checked="true"
+                        android:textColor="@color/material_white"
+                        android:buttonTint="@color/yellow_mainColor"/>
+
+                    <RadioButton
+                        android:id="@+id/inverse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inverse"
+                        android:textColor="@color/material_white"
+                        android:buttonTint="@color/yellow_mainColor"/>
+
+                </RadioGroup>
+
+                <ImageView
+                    android:id="@+id/equation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/radioGroup"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/equation_direct"
+                    android:scaleType="fitCenter"
+                    android:padding="35dp"
+                    android:layout_marginTop="5dp">
+
+                </ImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
                 android:id="@+id/ruleOfThreeInfo"
@@ -231,73 +301,36 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textTitle2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:gravity="center"
-                    android:text="@string/x"
-                    android:textColor="@color/yellow_mainColor"
-                    android:textSize="30sp"
-                    android:textStyle="bold|italic"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight="5"
-                    app:layout_constraintLeft_toRightOf="@+id/textView"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/fieldValueC"
-                    app:layout_constraintTop_toBottomOf="@+id/fieldValueB">
-
-                </TextView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutBlock2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:background="@drawable/background_light_newfields"
-                android:elevation="15dp"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="15dp"
-                android:paddingTop="10dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.565"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutBlock3">
-
-                <TextView
-                    android:id="@+id/textTitle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:text="@string/result2text"
                     android:textColor="@color/yellow_mainColor"
                     android:textSize="20sp"
+                    android:layout_marginTop="5dp"
                     android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="@+id/textView1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/fieldValueB" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutResultBinary"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/background_white_corner"
                     android:padding="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textTitle2"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textTitle2"
                     app:layout_constraintTop_toBottomOf="@id/textTitle2">
 
                     <TextView
                         android:id="@+id/titleBinary"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:background="@drawable/background_grey_corner"
                         android:gravity="center|center_vertical"
@@ -332,11 +365,13 @@
                         app:layout_constraintLeft_toRightOf="@id/titleBinary"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:targetApi="o"
-                        tools:ignore="RtlHardcoded,RtlSymmetry">
+                        tools:ignore="RtlHardcoded,RtlSymmetry"
+                        tools:targetApi="o">
 
                     </TextView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -344,16 +379,16 @@
                 android:id="@+id/calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black_grey_calculator"
                 android:text="@string/calculate"
                 android:textColor="@color/yellow_mainColor"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:cornerRadius="12dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutBlock2">
+                app:layout_constraintTop_toBottomOf="@+id/layoutBlock3">
 
             </com.google.android.material.button.MaterialButton>
 

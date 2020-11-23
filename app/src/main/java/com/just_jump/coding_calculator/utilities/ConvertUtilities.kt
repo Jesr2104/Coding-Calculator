@@ -35,7 +35,6 @@ class ConvertUtilities {
                         }
                         "Squares metres (m²)" -> {
                             result = (value * 4046.8564224).toString()
-                            result += " m²"
                         }
                     }
                 }
@@ -680,33 +679,33 @@ class ConvertUtilities {
                             result = value.toString()
                         }
                         "Fahrenheit (°F)" ->{
-                            result = (value * 33.8).toString()
+                            result = (value * 9/5 + 32).toString()
                         }
                         "Kelvin (K)" ->{
-                            result = (value * 274.15).toString()
+                            result = (value + 273.15).toString()
                         }
                     }
                 }
                 "Fahrenheit (°F)" ->{
                     when (spinnerB){
                         "Celsius (°C)" ->{
-                            result = (value * -17.2222222222).toString()
+                            result = ((value - 32) * 5/9).toString()
                         }
                         "Fahrenheit (°F)" ->{
                             result = value.toString()
                         }
                         "Kelvin (K)" ->{
-                            result = (value * 255.9277777778).toString()
+                            result = ((value - 32) * 5/9 + 273.15).toString()
                         }
                     }
                 }
                 "Kelvin (K)" ->{
                     when (spinnerB){
                         "Celsius (°C)" ->{
-                            result = (value * -272.15).toString()
+                            result = (value - 273.15).toString()
                         }
                         "Fahrenheit (°F)" ->{
-                            result = (value * -457.87).toString()
+                            result = ((value - 273.15) * 9/5 + 32).toString()
                         }
                         "Kelvin (K)" ->{
                             result = value.toString()

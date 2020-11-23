@@ -14,6 +14,7 @@ import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.lifecycle.MutableLiveData
 import com.just_jump.coding_calculator.utilities.Functions
+import kotlinx.android.synthetic.main.activity_numerical_systems.*
 import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
 
 class InfoChangeValueColorDialog(
@@ -45,13 +46,15 @@ class InfoChangeValueColorDialog(
                     rangeB = 255
                     viewDialog.editText.helperText = "Range [00 - FF]"
 
+                    // this code allow to filter the input on the filter
+                    viewDialog.editTextReal.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+
                     // change keyboard for text to include letter
                     viewDialog.editTextReal.inputType = InputType.TYPE_CLASS_TEXT
 
-                    val filter =
-                        InputFilter { source, _, _, _, _, _ ->
-                            val blockCharacterSet =
-                                "~#^|$%*!@/()-'\":;,?{}=!$^';,?×÷<>{}€£¥₩%~`¤♡♥_|《》¡¿°•○●□■◇◆♧♣▲▼▶◀↑↓←→☆★▪:-);-):-D:-(:'(:O ghijklmnñopqrstuvwxyzGHIJKLMNÑOPQRSTUVWXYZ"
+                    val filter = InputFilter { source, _, _, _, _, _ ->
+                            val blockCharacterSet = "~#^|$%*!@/()-'\":;,?{}=!$^';,?×÷<>{}€£¥₩%~`¤♡♥_|《》¡¿°•○●□■◇◆♧♣▲▼▶◀↑↓←→☆★▪:-);-):-D:-(:'(:O ghijklmnñopqrstuvwxyzGHIJKLMNÑOPQRSTUVWXYZ"
+
                             if (source != null && blockCharacterSet.contains("" + source)) {
                                 ""
                             } else null

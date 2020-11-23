@@ -12,4 +12,5 @@
     <color name="Light_grey_deselect">#969696</color>
     <color name="Background_CardSavedColor">#D8D8D8</color>
     <color name="color_text_contrast">#3D3D3D</color>
+    <color name="selected_color_converter">#0f0f0f</color>
 </resources>
