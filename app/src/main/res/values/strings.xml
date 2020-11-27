@@ -195,5 +195,7 @@
     <string name="direct">Direct</string>
     <string name="inverse">Inverse</string>
     <string name="proportions_type">Proportions type</string>
+    <string name="update_massage">There is a new version available to install</string>
+    <string name="Title_notification">New version "Update"</string>
 
 </resources>

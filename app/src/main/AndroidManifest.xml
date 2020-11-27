@@ -11,9 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_app"
         android:supportsRtl="true"
-        android:theme="@style/CodingCalculatorTheme"
+        android:theme="@style/splash"
         tools:ignore="AllowBackup">
-
+        <activity android:name=".UpdateVersion"/>
         <activity android:name=".ListSavedColors" />
         <activity android:name=".ExtraCalculations" />
         <activity android:name=".Converter" />
@@ -23,12 +23,11 @@
         <activity android:name=".ColorCode" />
         <activity android:name=".Calculator" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

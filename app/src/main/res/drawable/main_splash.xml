@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/yellow_mainColor">
+    </item>
+
+    <item
+        android:drawable="@drawable/icon_app_foreground"
+        android:gravity="center_vertical|center_horizontal"
+        android:height="100dp"
+        android:width="100dp">
+    </item>
+
+</layer-list>

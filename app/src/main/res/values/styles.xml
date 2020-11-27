@@ -7,4 +7,12 @@
         <item name="colorPrimaryDark">#494949</item>
         
     </style>
+
+    <style name="splash" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/main_splash</item>
+
+        <item name="colorPrimary">#424242</item>
+        <item name="colorPrimaryDark">#494949</item>
+    </style>
+
 </resources>

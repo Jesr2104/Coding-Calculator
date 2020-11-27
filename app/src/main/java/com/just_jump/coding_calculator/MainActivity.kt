@@ -3,16 +3,27 @@ package com.just_jump.coding_calculator
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.just_jump.coding_calculator.data.remote.currentVersion
 import com.just_jump.coding_calculator.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // set the theme again since it had been changed by the splash
+        setTheme(R.style.CodingCalculatorTheme)
+
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        // call to check update of the app
+        currentVersion(this)
 
         binding.cardCalculator.setOnClickListener {
             val calculator = Intent(this, Calculator::class.java)
