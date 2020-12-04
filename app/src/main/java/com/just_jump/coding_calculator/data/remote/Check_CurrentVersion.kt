@@ -16,7 +16,7 @@ lateinit var notificationManager: NotificationManager
 lateinit var notificationChannel: NotificationChannel
 lateinit var builder: Notification.Builder
 
-fun currentVersion(context: Context){
+fun currentVersion(context: Context) {
 
     val channelId = "com.just_jump.coding_calculator.data.remote"
     val description = "test notification"
@@ -26,7 +26,7 @@ fun currentVersion(context: Context){
     // Remote Config
     // -----------------------------------------------------------------------------------
     val configSettings = remoteConfigSettings {
-        minimumFetchIntervalInSeconds= 3600
+        minimumFetchIntervalInSeconds = 3600
     }
 
     val firebaseConfig = Firebase.remoteConfig
@@ -40,9 +40,10 @@ fun currentVersion(context: Context){
 
             val versionName = BuildConfig.VERSION_NAME
 
-            if (versionName != currentVersion){
+            if (versionName != currentVersion) {
 
-                notificationManager = (context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
+                notificationManager =
+                    (context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
 
                 val intent = Intent(context, UpdateVersion::class.java)
                 val pendingIntent = PendingIntent.getActivity(
@@ -66,7 +67,8 @@ fun currentVersion(context: Context){
                     builder = Notification.Builder(context, channelId)
                         .setContentTitle(context.getString(R.string.Title_notification))
                         .setSmallIcon(R.drawable.ic_update)
-                        .setLargeIcon(BitmapFactory.decodeResource(
+                        .setLargeIcon(
+                            BitmapFactory.decodeResource(
                                 context.resources,
                                 R.mipmap.ic_update
                             )
@@ -74,13 +76,12 @@ fun currentVersion(context: Context){
                         .setContentText(context.getString(R.string.update_massage) + " v$currentVersion")
                         .setContentIntent(pendingIntent)
                         .setAutoCancel(true)
-                }
-                else
-                {
+                } else {
                     builder = Notification.Builder(context)
                         .setContentTitle(context.getString(R.string.Title_notification))
                         .setSmallIcon(R.drawable.ic_update)
-                        .setLargeIcon(BitmapFactory.decodeResource(
+                        .setLargeIcon(
+                            BitmapFactory.decodeResource(
                                 context.resources,
                                 R.mipmap.ic_update
                             )

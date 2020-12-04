@@ -127,6 +127,9 @@ class PrefixText {
             "Grams (g)" -> {
                 return "g"
             }
+            "Milligrams (mg)" -> {
+                return "mg"
+            }
             "Bits (bit)" -> {
                 return "bit"
             }

@@ -73,7 +73,8 @@ class Converter : AppCompatActivity() {
         "Pounds (lb)",
         "Ounces (oz)",
         "Kilogrammes (kg)",
-        "Grams (g)"
+        "Grams (g)",
+        "Milligrams (mg)"
     )
     private val menuDataList = listOf(
         "Bits (bit)",

@@ -967,6 +967,9 @@ class ConvertUtilities {
                         "Grams (g)" -> {
                             result = (value * 1000000).toString()
                         }
+                        "Milligrams (mg)" -> {
+                            result = (value * 1000000000).toString()
+                        }
                     }
                 }
                 "UK tons (t)"  -> {
@@ -991,6 +994,9 @@ class ConvertUtilities {
                         }
                         "Grams (g)" -> {
                             result = (value * 1016046.9088).toString()
+                        }
+                        "Milligrams (mg)" -> {
+                            result = (value * 1016046908.8).toString()
                         }
                     }
                 }
@@ -1017,6 +1023,9 @@ class ConvertUtilities {
                         "Grams (g)" -> {
                             result = (value * 907184.74).toString()
                         }
+                        "Milligrams (mg)" -> {
+                            result = (value * 907184740).toString()
+                        }
                     }
                 }
                 "Pounds (lb)"  -> {
@@ -1041,6 +1050,9 @@ class ConvertUtilities {
                         }
                         "Grams (g)" -> {
                             result = (value * 453.59237).toString()
+                        }
+                        "Milligrams (mg)" -> {
+                            result = (value * 453592).toString()
                         }
                     }
                 }
@@ -1067,6 +1079,9 @@ class ConvertUtilities {
                         "Grams (g)" -> {
                             result = (value * 28.3495231).toString()
                         }
+                        "Milligrams (mg)" -> {
+                            result = (value * 28349.5).toString()
+                        }
                     }
                 }
                 "Kilogrammes (kg)" -> {
@@ -1092,6 +1107,9 @@ class ConvertUtilities {
                         "Grams (g)" -> {
                             result = (value * 1000).toString()
                         }
+                        "Milligrams (mg)" -> {
+                            result = (value * 1000000).toString()
+                        }
                     }
                 }
                 "Grams (g)" -> {
@@ -1115,6 +1133,37 @@ class ConvertUtilities {
                             result = (value * 0.001).toString()
                         }
                         "Grams (g)" -> {
+                            result = value.toString()
+                        }
+                        "Milligrams (mg)" -> {
+                            result = (value * 1000).toString()
+                        }
+                    }
+                }
+                "Milligrams (mg)" -> {
+                    when (spinnerB) {
+                        "Tons (t)"  -> {
+                            result = (value * 0.000000001).toString()
+                        }
+                        "UK tons (t)"  -> {
+                            result = (value * 9.84206528E-10).toString()
+                        }
+                        "US tons  (t)"  -> {
+                            result = (value * 0.0000000011023).toString()
+                        }
+                        "Pounds (lb)"  -> {
+                            result = (value * 0.0000022046226218).toString()
+                        }
+                        "Ounces (oz)"  -> {
+                            result = (value * 0.0000352739619496).toString()
+                        }
+                        "Kilogrammes (kg)" -> {
+                            result = (value * 0.000001).toString()
+                        }
+                        "Grams (g)" -> {
+                            result = (value * 0.001).toString()
+                        }
+                        "Milligrams (mg)" -> {
                             result = value.toString()
                         }
                     }
