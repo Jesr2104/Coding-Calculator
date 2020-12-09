@@ -15,6 +15,7 @@ import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import com.just_jump.coding_calculator.data.local.SRDataExpression
+import com.just_jump.coding_calculator.extensions.deleteComma
 import com.just_jump.coding_calculator.extensions.paintString
 import com.just_jump.coding_calculator.viewmodel.ViewModelCalculator
 import kotlinx.android.synthetic.main.activity_calculator.*
@@ -78,6 +79,9 @@ class Calculator : AppCompatActivity() {
                     object :
                         OnSpinnerOKPressedListener {
                         override fun onSingleSelection(data: SpinnerModel, selectedPosition: Int) {
+
+                            data.text = data.text.deleteComma()
+
                             when {
                                 data.text[0] != 'R' -> {
                                     dataFieldViewModel = Html.fromHtml((dataFieldViewModel.toString() + data.text).paintString()).toString()
