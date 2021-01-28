@@ -98,7 +98,7 @@
                     app:boxStrokeWidthFocused="0dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fieldNumberValue"
+                        android:id="@+id/fieldNumberBase"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/value_to_convert"
@@ -134,7 +134,7 @@
                     app:boxStrokeWidthFocused="0dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fieldNumberPercentage"
+                        android:id="@+id/fieldNumberExponent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/value_of_percentage"

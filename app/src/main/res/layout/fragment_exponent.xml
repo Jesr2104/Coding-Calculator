@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentExponent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Front_ColorGrey"
+                android:elevation="15dp"
+                android:fontFamily="cursive"
+                android:gravity="center|center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/exponent"
+                android:textColor="@color/material_white"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageView"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/image_expression_example"
+                android:background="@drawable/background_light_newfields"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:elevation="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Title">
+
+                <ImageView
+                    android:id="@+id/equation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="35dp"
+                    android:scaleType="center"
+                    android:src="@drawable/exponent_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </ImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_light_newfields"
+                android:padding="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:text="@string/base_x"
+                    android:textColor="@color/yellow_mainColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintHorizontal_weight="6"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:text="@string/exponent_n"
+                    android:textColor="@color/yellow_mainColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintHorizontal_weight="4"
+                    app:layout_constraintLeft_toRightOf="@id/textView2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/resultTextExponent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result1"
+                    android:textColor="@color/yellow_mainColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="6"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fieldFor_Number" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fieldFor_Number"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintHorizontal_weight="7"
+                    app:layout_constraintLeft_toLeftOf="@id/textView2"
+                    app:layout_constraintRight_toRightOf="@id/textView2"
+                    app:layout_constraintTop_toBottomOf="@id/textView2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fieldNumberBase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/value_to_convert"
+                        android:gravity="right|center_vertical"
+                        android:inputType="numberSigned|numberDecimal"
+                        android:digits="0123456789.-"
+                        android:maxLines="1"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/color_text_contrast"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fieldFor_Numbe"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintHorizontal_weight="7"
+                    app:layout_constraintLeft_toLeftOf="@id/textView"
+                    app:layout_constraintRight_toRightOf="@id/textView"
+                    app:layout_constraintTop_toBottomOf="@id/textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fieldNumberExponent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/value_of_percentage"
+                        android:gravity="right|center_vertical"
+                        android:inputType="numberSigned|numberDecimal"
+                        android:digits="0123456789.-"
+                        android:maxLines="1"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/color_text_contrast"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/resultField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_white_corner"
+                    android:paddingStart="5dp"
+                    android:paddingTop="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingBottom="7dp"
+                    android:textAlignment="viewEnd"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/resultTextExponent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/calculatorButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black_grey_calculator"
+                android:text="@string/calculate"
+                android:textColor="@color/yellow_mainColor"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/block_data"
+                app:cornerRadius="12dp">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

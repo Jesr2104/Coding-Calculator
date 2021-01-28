@@ -8,6 +8,12 @@
         android:icon="@drawable/ic_nav_average"/>
 
     <item
+        android:id="@+id/NavBar_exponent"
+        android:contentDescription="@string/exponent_button"
+        android:title="@string/exponent"
+        android:icon="@drawable/ic_nav_exponent"/>
+
+    <item
         android:id="@+id/NavBar_Percentage"
         android:contentDescription="@string/percentage_button"
         android:title="@string/percentage"

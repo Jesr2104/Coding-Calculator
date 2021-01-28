@@ -23,21 +23,21 @@ class FragmentPercentage : Fragment() {
 
         view.calculatorButton.setOnClickListener{
 
-            if(fieldNumberValue.text.toString().isNotEmpty() &&
-               fieldNumberPercentage.text.toString().isNotEmpty()){
+            if(fieldNumberBase.text.toString().isNotEmpty() &&
+               fieldNumberExponent.text.toString().isNotEmpty()){
 
                 val format = DecimalFormat()
                 format.maximumFractionDigits = 3
 
-                view.textResultValue.text = format.format(view.fieldNumberValue.text.toString().toDouble())
-                view.textResultPercentage.text = "${view.fieldNumberPercentage.text} %"
-                val resultTemp = Functions().percentageCalculator(fieldNumberValue.text.toString().toDouble(),fieldNumberPercentage.text.toString().toDouble())
+                view.textResultValue.text = format.format(view.fieldNumberBase.text.toString().toDouble())
+                view.textResultPercentage.text = "${view.fieldNumberExponent.text} %"
+                val resultTemp = Functions().percentageCalculator(fieldNumberBase.text.toString().toDouble(),fieldNumberExponent.text.toString().toDouble())
                 view.textResultNumber.text = format.format(resultTemp)
 
-                val resultAddition = view.fieldNumberValue.text.toString().toDouble() + resultTemp
+                val resultAddition = view.fieldNumberBase.text.toString().toDouble() + resultTemp
                 view.additionResult.text = format.format(resultAddition)
 
-                val resultSubtration = view.fieldNumberValue.text.toString().toDouble() - resultTemp
+                val resultSubtration = view.fieldNumberBase.text.toString().toDouble() - resultTemp
                 view.subtrationResult.text = format.format(resultSubtration)
 
                 // we hide the keyboard to show the result of the percentage calculations

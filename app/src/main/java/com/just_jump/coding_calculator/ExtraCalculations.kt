@@ -16,6 +16,7 @@ class ExtraCalculations : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val fragmentAverage = FragmentAverage()
+        val fragmentExponent = FragmentExponent()
         val fragmentPercentage = FragmentPercentage()
         val fragmentRuleOfThree = FragmentRuleOfThree()
 
@@ -38,6 +39,7 @@ class ExtraCalculations : AppCompatActivity() {
         navigationBar_view.setOnNavigationItemSelectedListener {
             when (it.itemId){
                 R.id.NavBar_average -> makeCurrentFragment(fragmentAverage)
+                R.id.NavBar_exponent -> makeCurrentFragment(fragmentExponent)
                 R.id.NavBar_Percentage -> makeCurrentFragment(fragmentPercentage)
                 R.id.NavBar_ruleOfTree -> makeCurrentFragment(fragmentRuleOfThree)
             }

@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.fragment__average.*
 import kotlinx.android.synthetic.main.fragment__average.view.*
 import java.text.DecimalFormat
 
-
 class FragmentAverage : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

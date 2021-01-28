@@ -197,5 +197,11 @@
     <string name="proportions_type">Proportions type</string>
     <string name="update_massage">There is a new version available to install</string>
     <string name="Title_notification">New version "Update"</string>
+    <string name="exponent_button">Exponent button</string>
+    <string name="exponent">Exponent</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="base_x">Base (X)</string>
+    <string name="exponent_n">Exponent (n)</string>
 
 </resources>
