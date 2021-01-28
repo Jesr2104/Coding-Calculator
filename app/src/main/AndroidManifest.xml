@@ -22,6 +22,7 @@
         <activity android:name=".PaletteColors" />
         <activity android:name=".ColorCode" />
         <activity android:name=".Calculator" />
+        <activity android:name=".Calculator_new" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

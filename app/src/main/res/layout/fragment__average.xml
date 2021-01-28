@@ -41,21 +41,35 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="20dp"
+                android:paddingBottom="10dp"
                 android:background="@drawable/background_light_newfields"
-                android:padding="15dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Title">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/clear_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:cornerRadius="20dp"
+                    android:text="@string/clear"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"/>
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_margin="15dp"
                     android:elevation="10dp"
+                    app:chipSpacingHorizontal="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:chipSpacingHorizontal="5dp">
+                    android:animateLayoutChanges="true">
 
                     <TextView
                         android:id="@+id/textTitle"
@@ -78,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="10dp"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
@@ -86,6 +100,7 @@
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:endIconMode="clear_text"
+
                     app:layout_constraintEnd_toStartOf="@+id/InsertNewValue"
                     app:layout_constraintStart_toStartOf="@+id/chipGroup"
                     app:layout_constraintTop_toBottomOf="@+id/chipGroup">
@@ -100,7 +115,6 @@
                         android:inputType="numberDecimal"
                         android:maxLines="1"
                         android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
                         android:textColor="@color/Front_ColorDarkGrey"
                         android:textSize="15sp"
                         android:textStyle="bold"
@@ -112,13 +126,14 @@
                     android:id="@+id/InsertNewValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
                     android:text="@string/insert"
                     app:cornerRadius="10dp"
                     app:icon="@drawable/ic_add_value"
-                    app:layout_constraintEnd_toEndOf="@+id/chipGroup"
-                    app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+                    app:layout_constraintBottom_toBottomOf="@+id/fieldForvalue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/fieldForvalue">
 
                 </com.google.android.material.button.MaterialButton>
 
