@@ -167,12 +167,12 @@
     <string name="bin">Bin</string>
     <string name="oct">Oct</string>
     <string name="hex1">Hex</string>
-    <string name="result1">Result:</string>
+    <string name="result1">Result</string>
     <string name="binary">Binary:</string>
     <string name="octal">Octal:</string>
     <string name="decimal">Decimal:</string>
     <string name="hex2">Hex:</string>
-    <string name="values">Values:</string>
+    <string name="values">Values</string>
     <string name="insert">Insert</string>
     <string name="pcent">Pcent %</string>
     <string name="value">Value</string>
@@ -204,5 +204,9 @@
     <string name="base_x">Base (X)</string>
     <string name="exponent_n">Exponent (n)</string>
     <string name="clear">Clear</string>
+    <string name="sigh_plus">+</string>
+    <string name="n_values">Nº Values</string>
+    <string name="mean">Mean</string>
+    <string name="total">Total</string>
 
 </resources>

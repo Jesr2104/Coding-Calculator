@@ -13,4 +13,8 @@
     <color name="Background_CardSavedColor">#D8D8D8</color>
     <color name="color_text_contrast">#3D3D3D</color>
     <color name="selected_color_converter">#0f0f0f</color>
+    <color name="grey_hint">#E2E2E2</color>
+    <color name="grey_for_buttons">#ADADAD</color>
+    <color name="disable_button">#D2D2D2</color>
+
 </resources>

@@ -275,4 +275,16 @@ class Functions {
         result /= values.size
         return result
     }
+
+    /**********************************************************************/
+    // Function to calculate the media of the number of the array
+    /**********************************************************************/
+    fun resultAdd(values: ArrayList<String>): Double {
+        var result = 0.0
+
+        for (item in values) {
+            result += item.toDouble()
+        }
+        return result
+    }
 }

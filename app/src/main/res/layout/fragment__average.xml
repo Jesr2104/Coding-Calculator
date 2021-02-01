@@ -86,7 +86,7 @@
                 </com.google.android.material.chip.ChipGroup>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/fieldForvalue"
+                    android:id="@+id/field_for_value"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -131,9 +131,9 @@
                     android:text="@string/insert"
                     app:cornerRadius="10dp"
                     app:icon="@drawable/ic_add_value"
-                    app:layout_constraintBottom_toBottomOf="@+id/fieldForvalue"
+                    app:layout_constraintBottom_toBottomOf="@+id/field_for_value"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/fieldForvalue">
+                    app:layout_constraintTop_toTopOf="@+id/field_for_value">
 
                 </com.google.android.material.button.MaterialButton>
 

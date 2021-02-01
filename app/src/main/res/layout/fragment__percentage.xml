@@ -196,7 +196,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="4.5"
-                    app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                    app:layout_constraintStart_toStartOf="@+id/separator"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </TextView>
@@ -211,7 +211,7 @@
                     android:textColor="#BEBEBE"
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
                     app:layout_constraintHorizontal_weight="5.5"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textValue"
@@ -229,7 +229,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="4.5"
-                    app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                    app:layout_constraintStart_toStartOf="@+id/separator"
                     app:layout_constraintTop_toBottomOf="@id/textValue"
                     tools:ignore="HardcodedText">
 
@@ -245,7 +245,7 @@
                     android:textColor="#BEBEBE"
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
                     app:layout_constraintHorizontal_weight="5.5"
                     app:layout_constraintLeft_toRightOf="@id/textValue"
                     app:layout_constraintStart_toEndOf="@+id/textPercentage"
@@ -264,7 +264,7 @@
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="4.5"
                     app:layout_constraintRight_toLeftOf="@id/textResultValue"
-                    app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                    app:layout_constraintStart_toStartOf="@+id/separator"
                     app:layout_constraintTop_toBottomOf="@id/textPercentage">
 
                 </TextView>
@@ -279,7 +279,7 @@
                     android:textColor="#BEBEBE"
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
                     app:layout_constraintHorizontal_weight="5.5"
                     app:layout_constraintLeft_toRightOf="@id/textValue"
                     app:layout_constraintStart_toEndOf="@+id/textResult"
@@ -306,7 +306,7 @@
 
 
                 <View
-                    android:id="@+id/secondSeparator"
+                    android:id="@+id/separator"
                     android:layout_width="fill_parent"
                     android:layout_height="2dp"
                     android:layout_marginLeft="40dp"
@@ -327,8 +327,8 @@
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="4.5"
-                    app:layout_constraintStart_toStartOf="@+id/secondSeparator"
-                    app:layout_constraintTop_toBottomOf="@id/secondSeparator">
+                    app:layout_constraintStart_toStartOf="@+id/separator"
+                    app:layout_constraintTop_toBottomOf="@id/separator">
 
                 </TextView>
 
@@ -342,11 +342,11 @@
                     android:textColor="#BEBEBE"
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
                     app:layout_constraintHorizontal_weight="5.5"
                     app:layout_constraintLeft_toRightOf="@id/textValue"
                     app:layout_constraintStart_toEndOf="@+id/textAddition"
-                    app:layout_constraintTop_toBottomOf="@id/secondSeparator">
+                    app:layout_constraintTop_toBottomOf="@id/separator">
 
                 </TextView>
 
@@ -361,7 +361,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintHorizontal_weight="4.5"
-                    app:layout_constraintStart_toStartOf="@+id/secondSeparator"
+                    app:layout_constraintStart_toStartOf="@+id/separator"
                     app:layout_constraintTop_toBottomOf="@id/textAddition">
 
                 </TextView>
@@ -376,7 +376,7 @@
                     android:textColor="#BEBEBE"
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintEnd_toEndOf="@+id/secondSeparator"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
                     app:layout_constraintLeft_toRightOf="@id/textValue"
                     app:layout_constraintStart_toEndOf="@+id/textSubtration"
                     app:layout_constraintTop_toBottomOf="@id/additionResult">
