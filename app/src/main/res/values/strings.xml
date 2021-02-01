@@ -157,7 +157,6 @@
     <string name="value_a">Value A</string>
     <string name="value_b">Value B</string>
     <string name="value_c">Value C</string>
-    <string name="x">X?</string>
     <string name="result2text">Result:</string>
     <string name="xs">X:</string>
     <string name="calculate">Calculate</string>
@@ -173,8 +172,7 @@
     <string name="decimal">Decimal:</string>
     <string name="hex2">Hex:</string>
     <string name="values">Values</string>
-    <string name="insert">Insert</string>
-    <string name="pcent">Pcent %</string>
+    <string name="pCent">Pcent %</string>
     <string name="value">Value</string>
     <string name="percentage_0">0%</string>
     <string name="result_without_point">Result</string>
@@ -200,7 +198,6 @@
     <string name="exponent_button">Exponent button</string>
     <string name="exponent">Exponent</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="base_x">Base (X)</string>
     <string name="exponent_n">Exponent (n)</string>
     <string name="clear">Clear</string>

@@ -30,7 +30,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/shape_background"
+        android:background="@drawable/background_black_stroke"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"

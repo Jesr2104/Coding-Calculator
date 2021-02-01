@@ -7,14 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.google.android.material.chip.Chip
+import com.just_jump.coding_calculator.R.layout.fragment__average_new
 import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.utilities.Functions
-import kotlinx.android.synthetic.main.fragment__average.*
-import kotlinx.android.synthetic.main.fragment__average.view.InsertNewValue
-import kotlinx.android.synthetic.main.fragment__average.view.clear_button
-import kotlinx.android.synthetic.main.fragment__average.view.resultField
+import kotlinx.android.synthetic.main.fragment__average_new.*
 import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import java.text.DecimalFormat
 
@@ -26,7 +23,7 @@ class FragmentAverage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment__average_new, container, false)
+        val view = inflater.inflate(fragment__average_new, container, false)
         view.clear_button.isEnabled = false
 
         /**

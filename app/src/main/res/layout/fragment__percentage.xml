@@ -67,7 +67,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintHorizontal_weight="4"
-                    android:text="@string/pcent"
+                    android:text="@string/pCent"
                     android:textColor="@color/yellow_mainColor"
                     android:textSize="20sp"
                     app:layout_constraintRight_toRightOf="parent"

@@ -9,7 +9,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.just_jump.coding_calculator.utilities.ConvertUtilities
@@ -20,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_converter.*
 class Converter : AppCompatActivity() {
 
     var statePrint = true
+
     // this var is for check when the user press temp to control negative number
     var stateTemp: Boolean = false
     private val menuAreaList = listOf(
@@ -142,13 +142,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.area)
 
             // change color lost selection
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -175,13 +175,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.length)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -208,13 +208,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.time)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -241,13 +241,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.temp)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -274,13 +274,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.volume)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -307,13 +307,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.weight)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -340,13 +340,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.data)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -373,13 +373,13 @@ class Converter : AppCompatActivity() {
             Title_TypeConvert.text = getString(R.string.speed)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this,R.color.Front_ColorGrey))
+            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
             dataA.setText("")
             dataB.setText("")
@@ -477,7 +477,8 @@ class Converter : AppCompatActivity() {
 
                 if (statePrint) {
                     if (dataA.text.toString()
-                            .isNotEmpty() && dataA.text.toString() != "." && dataA.text.toString() != "-") {
+                            .isNotEmpty() && dataA.text.toString() != "." && dataA.text.toString() != "-"
+                    ) {
 
                         var resultValue = ""
 
@@ -534,15 +535,21 @@ class Converter : AppCompatActivity() {
                 }
 
                 if (statePrint) {
-                    if (dataB.text.toString().isNotEmpty() && dataB.text.toString() != "." && dataB.text.toString() != "-") {
+                    if (dataB.text.toString()
+                            .isNotEmpty() && dataB.text.toString() != "." && dataB.text.toString() != "-"
+                    ) {
 
                         var resultValue = ""
 
                         //calculator the prefix
-                        textInputLayoutA.prefixText = PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
-                        textInputLayoutB.prefixText = PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+                        textInputLayoutA.prefixText =
+                            PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
+                        textInputLayoutB.prefixText =
+                            PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
 
-                        if (dataB.text.toString().contains('E') || dataB.text.toString().contains('e')) {
+                        if (dataB.text.toString().contains('E') || dataB.text.toString()
+                                .contains('e')
+                        ) {
                             if (ValidateExponential().validate(dataB.text.toString())) {
                                 resultValue = ConvertUtilities().checkConvert(
                                     systemOfConvert,

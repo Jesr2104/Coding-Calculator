@@ -268,7 +268,7 @@ class ViewModelCalculator: ViewModel() {
         return 0
     }
 
-    // this function insert the sigh of navb_percentage '%'
+    // this function insert the sigh of navBPercentage '%'
     fun sighPercentage(){
         var dataString = "" + dataFieldExpression.value
         if (dataString.isNotEmpty()) {

@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.just_jump.coding_calculator.extensions.checkInteger
 import kotlinx.android.synthetic.main.fragment_exponent.*
 import kotlinx.android.synthetic.main.fragment_exponent.view.*
+import kotlin.math.pow
 
 class FragmentExponent : Fragment() {
 
@@ -26,7 +27,7 @@ class FragmentExponent : Fragment() {
                 val base = (fieldNumberBase.text.toString()).toDouble()
                 val exponent = (fieldNumberExponent.text.toString()).toDouble()
 
-                view.resultField.text = (Math.pow(base,exponent)).toString().checkInteger()
+                view.resultField.text = (base.pow(exponent)).toString().checkInteger()
             } else {
                 //message of error to inform one field is empty
                 Toast.makeText(view.context, "Some of the data is missing to insert", Toast.LENGTH_SHORT).show()

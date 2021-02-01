@@ -61,7 +61,7 @@ class Calculator : AppCompatActivity() {
         // this function allow to select one option from the history and load on the expression
         historic.setOnClickListener {
             val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
-            val myList: ArrayList<String>? = SRDataExpression.customPreference(this).getlist()
+            val myList: ArrayList<String> = SRDataExpression.customPreference(this).getlist()
             var dataFieldViewModel = cViewModel.dataFieldExpression.value
 
             if (myList != null) {

@@ -28,17 +28,17 @@ class ViewModelColorCode: ViewModel() {
         colorRGB.postValue(color)
     }
 
-    fun getRed(): String? {
+    fun getRed(): String {
         val r = Color.red(getRGBColor())
         return Functions().convertDecToHex(r)
     }
 
-    fun getGreen(): String? {
+    fun getGreen(): String {
         val g = Color.green(getRGBColor())
         return Functions().convertDecToHex(g)
     }
 
-    fun getBlue(): String? {
+    fun getBlue(): String {
         val b = Color.blue(getRGBColor())
         return Functions().convertDecToHex(b)
     }

@@ -14,7 +14,7 @@ import java.text.DecimalFormat
 
 class FragmentRuleOfThree : Fragment() {
 
-    var proportionsTypeSelected = true
+    private var proportionsTypeSelected = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,21 +54,20 @@ class FragmentRuleOfThree : Fragment() {
                 TextValueC.text.toString().isNotEmpty()
             ) {
 
-                val calculatorResult: Double
-
-                if (proportionsTypeSelected) {
-                    calculatorResult = Functions().ruleOfThreeDirect(
-                        TextValueA.text.toString().toDouble(),
-                        TextValueB.text.toString().toDouble(),
-                        TextValueC.text.toString().toDouble()
-                    )
-                } else {
-                    calculatorResult = Functions().ruleOfThreeInverse(
-                        TextValueA.text.toString().toDouble(),
-                        TextValueB.text.toString().toDouble(),
-                        TextValueC.text.toString().toDouble()
-                    )
-                }
+                val calculatorResult: Double =
+                    if (proportionsTypeSelected) {
+                        Functions().ruleOfThreeDirect(
+                            TextValueA.text.toString().toDouble(),
+                            TextValueB.text.toString().toDouble(),
+                            TextValueC.text.toString().toDouble()
+                        )
+                    } else {
+                        Functions().ruleOfThreeInverse(
+                            TextValueA.text.toString().toDouble(),
+                            TextValueB.text.toString().toDouble(),
+                            TextValueC.text.toString().toDouble()
+                        )
+                    }
 
                 val format = DecimalFormat()
                 format.maximumFractionDigits = 6

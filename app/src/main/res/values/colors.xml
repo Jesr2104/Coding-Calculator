@@ -15,6 +15,5 @@
     <color name="selected_color_converter">#0f0f0f</color>
     <color name="grey_hint">#E2E2E2</color>
     <color name="grey_for_buttons">#ADADAD</color>
-    <color name="disable_button">#D2D2D2</color>
 
 </resources>
