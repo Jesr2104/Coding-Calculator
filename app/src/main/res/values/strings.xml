@@ -198,12 +198,14 @@
     <string name="exponent_button">Exponent button</string>
     <string name="exponent">Exponent</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="base_x">Base (X)</string>
+    <string name="base_x">Base (x)</string>
     <string name="exponent_n">Exponent (n)</string>
     <string name="clear">Clear</string>
     <string name="sigh_plus">+</string>
     <string name="n_values">Nº Values</string>
     <string name="mean">Mean</string>
     <string name="total">Total</string>
+    <string name="base">Base:</string>
+    <string name="exponent_dot">Exponent:</string>
 
 </resources>

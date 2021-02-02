@@ -20,11 +20,13 @@ class FragmentAverage : Fragment() {
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle? ): View {
 
         val view = inflater.inflate(fragment__average_new, container, false)
         view.clear_button.isEnabled = false
+
+        view.new_value.hint = getString(R.string.insert_new_value)
+        view.new_value.setHintTextColor(resources.getColor(R.color.grey_hint))
 
         /**
          * Event to control: button come back to the parent
@@ -34,16 +36,29 @@ class FragmentAverage : Fragment() {
         }
 
         /**
+         *  Event to control: when the new field lost the focus
+         */
+        view.new_value.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                new_value.hint = ""
+            } else {
+                if (new_value.text!!.isEmpty()){
+                    new_value.hint = getString(R.string.base_x)
+                }
+            }
+        }
+
+        /**
          * Event to control: insert new value
          */
         view.InsertNewValue.setOnClickListener {
 
-            if (newChipNumber.text!!.isNotEmpty()) {
+            if (new_value.text!!.isNotEmpty()) {
 
-                if (newChipNumber.text.toString() != "."){
+                if (new_value.text.toString() != "."){
 
                     val chip = Chip(this.context)
-                    chip.text = newChipNumber.text.toString()
+                    chip.text = new_value.text.toString()
                     chip.isCloseIconVisible = true
                     chip.setOnCloseIconClickListener {
                         chipGroup.removeView(chip)
@@ -54,7 +69,7 @@ class FragmentAverage : Fragment() {
                     view.linearLayout.fullScroll(View.FOCUS_DOWN)
 
                     // clean the field
-                    newChipNumber.setText("")
+                    new_value.setText("")
 
                     view.clear_button.isEnabled = true
 
@@ -63,7 +78,7 @@ class FragmentAverage : Fragment() {
 
                 } else {
                     // clean the field
-                    newChipNumber.setText("")
+                    new_value.setText("")
                     Toast.makeText(context,"Invalid format used.",Toast.LENGTH_SHORT).show()
                 }
             }
@@ -82,8 +97,12 @@ class FragmentAverage : Fragment() {
             }
             view.clear_button.isEnabled = false
             view.resultField.text = getString(R.string.mean)
-            view.total_values.text = getString(R.string.total)
-            view.number_of_values.text = getString(R.string.n_values)
+            view.total_value_add.text = getString(R.string.total)
+            view.num_values.text = getString(R.string.n_values)
+
+            view.new_value.setText("")
+            view.new_value.clearFocus()
+            view.new_value.hint = getString(R.string.insert_new_value)
         }
 
         return view
@@ -95,7 +114,7 @@ class FragmentAverage : Fragment() {
         val count = this.chipGroup.childCount
         var i = 0
 
-        format.maximumFractionDigits = 4
+        format.maximumFractionDigits = 6
 
         while(i < count) {
 
@@ -113,16 +132,14 @@ class FragmentAverage : Fragment() {
                 }
 
             view.resultField.text = format.format(result).toString().checkInteger()
-            view.total_values.text = Functions().resultAdd(dataArray).toString().checkInteger()
-            view.number_of_values.text = count.toString()
+            view.total_value_add.text = format.format(Functions().resultAdd(dataArray)).toString().checkInteger()
+            view.num_values.text = count.toString()
 
         } else{
             view.clear_button.isEnabled = false
             view.resultField.text = getString(R.string.mean)
-            view.total_values.text = getString(R.string.total)
-            view.number_of_values.text = getString(R.string.n_values)
+            view.total_value_add.text = getString(R.string.total)
+            view.num_values.text = getString(R.string.n_values)
         }
-
-
     }
 }

@@ -9,39 +9,88 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.HideKeyboard
-import kotlinx.android.synthetic.main.fragment__percentage.*
-import kotlinx.android.synthetic.main.fragment__percentage.view.*
+import kotlinx.android.synthetic.main.fragment__percentage_new.*
+import kotlinx.android.synthetic.main.fragment__percentage_new.view.*
 import java.text.DecimalFormat
 
 class FragmentPercentage : Fragment() {
+
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
 
-        val view = inflater.inflate(R.layout.fragment__percentage, container, false)
+        val view = inflater.inflate(R.layout.fragment__percentage_new, container, false)
+
+        view.field_value.hint = getString(R.string.value)
+        view.field_value.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        view.field_percentage.hint = getString(R.string.percentage)
+        view.field_percentage.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        /**
+         *  Event to control: when the new field lost the focus
+         */
+        view.field_value.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                field_value.hint = ""
+            } else {
+                if (field_value.text!!.isEmpty()){
+                    field_value.hint = getString(R.string.value)
+                }
+            }
+        }
+
+        /**
+         *  Event to control: when the new field lost the focus
+         */
+        view.field_percentage.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                field_percentage.hint = ""
+            } else {
+                if (field_percentage.text!!.isEmpty()){
+                    field_percentage.hint = getString(R.string.percentage)
+                }
+            }
+        }
+
+        /**
+         * Event to control: button come back to the parent
+         */
+        view.button_back.setOnClickListener {
+            Toast.makeText(context, "Back..", Toast.LENGTH_SHORT).show()
+        }
 
         view.calculatorButton.setOnClickListener{
 
-            if(fieldNumberBase.text.toString().isNotEmpty() &&
-               fieldNumberExponent.text.toString().isNotEmpty()){
+            if(field_percentage.text.toString().isNotEmpty() &&
+                field_value.text.toString().isNotEmpty()){
 
                 val format = DecimalFormat()
-                format.maximumFractionDigits = 3
+                format.maximumFractionDigits = 2
 
-                view.textResultValue.text = format.format(view.fieldNumberBase.text.toString().toDouble())
-                view.textResultPercentage.text = "${view.fieldNumberExponent.text} %"
-                val resultTemp = Functions().percentageCalculator(fieldNumberBase.text.toString().toDouble(),fieldNumberExponent.text.toString().toDouble())
-                view.textResultNumber.text = format.format(resultTemp)
+                view.fieldValue.text = format.format(view.field_value.text.toString().toDouble())
+                view.value_percentage.text = "${view.field_percentage.text} %"
 
-                val resultAddition = view.fieldNumberBase.text.toString().toDouble() + resultTemp
+                val resultTemp = Functions().percentageCalculator(field_value.text.toString().toDouble(),field_percentage.text.toString().toDouble())
+                view.result_percentage.text = format.format(resultTemp)
+
+                val resultAddition = view.fieldValue.text.toString().toDouble() + resultTemp
                 view.additionResult.text = format.format(resultAddition)
 
-                val resultSubtration = view.fieldNumberBase.text.toString().toDouble() - resultTemp
-                view.subtrationResult.text = format.format(resultSubtration)
+                val resultSubtraction = view.fieldValue.text.toString().toDouble() - resultTemp
+                view.subtractionResult.text = format.format(resultSubtraction)
 
                 // we hide the keyboard to show the result of the percentage calculations
                 this.activity?.let { it1 -> HideKeyboard(it1) }
+
+                view.field_value.setText("")
+                view.field_value.clearFocus()
+                view.field_value.hint = getString(R.string.value)
+
+                view.field_percentage.setText("")
+                view.field_percentage.clearFocus()
+                view.field_percentage.hint = getString(R.string.percentage)
             }
             else
             {
