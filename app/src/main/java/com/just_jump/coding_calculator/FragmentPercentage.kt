@@ -75,10 +75,10 @@ class FragmentPercentage : Fragment() {
                 val resultTemp = Functions().percentageCalculator(field_value.text.toString().toDouble(),field_percentage.text.toString().toDouble())
                 view.result_percentage.text = format.format(resultTemp)
 
-                val resultAddition = view.fieldValue.text.toString().toDouble() + resultTemp
+                val resultAddition = view.fieldValue.text.toString().replace(",", "").toDouble() + resultTemp
                 view.additionResult.text = format.format(resultAddition)
 
-                val resultSubtraction = view.fieldValue.text.toString().toDouble() - resultTemp
+                val resultSubtraction = view.fieldValue.text.toString().replace(",", "").toDouble() - resultTemp
                 view.subtractionResult.text = format.format(resultSubtraction)
 
                 // we hide the keyboard to show the result of the percentage calculations
@@ -91,6 +91,9 @@ class FragmentPercentage : Fragment() {
                 view.field_percentage.setText("")
                 view.field_percentage.clearFocus()
                 view.field_percentage.hint = getString(R.string.percentage)
+
+                view.label_value_percentage.visibility = View.VISIBLE
+                view.label_percentage.visibility = View.VISIBLE
             }
             else
             {

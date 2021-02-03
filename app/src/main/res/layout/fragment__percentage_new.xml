@@ -187,43 +187,64 @@
                 app:layout_constraintTop_toBottomOf="@+id/textTitle2">
 
                 <TextView
+                    android:id="@+id/label_value_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:text="@string/value"
+                    android:textColor="@color/ColorRGB_R"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/label_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/n_values"
+                    android:textColor="@color/ColorRGB_R"
+                    android:visibility="invisible"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
                     android:id="@+id/fieldValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:autoSizeTextType="uniform"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="5dp"
-                    android:paddingBottom="5dp"
+                    android:autoSizeTextType="uniform"
                     android:text="@string/value"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/separator"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/separator"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="@+id/label_value_percentage"
+                    app:layout_constraintTop_toTopOf="@+id/label_value_percentage" />
+
+                <TextView
+                    android:id="@+id/value_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:autoSizeTextType="uniform"
+                    android:text="@string/percentage"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/label_percentage"
+                    app:layout_constraintTop_toTopOf="@+id/label_percentage" />
 
                 <View
                     android:id="@+id/separator"
                     android:layout_width="0dp"
                     android:layout_height="3dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/separator_line_dark"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fieldValue" />
-
-
-                +<TextView
-                    android:id="@+id/value_percentage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
-                    android:layout_marginEnd="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/percentage"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/separator"
-                    app:layout_constraintEnd_toEndOf="@+id/separator" />
 
                 <TextView
                     android:id="@+id/textView6"

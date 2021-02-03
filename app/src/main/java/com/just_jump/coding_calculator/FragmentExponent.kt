@@ -43,7 +43,7 @@ class FragmentExponent : Fragment() {
                 view.resultField.text = result.toString().checkInteger()
 
                 view.base_value.text = "${getText(R.string.base)} ${base.toString().checkInteger()}"
-                view.exponent_value.text = "${getText(R.string.exponent_dot)} ${base.toString().checkInteger()}"
+                view.exponent_value.text = "${getText(R.string.exponent_dot)} ${exponent.toString().checkInteger()}"
 
                 view.field_base.setText("")
                 view.field_base.clearFocus()

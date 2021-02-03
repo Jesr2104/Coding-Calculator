@@ -227,7 +227,7 @@
                     android:id="@+id/label_nValues"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/name_color"
+                    android:text="@string/n_values"
                     android:textColor="@color/ColorRGB_R"
                     android:textSize="8dp"
                     android:textStyle="bold"
