@@ -53,6 +53,8 @@ class FragmentExponent : Fragment() {
                 view.field_exponent.clearFocus()
                 view.field_exponent.hint = getString(R.string.exponent_n)
 
+                view.label_result.visibility = View.VISIBLE
+
             } else {
                 //message of error to inform one field is empty
                 Toast.makeText(view.context, "Some of the data is missing to insert", Toast.LENGTH_SHORT).show()

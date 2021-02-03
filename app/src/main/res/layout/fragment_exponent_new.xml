@@ -228,22 +228,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/resultField"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
-                    android:layout_marginTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/result1"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/separator"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/base_value"
-                    app:layout_constraintTop_toBottomOf="@+id/base_value" />
-
-                <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -254,7 +238,6 @@
                     app:layout_constraintBottom_toTopOf="@+id/separator"
                     app:layout_constraintStart_toStartOf="@+id/separator"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -268,6 +251,37 @@
                     app:layout_constraintEnd_toEndOf="@+id/textView4"
                     app:layout_constraintStart_toEndOf="@+id/textView4" />
 
+                <TextView
+                    android:id="@+id/label_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/result1"
+                    android:textColor="@color/material_green600"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="@+id/separator"
+                    app:layout_constraintTop_toBottomOf="@+id/base_value" />
+
+                <TextView
+                    android:id="@+id/resultField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/result1"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/label_result"
+                    app:layout_constraintTop_toTopOf="@+id/label_result" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -278,12 +292,9 @@
                 android:text="calculate"
                 android:textColor="@color/yellow_mainColor"
                 android:textStyle="bold"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutBlock2" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
