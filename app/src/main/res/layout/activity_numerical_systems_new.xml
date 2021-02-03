@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_app">
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Front_ColorGrey"
+        android:textColor="@color/material_white"
+        android:text="@string/numerical_systems"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:gravity="center|center_vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        android:elevation="20dp">
+
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutBlock1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Title"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:elevation="20dp">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            android:textStyle="bold|italic"
+            android:textColor="@color/yellow_mainColor"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+        </TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fieldFor_Number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="7"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            app:endIconMode="clear_text"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:errorTextColor="@color/ColorRGB_R"
+            app:errorIconTint="@color/ColorRGB_R">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TextValueA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/value_to_convert"
+                android:textColor="@color/Front_ColorDarkGrey"
+                android:textStyle="bold"
+                android:gravity="right|center_vertical"
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:text=""
+                android:inputType="number"
+                android:maxLength="15"
+                tools:ignore="RtlHardcoded"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/rb_decimal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fieldFor_Number"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/rb_decimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dec"
+                android:textStyle="bold"
+                android:textColor="@color/material_white"
+                android:buttonTint="@color/yellow_mainColor"/>
+
+            <RadioButton
+                android:id="@+id/rb_binary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bin"
+                android:textStyle="bold"
+                android:textColor="@color/material_white"
+                android:buttonTint="@color/yellow_mainColor"/>
+
+            <RadioButton
+                android:id="@+id/rb_octal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oct"
+                android:textStyle="bold"
+                android:textColor="@color/material_white"
+                android:buttonTint="@color/yellow_mainColor"/>
+
+            <RadioButton
+                android:id="@+id/rb_hexadecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hex1"
+                android:textStyle="bold"
+                android:textColor="@color/material_white"
+                android:buttonTint="@color/yellow_mainColor"/>
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textBlock2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutBlock1"
+        android:textColor="@color/yellow_mainColor"
+        android:textStyle="bold|italic"
+        android:textSize="30sp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp">
+
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textBlock2"
+        android:background="@drawable/background_light_newfields"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="20dp">
+
+        <TextView
+            android:id="@+id/titleBinary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center|center_vertical"
+            android:text="@string/binary"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/resultBinary">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/resultBinary"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="right|center_vertical"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@drawable/background_white_corner"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleBinary"
+            app:layout_constraintBottom_toTopOf="@id/titleOctal"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/titleOctal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center|center_vertical"
+            android:text="@string/octal"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultBinary"
+            app:layout_constraintBottom_toTopOf="@id/resultOctal">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/resultOctal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/background_white_corner"
+            android:gravity="right|center_vertical"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleOctal"
+            app:layout_constraintBottom_toTopOf="@id/titleDecimal"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/titleDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center|center_vertical"
+            android:visibility="gone"
+            android:text="@string/decimal"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultOctal"
+            app:layout_constraintBottom_toTopOf="@id/resultDecimal">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/resultDecimal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/background_white_corner"
+            android:gravity="right|center_vertical"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDecimal"
+            app:layout_constraintBottom_toTopOf="@id/titleHex"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/titleHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center|center_vertical"
+            android:text="@string/hex2"
+            android:textColor="#BEBEBE"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultDecimal"
+            app:layout_constraintBottom_toTopOf="@id/resultHex">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/resultHex"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/background_white_corner"
+            android:gravity="right|center_vertical"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="#646464"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleHex"
+            tools:targetApi="o"
+            tools:ignore="RtlHardcoded">
+
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

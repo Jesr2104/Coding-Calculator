@@ -36,7 +36,7 @@ class FragmentAverage : Fragment() {
         }
 
         /**
-         *  Event to control: when the new field lost the focus
+         *  Event to control: when tºhe new field lost the focus
          */
         view.new_value.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
@@ -103,6 +103,10 @@ class FragmentAverage : Fragment() {
             view.new_value.setText("")
             view.new_value.clearFocus()
             view.new_value.hint = getString(R.string.insert_new_value)
+
+            view.label_Total.visibility = View.INVISIBLE
+            view.label_nValues.visibility = View.INVISIBLE
+            view.label_result.visibility = View.INVISIBLE
         }
 
         return view
@@ -134,6 +138,10 @@ class FragmentAverage : Fragment() {
             view.resultField.text = format.format(result).toString().checkInteger()
             view.total_value_add.text = format.format(Functions().resultAdd(dataArray)).toString().checkInteger()
             view.num_values.text = count.toString()
+
+            view.label_Total.visibility = View.VISIBLE
+            view.label_nValues.visibility = View.VISIBLE
+            view.label_result.visibility = View.VISIBLE
 
         } else{
             view.clear_button.isEnabled = false

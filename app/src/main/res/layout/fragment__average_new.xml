@@ -14,6 +14,7 @@
             android:id="@+id/button_back"
             android:layout_width="55dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             app:icon="@drawable/ic_baseline_arrow"
             app:iconTint="@color/yellow_mainColor"
@@ -66,7 +67,6 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:cornerRadius="10dp"
-                android:backgroundTint="@color/grey_for_buttons"
                 android:textColor="@color/yellow_mainColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -180,7 +180,7 @@
                 android:id="@+id/textTitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:shadowColor="#5d5d5d"
@@ -205,24 +205,72 @@
                 android:paddingLeft="15dp"
                 android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="20dp"
+                android:paddingBottom="10dp"
                 android:background="@drawable/background_modules_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitle2">
 
                 <TextView
+                    android:id="@+id/label_Total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add values"
+                    android:textColor="@color/ColorRGB_R"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/label_nValues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_color"
+                    android:textColor="@color/ColorRGB_R"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/label_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/result1"
+                    android:textColor="@color/material_green600"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separator" />
+
+                <TextView
                     android:id="@+id/total_value_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="5dp"
-                    android:lines="1"
                     android:text="@string/total"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="@+id/label_Total"
+                    app:layout_constraintTop_toTopOf="@+id/label_Total" />
+
+                <TextView
+                    android:id="@+id/num_values"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/n_values"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/label_nValues"
+                    app:layout_constraintTop_toTopOf="@+id/label_nValues" />
 
                 <View
                     android:id="@+id/separator"
@@ -232,35 +280,25 @@
                     android:background="@drawable/separator_line_dark"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/num_values" />
-
-                <TextView
-                    android:id="@+id/num_values"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/n_values"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/total_value_add" />
 
                 <TextView
                     android:id="@+id/resultField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
                     android:autoSizeTextType="uniform"
-                    android:layout_marginTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="@string/mean"
+                    android:text="@string/result1"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/separator"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/separator" />
+                    app:layout_constraintStart_toStartOf="@+id/label_result"
+                    app:layout_constraintTop_toTopOf="@+id/label_result" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.HideKeyboard
-import kotlinx.android.synthetic.main.fragment__rule_of_three.*
-import kotlinx.android.synthetic.main.fragment__rule_of_three.view.*
+import kotlinx.android.synthetic.main.fragment__rule_of_three_new.*
+import kotlinx.android.synthetic.main.fragment__rule_of_three_new.view.*
 import java.text.DecimalFormat
 
 class FragmentRuleOfThree : Fragment() {
@@ -18,10 +18,51 @@ class FragmentRuleOfThree : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle? ): View? {
 
-        val view = inflater.inflate(R.layout.fragment__rule_of_three, container, false)
+        val view = inflater.inflate(R.layout.fragment__rule_of_three_new, container, false)
+
+        view.TextValueA.hint = getString(R.string.valueA)
+        view.TextValueA.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        view.TextValueB.hint = getString(R.string.valueB)
+        view.TextValueB.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        view.TextValueC.hint = getString(R.string.valueC)
+        view.TextValueC.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        /**
+         *  Event to control: when the new field lost the focus
+         */
+        view.TextValueA.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                TextValueA.hint = ""
+            } else {
+                if (TextValueA.text!!.isEmpty()){
+                    TextValueA.hint = getString(R.string.valueA)
+                }
+            }
+        }
+
+        view.TextValueB.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                TextValueB.hint = ""
+            } else {
+                if (TextValueB.text!!.isEmpty()){
+                    TextValueB.hint = getString(R.string.valueB)
+                }
+            }
+        }
+
+        view.TextValueC.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                TextValueC.hint = ""
+            } else {
+                if (TextValueC.text!!.isEmpty()){
+                    TextValueC.hint = getString(R.string.valueC)
+                }
+            }
+        }
 
         //------------------------------------------------------------------------
         // when you press to change the type
@@ -49,30 +90,46 @@ class FragmentRuleOfThree : Fragment() {
         }
 
         view.calculatorButton.setOnClickListener {
-            if (TextValueA.text.toString().isNotEmpty() &&
-                TextValueB.text.toString().isNotEmpty() &&
-                TextValueC.text.toString().isNotEmpty()
+            if (view.TextValueA.text.toString().isNotEmpty() &&
+                view.TextValueB.text.toString().isNotEmpty() &&
+                view.TextValueC.text.toString().isNotEmpty()
             ) {
 
                 val calculatorResult: Double =
                     if (proportionsTypeSelected) {
                         Functions().ruleOfThreeDirect(
-                            TextValueA.text.toString().toDouble(),
-                            TextValueB.text.toString().toDouble(),
-                            TextValueC.text.toString().toDouble()
+                            view.TextValueA.text.toString().toDouble(),
+                            view.TextValueB.text.toString().toDouble(),
+                            view.TextValueC.text.toString().toDouble()
                         )
                     } else {
                         Functions().ruleOfThreeInverse(
-                            TextValueA.text.toString().toDouble(),
-                            TextValueB.text.toString().toDouble(),
-                            TextValueC.text.toString().toDouble()
+                            view.TextValueA.text.toString().toDouble(),
+                            view.TextValueB.text.toString().toDouble(),
+                            view.TextValueC.text.toString().toDouble()
                         )
                     }
 
                 val format = DecimalFormat()
                 format.maximumFractionDigits = 6
 
-                result.text = format.format(calculatorResult)
+                view.result.text = format.format(calculatorResult)
+
+                view.fieldValue_resultA.text = "A: ${TextValueA.text}"
+                view.fieldValue_resultB.text = "B: ${TextValueB.text}"
+                view.fieldValue_resultC.text = "C: ${TextValueC.text}"
+
+                view.TextValueA.setText("")
+                view.TextValueA.clearFocus()
+                view.TextValueA.hint = getString(R.string.valueA)
+
+                view.TextValueB.setText("")
+                view.TextValueB.clearFocus()
+                view.TextValueB.hint = getString(R.string.valueB)
+
+                view.TextValueC.setText("")
+                view.TextValueC.clearFocus()
+                view.TextValueC.hint = getString(R.string.valueB)
 
                 // we hide the keyboard to show the result of the rule of three calculations
                 this.activity?.let { it1 -> HideKeyboard(it1) }
