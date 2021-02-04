@@ -210,5 +210,6 @@
     <string name="valueA">Value A</string>
     <string name="valueB">Value B</string>
     <string name="valueC">Value C</string>
+    <string name="insert_number">Insert number</string>
 
 </resources>

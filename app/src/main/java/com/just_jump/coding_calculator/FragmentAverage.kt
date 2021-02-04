@@ -36,7 +36,7 @@ class FragmentAverage : Fragment() {
         }
 
         /**
-         *  Event to control: when tºhe new field lost the focus
+         *  Event to control: when the new field lost the focus
          */
         view.new_value.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){

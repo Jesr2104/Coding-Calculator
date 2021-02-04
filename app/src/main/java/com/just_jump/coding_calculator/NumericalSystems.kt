@@ -16,8 +16,10 @@ import androidx.lifecycle.ViewModelProviders
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.myFilter
 import com.just_jump.coding_calculator.viewmodel.ViewModelNumericalSystem
-import kotlinx.android.synthetic.main.activity_numerical_systems.*
+import kotlinx.android.synthetic.main.activity_numerical_systems_new.*
 import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
+import kotlinx.android.synthetic.main.fragment__average_new.*
+import kotlinx.android.synthetic.main.fragment__average_new.view.*
 
 class NumericalSystems : AppCompatActivity() {
 
@@ -25,11 +27,16 @@ class NumericalSystems : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_numerical_systems)
+        setContentView(R.layout.activity_numerical_systems_new)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         cViewModel = ViewModelProviders.of(this).get(ViewModelNumericalSystem::class.java)
+
+        field_number.hint = getString(R.string.insert_number)
+        field_number.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        titleOctal.textSize = 15F
 
         /***************************************************************************/
         // observer
@@ -78,18 +85,18 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    TextValueA.filters = filterArray
+                    field_number.filters = filterArray
 
                     // change keyboard for number
-                    TextValueA.inputType = InputType.TYPE_CLASS_NUMBER
+                    field_number.inputType = InputType.TYPE_CLASS_NUMBER
 
-                    if (TextValueA.text.toString().isNotEmpty()) {
-                        if (TextValueA.text.toString().length >= 15) {
-                            fieldFor_Number.error = "The number is much larger than I allow"
-                            TextValueA.setText("")
-                        } else if (!Functions().validateDecimalNumber(TextValueA.text.toString())) {
-                            fieldFor_Number.error = "The Number is not correct in this system"
-                            TextValueA.setText("")
+                    if (field_number.text.toString().isNotEmpty()) {
+                        if (field_number.text.toString().length >= 15) {
+                            field_number_layout.error = "The number is much larger than I allow"
+                            field_number.setText("")
+                        } else if (!Functions().validateDecimalNumber(field_number.text.toString())) {
+                            field_number_layout.error = "The Number is not correct in this system"
+                            field_number.setText("")
                         }
                     }
 
@@ -110,15 +117,15 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    TextValueA.filters = filterArray
+                    field_number.filters = filterArray
 
                     // change keyboard for number
-                    TextValueA.inputType = InputType.TYPE_CLASS_NUMBER
+                    field_number.inputType = InputType.TYPE_CLASS_NUMBER
 
-                    if (TextValueA.text.toString().isNotEmpty()) {
-                        if (!Functions().validateBinaryNumber(TextValueA.text.toString())) {
-                            fieldFor_Number.error = "Number is not correct in this system"
-                            TextValueA.setText("")
+                    if (field_number.text.toString().isNotEmpty()) {
+                        if (!Functions().validateBinaryNumber(field_number.text.toString())) {
+                            field_number_layout.error = "Number is not correct in this system"
+                            field_number.setText("")
                         }
                     }
 
@@ -139,18 +146,18 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    TextValueA.filters = filterArray
+                    field_number.filters = filterArray
 
                     // change keyboard for number
-                    TextValueA.inputType = InputType.TYPE_CLASS_NUMBER
+                    field_number.inputType = InputType.TYPE_CLASS_NUMBER
 
-                    if (TextValueA.text.toString().isNotEmpty()) {
-                        if (TextValueA.text.toString().length >= 15) {
-                            fieldFor_Number.error = "The number is much larger than I allow"
-                            TextValueA.setText("")
-                        } else if (!Functions().validateDecimalNumber(TextValueA.text.toString())) {
-                            fieldFor_Number.error = "The Number is not correct in this system"
-                            TextValueA.setText("")
+                    if (field_number.text.toString().isNotEmpty()) {
+                        if (field_number.text.toString().length >= 15) {
+                            field_number_layout.error = "The number is much larger than I allow"
+                            field_number.setText("")
+                        } else if (!Functions().validateDecimalNumber(field_number.text.toString())) {
+                            field_number_layout.error = "The Number is not correct in this system"
+                            field_number.setText("")
                         }
                     }
 
@@ -170,21 +177,21 @@ class NumericalSystems : AppCompatActivity() {
                     val maxLength = 14
 
                     // this code allow to filter the input on the filter
-                    TextValueA.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                    field_number.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
 
                     // filter to just allow the hexadecimal charters
-                    TextValueA.filters = arrayOf(myFilter,LengthFilter(maxLength))
+                    field_number.filters = arrayOf(myFilter,LengthFilter(maxLength))
 
                     // change keyboard for text to include letter
-                    TextValueA.inputType = InputType.TYPE_CLASS_TEXT
+                    field_number.inputType = InputType.TYPE_CLASS_TEXT
 
-                    if (TextValueA.text.toString().isNotEmpty()) {
-                        if (TextValueA.text.toString().length >= 15) {
-                            fieldFor_Number.error = "The number is much larger than I allow"
-                            TextValueA.setText("")
-                        } else if (!Functions().validateDecimalNumber(TextValueA.text.toString())) {
-                            fieldFor_Number.error = "The Number is not correct in this system"
-                            TextValueA.setText("")
+                    if (field_number.text.toString().isNotEmpty()) {
+                        if (field_number.text.toString().length >= 15) {
+                            field_number_layout.error = "The number is much larger than I allow"
+                            field_number.setText("")
+                        } else if (!Functions().validateDecimalNumber(field_number.text.toString())) {
+                            field_number_layout.error = "The Number is not correct in this system"
+                            field_number.setText("")
                         }
                     }
 
@@ -205,10 +212,23 @@ class NumericalSystems : AppCompatActivity() {
             cViewModel.dataNumber.value = cViewModel.dataNumber.value
         }
 
+        /**
+         *  Event to control: when the new field lost the focus
+         */
+        field_number.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                field_number.hint = ""
+            } else {
+                if (field_number.text!!.isEmpty()){
+                    field_number.hint = getString(R.string.base_x)
+                }
+            }
+        }
+
         //------------------------------------------------------------------------------------------
         // event to control when the field change the value tu check if this is valid.
         //------------------------------------------------------------------------------------------
-        TextValueA.addTextChangedListener(object : TextWatcher {
+        field_number.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
@@ -227,10 +247,10 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateDecimalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = TextValueA.text.toString()
+                            cViewModel.dataNumber.value = field_number.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                fieldFor_Number.isErrorEnabled = false
+                                field_number_layout.isErrorEnabled = false
                             }
                         }
                     }
@@ -241,10 +261,10 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateOctalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = TextValueA.text.toString()
+                            cViewModel.dataNumber.value = field_number.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                fieldFor_Number.isErrorEnabled = false
+                                field_number_layout.isErrorEnabled = false
                             }
                         }
                     }
@@ -255,10 +275,10 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateBinaryNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = TextValueA.text.toString()
+                            cViewModel.dataNumber.value = field_number.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                fieldFor_Number.isErrorEnabled = false
+                                field_number_layout.isErrorEnabled = false
                             }
                         }
                     }
@@ -269,10 +289,10 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateHexNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = TextValueA.text.toString()
+                            cViewModel.dataNumber.value = field_number.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                fieldFor_Number.isErrorEnabled = false
+                                field_number_layout.isErrorEnabled = false
                             }
                         }
 
