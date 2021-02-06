@@ -17,9 +17,6 @@ import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.myFilter
 import com.just_jump.coding_calculator.viewmodel.ViewModelNumericalSystem
 import kotlinx.android.synthetic.main.activity_numerical_systems_new.*
-import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
-import kotlinx.android.synthetic.main.fragment__average_new.*
-import kotlinx.android.synthetic.main.fragment__average_new.view.*
 
 class NumericalSystems : AppCompatActivity() {
 
@@ -300,5 +297,12 @@ class NumericalSystems : AppCompatActivity() {
                 }
             }
         })
+
+        /**
+         * Event to control: button come back to the parent
+         */
+        button_back.setOnClickListener {
+            finish()
+        }
     }
 }

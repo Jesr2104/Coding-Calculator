@@ -14,7 +14,8 @@ import androidx.core.content.ContextCompat
 import com.just_jump.coding_calculator.utilities.ConvertUtilities
 import com.just_jump.coding_calculator.utilities.PrefixText
 import com.just_jump.coding_calculator.utilities.ValidateExponential
-import kotlinx.android.synthetic.main.activity_converter.*
+import kotlinx.android.synthetic.main.activity_converter_new.*
+import java.text.DecimalFormat
 
 class Converter : AppCompatActivity() {
 
@@ -102,7 +103,7 @@ class Converter : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_converter)
+        setContentView(R.layout.activity_converter_new)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
@@ -113,12 +114,41 @@ class Converter : AppCompatActivity() {
         )
         adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
+        dataA.hint = getString(R.string.insert_number)
+        dataA.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        dataB.hint = getString(R.string.insert_number)
+        dataB.setHintTextColor(resources.getColor(R.color.grey_hint))
+
         SpinnerMenuA.adapter = adapterMenu
         SpinnerMenuB.adapter = adapterMenu
         SpinnerMenuB.setSelection(1)
 
         // valor to check what system of convert is selected
         var systemOfConvert = 1
+
+        /**
+         *  Event to control: when the new field lost the focus
+         */
+        dataA.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                dataA.hint = ""
+            } else {
+                if (dataA.text!!.isEmpty()){
+                    dataA.hint = getString(R.string.insert_number)
+                }
+            }
+        }
+
+        dataB.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                dataB.hint = ""
+            } else {
+                if (dataB.text!!.isEmpty()){
+                    dataB.hint = getString(R.string.insert_number)
+                }
+            }
+        }
 
         // Event when you press button Area
         card_Area.setOnClickListener {
@@ -403,6 +433,8 @@ class Converter : AppCompatActivity() {
                             textInputLayoutB.prefixText =
                                 PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
 
+                            textInputLayoutB.prefixText
+
                             val resultValue = ConvertUtilities().checkConvert(
                                 systemOfConvert,
                                 dataA.text.toString().toDouble(),
@@ -481,6 +513,8 @@ class Converter : AppCompatActivity() {
                     ) {
 
                         var resultValue = ""
+                        val format = DecimalFormat()
+                        format.maximumFractionDigits = 7
 
                         //calculator the prefix
                         textInputLayoutA.prefixText =
@@ -510,7 +544,7 @@ class Converter : AppCompatActivity() {
 
                         // Insert the value on the result field
                         statePrint = false
-                        dataB.setText(resultValue)
+                        dataB.setText(format.format(resultValue.toDouble()))
                         statePrint = true
                     } else {
                         if (dataB.text!!.isNotEmpty()) {
@@ -540,6 +574,8 @@ class Converter : AppCompatActivity() {
                     ) {
 
                         var resultValue = ""
+                        val format = DecimalFormat()
+                        format.maximumFractionDigits = 7
 
                         //calculator the prefix
                         textInputLayoutA.prefixText =
@@ -569,7 +605,7 @@ class Converter : AppCompatActivity() {
 
                         // Insert the value on the result field
                         statePrint = false
-                        dataA.setText(resultValue)
+                        dataA.setText(format.format(resultValue.toDouble()))
                         statePrint = true
                     } else {
                         if (dataA.text!!.isNotEmpty()) {
@@ -581,5 +617,12 @@ class Converter : AppCompatActivity() {
                 }
             }
         })
+
+        /**
+         * Event to control: button come back to the parent
+         */
+        button_back.setOnClickListener {
+            finish()
+        }
     }
 }
