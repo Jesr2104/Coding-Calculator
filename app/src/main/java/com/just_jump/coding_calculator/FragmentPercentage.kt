@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.HideKeyboard
+import com.just_jump.coding_calculator.utilities.ReturnMainActivity
+import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import kotlinx.android.synthetic.main.fragment__percentage_new.*
 import kotlinx.android.synthetic.main.fragment__percentage_new.view.*
+import kotlinx.android.synthetic.main.fragment__percentage_new.view.button_back
 import java.text.DecimalFormat
 
-class FragmentPercentage : Fragment() {
+class FragmentPercentage(private val myInterface: ReturnMainActivity) : Fragment() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -58,7 +61,7 @@ class FragmentPercentage : Fragment() {
          * Event to control: button come back to the parent
          */
         view.button_back.setOnClickListener {
-            Toast.makeText(context, "Back..", Toast.LENGTH_SHORT).show()
+            myInterface.returnMainActivity()
         }
 
         view.calculatorButton.setOnClickListener{

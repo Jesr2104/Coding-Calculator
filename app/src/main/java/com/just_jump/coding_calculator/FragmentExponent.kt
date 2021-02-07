@@ -8,12 +8,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.extensions.checkInteger
+import com.just_jump.coding_calculator.utilities.ReturnMainActivity
+import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import kotlinx.android.synthetic.main.fragment_exponent_new.*
 import kotlinx.android.synthetic.main.fragment_exponent_new.view.*
+import kotlinx.android.synthetic.main.fragment_exponent_new.view.button_back
+import kotlinx.android.synthetic.main.fragment_exponent_new.view.label_result
+import kotlinx.android.synthetic.main.fragment_exponent_new.view.resultField
 import java.text.DecimalFormat
 import kotlin.math.pow
 
-class FragmentExponent : Fragment() {
+class FragmentExponent(private val myInterface: ReturnMainActivity) : Fragment() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -28,6 +33,13 @@ class FragmentExponent : Fragment() {
 
         view.field_exponent.hint = getString(R.string.exponent_n)
         view.field_exponent.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        /**
+         * Event to control: button come back to the parent
+         */
+        view.button_back.setOnClickListener {
+            myInterface.returnMainActivity()
+        }
 
         view.calculatorButton.setOnClickListener {
             if (view.field_base.text!!.isNotEmpty() && view.field_exponent.text!!.isNotEmpty()){

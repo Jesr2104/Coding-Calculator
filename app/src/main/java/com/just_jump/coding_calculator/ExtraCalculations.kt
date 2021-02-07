@@ -6,19 +6,20 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.just_jump.coding_calculator.utilities.ReturnMainActivity
 import kotlinx.android.synthetic.main.activity_extra_calculations.*
 
-class ExtraCalculations : AppCompatActivity() {
+class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extra_calculations)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val fragmentAverage = FragmentAverage()
-        val fragmentExponent = FragmentExponent()
-        val fragmentPercentage = FragmentPercentage()
-        val fragmentRuleOfThree = FragmentRuleOfThree()
+        val fragmentAverage = FragmentAverage(this)
+        val fragmentExponent = FragmentExponent(this)
+        val fragmentPercentage = FragmentPercentage(this)
+        val fragmentRuleOfThree = FragmentRuleOfThree(this)
 
         val colors = intArrayOf(
             Color.rgb(0,0,0),// no select
@@ -34,7 +35,6 @@ class ExtraCalculations : AppCompatActivity() {
         navigationBar_view.itemIconTintList = null
 
         makeCurrentFragment(fragmentAverage)
-
 
         navigationBar_view.setOnNavigationItemSelectedListener {
             when (it.itemId){
@@ -52,5 +52,9 @@ class ExtraCalculations : AppCompatActivity() {
             replace(R.id.fragmentLayout, fragment)
             commit()
         }
+    }
+
+    override fun returnMainActivity() {
+        finish()
     }
 }

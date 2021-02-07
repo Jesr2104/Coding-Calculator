@@ -11,11 +11,12 @@ import com.google.android.material.chip.Chip
 import com.just_jump.coding_calculator.R.layout.fragment__average_new
 import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.utilities.Functions
+import com.just_jump.coding_calculator.utilities.ReturnMainActivity
 import kotlinx.android.synthetic.main.fragment__average_new.*
 import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import java.text.DecimalFormat
 
-class FragmentAverage : Fragment() {
+class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() {
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -32,7 +33,7 @@ class FragmentAverage : Fragment() {
          * Event to control: button come back to the parent
          */
         view.button_back.setOnClickListener {
-            Toast.makeText(context, "Back..", Toast.LENGTH_SHORT).show()
+            myInterface.returnMainActivity()
         }
 
         /**

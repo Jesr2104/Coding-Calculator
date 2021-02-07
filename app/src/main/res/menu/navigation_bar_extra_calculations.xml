@@ -5,24 +5,23 @@
         android:id="@+id/NavBar_average"
         android:contentDescription="@string/average_button"
         android:title="@string/average"
-        android:icon="@drawable/ic_nav_average"/>
+        android:icon="@drawable/ic_nav_average_new"/>
 
     <item
         android:id="@+id/NavBar_exponent"
         android:contentDescription="@string/exponent_button"
         android:title="@string/exponent"
-        android:icon="@drawable/ic_nav_exponent"/>
+        android:icon="@drawable/ic_nav_exponent_new"/>
 
     <item
         android:id="@+id/NavBar_Percentage"
         android:contentDescription="@string/percentage_button"
         android:title="@string/percentage"
-        android:icon="@drawable/ic_nav_percentage"/>
+        android:icon="@drawable/ic_nav_percentage_new"/>
 
     <item
         android:id="@+id/NavBar_ruleOfTree"
         android:contentDescription="@string/rule_of_three_button"
         android:title="@string/rule_of_three"
-        android:icon="@drawable/ic_nav_rule_of_three"/>
-
+        android:icon="@drawable/ic_nav_rule_of_three_new"/>
 </menu>

@@ -8,11 +8,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.HideKeyboard
+import com.just_jump.coding_calculator.utilities.ReturnMainActivity
+import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import kotlinx.android.synthetic.main.fragment__rule_of_three_new.*
 import kotlinx.android.synthetic.main.fragment__rule_of_three_new.view.*
+import kotlinx.android.synthetic.main.fragment__rule_of_three_new.view.button_back
 import java.text.DecimalFormat
 
-class FragmentRuleOfThree : Fragment() {
+class FragmentRuleOfThree(private val myInterface: ReturnMainActivity) : Fragment() {
 
     private var proportionsTypeSelected = true
 
@@ -30,6 +33,13 @@ class FragmentRuleOfThree : Fragment() {
 
         view.TextValueC.hint = getString(R.string.valueC)
         view.TextValueC.setHintTextColor(resources.getColor(R.color.grey_hint))
+
+        /**
+         * Event to control: button come back to the parent
+         */
+        view.button_back.setOnClickListener {
+            myInterface.returnMainActivity()
+        }
 
         /**
          *  Event to control: when the new field lost the focus
