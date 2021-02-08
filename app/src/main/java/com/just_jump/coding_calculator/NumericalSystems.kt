@@ -78,7 +78,7 @@ class NumericalSystems : AppCompatActivity() {
 
             when(radioButton.text){
                 "Dec" -> {
-                    val maxLength = 15
+                    val maxLength = 14
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
@@ -139,7 +139,7 @@ class NumericalSystems : AppCompatActivity() {
                 }
 
                 "Oct" -> {
-                    val maxLength = 15
+                    val maxLength = 14
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
@@ -171,13 +171,12 @@ class NumericalSystems : AppCompatActivity() {
                 }
 
                 "Hex" -> {
+
                     val maxLength = 14
+                    val filterArray = arrayOfNulls<InputFilter>(1)
+                    filterArray[0] = LengthFilter(maxLength)
 
-                    // this code allow to filter the input on the filter
-                    field_number.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-
-                    // filter to just allow the hexadecimal charters
-                    field_number.filters = arrayOf(myFilter,LengthFilter(maxLength))
+                    field_number.filters = filterArray
 
                     // change keyboard for text to include letter
                     field_number.inputType = InputType.TYPE_CLASS_TEXT
@@ -280,6 +279,8 @@ class NumericalSystems : AppCompatActivity() {
                         }
                     }
                     "Hex" -> {
+
+                        field_number.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
                         val text: String = p0.toString()
                         val length: Int = text.length
 
@@ -292,7 +293,6 @@ class NumericalSystems : AppCompatActivity() {
                                 field_number_layout.isErrorEnabled = false
                             }
                         }
-
                     }
                 }
             }

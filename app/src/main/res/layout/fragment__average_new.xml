@@ -97,6 +97,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="@color/material_white"
                     android:contentDescription="@string/insert_new_value"
+                    android:maxLength="15"
                     android:gravity="right|center_vertical"
                     android:inputType="numberSigned|numberDecimal"
                     android:maxLines="1"

@@ -20,6 +20,7 @@ class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
         val fragmentExponent = FragmentExponent(this)
         val fragmentPercentage = FragmentPercentage(this)
         val fragmentRuleOfThree = FragmentRuleOfThree(this)
+        val fragmentSquareRoot = FragmentSquareRoot(this)
 
         val colors = intArrayOf(
             Color.rgb(0,0,0),// no select
@@ -40,8 +41,9 @@ class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
             when (it.itemId){
                 R.id.NavBar_average -> makeCurrentFragment(fragmentAverage)
                 R.id.NavBar_exponent -> makeCurrentFragment(fragmentExponent)
-                R.id.NavBar_Percentage -> makeCurrentFragment(fragmentPercentage)
+                R.id.NavBar_percentage -> makeCurrentFragment(fragmentPercentage)
                 R.id.NavBar_ruleOfTree -> makeCurrentFragment(fragmentRuleOfThree)
+                R.id.NavBar_squareRoot -> makeCurrentFragment(fragmentSquareRoot)
             }
             true
         }

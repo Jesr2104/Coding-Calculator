@@ -14,14 +14,21 @@
         android:icon="@drawable/ic_nav_exponent_new"/>
 
     <item
-        android:id="@+id/NavBar_Percentage"
+        android:id="@+id/NavBar_percentage"
         android:contentDescription="@string/percentage_button"
         android:title="@string/percentage"
         android:icon="@drawable/ic_nav_percentage_new"/>
+
+    <item
+        android:id="@+id/NavBar_squareRoot"
+        android:contentDescription="@string/square_root_button"
+        android:title="@string/square_root"
+        android:icon="@drawable/ic_nav_square_root_new"/>
 
     <item
         android:id="@+id/NavBar_ruleOfTree"
         android:contentDescription="@string/rule_of_three_button"
         android:title="@string/rule_of_three"
         android:icon="@drawable/ic_nav_rule_of_three_new"/>
+
 </menu>
