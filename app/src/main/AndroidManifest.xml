@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/splash"
         tools:ignore="AllowBackup">
-        <activity android:name=".UpdateVersion"/>
+        <activity android:name=".CalculatorNew"></activity>
+        <activity android:name=".UpdateVersion" />
         <activity android:name=".ListSavedColors" />
         <activity android:name=".ExtraCalculations" />
         <activity android:name=".Converter" />

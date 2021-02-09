@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         currentVersion(this)
 
         binding.cardCalculator.setOnClickListener {
-            val calculator = Intent(this, Calculator::class.java)
+            val calculator = Intent(this, CalculatorNew::class.java)
             startActivity(calculator)
         }
 

@@ -215,5 +215,9 @@
     <string name="square_root_button">Square root button</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="insertN">Insert n</string>
+    <string name="insertX">Insert x</string>
+    <string name="message_1">the index cannot be negative</string>
+    <string name="message_2">Some of the data is missing to insert</string>
 
 </resources>

@@ -16,5 +16,6 @@
     <color name="grey_hint">#E2E2E2</color>
     <color name="grey_for_buttons">#ADADAD</color>
     <color name="grey_expressions">#717171</color>
+    <color name="buttons_calculator_greys">#9B9A9A</color>
 
 </resources>

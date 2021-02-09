@@ -287,4 +287,16 @@ class Functions {
         }
         return result
     }
+
+    /**********************************************************************/
+    // Function to calculate the media of the number of the array
+    /**********************************************************************/
+    fun isNthRoot(value: Double, n: Double): Double {
+        if (value < 0) {
+            if(n.rem(2) == 1.0) {
+                return -Math.pow(Math.abs(value), (1 / n));
+            }
+        }
+        return Math.pow(value, 1.0 / n)
+    }
 }
