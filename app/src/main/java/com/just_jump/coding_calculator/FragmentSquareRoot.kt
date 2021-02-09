@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.fragment_square_root_new.*
-import kotlinx.android.synthetic.main.fragment_square_root_new.view.*
+import kotlinx.android.synthetic.main.fragment_nth_root_new.*
+import kotlinx.android.synthetic.main.fragment_nth_root_new.view.*
 import java.text.DecimalFormat
 
 class FragmentSquareRoot(private val myInterface: ReturnMainActivity) : Fragment() {
@@ -21,7 +22,7 @@ class FragmentSquareRoot(private val myInterface: ReturnMainActivity) : Fragment
         savedInstanceState: Bundle? ): View? {
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_square_root_new, container, false)
+        val view = inflater.inflate(R.layout.fragment_nth_root_new, container, false)
 
         view.field_n.hint = getString(R.string.insertN)
         view.field_n.setHintTextColor(resources.getColor(R.color.grey_hint))
@@ -75,8 +76,8 @@ class FragmentSquareRoot(private val myInterface: ReturnMainActivity) : Fragment
 
                 if (valueN > 0) {
 
-                    view.value_n.text = "n: $valueN"
-                    view.value_x.text = "x: $valueX"
+                    view.value_n.text = "n: ${valueN.toString().checkInteger()}"
+                    view.value_x.text = "x: ${valueX.toString().checkInteger()}"
 
                     view.field_result.text = format.format(Functions().isNthRoot(valueX, valueN))
 
