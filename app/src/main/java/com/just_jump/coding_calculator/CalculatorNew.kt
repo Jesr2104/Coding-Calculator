@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.just_jump.coding_calculator.utilities.Functions
 import org.mariuszgromada.math.mxparser.*
 import kotlinx.android.synthetic.main.activity_calculator_new.*
 
@@ -26,75 +26,75 @@ class CalculatorNew : AppCompatActivity() {
         }
 
         number0.setOnClickListener {
-            updateText("0")
+            updateChar("0")
         }
 
         number1.setOnClickListener {
-            updateText("1")
+            updateChar("1")
         }
 
         number2.setOnClickListener {
-            updateText("2")
+            updateChar("2")
         }
 
         number3.setOnClickListener {
-            updateText("3")
+            updateChar("3")
         }
 
         number4.setOnClickListener {
-            updateText("4")
+            updateChar("4")
         }
 
         number5.setOnClickListener {
-            updateText("5")
+            updateChar("5")
         }
 
         number6.setOnClickListener {
-            updateText("6")
+            updateChar("6")
         }
 
         number7.setOnClickListener {
-            updateText("7")
+            updateChar("7")
         }
 
         number8.setOnClickListener {
-            updateText("8")
+            updateChar("8")
         }
 
         number9.setOnClickListener {
-            updateText("9")
+            updateChar("9")
         }
 
         numberPlus.setOnClickListener {
-            updateText("+")
+            updateChar("+")
         }
 
         numberLess.setOnClickListener {
-            updateText("-")
+            updateChar("-")
         }
 
         numberMultiply.setOnClickListener {
-            updateText("×")
+            updateChar("×")
         }
 
         numberDivide.setOnClickListener {
-            updateText("÷")
+            updateChar("÷")
         }
 
         numberPercentage.setOnClickListener {
-            updateText("%")
+            updateChar("%")
         }
 
         numberPoint.setOnClickListener {
-            updateText(".")
+            updateChar(".")
         }
 
         numberOpenParenthesis.setOnClickListener {
-            updateText("(")
+            updateChar("(")
         }
 
         numberCloseParenthesis.setOnClickListener {
-            updateText(")")
+            updateChar(")")
         }
 
         numberAllClear.setOnClickListener {
@@ -136,8 +136,26 @@ class CalculatorNew : AppCompatActivity() {
         }
     }
 
+    private fun updateNumber(strToAdd: String) {
+
+        // to control the number [1-9]
+        // 1. when you press a number and you find 0 alone we need to change for the number
+        if (strToAdd == "1" ||
+            strToAdd == "2" ||
+            strToAdd == "3" ||
+            strToAdd == "4" ||
+            strToAdd == "5" ||
+            strToAdd == "6" ||
+            strToAdd == "7" ||
+            strToAdd == "8" ||
+            strToAdd == "9"
+        ){
+
+        }
+    }
+
     @SuppressLint("SetTextI18n")
-    private fun updateText(strToAdd: String) {
+    private fun updateChar(strToAdd: String) {
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
         var printChar = true
@@ -159,20 +177,71 @@ class CalculatorNew : AppCompatActivity() {
         // to control the character 0
         // 1. the user can't be press two zero in a row like "00"
         // 2. when the user press a number is the number before is zero change zero for the new number
-        if (strToAdd == "0"){
+        if (strToAdd == "0") {
+            val num = numberPartA(leftStr)
 
+            if (num.isNotEmpty()) {
+                if (num.toDouble() <= 0) {
+                    printChar = false
+                }
+            }
         }
 
-        if (getString(R.string.insert_expression) == expression_value.text.toString()) {
-            if (printChar && strToAdd != ".") {
-                expression_value.setText(strToAdd)
-                expression_value.setSelection(cursorPos + 1)
-            } else if(strToAdd == ".") {
+        // when the value is the first press
+        if ((getString(R.string.insert_expression) == expression_value.text.toString()) || expression_value.text.isEmpty()) {
+            if (strToAdd == "+"||strToAdd == "-"||strToAdd == "×"||strToAdd == "÷"||strToAdd == "%") {
+                // no print noting because you can put a sign to start expression
+
+            } else if (strToAdd == ".") {
                 expression_value.setText("0$strToAdd")
                 expression_value.setSelection(cursorPos + 2)
+            } else {
+                expression_value.setText(strToAdd)
+                expression_value.setSelection(cursorPos + 1)
             }
+        // when the user try to insert new value but us already something inserted
         } else {
-            if (printChar) {
+            if (strToAdd == "1" || strToAdd == "2" || strToAdd == "3" || strToAdd == "4" || strToAdd == "5" || strToAdd == "6" || strToAdd == "7" || strToAdd == "8" || strToAdd == "9") {
+                expression_value.setText("$leftStr$strToAdd$rightStr")
+                expression_value.setSelection(cursorPos + 1)
+            } else if (strToAdd == "+"||strToAdd == "-"||strToAdd == "×"||strToAdd == "÷"||strToAdd == "%"){
+                // if to check the case of math sign is press "+ - × ÷ %"
+
+                // case: to check when you insert a math sign between two number  36[Cursor]58
+                if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+                    if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
+                        expression_value.setText("$leftStr$strToAdd$rightStr")
+                        expression_value.setSelection(cursorPos + 1)
+                    } else {
+                        var newA = ""
+                        var newB = ""
+
+                        // if the math sign is on the middle and we need to change for the new one
+                        if (!leftStr[leftStr.length - 1].isDigit()){
+                            newA = leftStr.substring(0, leftStr.length - 1)
+                        }
+                        if (!rightStr[0].isDigit()){
+                            newB = rightStr.substring(1,rightStr.length)
+                        }
+
+                        if (newA.isEmpty()){ newA = leftStr }
+                        if (newB.isEmpty()){ newB = rightStr }
+
+                        expression_value.setText("$newA$strToAdd$newB")
+                        expression_value.setSelection(cursorPos)
+                    }
+                // case: to check when you gonna insert number at the end of the expression 3658[cursor]
+                } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
+                    if (leftStr[leftStr.length - 1].isDigit()){
+                        expression_value.setText("$leftStr$strToAdd")
+                        expression_value.setSelection(cursorPos + 1)
+                    } else {
+                        expression_value.setText("${leftStr.substring(0, leftStr.length - 1)}$strToAdd")
+                        expression_value.setSelection(cursorPos)
+                    }
+                }
+            // this option is to check print ['.' '(' ')']
+            } else {
                 expression_value.setText("$leftStr$strToAdd$rightStr")
                 expression_value.setSelection(cursorPos + 1)
             }
@@ -180,24 +249,24 @@ class CalculatorNew : AppCompatActivity() {
     }
 
     private fun getNumber(leftStr: String, rightStr: String): String {
-        return numberPartA(leftStr)+numberPartB(rightStr)
+        return numberPartA(leftStr) + numberPartB(rightStr)
     }
 
     private fun numberPartA(leftStr: String): String {
         var valueA = ""
-        var indexA = leftStr.length - 1
+        var indexA = leftStr.length
 
         if (leftStr.isNotEmpty()) {
             while (indexA > 0) {
-                if (leftStr[indexA] != '(' &&
-                    leftStr[indexA] != ')' &&
-                    leftStr[indexA] != '+' &&
-                    leftStr[indexA] != '-' &&
-                    leftStr[indexA] != '÷' &&
-                    leftStr[indexA] != '×' &&
-                    leftStr[indexA] != '%'
+                if (leftStr[indexA - 1] != '(' &&
+                    leftStr[indexA - 1] != ')' &&
+                    leftStr[indexA - 1] != '+' &&
+                    leftStr[indexA - 1] != '-' &&
+                    leftStr[indexA - 1] != '÷' &&
+                    leftStr[indexA - 1] != '×' &&
+                    leftStr[indexA - 1] != '%'
                 ) {
-                    valueA += leftStr[indexA]
+                    valueA += leftStr[indexA - 1]
                 } else {
                     indexA = 0
                 }
@@ -213,15 +282,16 @@ class CalculatorNew : AppCompatActivity() {
         var valueB = ""
         var indexB = 0
 
-        if (rightStr.isNotEmpty()){
+        if (rightStr.isNotEmpty()) {
             while ((indexB < rightStr.length)) {
-                if (rightStr[indexB] != '('&&
-                    rightStr[indexB] != ')'&&
-                    rightStr[indexB] != '+'&&
-                    rightStr[indexB] != '-'&&
-                    rightStr[indexB] != '÷'&&
-                    rightStr[indexB] != '×'&&
-                    rightStr[indexB] != '%'){
+                if (rightStr[indexB] != '(' &&
+                    rightStr[indexB] != ')' &&
+                    rightStr[indexB] != '+' &&
+                    rightStr[indexB] != '-' &&
+                    rightStr[indexB] != '÷' &&
+                    rightStr[indexB] != '×' &&
+                    rightStr[indexB] != '%'
+                ) {
                     valueB += rightStr[indexB]
                 } else {
                     indexB = rightStr.length
