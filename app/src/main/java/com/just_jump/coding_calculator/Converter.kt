@@ -105,8 +105,6 @@ class Converter : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_converter_new)
 
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
         val adapterMenu = ArrayAdapter(
             this,
             R.layout.spinner_item,

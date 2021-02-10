@@ -116,8 +116,8 @@
     <string name="closeParenthesis">)</string>
     <string name="plus_less">+/-</string>
     <string name="allClean">AC</string>
-    <string name="divide">/</string>
-    <string name="multiply">X</string>
+    <string name="divide">÷</string>
+    <string name="multiply">×</string>
     <string name="number_7">7</string>
     <string name="number_8">8</string>
     <string name="number_9">9</string>
@@ -219,5 +219,6 @@
     <string name="insertX">Insert x</string>
     <string name="message_1">the index cannot be negative</string>
     <string name="message_2">Some of the data is missing to insert</string>
+    <string name="insert_expression">Insert expression</string>
 
 </resources>

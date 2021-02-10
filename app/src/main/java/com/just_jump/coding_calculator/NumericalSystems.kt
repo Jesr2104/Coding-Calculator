@@ -26,8 +26,6 @@ class NumericalSystems : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_numerical_systems_new)
 
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
         cViewModel = ViewModelProviders.of(this).get(ViewModelNumericalSystem::class.java)
 
         field_number.hint = getString(R.string.insert_number)

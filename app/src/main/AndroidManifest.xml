@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.just_jump.coding_calculator">
 
@@ -13,17 +14,41 @@
         android:supportsRtl="true"
         android:theme="@style/splash"
         tools:ignore="AllowBackup">
-        <activity android:name=".CalculatorNew"></activity>
-        <activity android:name=".UpdateVersion" />
-        <activity android:name=".ListSavedColors" />
-        <activity android:name=".ExtraCalculations" />
-        <activity android:name=".Converter" />
-        <activity android:name=".NumericalSystems" />
-        <activity android:name=".GammaColors" />
-        <activity android:name=".PaletteColors" />
-        <activity android:name=".ColorCode" />
-        <activity android:name=".Calculator" />
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".CalculatorNew"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UpdateVersion"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ListSavedColors"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ExtraCalculations"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Converter"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".NumericalSystems"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".GammaColors"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".PaletteColors"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ColorCode"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Calculator"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CalculatorNew"
-    android:background="@drawable/background_features">
+    android:background="@drawable/background_features"
+    android:windowSoftInputMode="stateAlwaysHidden">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_back"
@@ -58,7 +59,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutBlock2"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
@@ -71,33 +72,63 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/expression_value"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Expression"
-                android:textSize="25sp"
+                app:boxBackgroundMode="none"
+                android:autofillHints="false"
+                android:inputType="none"
+                android:textAlignment="textEnd"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/grey_hint"
-                app:layout_constraintBottom_toTopOf="@id/textView"
+                android:textColor="@color/material_white"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toTopOf="@+id/Result_field"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+            </EditText>
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/expression_field"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:boxBackgroundMode="none"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/textView"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/expression_value"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@color/material_white"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:gravity="end"-->
+<!--                    android:text="99999999999"-->
+<!--                    android:focusable="true"-->
+<!--                    android:focusableInTouchMode="true"-->
+<!--                    android:clickable="true"-->
+<!--                    android:cursorVisible="false"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:id="@+id/Result_field"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:gravity="end"
                 android:text="Result"
-                android:textStyle="bold"
-                android:textSize="35sp"
                 android:textColor="@color/grey_hint"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/expression_value"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -219,7 +250,7 @@
                 android:layout_height="0dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMaxTextSize="40sp"
                 android:backgroundTint="@color/buttons_calculator_greys"
                 android:gravity="center|center_vertical"
                 android:text="@string/divide"
@@ -241,7 +272,7 @@
                 android:layout_height="0dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMaxTextSize="40sp"
                 android:backgroundTint="@color/buttons_calculator_greys"
                 android:gravity="center|center_vertical"
                 android:text="@string/multiply"
@@ -344,7 +375,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="5dp"
-                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMaxTextSize="40sp"
                 android:backgroundTint="@color/buttons_calculator_greys"
                 android:gravity="center|center_vertical"
                 android:text="@string/subtract"

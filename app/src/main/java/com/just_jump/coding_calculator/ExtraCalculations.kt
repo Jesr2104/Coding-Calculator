@@ -14,8 +14,6 @@ class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extra_calculations)
 
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
         val fragmentAverage = FragmentAverage(this)
         val fragmentExponent = FragmentExponent(this)
         val fragmentPercentage = FragmentPercentage(this)

@@ -56,7 +56,6 @@ class ColorCode : AppCompatActivity(){
         setContentView(R.layout.activity_colorcode)
 
         cViewModel = ViewModelProvider(this)[ViewModelColorCode::class.java]
-        requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
 
         /***************************************************************************/
         // observer
