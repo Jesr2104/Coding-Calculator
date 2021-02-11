@@ -121,7 +121,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:text="Result"
                 android:textColor="@color/grey_hint"
                 android:textSize="35sp"
                 android:textStyle="bold"
@@ -616,9 +615,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
