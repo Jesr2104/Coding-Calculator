@@ -3,6 +3,7 @@ package com.just_jump.coding_calculator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.SpannableStringBuilder
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import org.mariuszgromada.math.mxparser.*
 import kotlinx.android.synthetic.main.activity_calculator_new.*
@@ -126,39 +127,58 @@ class CalculatorNew : AppCompatActivity() {
     // 3. when you press a new math sign and you find one previously you need to change for the new one
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
-    private fun insertMathSign(mathSignToAdd: Char){
+    private fun insertMathSign(mathSignToAdd: Char) {
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
-        if (leftStr.isEmpty()){
+        if (leftStr.isEmpty()) {
             // this case is when you are on the first position and we don't have nothing
-        } else{
-            if(leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+        } else {
+            if (leftStr.isNotEmpty() && rightStr.isNotEmpty()) {
                 // case 1: if you gonna put a math sign between two number like 21[cursor]04
-                if (leftStr[leftStr.length -1].isDigit() && rightStr[0].isDigit()){
+                if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()) {
                     expression_value.setText(leftStr + mathSignToAdd + rightStr)
                     expression_value.setSelection(cursorPos + 1)
                     // case 2: if you press a math sign and you find one already on the left you change for the new one 8+[cursor]5
-                } else if ("+-×÷%".contains(leftStr[leftStr.length -1])){
-                    expression_value.setText(leftStr.substring(0,leftStr.length-1) + mathSignToAdd + rightStr)
+                } else if ("+-×÷%".contains(leftStr[leftStr.length - 1])) {
+                    expression_value.setText(
+                        leftStr.substring(
+                            0,
+                            leftStr.length - 1
+                        ) + mathSignToAdd + rightStr
+                    )
                     expression_value.setSelection(cursorPos)
                 }
                 // case 3: if you press a math sign and you find one already on the right you change for the new one 8[cursor]+5
-                else if (leftStr[leftStr.length -1].isDigit() && "+-×÷%".contains(rightStr[0])){
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷%".contains(rightStr[0])) {
                     expression_value.setText(leftStr + mathSignToAdd + rightStr.substring(1))
                     expression_value.setSelection(cursorPos)
                 }
+                // case 6: it's the same but for the case we find data on both side
+                else if (")".contains(leftStr[leftStr.length - 1])) {
+                    if (!("+-×÷%".contains(rightStr[0]))){
+                        expression_value.setText(leftStr + mathSignToAdd + rightStr)
+                        expression_value.setSelection(cursorPos + 1)
+                    } else {
+                        expression_value.setText(leftStr + mathSignToAdd + rightStr.substring(1))
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
                 // case 4: if you try to insert a math sign on the end of number like: 21[cursor]
-            } else if (leftStr[leftStr.length -1].isDigit() && rightStr.isEmpty()){
+            } else if (leftStr[leftStr.length - 1].isDigit() && rightStr.isEmpty()) {
                 expression_value.setText(leftStr + mathSignToAdd)
                 expression_value.setSelection(cursorPos + 1)
-                // case 5:
-            } else if ("+-×÷%".contains(leftStr[leftStr.length -1]) && rightStr.isEmpty()){
-                expression_value.setText(leftStr.substring(0,leftStr.length -1) + mathSignToAdd)
+                // case 5: if you want to insert a math sign but is one on the right you change this for the new one
+            } else if ("+-×÷%".contains(leftStr[leftStr.length - 1]) && rightStr.isEmpty()) {
+                expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)
                 expression_value.setSelection(cursorPos)
+                // case 6: if you press a math sign but is a close parenthesis on the left
+            } else if (")".contains(leftStr[leftStr.length - 1])) {
+                expression_value.setText(leftStr + mathSignToAdd + rightStr)
+                expression_value.setSelection(cursorPos + 1)
             }
         }
     }
@@ -190,24 +210,23 @@ class CalculatorNew : AppCompatActivity() {
     // 3. we can't start expression with a close parenthesis is the expression is empty
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
-    private fun insertParenthesis(parenthesisToAdd: Char){
+    private fun insertParenthesis(parenthesisToAdd: Char) {
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
-        if (leftStr.isNotEmpty()){
+        if (leftStr.isNotEmpty()) {
             if ((leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
                 expression_value.setText("$leftStr*$parenthesisToAdd$rightStr")
                 expression_value.setSelection(cursorPos + 2)
-            }
-            else {
+            } else {
                 expression_value.setText(leftStr + parenthesisToAdd + rightStr)
                 expression_value.setSelection(cursorPos + 1)
             }
         } else {
-            if(rightStr.isEmpty() && parenthesisToAdd == ')'){
+            if (rightStr.isEmpty() && parenthesisToAdd == ')') {
                 // if the string leftStr and rightStr is empty
             } else {
                 expression_value.setText(leftStr + parenthesisToAdd + rightStr)
@@ -216,11 +235,111 @@ class CalculatorNew : AppCompatActivity() {
         }
     }
 
-    private fun insertPoint(){
+    private fun insertPoint() {
 
     }
 
-    private fun insertPlusLess(){
+    // function to control when we try to insert a parenthesis
+    // this is necessary to check:
+    // 1. if you press and the button and expression is empty put this (-
+    // 2. the rest of the requirements is on the function
+    /*   finished and checked   */
+    @SuppressLint("SetTextI18n")
+    private fun insertPlusLess() {
+        val oldStr = expression_value.text.toString()
+        val cursorPos = expression_value.selectionStart
+        val expressionPlusLess = "(-"
 
+        var indexA = 0
+        var indexB = 0
+        var number = ""
+        var removeSign = false
+
+        // case 1: if you want to insert a negative number but the expression is totally empty
+        if (oldStr.isEmpty()) {
+            expression_value.setText(expressionPlusLess)
+            expression_value.setSelection(cursorPos + 2)
+        // case 2: when the expression have information
+        } else {
+
+            // this part  is to looking for the number and index where start and finish the number
+            var cont = cursorPos - 1
+            while (cont >= 0) {
+                if ("+-×÷%()".contains(oldStr[cont])) {
+                    if (oldStr[cont] == '-' && oldStr[cont - 1] == '(') {
+                        removeSign = true
+                    }
+                    indexA = cont + 1
+                    cont = 0
+                } else {
+                    number += oldStr[cont]
+                }
+                cont--
+            }
+            number = number.reversed()
+            cont = cursorPos
+
+            while (cont < oldStr.length) {
+                if ("+-×÷%()".contains(oldStr[cont])) {
+                    indexB = cont
+                    cont = oldStr.length
+                } else {
+                    number += oldStr[cont]
+                }
+                cont++
+            }
+
+            if(indexB == 0){ indexB = oldStr.length }
+
+            // in this part we check if we need to remove or put sign
+            if (removeSign) {
+                var stringA = oldStr.substring( 0,indexA )
+                var stringB = oldStr.substring( indexB )
+
+                if (stringA.isNotEmpty()) {
+                    if (stringA[stringA.length-1] == '-' && stringA[stringA.length -2] == '(') {
+                        stringA = stringA.substring(0,  stringA.length -2)
+                    }
+                }
+
+                if (stringB.isNotEmpty()) {
+                    if (stringB[0] == ')') {
+                        stringB = stringB.substring(1)
+                        number = number.replace(")", "")
+                    }
+                }
+
+                expression_value.setText(stringA + number + stringB)
+                expression_value.setSelection(stringA.length + number.length)
+
+            } else {
+                val stringA = oldStr.substring( 0,indexA)
+                val stringB = oldStr.substring( indexB, oldStr.length)
+
+                 if (stringB.isEmpty() && number.isNotEmpty()){
+                    // case 1: if you press the button and you got de last number like 21[cursor] or 6+21[cursor]
+                    // the result is gonna be (-21[cursor] or 6+(-21[cursor] living the expression open to finish to write
+                    number = "(-$number"
+                    expression_value.setText(stringA + number + stringB)
+                    expression_value.setSelection(stringA.length + number.length)
+                } else if(stringA.isNotEmpty() && number.isEmpty()){
+                    // case 2: in the case when you don't select a number you put gonna have open to write down the rest
+                    // in this example like 21*[cursor] the result is: 21*(-[cursor]
+                    // case 3: when you have a close parenthesis on the right
+
+                    number = if (stringA[stringA.length -1] == ')'){ "×(-" } else { "(-" }
+
+                    expression_value.setText(stringA + number + stringB)
+                    expression_value.setSelection(stringA.length + number.length)
+
+                } else {
+                    // case default: if you find a number on the middle of the expression you put this number negative like 21+4[cursor]-9
+                    // the result of the expression be easy 21+(-4)-9
+                    number = "(-$number)"
+                    expression_value.setText(stringA + number + stringB)
+                    expression_value.setSelection(stringA.length + number.length)
+                }
+            }
+        }
     }
 }
