@@ -160,7 +160,7 @@ class CalculatorNew : AppCompatActivity() {
                     expression_value.setText(leftStr + mathSignToAdd + rightStr)
                     expression_value.setSelection(cursorPos + 1)
                     // case 2: if you press a math sign and you find one already on the left you change for the new one 8+[cursor]5
-                } else if ("+-×÷%".contains(leftStr[leftStr.length - 1])) {
+                } else if ("+-×÷".contains(leftStr[leftStr.length - 1])) {
                     if(leftStr[leftStr.length - 2] == '(') {
                         if (leftStr[leftStr.length - 1] == '-' || leftStr[leftStr.length - 1] == '+'){
                             if (mathSignToAdd == '+') {
@@ -185,26 +185,29 @@ class CalculatorNew : AppCompatActivity() {
                     expression_value.setSelection(cursorPos + 1)
                 }
                 // case 3: if you press a math sign and you find one already on the right you change for the new one 8[cursor]+5
-                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷%".contains(rightStr[0])) {
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷".contains(rightStr[0])) {
                     expression_value.setText(leftStr + mathSignToAdd + rightStr.substring(1))
                     expression_value.setSelection(cursorPos)
                 }
                 // case 6: it's the same but for the case we find data on both side
                 else if (")".contains(leftStr[leftStr.length - 1])) {
-                    if (!("+-×÷%".contains(rightStr[0]))){
+                    if (!("+-×÷".contains(rightStr[0]))){
                         expression_value.setText(leftStr + mathSignToAdd + rightStr)
                         expression_value.setSelection(cursorPos + 1)
                     } else {
                         expression_value.setText(leftStr + mathSignToAdd + rightStr.substring(1))
                         expression_value.setSelection(cursorPos + 1)
                     }
+                } else if (leftStr[leftStr.length - 1] != '('){
+                    expression_value.setText(leftStr + mathSignToAdd + rightStr)
+                    expression_value.setSelection(cursorPos + 1)
                 }
                 // case 4: if you try to insert a math sign on the end of number like: 21[cursor]
             } else if (leftStr[leftStr.length - 1].isDigit() && rightStr.isEmpty()) {
                 expression_value.setText(leftStr + mathSignToAdd)
                 expression_value.setSelection(cursorPos + 1)
                 // case 5: if you want to insert a math sign but is one on the right you change this for the new one
-            } else if ("+-×÷%".contains(leftStr[leftStr.length - 1]) && rightStr.isEmpty()) {
+            } else if ("+-×÷".contains(leftStr[leftStr.length - 1]) && rightStr.isEmpty()) {
                 if(leftStr[leftStr.length - 2] == '(') {
                     if (leftStr[leftStr.length - 1] == '-' || leftStr[leftStr.length - 1] == '+'){
                         if (mathSignToAdd == '+') {
@@ -221,6 +224,10 @@ class CalculatorNew : AppCompatActivity() {
                 }
                 // case 6: if you press a math sign but is a close parenthesis on the left
             } else if (")".contains(leftStr[leftStr.length - 1])) {
+                expression_value.setText(leftStr + mathSignToAdd + rightStr)
+                expression_value.setSelection(cursorPos + 1)
+                // when we got percentage sign and we want to insert math sign
+            } else if (leftStr[leftStr.length - 1] == '%'){
                 expression_value.setText(leftStr + mathSignToAdd + rightStr)
                 expression_value.setSelection(cursorPos + 1)
             }
@@ -274,8 +281,18 @@ class CalculatorNew : AppCompatActivity() {
                 expression_value.setSelection(cursorPos + 1)
             }
         } else {
-            expression_value.setText(leftStr + numberToAdd + rightStr)
-            expression_value.setSelection(cursorPos + 1)
+            if (oldStr.isEmpty()){
+                expression_value.setText(leftStr + numberToAdd + rightStr)
+                expression_value.setSelection(cursorPos + 1)
+            } else {
+                if (leftStr[leftStr.length - 1 ] == ')'){
+                    expression_value.setText("$leftStr×$numberToAdd$rightStr")
+                    expression_value.setSelection(cursorPos + 2)
+                } else {
+                    expression_value.setText(leftStr + numberToAdd + rightStr)
+                    expression_value.setSelection(cursorPos + 1)
+                }
+            }
         }
     }
 
@@ -354,6 +371,15 @@ class CalculatorNew : AppCompatActivity() {
             if(rightStr[0] == '(' && parenthesisToAdd == ')'){
                 expression_value.setText("$leftStr$parenthesisToAdd×$rightStr")
                 expression_value.setSelection(leftStr.length + 2)
+            } else {
+                if (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(') {
+                    expression_value.setText("$leftStr×$parenthesisToAdd$rightStr")
+                    expression_value.setSelection(cursorPos + 2)
+                } else {
+                    expression_value.setText(leftStr + parenthesisToAdd + rightStr)
+                    expression_value.setSelection(cursorPos + 1)
+                }
+
             }
         } else if (leftStr.isNotEmpty()) {
             if ((leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
