@@ -42,7 +42,7 @@ class CalculatorNew : AppCompatActivity() {
 
         number9.setOnClickListener { insertNumber('9') }
 
-        number0.setOnClickListener { }
+        number0.setOnClickListener { insertNumberZero()}
 
         /***************************************************************************/
         // Events of Math signs
@@ -105,21 +105,6 @@ class CalculatorNew : AppCompatActivity() {
         }
     }
 
-    // this is necessary to check:
-    // 1. check the number of parenthesis
-    // 2. check for the expression field is no empty
-    // 3.
-    private fun calculateResult() {
-        var userExp = expression_value.text.toString()
-
-        userExp = userExp.replace('×', '*')
-        userExp = userExp.replace('÷', '/')
-
-        val expression = Expression(userExp)
-        val result = expression.calculate().toString()
-        Result_field.text = result
-    }
-
     // function to control when we try to insert a math sign
     // this is necessary to check:
     // 1. we can't put two sign together
@@ -144,13 +129,28 @@ class CalculatorNew : AppCompatActivity() {
                     expression_value.setSelection(cursorPos + 1)
                     // case 2: if you press a math sign and you find one already on the left you change for the new one 8+[cursor]5
                 } else if ("+-×÷%".contains(leftStr[leftStr.length - 1])) {
-                    expression_value.setText(
-                        leftStr.substring(
-                            0,
-                            leftStr.length - 1
-                        ) + mathSignToAdd + rightStr
-                    )
-                    expression_value.setSelection(cursorPos)
+                    if(leftStr[leftStr.length - 2] == '(') {
+                        if (leftStr[leftStr.length - 1] == '-' || leftStr[leftStr.length - 1] == '+'){
+                            if (mathSignToAdd == '+') {
+                                expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd + rightStr)
+                                expression_value.setSelection(cursorPos)
+                            } else if (mathSignToAdd == '-') {
+                                expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd + rightStr)
+                                expression_value.setSelection(cursorPos)
+                            }
+                        }
+                    } else {
+                        expression_value.setText(
+                            leftStr.substring(
+                                0,
+                                leftStr.length - 1
+                            ) + mathSignToAdd + rightStr
+                        )
+                        expression_value.setSelection(cursorPos)
+                    }
+                }   else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '(') {
+                    expression_value.setText(leftStr + mathSignToAdd + rightStr)
+                    expression_value.setSelection(cursorPos + 1)
                 }
                 // case 3: if you press a math sign and you find one already on the right you change for the new one 8[cursor]+5
                 else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷%".contains(rightStr[0])) {
@@ -173,8 +173,20 @@ class CalculatorNew : AppCompatActivity() {
                 expression_value.setSelection(cursorPos + 1)
                 // case 5: if you want to insert a math sign but is one on the right you change this for the new one
             } else if ("+-×÷%".contains(leftStr[leftStr.length - 1]) && rightStr.isEmpty()) {
-                expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)
-                expression_value.setSelection(cursorPos)
+                if(leftStr[leftStr.length - 2] == '(') {
+                    if (leftStr[leftStr.length - 1] == '-' || leftStr[leftStr.length - 1] == '+'){
+                        if (mathSignToAdd == '+') {
+                            expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)
+                            expression_value.setSelection(cursorPos)
+                        } else if (mathSignToAdd == '-') {
+                            expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)
+                            expression_value.setSelection(cursorPos)
+                        }
+                    }
+                } else {
+                    expression_value.setText(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)
+                    expression_value.setSelection(cursorPos)
+                }
                 // case 6: if you press a math sign but is a close parenthesis on the left
             } else if (")".contains(leftStr[leftStr.length - 1])) {
                 expression_value.setText(leftStr + mathSignToAdd + rightStr)
@@ -196,10 +208,66 @@ class CalculatorNew : AppCompatActivity() {
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
+
+
         expression_value.setText(leftStr + numberToAdd + rightStr)
         expression_value.setSelection(cursorPos + 1)
     }
 
+    // function to insert number
+    // this is necessary to check:
+    // 1. the used can't be put two zero together in the integer part like 000
+    // 2. the can can put all zero you need if you are on the decimal par of the number
+    /*   finished and checked   */
+    @SuppressLint("SetTextI18n")
+    private fun insertNumberZero() {
+        val oldStr = expression_value.text.toString()
+        val cursorPos = expression_value.selectionStart
+
+        val leftStr = oldStr.substring(0, cursorPos)
+        val rightStr = oldStr.substring(cursorPos)
+
+        if (oldStr.isNotEmpty()){
+            // if you find data on both side of the cursor for example: 25[cursor]45
+            if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+                if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
+                    expression_value.setText(leftStr + '0' + rightStr)
+                    expression_value.setSelection(cursorPos + 1)
+                }
+
+            // if you find data just on the left side of the cursor like: 25[cursor]
+            } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
+                var num = ""
+                var cont = leftStr.length - 1
+
+                while (cont > -1){
+                    if (!"+-×÷%()".contains(leftStr[cont])){
+                        num += leftStr[cont]
+                    } else { cont = 0 }
+                    cont --
+                }
+                num = num.reversed()
+
+                if (num.isNotEmpty()){
+                    if (num.toDouble() > 0 || num.contains('.')){
+                        expression_value.setText(leftStr + '0' + rightStr)
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                } else {
+                    if ("+-×÷%()".contains(leftStr[leftStr.length - 1])){
+                        expression_value.setText(leftStr + '0' + rightStr)
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+
+            // if you find data just on the right side of the cursor for example [cursor]25
+            }
+        } else {
+            // default case: if you find empty the expression
+            expression_value.setText(leftStr + '0' + rightStr)
+            expression_value.setSelection(cursorPos + 1)
+        }
+    }
 
     // function to control when we try to insert a parenthesis
     // this is necessary to check:
@@ -217,9 +285,14 @@ class CalculatorNew : AppCompatActivity() {
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
-        if (leftStr.isNotEmpty()) {
+        if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+            if(rightStr[0] == '(' && parenthesisToAdd == ')'){
+                expression_value.setText("$leftStr$parenthesisToAdd×$rightStr")
+                expression_value.setSelection(leftStr.length + 2)
+            }
+        } else if (leftStr.isNotEmpty()) {
             if ((leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
-                expression_value.setText("$leftStr*$parenthesisToAdd$rightStr")
+                expression_value.setText("$leftStr×$parenthesisToAdd$rightStr")
                 expression_value.setSelection(cursorPos + 2)
             } else {
                 expression_value.setText(leftStr + parenthesisToAdd + rightStr)
@@ -235,8 +308,74 @@ class CalculatorNew : AppCompatActivity() {
         }
     }
 
+    // function to control when we try to insert a parenthesis
+    // this is necessary to check:
+    // 1. just one point in the number
+    // 2. is you can find number on the left you need to put 0.
+    /*   finished and checked   */
+    @SuppressLint("SetTextI18n")
     private fun insertPoint() {
+        val oldStr = expression_value.text.toString()
+        val cursorPos = expression_value.selectionStart
+        val charPoint = "."
 
+        val leftStr = oldStr.substring(0, cursorPos)
+        val rightStr = oldStr.substring(cursorPos)
+
+        if (oldStr.isEmpty()){
+            expression_value.setText("0$charPoint")
+            expression_value.setSelection(2)
+        } else if (leftStr.isNotEmpty()) {
+            var num = ""
+            var cont = leftStr.length - 1
+
+            while (cont > -1){
+                if (!"+-×÷%()".contains(leftStr[cont])){
+                    num += leftStr[cont]
+                } else { cont = 0 }
+                cont --
+            }
+            num = num.reversed()
+            cont = 0
+
+            if (rightStr.isNotEmpty()){
+                while (cont < rightStr.length -1) {
+                    if (!"+-×÷%()".contains(rightStr[cont])){
+                        num += rightStr[cont]
+                    } else { cont = rightStr.length }
+                    cont++
+                }
+            }
+
+            if (num.isNotEmpty()){
+
+                when {
+                    num.contains(charPoint) -> {
+                        // if this number contain point already we don't put more just can be one
+                    }
+                    "+-×÷%(".contains(leftStr[leftStr.length - 1]) ->{
+                        expression_value.setText("${leftStr}0$charPoint$rightStr")
+                        expression_value.setSelection(leftStr.length + 2)
+                    }
+                    leftStr[leftStr.length - 1] == ')' ->{
+                        expression_value.setText("${leftStr}×0$charPoint$rightStr")
+                        expression_value.setSelection(leftStr.length + 3)
+                    }
+                    else -> {
+                        expression_value.setText("$leftStr$charPoint$rightStr")
+                        expression_value.setSelection(leftStr.length + 1)
+                    }
+                }
+            } else {
+                if ("+-×÷%(".contains(leftStr[leftStr.length - 1])){
+                    expression_value.setText("${leftStr}0$charPoint$rightStr")
+                    expression_value.setSelection(leftStr.length + 2)
+                } else if (leftStr[leftStr.length - 1] == ')'){
+                    expression_value.setText("${leftStr}×0$charPoint$rightStr")
+                    expression_value.setSelection(leftStr.length + 3)
+                }
+            }
+        }
     }
 
     // function to control when we try to insert a parenthesis
@@ -289,7 +428,9 @@ class CalculatorNew : AppCompatActivity() {
                 cont++
             }
 
-            if(indexB == 0){ indexB = oldStr.length }
+            if(indexB == 0){
+                indexB = oldStr.length
+            }
 
             // in this part we check if we need to remove or put sign
             if (removeSign) {
@@ -332,6 +473,12 @@ class CalculatorNew : AppCompatActivity() {
                     expression_value.setText(stringA + number + stringB)
                     expression_value.setSelection(stringA.length + number.length)
 
+                     // case 4: to check when is the first position to insert a negative number
+                } else if (stringA.isEmpty() && oldStr[cursorPos] == '('){
+                     number = "(-$number"
+                     expression_value.setText(stringA + number + oldStr.substring(cursorPos))
+                     expression_value.setSelection(stringA.length + number.length)
+
                 } else {
                     // case default: if you find a number on the middle of the expression you put this number negative like 21+4[cursor]-9
                     // the result of the expression be easy 21+(-4)-9
@@ -341,5 +488,20 @@ class CalculatorNew : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    // this is necessary to check:
+    // 1. check the number of parenthesis
+    // 2. check for the expression field is no empty
+    // 3.
+    private fun calculateResult() {
+        var userExp = expression_value.text.toString()
+
+        userExp = userExp.replace('×', '*')
+        userExp = userExp.replace('÷', '/')
+
+        val expression = Expression(userExp)
+        val result = expression.calculate().toString()
+        Result_field.text = result
     }
 }
