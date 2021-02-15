@@ -54,7 +54,7 @@ fun String.paintString(): String {
     var resultTemp = ""
     var cont = 0
 
-    val colorParenthesis = "<font color=#868686>"
+    val colorParenthesis = "<font color=#9E9E9E>"
     val colorSign = "<font color=#FFDD00>"
     val fontClose = "</font>"
 
@@ -62,7 +62,7 @@ fun String.paintString(): String {
     while (cont < this.length) {
         if (this[cont] == '(' || this[cont] == ')') {
             resultTemp = resultTemp + colorParenthesis + this[cont] + fontClose
-        } else if (this[cont] == '+' || this[cont] == '-' || this[cont] == '*' || this[cont] == '/' || this[cont] == '%') {
+        } else if (this[cont] == '+' || this[cont] == '-' || this[cont] == '×' || this[cont] == '÷'|| this[cont] == '%') {
             // I like to change to include the negative sign with the number in white_arrow color complete
             resultTemp = resultTemp + colorSign + this[cont] + fontClose
         } else {
