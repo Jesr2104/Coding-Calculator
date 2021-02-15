@@ -2,13 +2,29 @@ package com.just_jump.coding_calculator
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.text.Editable
+import android.text.Html
 import android.text.SpannableStringBuilder
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.just_jump.coding_calculator.extensions.paintString
 import org.mariuszgromada.math.mxparser.*
 import kotlinx.android.synthetic.main.activity_calculator_new.*
 
 class CalculatorNew : AppCompatActivity() {
+    var stateResult = false
+    var mainHandler: Handler? = null
+
+    val action = object : Runnable {
+        override fun run() {
+            backspaceBTN()
+            mainHandler?.postDelayed(this, 150)
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator_new)
@@ -74,6 +90,26 @@ class CalculatorNew : AppCompatActivity() {
 
         numberBackSpace.setOnClickListener { backspaceBTN() }
 
+        numberBackSpace.setOnTouchListener { _, motionEvent ->
+            when (motionEvent.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    if (mainHandler != null)
+                        true
+                    mainHandler = Handler()
+                    mainHandler?.postDelayed(action, 150)
+                    false
+                }
+                MotionEvent.ACTION_UP -> {
+                    if (mainHandler == null)
+                        true
+                    mainHandler?.removeCallbacks(action)
+                    mainHandler = null
+                    false
+                }
+                else -> false
+            }
+        }
+
         /***************************************************************************/
         // Result expression
         /***************************************************************************/
@@ -89,7 +125,7 @@ class CalculatorNew : AppCompatActivity() {
     }
 
     // this function delete the char on the left of the cursor
-    // it's missing:
+    // this is necessary to check:
     // 1. when you delete a number need to check if the number have sense
     /*   finished and checked   */
     private fun backspaceBTN() {
@@ -145,6 +181,14 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertMathSign(mathSignToAdd: Char) {
+        if (stateResult){
+            var resultdata = Result_field.text
+            expression_value.setText(resultdata)
+            expression_value.setSelection(resultdata.length)
+            Result_field.text = ""
+            stateResult = false
+        }
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
@@ -581,14 +625,55 @@ class CalculatorNew : AppCompatActivity() {
         }
     }
 
+    // function to control when we try to insert a parenthesis
+    // this is necessary to check:
+    // 1. no put percentage on the left of the number
+    // 2. no put two percentage on the same number
+    /*   finished and checked   */
+    @SuppressLint("SetTextI18n")
     private fun insertPercentage(){
+        val oldStr = expression_value.text.toString()
+        val cursorPos = expression_value.selectionStart
 
+        val leftStr = oldStr.substring(0, cursorPos)
+        val rightStr = oldStr.substring(cursorPos)
+
+        var num = ""
+        var cont = leftStr.length - 1
+
+        while (cont > -1){
+            if (!"+-×÷()".contains(leftStr[cont])){
+                num += leftStr[cont]
+            } else { cont = 0 }
+            cont --
+        }
+        num = num.reversed()
+        cont = 0
+
+        if (rightStr.isNotEmpty()){
+            while (cont < rightStr.length) {
+                if (!"+-×÷()".contains(rightStr[cont])){
+                    num += rightStr[cont]
+                } else { cont = rightStr.length }
+                cont++
+            }
+        }
+
+        if (num.contains('%')){
+            // if the number contain already percentage % you don't need put more
+        } else {
+            if (leftStr.isNotEmpty()) {
+                if (leftStr[leftStr.length - 1 ].isDigit()) {
+                    expression_value.setText("$leftStr%$rightStr")
+                    expression_value.setSelection(cursorPos + 1)
+                }
+            }
+        }
     }
 
     // this is necessary to check:
     // 1. check the number of parenthesis
     // 2. check for the expression field is no empty
-    // 3.
     private fun calculateResult() {
         var userExp = expression_value.text.toString()
 
@@ -598,5 +683,7 @@ class CalculatorNew : AppCompatActivity() {
         val expression = Expression(userExp)
         val result = expression.calculate().toString()
         Result_field.text = result
+
+        stateResult = true
     }
 }
