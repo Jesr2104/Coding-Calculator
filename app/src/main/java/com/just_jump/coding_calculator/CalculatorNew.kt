@@ -56,7 +56,7 @@ class CalculatorNew : AppCompatActivity() {
 
         numberDivide.setOnClickListener { insertMathSign('÷') }
 
-        numberPercentage.setOnClickListener { insertMathSign('%') }
+        numberPercentage.setOnClickListener { insertPercentage() }
 
         numberOpenParenthesis.setOnClickListener { insertParenthesis('(') }
 
@@ -99,9 +99,41 @@ class CalculatorNew : AppCompatActivity() {
         if (cursorPos != 0 && textLen != 0) {
             val selection = expression_value.text as SpannableStringBuilder
 
-            selection.replace(cursorPos - 1, cursorPos, "")
-            expression_value.text = selection
-            expression_value.setSelection(cursorPos - 1)
+            if (selection[cursorPos - 1] == '.'){
+                if (selection[cursorPos - 2] == '0'){
+                    selection.replace(cursorPos - 2, cursorPos, "")
+                    expression_value.text = selection
+                    expression_value.setSelection(selection.length)
+                }
+                else {
+                    selection.replace(cursorPos - 1, cursorPos, "")
+                    expression_value.text = selection
+                    expression_value.setSelection(cursorPos - 1)
+                }
+            } else if(selection[cursorPos - 1] == '-'){
+                if (selection[cursorPos - 2] == '('){
+                    selection.replace(cursorPos - 2, cursorPos, "")
+                    expression_value.text = selection
+                    expression_value.setSelection(selection.length)
+                } else {
+                    selection.replace(cursorPos - 1, cursorPos, "")
+                    expression_value.text = selection
+                    expression_value.setSelection(cursorPos - 1)
+                }
+            } else {
+
+                if (cursorPos < selection.length -1 && cursorPos - 1 == 0){
+                    if ("+-×÷%".contains(selection[cursorPos])){
+                        selection.replace(0, cursorPos + 1, "")
+                        expression_value.text = selection
+                        expression_value.setSelection(cursorPos - 1)
+                    }
+                } else {
+                    selection.replace(cursorPos - 1, cursorPos, "")
+                    expression_value.text = selection
+                    expression_value.setSelection(cursorPos - 1)
+                }
+            }
         }
     }
 
@@ -200,6 +232,7 @@ class CalculatorNew : AppCompatActivity() {
     // 1. if the user insert a number but if zero previously 0 need to change for the new number
     // 2. when you press a number and you find on the right close parenthesis we need to change for
     //    a multiply parenthesis like: (20+1)[cursor] and press 4 need to finish (20+1)×4[cursor]
+    /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertNumber(numberToAdd: Char) {
         val oldStr = expression_value.text.toString()
@@ -208,10 +241,42 @@ class CalculatorNew : AppCompatActivity() {
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
+        var num = ""
+        var cont = leftStr.length - 1
 
+        while (cont > -1){
+            if (!"+-×÷%()".contains(leftStr[cont])){
+                num += leftStr[cont]
+            } else { cont = 0 }
+            cont --
+        }
+        num = num.reversed()
+        cont = 0
 
-        expression_value.setText(leftStr + numberToAdd + rightStr)
-        expression_value.setSelection(cursorPos + 1)
+        if (rightStr.isNotEmpty()){
+            while (cont < rightStr.length) {
+                if (!"+-×÷%()".contains(rightStr[cont])){
+                    num += rightStr[cont]
+                } else { cont = rightStr.length }
+                cont++
+            }
+        }
+
+        if (num.isNotEmpty()){
+            if (num == "0"){
+                expression_value.setText(leftStr.substring(0, leftStr.length - 1) + numberToAdd + rightStr)
+                expression_value.setSelection(cursorPos)
+            } else if(num.toDouble() < 1 && num.toDouble() > 0){
+                expression_value.setText(leftStr.substring(0, leftStr.length -1) + numberToAdd + rightStr)
+                expression_value.setSelection(cursorPos + 2)
+            } else {
+                expression_value.setText(leftStr + numberToAdd + rightStr)
+                expression_value.setSelection(cursorPos + 1)
+            }
+        } else {
+            expression_value.setText(leftStr + numberToAdd + rightStr)
+            expression_value.setSelection(cursorPos + 1)
+        }
     }
 
     // function to insert number
@@ -488,6 +553,10 @@ class CalculatorNew : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun insertPercentage(){
+
     }
 
     // this is necessary to check:
