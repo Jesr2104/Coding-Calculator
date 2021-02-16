@@ -15,34 +15,10 @@ import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import com.just_jump.coding_calculator.data.local.SRDataExpression
-import com.just_jump.coding_calculator.extensions.deleteComma
+import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.extensions.paintString
-import kotlinx.android.synthetic.main.activity_calculator.*
-import org.mariuszgromada.math.mxparser.*
 import kotlinx.android.synthetic.main.activity_calculator_new.*
-import kotlinx.android.synthetic.main.activity_calculator_new.historic
-import kotlinx.android.synthetic.main.activity_calculator_new.number0
-import kotlinx.android.synthetic.main.activity_calculator_new.number1
-import kotlinx.android.synthetic.main.activity_calculator_new.number2
-import kotlinx.android.synthetic.main.activity_calculator_new.number3
-import kotlinx.android.synthetic.main.activity_calculator_new.number4
-import kotlinx.android.synthetic.main.activity_calculator_new.number5
-import kotlinx.android.synthetic.main.activity_calculator_new.number6
-import kotlinx.android.synthetic.main.activity_calculator_new.number7
-import kotlinx.android.synthetic.main.activity_calculator_new.number8
-import kotlinx.android.synthetic.main.activity_calculator_new.number9
-import kotlinx.android.synthetic.main.activity_calculator_new.numberAllClear
-import kotlinx.android.synthetic.main.activity_calculator_new.numberBackSpace
-import kotlinx.android.synthetic.main.activity_calculator_new.numberCloseParenthesis
-import kotlinx.android.synthetic.main.activity_calculator_new.numberDivide
-import kotlinx.android.synthetic.main.activity_calculator_new.numberLess
-import kotlinx.android.synthetic.main.activity_calculator_new.numberMultiply
-import kotlinx.android.synthetic.main.activity_calculator_new.numberOpenParenthesis
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPercentage
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPlus
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPlusLess
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPoint
-import kotlinx.android.synthetic.main.activity_calculator_new.numberResult
+import org.mariuszgromada.math.mxparser.Expression
 
 class CalculatorNew : AppCompatActivity() {
     private var stateResult = false
@@ -166,6 +142,9 @@ class CalculatorNew : AppCompatActivity() {
     // 1. when you delete a number need to check if the number have sense
     /*   finished and checked   */
     private fun backspaceBTN() {
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val cursorPos = expression_value.selectionStart
         val textLen = expression_value.text.length
 
@@ -319,6 +298,9 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertNumber(numberToAdd: Char) {
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
@@ -380,6 +362,9 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertNumberZero() {
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
@@ -438,6 +423,9 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertParenthesis(parenthesisToAdd: Char) {
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
@@ -483,6 +471,9 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertPoint() {
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
         val charPoint = "."
@@ -553,6 +544,9 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertPlusLess() {
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
         val expressionPlusLess = "(-"
@@ -665,6 +659,9 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     @SuppressLint("SetTextI18n")
     private fun insertPercentage(){
+        // clear the expression is the state of the result is already shown
+        clearExpression()
+
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
 
@@ -716,12 +713,17 @@ class CalculatorNew : AppCompatActivity() {
             // function to calculate result external library
             // from: MathParser.org
             val expression = Expression(userExp)
-            val result = expression.calculate().toString()
+            val result = expression.calculate().toString().checkInteger()
 
-            Result_field.text = result
-            stateResult = true
+            if (result != "NaN"){
+                Result_field.text = result
+                stateResult = true
+                saveHistoryExpression(userExp, result)
+            } else {
+                val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
+                toast.show()
+            }
 
-            saveHistoryExpression(userExp, result)
         } else {
             val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
             toast.show()
@@ -735,12 +737,16 @@ class CalculatorNew : AppCompatActivity() {
     }
 
     private fun checkExpression(): Boolean {
-        return true
+        if (expression_value.text.isNotEmpty()){
+            return true
+        }
+        return false
     }
 
     private fun showHistory(){
         val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
         val myList: ArrayList<String> = SRDataExpression.customPreference(this).getlist()
+        var dataResult = ""
 
         if (myList != null) {
             var cont: Int = myList.size - 1
@@ -755,24 +761,31 @@ class CalculatorNew : AppCompatActivity() {
             SpinnerSelectionType.SINGLE_SELECTION, getString(R.string.History), arraySpinnerModel, object :
                 OnSpinnerOKPressedListener {
                     override fun onSingleSelection(data: SpinnerModel, selectedPosition: Int) {
-
                         when {
-                            data.text[0] != 'R' -> {
-                                // si es un resultado
-                            }
-                            data.text[0] == '-' -> {
-                                // si es un numero negarivo
-                            }
-                            else -> {
-                                // y para el resto de casos
+                            data.text[0] == 'R' ->{
+                                dataResult =
+                                    if (stateResult){
+                                        data.text.substring(8)
+                                    } else {
+                                        expression_value.text.toString() + data.text.substring(8)
+                                    }
+                            } else -> {
+                                dataResult =
+                                    if (stateResult) {
+                                        data.text
+                                    } else {
+                                        expression_value.text.toString() + data.text
+                                    }
                             }
                         }
+                        clearExpression()
+                        expression_value.setText(formatColor(dataResult))
+                        expression_value.setSelection(dataResult.length)
                     }
 
                     override fun onMultiSelection(data: List<SpinnerModel>,selectedPosition: Int) {
                         /* It will never send Multi selection data in SINGLE_SELECTION Mode*/
                     }
-
                 }, 0
             )
         spinnerSingleSelectDialogFragment.showSearchBar = false
@@ -782,6 +795,16 @@ class CalculatorNew : AppCompatActivity() {
             supportFragmentManager,
             "SpinnerDialogFragmentSingle"
         )
+    }
+
+    // this is necessary to check:
+    // this function check the state of the result if already show the result just change the result
+    // to used like expression
+    private fun clearExpression(){
+        if (stateResult){
+            expression_value.setText("")
+            stateResult = false
+        }
     }
 
     /*   finished and checked   */
