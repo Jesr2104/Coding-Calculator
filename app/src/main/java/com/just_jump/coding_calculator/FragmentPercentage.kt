@@ -2,18 +2,16 @@ package com.just_jump.coding_calculator
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.HideKeyboard
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import kotlinx.android.synthetic.main.fragment__percentage_new.*
 import kotlinx.android.synthetic.main.fragment__percentage_new.view.*
-import kotlinx.android.synthetic.main.fragment__percentage_new.view.button_back
 import java.text.DecimalFormat
 
 class FragmentPercentage(private val myInterface: ReturnMainActivity) : Fragment() {

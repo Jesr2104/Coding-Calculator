@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Front_ColorGrey"
     android:layout_width="match_parent"
     android:layout_height="340dp"
     tools:context=".MainActivity"
-    android:background="@color/Front_ColorGrey">
+    tools:ignore="Overdraw">
 
     <ScrollView
         android:layout_width="match_parent"

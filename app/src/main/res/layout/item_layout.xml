@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/codecolor"
+            android:id="@+id/codeColor"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"

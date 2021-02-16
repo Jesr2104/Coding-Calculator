@@ -1,6 +1,5 @@
 package com.just_jump.coding_calculator
 
-import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable

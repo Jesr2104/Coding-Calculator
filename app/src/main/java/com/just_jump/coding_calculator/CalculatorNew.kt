@@ -7,14 +7,45 @@ import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.view.MotionEvent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
+import com.github.hamzaahmedkhan.spinnerdialog.callbacks.OnSpinnerOKPressedListener
+import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
+import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
+import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
+import com.just_jump.coding_calculator.data.local.SRDataExpression
+import com.just_jump.coding_calculator.extensions.deleteComma
 import com.just_jump.coding_calculator.extensions.paintString
+import kotlinx.android.synthetic.main.activity_calculator.*
 import org.mariuszgromada.math.mxparser.*
 import kotlinx.android.synthetic.main.activity_calculator_new.*
+import kotlinx.android.synthetic.main.activity_calculator_new.historic
+import kotlinx.android.synthetic.main.activity_calculator_new.number0
+import kotlinx.android.synthetic.main.activity_calculator_new.number1
+import kotlinx.android.synthetic.main.activity_calculator_new.number2
+import kotlinx.android.synthetic.main.activity_calculator_new.number3
+import kotlinx.android.synthetic.main.activity_calculator_new.number4
+import kotlinx.android.synthetic.main.activity_calculator_new.number5
+import kotlinx.android.synthetic.main.activity_calculator_new.number6
+import kotlinx.android.synthetic.main.activity_calculator_new.number7
+import kotlinx.android.synthetic.main.activity_calculator_new.number8
+import kotlinx.android.synthetic.main.activity_calculator_new.number9
+import kotlinx.android.synthetic.main.activity_calculator_new.numberAllClear
+import kotlinx.android.synthetic.main.activity_calculator_new.numberBackSpace
+import kotlinx.android.synthetic.main.activity_calculator_new.numberCloseParenthesis
+import kotlinx.android.synthetic.main.activity_calculator_new.numberDivide
+import kotlinx.android.synthetic.main.activity_calculator_new.numberLess
+import kotlinx.android.synthetic.main.activity_calculator_new.numberMultiply
+import kotlinx.android.synthetic.main.activity_calculator_new.numberOpenParenthesis
+import kotlinx.android.synthetic.main.activity_calculator_new.numberPercentage
+import kotlinx.android.synthetic.main.activity_calculator_new.numberPlus
+import kotlinx.android.synthetic.main.activity_calculator_new.numberPlusLess
+import kotlinx.android.synthetic.main.activity_calculator_new.numberPoint
+import kotlinx.android.synthetic.main.activity_calculator_new.numberResult
 
 class CalculatorNew : AppCompatActivity() {
-    var stateResult = false
+    private var stateResult = false
     var mainHandler: Handler? = null
 
     val action = object : Runnable {
@@ -115,6 +146,12 @@ class CalculatorNew : AppCompatActivity() {
         /***************************************************************************/
 
         numberResult.setOnClickListener { calculateResult() }
+
+        /***************************************************************************/
+        // History
+        /***************************************************************************/
+
+        historic.setOnClickListener { showHistory() }
     }
 
     // this function clear all the field
@@ -659,7 +696,7 @@ class CalculatorNew : AppCompatActivity() {
             // if the number contain already percentage % you don't need put more
         } else {
             if (leftStr.isNotEmpty()) {
-                if (leftStr[leftStr.length - 1 ].isDigit()) {
+                if (leftStr[leftStr.length - 1 ].isDigit() || leftStr[leftStr.length - 1 ] == ')') {
                     expression_value.setText(formatColor("$leftStr%$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
@@ -672,15 +709,79 @@ class CalculatorNew : AppCompatActivity() {
     // 2. check for the expression field is no empty
     private fun calculateResult() {
         var userExp = expression_value.text.toString()
-
         userExp = userExp.replace('×', '*')
         userExp = userExp.replace('÷', '/')
 
-        val expression = Expression(userExp)
-        val result = expression.calculate().toString()
-        Result_field.text = result
+        if (checkExpression()){
+            // function to calculate result external library
+            // from: MathParser.org
+            val expression = Expression(userExp)
+            val result = expression.calculate().toString()
 
-        stateResult = true
+            Result_field.text = result
+            stateResult = true
+
+            saveHistoryExpression(userExp, result)
+        } else {
+            val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+    }
+
+    private fun saveHistoryExpression(expression: String, result: String) {
+        val srData = SRDataExpression.customPreference(this)
+        srData.setList(expression)
+        srData.setList("Result: $result")
+    }
+
+    private fun checkExpression(): Boolean {
+        return true
+    }
+
+    private fun showHistory(){
+        val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
+        val myList: ArrayList<String> = SRDataExpression.customPreference(this).getlist()
+
+        if (myList != null) {
+            var cont: Int = myList.size - 1
+
+            while (cont >= 0) {
+                arraySpinnerModel.add(SpinnerModel(myList[cont]))
+                cont--
+            }
+        }
+
+        val spinnerSingleSelectDialogFragment = SpinnerDialogFragment.newInstance(
+            SpinnerSelectionType.SINGLE_SELECTION, getString(R.string.History), arraySpinnerModel, object :
+                OnSpinnerOKPressedListener {
+                    override fun onSingleSelection(data: SpinnerModel, selectedPosition: Int) {
+
+                        when {
+                            data.text[0] != 'R' -> {
+                                // si es un resultado
+                            }
+                            data.text[0] == '-' -> {
+                                // si es un numero negarivo
+                            }
+                            else -> {
+                                // y para el resto de casos
+                            }
+                        }
+                    }
+
+                    override fun onMultiSelection(data: List<SpinnerModel>,selectedPosition: Int) {
+                        /* It will never send Multi selection data in SINGLE_SELECTION Mode*/
+                    }
+
+                }, 0
+            )
+        spinnerSingleSelectDialogFragment.showSearchBar = false
+        spinnerSingleSelectDialogFragment.buttonText = "Load Expression"
+        spinnerSingleSelectDialogFragment.themeColorResId = resources.getColor(R.color.color_text_contrast)
+        spinnerSingleSelectDialogFragment.show(
+            supportFragmentManager,
+            "SpinnerDialogFragmentSingle"
+        )
     }
 
     /*   finished and checked   */
@@ -688,6 +789,7 @@ class CalculatorNew : AppCompatActivity() {
         return HtmlCompat.fromHtml(stringToFormat.paintString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 
+    /*   finished and checked   */
     private fun formatColor(stringToFormat: SpannableStringBuilder): Editable {
         return HtmlCompat.fromHtml(stringToFormat.toString().paintString(), HtmlCompat.FROM_HTML_MODE_LEGACY) as Editable
     }

@@ -15,7 +15,7 @@ class InfoSystemDialog(private var InfoColorFor: String) : AppCompatDialogFragme
             // Get the layout inflater
             val inflater = requireActivity().layoutInflater
             val viewDialog = inflater.inflate(R.layout.dialog_info_system_color, null)
-            val imageInformation = viewDialog.findViewById<ImageView>(R.id.myinfo_image)
+            val imageInformation = viewDialog.findViewById<ImageView>(R.id.my_info_image)
 
             when(InfoColorFor){
                 "IC" -> {

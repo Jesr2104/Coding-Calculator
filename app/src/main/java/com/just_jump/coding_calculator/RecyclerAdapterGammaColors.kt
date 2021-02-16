@@ -91,7 +91,7 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
         init {
             rgbColor = itemView.findViewById(R.id.rgbColor)
             hexColor = itemView.findViewById(R.id.hexColor)
-            codeColor = itemView.findViewById(R.id.codecolor)
+            codeColor = itemView.findViewById(R.id.codeColor)
             mainLayout = itemView.findViewById(R.id.mainLayoutPalette)
 
             itemView.setOnClickListener {}

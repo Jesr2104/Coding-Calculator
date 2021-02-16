@@ -1,7 +1,6 @@
 package com.just_jump.coding_calculator
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.just_jump.coding_calculator.data.remote.currentVersion

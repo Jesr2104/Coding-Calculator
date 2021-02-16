@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ class FragmentSquareRoot(private val myInterface: ReturnMainActivity) : Fragment
 
     private val format = DecimalFormat()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle? ): View? {

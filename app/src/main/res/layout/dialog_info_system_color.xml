@@ -15,7 +15,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/myinfo_image"
+                android:id="@+id/my_info_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/color_systems_information"

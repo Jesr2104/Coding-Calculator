@@ -1,6 +1,5 @@
 package com.just_jump.coding_calculator
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.just_jump.coding_calculator.utilities.Functions
-import com.just_jump.coding_calculator.utilities.myFilter
 import com.just_jump.coding_calculator.viewmodel.ViewModelNumericalSystem
 import kotlinx.android.synthetic.main.activity_numerical_systems_new.*
 

@@ -7,13 +7,13 @@ import com.google.gson.Gson
 // this object create
 object SRDataExpression {
 
-    private val gsonInstance = Gson()
-    private var datasharepreferente: SharedPreferences? = null
+    private val gSonInstance = Gson()
+    private var dataSharePreference: SharedPreferences? = null
 
     // this functions create the object of the Shared preference
     fun customPreference(context: Context): SRDataExpression {
-        if (datasharepreferente == null)
-            datasharepreferente = context.getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
+        if (dataSharePreference == null)
+            dataSharePreference = context.getSharedPreferences("HistoryData", Context.MODE_PRIVATE)
         return this
     }
 
@@ -27,10 +27,10 @@ object SRDataExpression {
     fun getlist(): ArrayList<String> {
 
         var dataSaveList: ArrayList<String> = ArrayList()
-        if (datasharepreferente?.contains("HistoryData")!!) {
-            val json = datasharepreferente?.getString("HistoryData", "DEFAULT")
+        if (dataSharePreference?.contains("HistoryData")!!) {
+            val json = dataSharePreference?.getString("HistoryData", "DEFAULT")
             dataSaveList =
-                gsonInstance.fromJson<ArrayList<String>>(json, ArrayList<String>()::class.java)
+                gSonInstance.fromJson<ArrayList<String>>(json, ArrayList<String>()::class.java)
 
             return dataSaveList
         }
@@ -56,9 +56,9 @@ object SRDataExpression {
             dataSaveList.add(newData)
         }
 
-        val json = gsonInstance.toJson(dataSaveList)
+        val json = gSonInstance.toJson(dataSaveList)
 
-        datasharepreferente?.editMe {
+        dataSharePreference?.editMe {
             it.putString("HistoryData", json)
         }
     }

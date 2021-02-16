@@ -1,6 +1,5 @@
 package com.just_jump.coding_calculator
 
-import android.content.pm.ActivityInfo
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -21,8 +20,8 @@ class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
         val fragmentSquareRoot = FragmentSquareRoot(this)
 
         val colors = intArrayOf(
-            Color.rgb(0,0,0),// no select
-            Color.rgb(150,150,150)// Select
+            Color.rgb(0, 0, 0),// no select
+            Color.rgb(150, 150, 150)// Select
         )
 
         val states = arrayOf(
@@ -36,7 +35,7 @@ class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
         makeCurrentFragment(fragmentAverage)
 
         navigationBar_view.setOnNavigationItemSelectedListener {
-            when (it.itemId){
+            when (it.itemId) {
                 R.id.NavBar_average -> makeCurrentFragment(fragmentAverage)
                 R.id.NavBar_exponent -> makeCurrentFragment(fragmentExponent)
                 R.id.NavBar_percentage -> makeCurrentFragment(fragmentPercentage)

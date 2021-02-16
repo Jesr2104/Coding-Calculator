@@ -7,13 +7,13 @@ import com.google.gson.Gson
 // this object create
 object SRDataColors {
 
-    private val gsonInstance = Gson()
-    private var datasharepreferente: SharedPreferences? = null
+    private val gSonInstance = Gson()
+    private var dataSharePreference: SharedPreferences? = null
 
     // this functions create the object of the Shared preference
     fun customPreference(context: Context): SRDataColors {
-        if (datasharepreferente == null)
-            datasharepreferente = context.getSharedPreferences("ListColors", Context.MODE_PRIVATE)
+        if (dataSharePreference == null)
+            dataSharePreference = context.getSharedPreferences("ListColors", Context.MODE_PRIVATE)
         return this
     }
 
@@ -27,10 +27,10 @@ object SRDataColors {
     fun getlist(): ArrayList<Int> {
 
         var dataSaveList: ArrayList<Int> = ArrayList()
-        if (datasharepreferente?.contains("ListColors")!!) {
-            val json = datasharepreferente?.getString("ListColors", "DEFAULT")
+        if (dataSharePreference?.contains("ListColors")!!) {
+            val json = dataSharePreference?.getString("ListColors", "DEFAULT")
             dataSaveList =
-                gsonInstance.fromJson<ArrayList<Int>>(json, ArrayList<Int>()::class.java)
+                gSonInstance.fromJson<ArrayList<Int>>(json, ArrayList<Int>()::class.java)
 
             return dataSaveList
         }
@@ -49,8 +49,8 @@ object SRDataColors {
                 dataTemp.add(item)
             }
 
-            val json = gsonInstance.toJson(dataTemp)
-            datasharepreferente?.editMe {
+            val json = gSonInstance.toJson(dataTemp)
+            dataSharePreference?.editMe {
                 it.putString("ListColors", json)
             }
 
@@ -71,8 +71,8 @@ object SRDataColors {
             }
         }
 
-        val json = gsonInstance.toJson(tempData)
-        datasharepreferente?.editMe {
+        val json = gSonInstance.toJson(tempData)
+        dataSharePreference?.editMe {
             it.putString("ListColors", json)
         }
     }

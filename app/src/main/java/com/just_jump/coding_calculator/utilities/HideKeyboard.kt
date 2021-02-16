@@ -6,10 +6,8 @@ import android.view.inputmethod.InputMethodManager
 
 class HideKeyboard() {
 
-    private lateinit var imm: InputMethodManager
-
     constructor (activity: Activity):this() {
-        imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
 
         //Find the currently focused view, so we can grab the correct window token from it.
         var view= activity.currentFocus

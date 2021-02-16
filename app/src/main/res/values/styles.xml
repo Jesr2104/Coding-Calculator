@@ -16,7 +16,7 @@
     </style>
 
     <style name="prefix_text" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">8dp</item>
+        <item name="android:textSize">8sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 

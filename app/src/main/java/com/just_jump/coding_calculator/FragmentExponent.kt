@@ -9,12 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import kotlinx.android.synthetic.main.fragment_exponent_new.*
 import kotlinx.android.synthetic.main.fragment_exponent_new.view.*
-import kotlinx.android.synthetic.main.fragment_exponent_new.view.button_back
-import kotlinx.android.synthetic.main.fragment_exponent_new.view.label_result
-import kotlinx.android.synthetic.main.fragment_exponent_new.view.resultField
 import java.text.DecimalFormat
 import kotlin.math.pow
 

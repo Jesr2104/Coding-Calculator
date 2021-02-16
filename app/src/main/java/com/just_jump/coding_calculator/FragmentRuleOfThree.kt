@@ -1,5 +1,6 @@
 package com.just_jump.coding_calculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +10,15 @@ import androidx.fragment.app.Fragment
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.HideKeyboard
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import kotlinx.android.synthetic.main.fragment__rule_of_three_new.*
 import kotlinx.android.synthetic.main.fragment__rule_of_three_new.view.*
-import kotlinx.android.synthetic.main.fragment__rule_of_three_new.view.button_back
 import java.text.DecimalFormat
 
 class FragmentRuleOfThree(private val myInterface: ReturnMainActivity) : Fragment() {
 
     private var proportionsTypeSelected = true
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle? ): View? {

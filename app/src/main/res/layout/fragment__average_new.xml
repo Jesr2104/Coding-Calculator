@@ -216,13 +216,14 @@
                     android:id="@+id/label_Total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add values"
+                    android:text="@string/add_values"
                     android:textColor="@color/ColorRGB_R"
-                    android:textSize="8dp"
+                    android:textSize="8sp"
                     android:textStyle="bold"
                     android:visibility="invisible"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SmallSp" />
 
                 <TextView
                     android:id="@+id/label_nValues"
@@ -230,11 +231,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/n_values"
                     android:textColor="@color/ColorRGB_R"
-                    android:textSize="8dp"
+                    android:textSize="8sp"
                     android:textStyle="bold"
                     android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SmallSp" />
 
                 <TextView
                     android:id="@+id/label_result"
@@ -243,11 +245,12 @@
                     android:layout_marginTop="5dp"
                     android:text="@string/result1"
                     android:textColor="@color/material_green600"
-                    android:textSize="8dp"
+                    android:textSize="8sp"
                     android:textStyle="bold"
                     android:visibility="invisible"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/separator" />
+                    app:layout_constraintTop_toBottomOf="@+id/separator"
+                    tools:ignore="SmallSp" />
 
                 <TextView
                     android:id="@+id/total_value_add"
@@ -290,7 +293,6 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
-                    android:autoSizeTextType="uniform"
                     android:paddingBottom="5dp"
                     android:text="@string/result1"
                     android:textSize="18sp"

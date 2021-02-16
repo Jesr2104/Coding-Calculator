@@ -234,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="X"
+                    android:text="@string/x"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/separator"
@@ -246,12 +246,13 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     android:paddingBottom="15dp"
-                    android:text="n"
+                    android:text="@string/n"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/textView4"
                     app:layout_constraintEnd_toEndOf="@+id/textView4"
-                    app:layout_constraintStart_toEndOf="@+id/textView4" />
+                    app:layout_constraintStart_toEndOf="@+id/textView4"
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/label_result"
@@ -261,17 +262,17 @@
                     android:layout_marginStart="5dp"
                     android:text="@string/result1"
                     android:textColor="@color/material_green600"
-                    android:textSize="8dp"
+                    android:textSize="8sp"
                     android:textStyle="bold"
                     android:visibility="invisible"
                     app:layout_constraintStart_toStartOf="@+id/separator"
-                    app:layout_constraintTop_toBottomOf="@+id/base_value" />
+                    app:layout_constraintTop_toBottomOf="@+id/base_value"
+                    tools:ignore="SmallSp" />
 
                 <TextView
                     android:id="@+id/resultField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="5dp"
                     android:paddingBottom="5dp"
@@ -291,7 +292,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="calculate"
+                android:text="@string/calculate"
                 android:textColor="@color/yellow_mainColor"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

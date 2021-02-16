@@ -1,7 +1,8 @@
+@file:Suppress("SpellCheckingInspection")
+
 package com.just_jump.coding_calculator
 
 import android.content.Intent
-import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View

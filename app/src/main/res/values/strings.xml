@@ -6,15 +6,14 @@
     <string name="triadic">Triadic</string>
     <string name="tetradic">Tetradic</string>
     <string name="saved">Saved</string>
+    <string name="converter">Converter</string>
     <string name="change_color">Change Color</string>
     <string name="saved_colors">Saved Colors</string>
     <string name="color_information">Color Information</string>
     <string name="color_palette">Color palette</string>
     <string name="color_range">Color Range</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="Text_infoRuleOfThree_direct">When we got to the hotel they gave us a map with the places of interest in the city, and they told us that 5 centimeters of the map represents 600 meters of reality. Today we want to go to a park that is 8 centimeters from the hotel on the map. How far from the hotel is this park? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learnt:</string>
     <string name="Text_infoRuleOfThree_inverse">Yesterday, 2 trucks transported goods from the port to the warehouse. Today, 3 trucks, the same size as yesterday, will have to make 6 trips to transport the same amount of goods from the warehouse to the mall. How many trips did the trucks make yesterday? \n\nWe are going to make the table with the 3 data and the unknown (“x”), and we will find “x” with the formula that we have just learnt:</string>
-    <string name="converter">Converter</string>
     <string name="coding_calculator_title">Coding Calculator</string>
     <string name="description_calculator">It provides the fundamental operations and calculations.</string>
     <string name="description_converter">Simple universal units conversion tool.</string>
@@ -24,28 +23,19 @@
     <string name="numerical_systems">Numerical Systems</string>
     <string name="calculator">Calculator</string>
     <string name="description_extras">Other calculator features </string>
-
-    <!-- Text for contentDescription for harmony colors -->
-
     <string name="tetradic_color_2">Tetradic color 2</string>
     <string name="tetradic_color_3">Tetradic color 3</string>
     <string name="tetradic_color_1">Tetradic color 1</string>
-
     <string name="triadic_color_2">Triadic color 2</string>
     <string name="triadic_color_1">Triadic color 1</string>
-
     <string name="analogous_color_5">Analogous color 5</string>
     <string name="analogous_color_4">Analogous color 4</string>
     <string name="analogous_color_3">Analogous color 3</string>
     <string name="analogous_color_2">Analogous color 2</string>
     <string name="analogous_color_1">Analogous color 1</string>
-
     <string name="splitCC_color_2">Split complementary  color 2</string>
     <string name="splitCC_color_1">Split complementary color 1</string>
-
     <string name="complementary_color_1">Complementary color 1</string>
-
-
     <string name="area_button">Area button</string>
     <string name="length_button">Length button</string>
     <string name="temperature_button">Temperature button</string>
@@ -64,13 +54,9 @@
     <string name="rgb_bar_color_red">RGB bar color red</string>
     <string name="rgb_bar_color_green">RGB bar color green</string>
     <string name="rgb_bar_color_blue">RGB bar color blue</string>
-    <string name="value_a_converter">Value A Converter</string>
-    <string name="value_b_converter">Value B Converter</string>
     <string name="increase_value">Increase value</string>
     <string name="value_color">value color</string>
     <string name="decrease_value">Decrease value</string>
-    <string name="value_to_convert">Value to convert</string>
-    <string name="value_of_percentage">Value of percentage</string>
     <string name="history_of_expression">History of expression</string>
     <string name="delete_character">Delete character</string>
     <string name="main_color_selected">Main color selected</string>
@@ -99,7 +85,6 @@
     <string name="value_green_color">value green color</string>
     <string name="value_color_blue">value color blue</string>
     <string name="hex_color_code">Hex color code</string>
-
     <string name="result">Result: "\</string>
     <string name="History">History</string>
     <string name="speed">Speed</string>
@@ -139,8 +124,6 @@
     <string name="icon_color_harmonic">Icon_Color_harmonic</string>
     <string name="icon_extras">Icon_Extras</string>
     <string name="image_expression">Image_expression</string>
-    <string name="image_expression2">Image_expression2</string>
-    <string name="image_expression_example">Image_expression_example</string>
     <string name="palette_item">palette_item</string>
     <string name="r">R</string>
     <string name="_118">118</string>
@@ -157,11 +140,9 @@
     <string name="value_a">Value A</string>
     <string name="value_b">Value B</string>
     <string name="value_c">Value C</string>
-    <string name="result2text">Result:</string>
-    <string name="xs">X:</string>
-    <string name="calculate">Calculator</string>
+    <string name="calculate">Calculate</string>
     <string name="extras">Extras</string>
-    <string name="number">Number:</string>
+    <string name="number">Number</string>
     <string name="dec">Dec</string>
     <string name="bin">Bin</string>
     <string name="oct">Oct</string>
@@ -172,10 +153,7 @@
     <string name="decimal">Decimal:</string>
     <string name="hex2">Hex:</string>
     <string name="values">Values</string>
-    <string name="pCent">Pcent %</string>
     <string name="value">Value</string>
-    <string name="percentage_0">0%</string>
-    <string name="result_without_point">Result</string>
     <string name="increase">Increase</string>
     <string name="decrease">Decrease</string>
     <string name="load">Load</string>
@@ -197,7 +175,6 @@
     <string name="Title_notification">New version "Update"</string>
     <string name="exponent_button">Exponent button</string>
     <string name="exponent">Exponent</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="base_x">Base (x)</string>
     <string name="exponent_n">Exponent (n)</string>
     <string name="clear">Clear</string>
@@ -213,12 +190,15 @@
     <string name="insert_number">Insert number</string>
     <string name="square_root">Nth root</string>
     <string name="square_root_button">Square root button</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="insertN">Insert n</string>
     <string name="insertX">Insert x</string>
     <string name="message_1">the index cannot be negative</string>
     <string name="message_2">Some of the data is missing to insert</string>
-    <string name="insert_expression">Insert expression</string>
-
+    <string name="n_text_value">(n)</string>
+    <string name="x_text_value">(x)</string>
+    <string name="add_values">Add values</string>
+    <string name="n">n</string>
+    <string name="x">X</string>
+    <string name="numerical">Numerical</string>
+    <string name="systems">Systems</string>
 </resources>

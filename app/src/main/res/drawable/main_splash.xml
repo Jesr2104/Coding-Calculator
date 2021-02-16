@@ -8,9 +8,7 @@
 
     <item
         android:drawable="@drawable/icon_app_foreground"
-        android:gravity="center_vertical|center_horizontal"
-        android:height="100dp"
-        android:width="100dp">
+        android:gravity="center_vertical|center_horizontal">
     </item>
 
 </layer-list>
