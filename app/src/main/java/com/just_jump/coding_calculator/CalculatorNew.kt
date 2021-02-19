@@ -303,52 +303,109 @@ class CalculatorNew : AppCompatActivity() {
 
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
+        val number = getNumberOnExpression()
 
+        // string on the left and on the right of the cursor
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
-        var num = ""
-        var cont = leftStr.length - 1
-
-        while (cont > -1){
-            if (!"+-×÷%()".contains(leftStr[cont])){
-                num += leftStr[cont]
-            } else { cont = 0 }
-            cont --
-        }
-        num = num.reversed()
-        cont = 0
-
-        if (rightStr.isNotEmpty()){
-            while (cont < rightStr.length) {
-                if (!"+-×÷%()".contains(rightStr[cont])){
-                    num += rightStr[cont]
-                } else { cont = rightStr.length }
-                cont++
-            }
-        }
-
-        if (num.isNotEmpty()){
-            if (num == "0"){
-                expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + numberToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos)
-            } else if(num.toDouble() < 1 && num.toDouble() > 0){
-                expression_value.setText(formatColor(leftStr.substring(0, leftStr.length -1) + numberToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 2)
-            } else {
-                expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
-            }
+        if (oldStr.isEmpty()){
+            // case: if you find empty the expression
+            expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+            expression_value.setSelection(cursorPos + 1)
         } else {
-            if (oldStr.isEmpty()){
-                expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
-            } else {
-                if (leftStr[leftStr.length - 1 ] == ')'){
-                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 2)
-                } else {
+            // the case if you have expression in both side
+            if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+                // if you find number in both side of the cursor like: 3[cursor]3
+                if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
+                    //Case: Number[cursor]Number: 6[cursor]6
+                    /*  It's missing to set the condition to put this number
+                    *   3[cursor]3 -> result: 3[Number][cursor]3
+                    *   0[cursor]3 -> result: 0[Number][cursor]3 "in this case you delete number zero because can bee before a number like 30[cursor]3"
+                    * */
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if ("+-×÷.".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()) {
+                    //Case: Number[cursor]Number: "+-×÷."[cursor]6
+                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷".contains(rightStr[0])){
+                    //Case: Number[cursor]MathSign: 6[cursor]"+-×÷."
+                    if (number.toDouble() == 0.0){
+                        // if the number is 0 we need to replace this por the new number
+                        expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + numberToAdd + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    } else {
+                        // if the number if different of zero we can add the new number
+                        expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && "+-×÷".contains(rightStr[0])){
+                    //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
+                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()){
+                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '('){
+                    if (number.toDouble() == 0.0) {
+                        expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd×$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    } else {
+                        // if the number if different of zero we can add the new number
+                        expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == '('){
+                    expression_value.setText(formatColor("$leftStr×$numberToAdd×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == '(' && "+-×÷".contains(rightStr[0])) {
+                    expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if ("+-×÷.".contains(leftStr[leftStr.length -1]) && rightStr[0] == ')'){
+                    expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1].isDigit() && rightStr[0] == ')'){
+                    if (number.toDouble() == 0.0) {
+                        expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    } else {
+                        // if the number if different of zero we can add the new number
+                        expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if (leftStr[leftStr.length -1] == '(' && rightStr[0].isDigit()){
+                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == ')') {
+                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == '(') {
+                    expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == ')') {
+                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if ("+-×÷.".contains(leftStr[leftStr.length -1]) && rightStr[0] == '(') {
+                    expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == ')' && "+-×÷".contains(rightStr[0])) {
+                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
             }
@@ -367,49 +424,144 @@ class CalculatorNew : AppCompatActivity() {
 
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
+        val number = getNumberOnExpression()
 
+        // string on the left and on the right of the cursor
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
-        if (oldStr.isNotEmpty()){
-            // if you find data on both side of the cursor for example: 25[cursor]45
-            if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
-                if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
-                    expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
-                }
-
-            // if you find data just on the left side of the cursor like: 25[cursor]
-            } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
-                var num = ""
-                var cont = leftStr.length - 1
-
-                while (cont > -1){
-                    if (!"+-×÷%()".contains(leftStr[cont])){
-                        num += leftStr[cont]
-                    } else { cont = 0 }
-                    cont --
-                }
-                num = num.reversed()
-
-                if (num.isNotEmpty()){
-                    if (num.toDouble() > 0 || num.contains('.')){
-                        expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
-                    }
-                } else {
-                    if ("+-×÷%()".contains(leftStr[leftStr.length - 1])){
-                        expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
-                    }
-                }
-
-            // if you find data just on the right side of the cursor for example [cursor]25
-            }
-        } else {
-            // default case: if you find empty the expression
+        if (oldStr.isEmpty()){
+            // case: if you find empty the expression
             expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
             expression_value.setSelection(cursorPos + 1)
+        } else {
+            if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+                // if you find data on both side of the cursor for example: 25[cursor]45
+                if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
+                    //Case: Number[cursor]Number: 6[cursor]6
+                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                        expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()){
+                    //Case: MathSign[cursor]Number: "+-×÷"[cursor]6
+                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                        expression_value.setText(formatColor(leftStr + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos)
+                    }
+                }
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷.".contains(rightStr[0])){
+                    //Case: Number[cursor]MathSign: 6[cursor]"+-×÷."
+                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                        expression_value.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if (leftStr[leftStr.length -1]== '.'){
+                    //Case: .[cursor]Number: 0.[cursor]wherever
+                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                        expression_value.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && "+-×÷".contains(rightStr[0])){
+                    //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
+                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()) {
+                    //Case: closeParenthesis[cursor]MathSign: )[cursor]"+-×÷"
+                    expression_value.setText(formatColor("${leftStr}×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '('){
+                    //Case: Number[cursor]openParenthesis 6[cursor](
+                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                        expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == '('){
+                    //Case: closeParenthesis[cursor]openParenthesis )[cursor](
+                    expression_value.setText(formatColor("${leftStr}×0×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 2)
+                }
+                else if (leftStr[leftStr.length -1] == '(' && "+-×÷".contains(rightStr[0])){
+                    //Case: openParenthesis[cursor]MathSign ([cursor]"+-×÷"
+                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0] == '('){
+                    //Case: MathSign[cursor]openParenthesis "+-×÷"[cursor](
+                    expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == ')' && "+-×÷".contains(rightStr[0])){
+                    //Case: closeParenthesis[cursor]MathSign )[cursor]"+-×÷"
+                    expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0] == ')'){
+                    //Case: MathSign[cursor]closeParenthesis "+-×÷"[cursor])
+                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == ')') {
+                    //Case: Number[cursor]closeParenthesis Number[cursor])
+                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                        expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()){
+                    //Case: openParenthesis[cursor]Number ([cursor]Number
+                    expression_value.setText(formatColor("$leftStr×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos)
+                }
+                else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == ')'){
+                    //Case: openParenthesis[cursor]closeParenthesis ([cursor])
+                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == '%' && "+-×÷".contains(rightStr[0])){
+                    //Case: %[cursor]MathSign %[cursor]"+-×÷"
+                    expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+                else if (leftStr[leftStr.length -1] == '%' && rightStr[0] == '('){
+                    //Case: %[cursor]openParenthesis %[cursor](
+                    expression_value.setText(formatColor("${leftStr}×0×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 2)
+                }
+                else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == '('){
+                    //Case: closeParenthesis[cursor]openParenthesis ([cursor](
+                    expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 2)
+                }
+                else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == ')'){
+                    //Case: closeParenthesis[cursor]openParenthesis )[cursor])
+                    expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 2)
+                }
+            } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
+                // if the number is empty can be something like: (-, (
+                if (number.isEmpty()){
+                    if (leftStr[leftStr.length -1] == '(' || leftStr[leftStr.length -1] == '.' || "+-×÷".contains(leftStr[leftStr.length -1])){
+                        expression_value.setText(formatColor(leftStr + "0")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+                    else if (leftStr[leftStr.length -1] == ')' || leftStr[leftStr.length -1] == '%'){
+                        expression_value.setText(formatColor("$leftStr×0")) //#formatColor
+                        expression_value.setSelection(cursorPos + 2)
+                    }
+                } else if (leftStr[leftStr.length -1].isDigit() || leftStr[leftStr.length -1] == '.' && (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0"))) {
+                    expression_value.setText(formatColor(leftStr + "0")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                }
+            } else if (leftStr.isEmpty() && rightStr.isNotEmpty()){
+                // if you find data just on the right side of the cursor for example [cursor]25
+            }
         }
     }
 
@@ -447,7 +599,7 @@ class CalculatorNew : AppCompatActivity() {
 
             }
         } else if (leftStr.isNotEmpty()) {
-            if ((leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
+            if ((leftStr[leftStr.length - 1] == '%' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
                 expression_value.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
                 expression_value.setSelection(cursorPos + 2)
             } else {
@@ -630,7 +782,7 @@ class CalculatorNew : AppCompatActivity() {
                     // in this example like 21*[cursor] the result is: 21*(-[cursor]
                     // case 3: when you have a close parenthesis on the right
 
-                    number = if (stringA[stringA.length -1] == ')'){ "×(-" } else { "(-" }
+                    number = if (stringA[stringA.length -1] == ')' || stringA[stringA.length -1] == '%'){ "×(-" } else { "(-" }
 
                     expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
                     expression_value.setSelection(stringA.length + number.length)
@@ -705,8 +857,10 @@ class CalculatorNew : AppCompatActivity() {
     // 1. check the number of parenthesis
     // 2. check for the expression field is no empty
     private fun calculateResult() {
-        var userExp = expression_value.text.toString()
-        userExp = userExp.replace('×', '*')
+        val rowExpression = expression_value.text.toString()
+        var userExp = ""
+
+        userExp = rowExpression.replace('×', '*')
         userExp = userExp.replace('÷', '/')
 
         if (checkExpression()){
@@ -718,7 +872,7 @@ class CalculatorNew : AppCompatActivity() {
             if (result != "NaN"){
                 Result_field.text = result
                 stateResult = true
-                saveHistoryExpression(userExp, result)
+                saveHistoryExpression(rowExpression, result)
             } else {
                 val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
                 toast.show()
@@ -746,15 +900,13 @@ class CalculatorNew : AppCompatActivity() {
     private fun showHistory(){
         val arraySpinnerModel: ArrayList<SpinnerModel> = ArrayList()
         val myList: ArrayList<String> = SRDataExpression.customPreference(this).getlist()
-        var dataResult = ""
+        var dataResult: String
 
-        if (myList != null) {
-            var cont: Int = myList.size - 1
+        var cont: Int = myList.size - 1
 
-            while (cont >= 0) {
-                arraySpinnerModel.add(SpinnerModel(myList[cont]))
-                cont--
-            }
+        while (cont >= 0) {
+            arraySpinnerModel.add(SpinnerModel(myList[cont]))
+            cont--
         }
 
         val spinnerSingleSelectDialogFragment = SpinnerDialogFragment.newInstance(
@@ -815,5 +967,120 @@ class CalculatorNew : AppCompatActivity() {
     /*   finished and checked   */
     private fun formatColor(stringToFormat: SpannableStringBuilder): Editable {
         return HtmlCompat.fromHtml(stringToFormat.toString().paintString(), HtmlCompat.FROM_HTML_MODE_LEGACY) as Editable
+    }
+
+    /***************************************************************************/
+    // functions to get number, index A and index B
+    /***************************************************************************/
+
+    // this function return the number select with the cursor
+    private fun getNumberOnExpression(): String {
+        // complete string expression
+        val oldStr = expression_value.text.toString()
+        // position of the cursor
+        val cursorPos = expression_value.selectionStart
+        // string on the left and on the right of the cursor
+        val leftStr = oldStr.substring(0, cursorPos)
+        val rightStr = oldStr.substring(cursorPos)
+
+        var num = ""
+        var cont = leftStr.length - 1
+
+        while (cont > -1){
+            if (!"+-×÷()".contains(leftStr[cont])){
+                num += leftStr[cont]
+            } else {
+                if (leftStr[cont] == '-'){
+                    if (cont > 0){
+                        if (leftStr[cont - 1] == '('){
+                            num += "-"
+                        }
+                    }
+                }
+                cont = 0
+            }
+            cont --
+        }
+        num = num.reversed()
+        cont = 0
+
+        if (rightStr.isNotEmpty()){
+            while (cont < rightStr.length) {
+                if (!"+-×÷()".contains(rightStr[cont])){
+                    num += rightStr[cont]
+                } else {
+                    if (rightStr[cont] == '-' && cont == 0){
+                        if (leftStr[leftStr.length - 1] == '('){
+                            num += rightStr[cont]
+                        } else {
+                            cont = rightStr.length
+                        }
+                    } else {
+                        cont = rightStr.length
+                    }
+                }
+                cont++
+            }
+        }
+
+        return num
+    }
+
+    // this function get the first index of the number select with the cursor
+    private fun getIndexA(): Int {
+        // complete string expression
+        val oldStr = expression_value.text.toString()
+        // position of the cursor
+        val cursorPos = expression_value.selectionStart
+        var cont = cursorPos - 1
+        var indexA = 0
+
+        while (cont > 0){
+            if ("+-×÷()".contains(oldStr[cont])){
+                indexA =
+                    if (cont -1 >= 0){
+                        if (oldStr[cont] == '-' && oldStr[cont -1] == '('){
+                            cont
+                        } else {
+                            cont + 1
+                        }
+                    } else {
+                        cont + 1
+                    }
+                cont = 0
+            }
+            cont--
+        }
+
+        return indexA
+    }
+
+    private fun getIndexB(): Int {
+        // complete string expression
+        val oldStr = expression_value.text.toString()
+        // position of the cursor
+        val cursorPos = expression_value.selectionStart
+        var cont = cursorPos
+        var indexB = oldStr.length
+
+        while (cont < oldStr.length) {
+            var show = true
+            if ("+-×÷()".contains(oldStr[cont])) {
+                if(oldStr[cont] == '-'){
+                    if(cont -1 >= 0){
+                        if (oldStr[cont] == '-' && oldStr[cont -1] == '('){
+                            show = false
+                        }
+                    }
+                }
+                if (show){
+                    indexB = cont - 1
+                    cont = oldStr.length
+                }
+            }
+            cont++
+        }
+
+        return indexB
     }
 }
