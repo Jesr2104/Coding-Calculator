@@ -22,7 +22,8 @@ import org.mariuszgromada.math.mxparser.Expression
 
 class CalculatorNew : AppCompatActivity() {
     private var stateResult = false
-    var mainHandler: Handler? = null
+    private var mainHandler: Handler? = null
+    private var decimalSeparator = '.'
 
     val action = object : Runnable {
         override fun run() {
@@ -147,46 +148,75 @@ class CalculatorNew : AppCompatActivity() {
 
         val cursorPos = expression_value.selectionStart
         val textLen = expression_value.text.length
+        val number = getNumberOnExpression()
 
-        if (cursorPos != 0 && textLen != 0) {
+        // case: if you delete number 9000 for example need to check for the rest o the number if
+        // this number is 0000 need you put just one 0 on the expression
+
+        // case: if you have 5+(9-4) and you delete number 5 need to delete the math sign before
+        // 5 to don't leave any math orphan sign
+
+        if (expression_value.text.isNotEmpty()){
             val selection = expression_value.text as SpannableStringBuilder
 
-            if (selection[cursorPos - 1] == '.'){
-                if (selection[cursorPos - 2] == '0'){
-                    selection.replace(cursorPos - 2, cursorPos, "")
-                    expression_value.text = formatColor(selection) //#formatColor
-                    expression_value.setSelection(selection.length)
-                }
-                else {
-                    selection.replace(cursorPos - 1, cursorPos, "")
-                    expression_value.text = formatColor(selection) //#formatColor
-                    expression_value.setSelection(cursorPos - 1)
-                }
-            } else if(selection[cursorPos - 1] == '-'){
-                if (selection[cursorPos - 2] == '('){
-                    selection.replace(cursorPos - 2, cursorPos, "")
-                    expression_value.text = formatColor(selection) //#formatColor
-                    expression_value.setSelection(selection.length)
-                } else {
-                    selection.replace(cursorPos - 1, cursorPos, "")
-                    expression_value.text = formatColor(selection) //#formatColor
-                    expression_value.setSelection(cursorPos - 1)
-                }
-            } else {
-
-                if (cursorPos < selection.length -1 && cursorPos - 1 == 0){
-                    if ("+-×÷%".contains(selection[cursorPos])){
-                        selection.replace(0, cursorPos + 1, "")
-                        expression_value.text = formatColor(selection) //#formatColor
-                        expression_value.setSelection(cursorPos - 1)
-                    }
-                } else {
-                    selection.replace(cursorPos - 1, cursorPos, "")
-                    expression_value.text = formatColor(selection) //#formatColor
-                    expression_value.setSelection(cursorPos - 1)
-                }
+            if (selection[cursorPos - 1].isDigit()){
+                selection.replace(cursorPos - 1, cursorPos, "")
+                expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
+                expression_value.setSelection(cursorPos - 1)
+            } else if ("+-×÷()%$decimalSeparator".contains(selection[cursorPos - 1])){
+                selection.replace(cursorPos - 1, cursorPos, "")
+                expression_value.text = formatColor(selection) //#formatColor
+                expression_value.setSelection(cursorPos - 1)
             }
         }
+
+
+
+
+
+
+
+
+
+//        if (cursorPos != 0 && textLen != 0) {
+//            val selection = expression_value.text as SpannableStringBuilder
+//
+//            if (selection[cursorPos - 1] == '.'){
+//                if (selection[cursorPos - 2] == '0'){
+//                    selection.replace(cursorPos - 2, cursorPos, "")
+//                    expression_value.text = formatColor(selection) //#formatColor
+//                    expression_value.setSelection(selection.length)
+//                }
+//                else {
+//                    selection.replace(cursorPos - 1, cursorPos, "")
+//                    expression_value.text = formatColor(selection) //#formatColor
+//                    expression_value.setSelection(cursorPos - 1)
+//                }
+//            } else if(selection[cursorPos - 1] == '-'){
+//                if (selection[cursorPos - 2] == '('){
+//                    selection.replace(cursorPos - 2, cursorPos, "")
+//                    expression_value.text = formatColor(selection) //#formatColor
+//                    expression_value.setSelection(selection.length)
+//                } else {
+//                    selection.replace(cursorPos - 1, cursorPos, "")
+//                    expression_value.text = formatColor(selection) //#formatColor
+//                    expression_value.setSelection(cursorPos - 1)
+//                }
+//            } else {
+//
+//                if (cursorPos < selection.length -1 && cursorPos - 1 == 0){
+//                    if ("+-×÷%".contains(selection[cursorPos])){
+//                        selection.replace(0, cursorPos + 1, "")
+//                        expression_value.text = formatColor(selection) //#formatColor
+//                        expression_value.setSelection(cursorPos - 1)
+//                    }
+//                } else {
+//                    selection.replace(cursorPos - 1, cursorPos, "")
+//                    expression_value.text = formatColor(selection) //#formatColor
+//                    expression_value.setSelection(cursorPos - 1)
+//                }
+//            }
+//        }
     }
 
     // function to control when we try to insert a math sign
@@ -326,14 +356,14 @@ class CalculatorNew : AppCompatActivity() {
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
-                else if ("+-×÷.".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()) {
+                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()) {
                     //Case: Number[cursor]Number: "+-×÷."[cursor]6
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
-                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷".contains(rightStr[0])){
-                    //Case: Number[cursor]MathSign: 6[cursor]"+-×÷."
-                    if (number.toDouble() == 0.0){
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷$decimalSeparator".contains(rightStr[0])){
+                    //Case: Number[cursor]MathSign: 6[cursor]"+-×÷"
+                    if (number.toDouble().toInt() == 0){
                         // if the number is 0 we need to replace this por the new number
                         expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + numberToAdd + rightStr)) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
@@ -343,16 +373,18 @@ class CalculatorNew : AppCompatActivity() {
                         expression_value.setSelection(cursorPos + 1)
                     }
                 }
-                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && "+-×÷".contains(rightStr[0])){
+                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && "+-×÷$decimalSeparator".contains(rightStr[0])){
                     //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()){
+                    //Case: closeParenthesis[cursor]Number: )[cursor]6
                     expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '('){
+                    //Case: Number[cursor]openParenthesis: 6[cursor](
                     if (number.toDouble() == 0.0) {
                         expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd×$rightStr")) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
@@ -363,18 +395,22 @@ class CalculatorNew : AppCompatActivity() {
                     }
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == '('){
+                    //Case: closeParenthesis[cursor]openParenthesis: )[cursor](
                     expression_value.setText(formatColor("$leftStr×$numberToAdd×$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && "+-×÷".contains(rightStr[0])) {
+                    //Case: openParenthesis[cursor]"+-×÷": ([cursor]"+-×÷"
                     expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
-                else if ("+-×÷.".contains(leftStr[leftStr.length -1]) && rightStr[0] == ')'){
+                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && rightStr[0] == ')'){
+                    //Case: "+-×÷."[cursor]closeParenthesis: "+-×÷."[cursor])
                     expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1].isDigit() && rightStr[0] == ')'){
+                    //Case: Number[cursor]closeParenthesis: 6[cursor])
                     if (number.toDouble() == 0.0) {
                         expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd$rightStr")) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
@@ -385,28 +421,88 @@ class CalculatorNew : AppCompatActivity() {
                     }
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0].isDigit()){
+                    //Case: openParenthesis[cursor]Number ([cursor]Number
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == ')') {
+                    //Case: openParenthesis[cursor]closeParenthesis: ([cursor])
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == '(') {
+                    //Case: openParenthesis[cursor]openParenthesis: ([cursor](
                     expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == ')') {
+                    //Case: closeParenthesis[cursor]closeParenthesis: ([cursor](
                     expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
-                else if ("+-×÷.".contains(leftStr[leftStr.length -1]) && rightStr[0] == '(') {
+                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && rightStr[0] == '(') {
+                    //Case: MathSign[cursor]openParenthesis: "+-×÷."[cursor](
                     expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && "+-×÷".contains(rightStr[0])) {
+                    //Case: closeParenthesis[cursor]MathSign: ([cursor]"+-×÷"
                     expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
+                }
+            } else {
+                if (leftStr.isEmpty() && rightStr.isNotEmpty()){
+                    when {
+                        "+-×÷.".contains(rightStr[0]) -> {
+                            expression_value.setText(formatColor("$numberToAdd$rightStr")) //#formatColor
+                            expression_value.setSelection(cursorPos + 1)
+                        }
+                        rightStr[0] == '(' -> {
+                            expression_value.setText(formatColor("$numberToAdd×$rightStr")) //#formatColor
+                            expression_value.setSelection(cursorPos + 1)
+                        }
+                        rightStr[0] == ')' -> {
+
+                        }
+                        rightStr[0].isDigit() -> {
+                            expression_value.setText(formatColor("$numberToAdd$rightStr")) //#formatColor
+                            expression_value.setSelection(cursorPos + 1)
+                        }
+                    }
+
+                } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
+                    if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1])){
+                        // case: MathSign[cursor]
+                        expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    } else if (leftStr[leftStr.length -1] == '(') {
+                        // case: openParenthesis[cursor]
+                        expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    } else if (leftStr[leftStr.length -1] == ')') {
+                        // case: closeParenthesis[cursor]
+                        expression_value.setText(formatColor("$leftStr×$numberToAdd")) //#formatColor
+                        expression_value.setSelection(cursorPos + 2)
+                    } else if (leftStr[leftStr.length -1] == '.') {
+                        // case: .[cursor]
+                        expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    } else if (leftStr[leftStr.length -1] == '%') {
+                        // case: %[cursor]
+                        expression_value.setText(formatColor("$leftStr×$numberToAdd")) //#formatColor
+                        expression_value.setSelection(cursorPos + 2)
+                    } else if (leftStr[leftStr.length -1].isDigit()) {
+                        // case: Number[cursor]
+                        if (leftStr[leftStr.length -1] == '0'){
+                            // case: 0[cursor]
+                            expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length)}$numberToAdd")) //#formatColor
+                            expression_value.setSelection(cursorPos + 1)
+                        } else {
+                            // case: Number!=0[cursor]
+                            expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                            expression_value.setSelection(cursorPos + 1)
+                        }
+                    }
                 }
             }
         }
@@ -439,33 +535,36 @@ class CalculatorNew : AppCompatActivity() {
                 // if you find data on both side of the cursor for example: 25[cursor]45
                 if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
                     //Case: Number[cursor]Number: 6[cursor]6
-                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                    if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
                         expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
                     }
                 }
                 else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()){
                     //Case: MathSign[cursor]Number: "+-×÷"[cursor]6
-                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                    if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
                         expression_value.setText(formatColor(leftStr + rightStr)) //#formatColor
                         expression_value.setSelection(cursorPos)
                     }
                 }
-                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷.".contains(rightStr[0])){
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷$decimalSeparator".contains(rightStr[0])){
+                    if (rightStr[0] == decimalSeparator && number.toDouble().toInt() == 0){
+
+                    }
                     //Case: Number[cursor]MathSign: 6[cursor]"+-×÷."
-                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                    else if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
                         expression_value.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
                     }
                 }
-                else if (leftStr[leftStr.length -1]== '.'){
+                else if (leftStr[leftStr.length -1]== decimalSeparator){
                     //Case: .[cursor]Number: 0.[cursor]wherever
-                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                    if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
                         expression_value.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
                     }
                 }
-                else if ("+-×÷".contains(leftStr[leftStr.length -1]) && "+-×÷".contains(rightStr[0])){
+                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && "+-×÷$decimalSeparator".contains(rightStr[0])){
                     //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
                     expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
@@ -477,7 +576,7 @@ class CalculatorNew : AppCompatActivity() {
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '('){
                     //Case: Number[cursor]openParenthesis 6[cursor](
-                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                    if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
                         expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
                     }
@@ -509,7 +608,7 @@ class CalculatorNew : AppCompatActivity() {
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == ')') {
                     //Case: Number[cursor]closeParenthesis Number[cursor])
-                    if (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0")){
+                    if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
                         expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
                     }
@@ -547,7 +646,7 @@ class CalculatorNew : AppCompatActivity() {
             } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
                 // if the number is empty can be something like: (-, (
                 if (number.isEmpty()){
-                    if (leftStr[leftStr.length -1] == '(' || leftStr[leftStr.length -1] == '.' || "+-×÷".contains(leftStr[leftStr.length -1])){
+                    if (leftStr[leftStr.length -1] == '(' || leftStr[leftStr.length -1] == decimalSeparator || "+-×÷".contains(leftStr[leftStr.length -1])){
                         expression_value.setText(formatColor(leftStr + "0")) //#formatColor
                         expression_value.setSelection(cursorPos + 1)
                     }
@@ -555,7 +654,7 @@ class CalculatorNew : AppCompatActivity() {
                         expression_value.setText(formatColor("$leftStr×0")) //#formatColor
                         expression_value.setSelection(cursorPos + 2)
                     }
-                } else if (leftStr[leftStr.length -1].isDigit() || leftStr[leftStr.length -1] == '.' && (number.toDouble() > 0 || number.contains('.') || (number.contains('-') && number != "-0"))) {
+                } else if (leftStr[leftStr.length -1].isDigit() || leftStr[leftStr.length -1] == decimalSeparator && (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0"))) {
                     expression_value.setText(formatColor(leftStr + "0")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
@@ -628,7 +727,7 @@ class CalculatorNew : AppCompatActivity() {
 
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
-        val charPoint = "."
+        val charPoint = decimalSeparator
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
@@ -1082,5 +1181,45 @@ class CalculatorNew : AppCompatActivity() {
         }
 
         return indexB
+    }
+
+    private fun checkNumbers(expression: String): String {
+        var cont = 0
+        var temp = ""
+
+        while (cont < expression.length){
+            if (expression[cont].isDigit()){
+                var separatorCont = 0
+                var checkDecimal = false
+                var tempNumber = ""
+                var decimalPart = ""
+                var integerPart = ""
+
+                while (expression[cont].isDigit() || expression[cont] == '.'){
+                    tempNumber += expression[cont]
+                    cont++
+                }
+
+                while (separatorCont < tempNumber.length){
+                    if (tempNumber[separatorCont] != decimalSeparator && !checkDecimal){
+                        integerPart += tempNumber[separatorCont]
+                    } else {
+                        checkDecimal = true
+                        decimalPart += tempNumber[separatorCont]
+                    }
+                    separatorCont ++
+                }
+
+                temp +=
+                    if (checkDecimal){ "${integerPart.toInt()}$decimalPart${expression[cont]}" }
+                    else { "${integerPart.toInt()}${expression[cont]}" }
+
+            } else {
+                temp += expression[cont]
+            }
+
+            cont++
+        }
+        return temp
     }
 }
