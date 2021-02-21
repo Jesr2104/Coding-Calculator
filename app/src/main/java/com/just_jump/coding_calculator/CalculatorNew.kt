@@ -16,6 +16,7 @@ import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import com.just_jump.coding_calculator.data.local.SRDataExpression
 import com.just_jump.coding_calculator.extensions.checkInteger
+import com.just_jump.coding_calculator.extensions.checkParenthesis
 import com.just_jump.coding_calculator.extensions.paintString
 import kotlinx.android.synthetic.main.activity_calculator_new.*
 import kotlinx.android.synthetic.main.activity_calculator_new.historic
@@ -48,8 +49,9 @@ class CalculatorNew : AppCompatActivity() {
     private var stateResult = false
     private var mainHandler: Handler? = null
     private var decimalSeparator = '.'
+    private var numberOfParenthesis = 0
 
-    val action = object : Runnable {
+    private val action = object : Runnable {
         override fun run() {
             backspaceBTN()
             mainHandler?.postDelayed(this, 150)
@@ -160,6 +162,7 @@ class CalculatorNew : AppCompatActivity() {
     private fun allClear() {
         expression_value.setText("")
         Result_field.text = ""
+        numberOfParenthesis = 0
     }
 
     // this function delete the char on the left of the cursor
@@ -186,6 +189,11 @@ class CalculatorNew : AppCompatActivity() {
                 expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
                 expression_value.setSelection(cursorPos - 1)
             } else if ("+-×÷()%$decimalSeparator".contains(selection[cursorPos - 1])){
+
+                if (selection[cursorPos - 1] == '('){
+                    numberOfParenthesis--
+                }
+
                 selection.replace(cursorPos - 1, cursorPos, "")
                 expression_value.text = formatColor(selection) //#formatColor
                 expression_value.setSelection(cursorPos - 1)
@@ -307,7 +315,6 @@ class CalculatorNew : AppCompatActivity() {
 
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
-        val number = getNumberOnExpression()
 
         // string on the left and on the right of the cursor
         val leftStr = oldStr.substring(0, cursorPos)
@@ -547,7 +554,7 @@ class CalculatorNew : AppCompatActivity() {
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷$decimalSeparator".contains(rightStr[0])){
                     if (rightStr[0] == decimalSeparator && number.toDouble().toInt() == 0){
-
+                        // this if don't need to do nothing
                     }
                     //Case: Number[cursor]MathSign: 6[cursor]"+-×÷."
                     else if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
@@ -683,34 +690,70 @@ class CalculatorNew : AppCompatActivity() {
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
-        if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
-            if(rightStr[0] == '(' && parenthesisToAdd == ')'){
-                expression_value.setText(formatColor("$leftStr$parenthesisToAdd×$rightStr")) //#formatColor
-                expression_value.setSelection(leftStr.length + 2)
-            } else {
-                if (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(') {
+        // with this conditions we gonna check the number of parenthesis
+        // if you want to open parenthesis always you can write down one new one
+        // or if you want to close one open we gonna check the number of the parenthesis you open before
+        if (parenthesisToAdd == '(' || numberOfParenthesis > 0){
+
+            if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
+                if(rightStr[0] == '(' && parenthesisToAdd == ')'){
+                    expression_value.setText(formatColor("$leftStr$parenthesisToAdd×$rightStr")) //#formatColor
+                    expression_value.setSelection(leftStr.length + 2)
+                    if (parenthesisToAdd == '('){
+                        numberOfParenthesis++
+                    } else {
+                        numberOfParenthesis--
+                    }
+
+                } else {
+                    if (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(') {
+                        expression_value.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 2)
+                        if (parenthesisToAdd == '('){
+                            numberOfParenthesis++
+                        } else {
+                            numberOfParenthesis--
+                        }
+                    } else {
+                        expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                        if (parenthesisToAdd == '('){
+                            numberOfParenthesis++
+                        } else {
+                            numberOfParenthesis--
+                        }
+                    }
+                }
+            } else if (leftStr.isNotEmpty()) {
+                if ((leftStr[leftStr.length - 1] == '%' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
                     expression_value.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 2)
+                    if (parenthesisToAdd == '('){
+                        numberOfParenthesis++
+                    } else {
+                        numberOfParenthesis--
+                    }
                 } else {
                     expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
+                    if (parenthesisToAdd == '('){
+                        numberOfParenthesis++
+                    } else {
+                        numberOfParenthesis--
+                    }
                 }
-
-            }
-        } else if (leftStr.isNotEmpty()) {
-            if ((leftStr[leftStr.length - 1] == '%' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
-                expression_value.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
-                expression_value.setSelection(cursorPos + 2)
             } else {
-                expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
-            }
-        } else {
-            if (rightStr.isEmpty() && parenthesisToAdd == ')') {
-                // if the string leftStr and rightStr is empty
-            } else {
-                expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
+                if (rightStr.isEmpty() && parenthesisToAdd == ')') {
+                    // if the string leftStr and rightStr is empty
+                } else {
+                    expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
+                    if (parenthesisToAdd == '('){
+                        numberOfParenthesis++
+                    } else {
+                        numberOfParenthesis--
+                    }
+                }
             }
         }
     }
@@ -957,9 +1000,8 @@ class CalculatorNew : AppCompatActivity() {
     // 2. check for the expression field is no empty
     private fun calculateResult() {
         val rowExpression = expression_value.text.toString()
-        var userExp = ""
 
-        userExp = rowExpression.replace('×', '*')
+        var userExp: String = rowExpression.replace('×', '*')
         userExp = userExp.replace('÷', '/')
 
         if (checkExpression()){
@@ -972,6 +1014,7 @@ class CalculatorNew : AppCompatActivity() {
                 Result_field.text = result
                 stateResult = true
                 saveHistoryExpression(rowExpression, result)
+                numberOfParenthesis = 0
             } else {
                 val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
                 toast.show()
@@ -991,7 +1034,12 @@ class CalculatorNew : AppCompatActivity() {
 
     private fun checkExpression(): Boolean {
         if (expression_value.text.isNotEmpty()){
-            return true
+            // this function check if the number of the parenthesis open and close is the same quantity
+            if (expression_value.text.toString().checkParenthesis()) {
+                 return true
+            } else {
+                Toast.makeText(this, "It's missing close a parenthesis", Toast.LENGTH_SHORT).show()
+            }
         }
         return false
     }
@@ -1125,69 +1173,11 @@ class CalculatorNew : AppCompatActivity() {
         return num
     }
 
-    // this function get the first index of the number select with the cursor
-    private fun getIndexA(): Int {
-        // complete string expression
-        val oldStr = expression_value.text.toString()
-        // position of the cursor
-        val cursorPos = expression_value.selectionStart
-        var cont = cursorPos - 1
-        var indexA = 0
-
-        while (cont > 0){
-            if ("+-×÷()".contains(oldStr[cont])){
-                indexA =
-                    if (cont -1 >= 0){
-                        if (oldStr[cont] == '-' && oldStr[cont -1] == '('){
-                            cont
-                        } else {
-                            cont + 1
-                        }
-                    } else {
-                        cont + 1
-                    }
-                cont = 0
-            }
-            cont--
-        }
-
-        return indexA
-    }
-
-    private fun getIndexB(): Int {
-        // complete string expression
-        val oldStr = expression_value.text.toString()
-        // position of the cursor
-        val cursorPos = expression_value.selectionStart
-        var cont = cursorPos
-        var indexB = oldStr.length
-
-        while (cont < oldStr.length) {
-            var show = true
-            if ("+-×÷()".contains(oldStr[cont])) {
-                if(oldStr[cont] == '-'){
-                    if(cont -1 >= 0){
-                        if (oldStr[cont] == '-' && oldStr[cont -1] == '('){
-                            show = false
-                        }
-                    }
-                }
-                if (show){
-                    indexB = cont - 1
-                    cont = oldStr.length
-                }
-            }
-            cont++
-        }
-
-        return indexB
-    }
-
     /*   finished and checked   */
     private fun checkNumbers(expression: String): String {
         var cont = 0
         var temp = ""
-        var rest = ""
+        var rest: String
         var expressionNew = expression
 
         if (expressionNew.isNotEmpty()){

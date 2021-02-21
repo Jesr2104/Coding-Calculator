@@ -43,9 +43,6 @@
             android:name=".ColorCode"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Calculator"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
 

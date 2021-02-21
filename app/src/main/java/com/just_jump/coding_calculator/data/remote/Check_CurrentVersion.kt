@@ -20,7 +20,6 @@ fun currentVersion(context: Context) {
 
     val channelId = "com.just_jump.coding_calculator.data.remote"
     val description = "test notification"
-    val valueCurrentVersion: String? = null
 
     // -----------------------------------------------------------------------------------
     // Remote Config

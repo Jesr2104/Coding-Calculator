@@ -14,21 +14,6 @@ fun String.checkInteger(): String {
     return this
 }
 
-// this function delete commas of the result
-fun String.deleteComma(): String {
-    var i = 0
-    var tempString = ""
-    val sizeofString = this.length
-
-    while (sizeofString > i) {
-        if (this[i].toInt() != 44) {
-            tempString += this[i]
-        }
-        i++
-    }
-    return tempString
-}
-
 // this function check if the parenthesis is correct
 fun String.checkParenthesis(): Boolean {
     var numberParenthesis = 0

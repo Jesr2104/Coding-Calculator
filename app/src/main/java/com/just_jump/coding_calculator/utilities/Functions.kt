@@ -1,7 +1,6 @@
 package com.just_jump.coding_calculator.utilities
 
 import android.annotation.SuppressLint
-import com.github.zieiony.calc.Calc
 import java.util.regex.Pattern
 import kotlin.math.abs
 import kotlin.math.pow
@@ -9,20 +8,10 @@ import kotlin.math.pow
 class Functions {
 
     /**********************************************************************/
-    // Function to solve the basic mathematical expressions
-    /**********************************************************************/
-    fun basicEquations(expression: String): String {
-        if (validateExpression(expression)) {
-            return Calc().evaluate(expression).toString()
-        }
-        return "0"
-    }
-
-    /**********************************************************************/
     // Function check the the expression with a regex pattern
     /**********************************************************************/
-    private fun validateExpression(data: String): Boolean {
-
+    // this old function was used to check the patron of the expression
+    /*private fun validateExpression(data: String): Boolean {
         val p =
             Pattern.compile("((\\()*(-?\\d+(\\.\\d+)?)(\\))*[+/*-])*((\\()*-?\\d+(\\.\\d+)?(\\))*)")
         val m = p.matcher(data)
@@ -31,8 +20,8 @@ class Functions {
         if (b) {
             return true
         }
-        return false
-    }
+        return false **/
+    }*/
 
     /**********************************************************************/
     // Function to validate hexadecimal number
