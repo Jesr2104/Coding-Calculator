@@ -5,12 +5,13 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#424242</item>
         <item name="colorPrimaryDark">#494949</item>
+
+        <item name="colorControlActivated">@color/yellow_mainColor</item>
         
     </style>
 
     <style name="splash" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/main_splash</item>
-
         <item name="colorPrimary">#616161</item>
         <item name="colorPrimaryDark">#494949</item>
     </style>
@@ -22,6 +23,10 @@
 
     <style name="BottomNavigation.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="colorTextSelectHandle">
+        <item name="colorControlActivated">@color/color_background</item>
     </style>
 
 </resources>

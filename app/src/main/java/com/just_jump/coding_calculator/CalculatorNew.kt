@@ -42,6 +42,7 @@ import kotlinx.android.synthetic.main.activity_calculator_new.numberPlusLess
 import kotlinx.android.synthetic.main.activity_calculator_new.numberPoint
 import kotlinx.android.synthetic.main.activity_calculator_new.numberResult
 import org.mariuszgromada.math.mxparser.Expression
+import java.math.BigInteger
 
 class CalculatorNew : AppCompatActivity() {
     private var stateResult = false
@@ -170,8 +171,6 @@ class CalculatorNew : AppCompatActivity() {
         clearExpression()
 
         val cursorPos = expression_value.selectionStart
-        val textLen = expression_value.text.length
-        val number = getNumberOnExpression()
 
         // case: if you delete number 9000 for example need to check for the rest o the number if
         // this number is 0000 need you put just one 0 on the expression
@@ -1232,10 +1231,10 @@ class CalculatorNew : AppCompatActivity() {
                     }
 
                     temp +=
-                        if (checkDecimal){ "${integerPart.toInt()}$decimalPart$rest" }
-                        else { "${integerPart.toInt()}$rest" }
+                        if (checkDecimal){ "${integerPart.toBigInteger()}$decimalPart$rest" }
+                        else { "${integerPart.toBigInteger()}$rest" }
                 } else {
-                    temp += tempNumber.toInt().toString() + rest
+                    temp += tempNumber.toBigInteger().toString() + rest
                 }
 
             } else {
@@ -1269,6 +1268,6 @@ class CalculatorNew : AppCompatActivity() {
             return false
         }
 
-        return tempNumber.toInt() == 0
+        return tempNumber.toBigInteger() == BigInteger.ZERO
     }
 }
