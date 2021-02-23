@@ -56,7 +56,7 @@ class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() 
 
             if (new_value.text!!.isNotEmpty()) {
 
-                if (new_value.text.toString() != "."){
+                if (new_value.text.toString() != "." && new_value.text.toString() != "-"){
 
                     val chip = Chip(this.context)
                     chip.text = new_value.text.toString()
@@ -80,7 +80,7 @@ class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() 
                 } else {
                     // clean the field
                     new_value.setText("")
-                    Toast.makeText(context,"Invalid format used.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.message_3),Toast.LENGTH_SHORT).show()
                 }
             }
         }

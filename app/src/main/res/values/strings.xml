@@ -200,4 +200,5 @@
     <string name="x">X</string>
     <string name="numerical">Numerical</string>
     <string name="systems">Systems</string>
+    <string name="message_3">Invalid format used.</string>
 </resources>

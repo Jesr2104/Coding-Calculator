@@ -38,34 +38,47 @@ class FragmentExponent(private val myInterface: ReturnMainActivity) : Fragment()
         }
 
         view.calculatorButton.setOnClickListener {
-            if (view.field_base.text!!.isNotEmpty() && view.field_exponent.text!!.isNotEmpty()){
+            if (field_base.text!!.isNotEmpty() && field_exponent.text!!.isNotEmpty()){
 
-                val format = DecimalFormat()
-                format.maximumFractionDigits = 6
+                if (field_base.text.toString() != "." && field_exponent.text.toString() != "."&&
+                    field_base.text.toString() != "-" && field_exponent.text.toString() != "-"){
 
-                val base = (field_base.text.toString()).toDouble()
-                val exponent = (field_exponent.text.toString()).toDouble()
+                    var result = ""
+                    val format = DecimalFormat()
+                    format.maximumFractionDigits = 6
 
-                val result = format.format(base.pow(exponent))
+                    val base = (field_base.text.toString()).toDouble()
+                    val exponent = (field_exponent.text.toString()).toDouble()
 
-                view.resultField.text = result.toString().checkInteger()
+                    result =
+                        if (base == 0.0 && exponent == 0.0) {
+                            "NaN"
+                        } else {
+                            format.format(base.pow(exponent))
+                        }
 
-                view.base_value.text = "${getText(R.string.base)} ${base.toString().checkInteger()}"
-                view.exponent_value.text = "${getText(R.string.exponent_dot)} ${exponent.toString().checkInteger()}"
+                    view.resultField.text = result.checkInteger()
 
-                view.field_base.setText("")
-                view.field_base.clearFocus()
-                view.field_base.hint = getString(R.string.base_x)
+                    view.base_value.text = "${getText(R.string.base)} ${base.toString().checkInteger()}"
+                    view.exponent_value.text = "${getText(R.string.exponent_dot)} ${exponent.toString().checkInteger()}"
 
-                view.field_exponent.setText("")
-                view.field_exponent.clearFocus()
-                view.field_exponent.hint = getString(R.string.exponent_n)
+                    view.field_base.setText("")
+                    view.field_base.clearFocus()
+                    view.field_base.hint = getString(R.string.base_x)
 
-                view.label_result.visibility = View.VISIBLE
+                    view.field_exponent.setText("")
+                    view.field_exponent.clearFocus()
+                    view.field_exponent.hint = getString(R.string.exponent_n)
 
+                    view.label_result.visibility = View.VISIBLE
+
+                } else {
+                    //message of error to inform field is wrong
+                    Toast.makeText(view.context, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
+                }
             } else {
                 //message of error to inform one field is empty
-                Toast.makeText(view.context, "Some of the data is missing to insert", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, getString(R.string.message_2), Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -73,26 +73,34 @@ class FragmentSquareRoot(private val myInterface: ReturnMainActivity) : Fragment
                 field_x.text.toString().isNotEmpty()
             ) {
 
-                val valueN = field_n.text.toString().toDouble()
-                val valueX = field_x.text.toString().toDouble()
+                if (field_n.text.toString() != "." && field_x.text.toString() != "."&&
+                    field_n.text.toString() != "-" && field_x.text.toString() != "-"){
 
-                if (valueN > 0) {
+                    val valueN = field_n.text.toString().toDouble()
+                    val valueX = field_x.text.toString().toDouble()
 
-                    view.value_n.text = "n: ${valueN.toString().checkInteger()}"
-                    view.value_x.text = "x: ${valueX.toString().checkInteger()}"
+                    if (valueN >= 0) {
 
-                    view.field_result.text = format.format(Functions().isNthRoot(valueX, valueN))
+                        view.value_n.text = "n: ${valueN.toString().checkInteger()}"
+                        view.value_x.text = "x: ${valueX.toString().checkInteger()}"
 
-                    field_n.setText("")
-                    field_x.setText("")
+                        view.field_result.text = format.format(Functions().isNthRoot(valueX, valueN))
+
+                        field_n.setText("")
+                        field_x.setText("")
+
+                    } else {
+                        Toast.makeText(
+                            view.context,
+                            getString(R.string.message_1),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        field_n.setText("")
+                    }
 
                 } else {
-                    Toast.makeText(
-                        view.context,
-                        getString(R.string.message_1),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    field_n.setText("")
+                    //message of error to inform field is wrong
+                    Toast.makeText(view.context, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
                 }
 
             } else {

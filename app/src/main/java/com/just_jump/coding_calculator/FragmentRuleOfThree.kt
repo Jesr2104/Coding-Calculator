@@ -105,49 +105,59 @@ class FragmentRuleOfThree(private val myInterface: ReturnMainActivity) : Fragmen
                 view.TextValueC.text.toString().isNotEmpty()
             ) {
 
-                val calculatorResult: Double =
-                    if (proportionsTypeSelected) {
-                        Functions().ruleOfThreeDirect(
-                            view.TextValueA.text.toString().toDouble(),
-                            view.TextValueB.text.toString().toDouble(),
-                            view.TextValueC.text.toString().toDouble()
-                        )
-                    } else {
-                        Functions().ruleOfThreeInverse(
-                            view.TextValueA.text.toString().toDouble(),
-                            view.TextValueB.text.toString().toDouble(),
-                            view.TextValueC.text.toString().toDouble()
-                        )
-                    }
+                if (view.TextValueA.text.toString() != "." && view.TextValueA.text.toString() != "-"&&
+                    view.TextValueB.text.toString() != "." && view.TextValueB.text.toString() != "-"&&
+                    view.TextValueC.text.toString() != "." && view.TextValueC.text.toString() != "-"){
 
-                val format = DecimalFormat()
-                format.maximumFractionDigits = 6
+                    val calculatorResult: Double =
+                        if (proportionsTypeSelected) {
+                            Functions().ruleOfThreeDirect(
+                                view.TextValueA.text.toString().toDouble(),
+                                view.TextValueB.text.toString().toDouble(),
+                                view.TextValueC.text.toString().toDouble()
+                            )
+                        } else {
+                            Functions().ruleOfThreeInverse(
+                                view.TextValueA.text.toString().toDouble(),
+                                view.TextValueB.text.toString().toDouble(),
+                                view.TextValueC.text.toString().toDouble()
+                            )
+                        }
 
-                view.result.text = format.format(calculatorResult)
+                    val format = DecimalFormat()
+                    format.maximumFractionDigits = 6
 
-                view.fieldValue_resultA.text = "A: ${TextValueA.text}"
-                view.fieldValue_resultB.text = "B: ${TextValueB.text}"
-                view.fieldValue_resultC.text = "C: ${TextValueC.text}"
+                    view.result.text = format.format(calculatorResult)
 
-                view.TextValueA.setText("")
-                view.TextValueA.clearFocus()
-                view.TextValueA.hint = getString(R.string.valueA)
+                    view.fieldValue_resultA.text = "A: ${TextValueA.text}"
+                    view.fieldValue_resultB.text = "B: ${TextValueB.text}"
+                    view.fieldValue_resultC.text = "C: ${TextValueC.text}"
 
-                view.TextValueB.setText("")
-                view.TextValueB.clearFocus()
-                view.TextValueB.hint = getString(R.string.valueB)
+                    view.TextValueA.setText("")
+                    view.TextValueA.clearFocus()
+                    view.TextValueA.hint = getString(R.string.valueA)
 
-                view.TextValueC.setText("")
-                view.TextValueC.clearFocus()
-                view.TextValueC.hint = getString(R.string.valueB)
+                    view.TextValueB.setText("")
+                    view.TextValueB.clearFocus()
+                    view.TextValueB.hint = getString(R.string.valueB)
 
-                // we hide the keyboard to show the result of the rule of three calculations
-                this.activity?.let { it1 -> HideKeyboard(it1) }
+                    view.TextValueC.setText("")
+                    view.TextValueC.clearFocus()
+                    view.TextValueC.hint = getString(R.string.valueB)
+
+                    // we hide the keyboard to show the result of the rule of three calculations
+                    this.activity?.let { it1 -> HideKeyboard(it1) }
+
+                } else {
+                    //message of error to inform field is wrong
+                    Toast.makeText(view.context, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
+                }
+
             } else {
                 //message of error to inform one field is empty
                 Toast.makeText(
                     view.context,
-                    "Some of the data is missing to insert",
+                    getString(R.string.message_2),
                     Toast.LENGTH_SHORT
                 ).show()
             }

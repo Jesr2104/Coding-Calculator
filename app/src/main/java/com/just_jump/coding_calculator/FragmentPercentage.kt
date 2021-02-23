@@ -67,39 +67,47 @@ class FragmentPercentage(private val myInterface: ReturnMainActivity) : Fragment
             if(field_percentage.text.toString().isNotEmpty() &&
                 field_value.text.toString().isNotEmpty()){
 
-                val format = DecimalFormat()
-                format.maximumFractionDigits = 2
+                if (field_percentage.text.toString() != "." && field_value.text.toString() != "."&&
+                    field_percentage.text.toString() != "-" && field_value.text.toString() != "-"){
 
-                view.fieldValue.text = format.format(view.field_value.text.toString().toDouble())
-                view.value_percentage.text = "${view.field_percentage.text} %"
+                    val format = DecimalFormat()
+                    format.maximumFractionDigits = 2
 
-                val resultTemp = Functions().percentageCalculator(field_value.text.toString().toDouble(),field_percentage.text.toString().toDouble())
-                view.result_percentage.text = format.format(resultTemp)
+                    view.fieldValue.text = format.format(view.field_value.text.toString().toDouble())
+                    view.value_percentage.text = "${view.field_percentage.text} %"
 
-                val resultAddition = view.fieldValue.text.toString().replace(",", "").toDouble() + resultTemp
-                view.additionResult.text = format.format(resultAddition)
+                    val resultTemp = Functions().percentageCalculator(field_value.text.toString().toDouble(),field_percentage.text.toString().toDouble())
+                    view.result_percentage.text = format.format(resultTemp)
 
-                val resultSubtraction = view.fieldValue.text.toString().replace(",", "").toDouble() - resultTemp
-                view.subtractionResult.text = format.format(resultSubtraction)
+                    val resultAddition = view.fieldValue.text.toString().replace(",", "").toDouble() + resultTemp
+                    view.additionResult.text = format.format(resultAddition)
 
-                // we hide the keyboard to show the result of the percentage calculations
-                this.activity?.let { it1 -> HideKeyboard(it1) }
+                    val resultSubtraction = view.fieldValue.text.toString().replace(",", "").toDouble() - resultTemp
+                    view.subtractionResult.text = format.format(resultSubtraction)
 
-                view.field_value.setText("")
-                view.field_value.clearFocus()
-                view.field_value.hint = getString(R.string.value)
+                    // we hide the keyboard to show the result of the percentage calculations
+                    this.activity?.let { it1 -> HideKeyboard(it1) }
 
-                view.field_percentage.setText("")
-                view.field_percentage.clearFocus()
-                view.field_percentage.hint = getString(R.string.percentage)
+                    view.field_value.setText("")
+                    view.field_value.clearFocus()
+                    view.field_value.hint = getString(R.string.value)
 
-                view.label_value_percentage.visibility = View.VISIBLE
-                view.label_percentage.visibility = View.VISIBLE
+                    view.field_percentage.setText("")
+                    view.field_percentage.clearFocus()
+                    view.field_percentage.hint = getString(R.string.percentage)
+
+                    view.label_value_percentage.visibility = View.VISIBLE
+                    view.label_percentage.visibility = View.VISIBLE
+
+                } else {
+                    //message of error to inform field is wrong
+                    Toast.makeText(view.context, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
+                }
             }
             else
             {
                 //message of error to inform one field is empty
-                Toast.makeText(view.context, "Some of the data is missing to insert", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, getString(R.string.message_2), Toast.LENGTH_SHORT).show()
             }
         }
 

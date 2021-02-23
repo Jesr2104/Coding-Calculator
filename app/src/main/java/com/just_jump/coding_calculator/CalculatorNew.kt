@@ -188,7 +188,7 @@ class CalculatorNew : AppCompatActivity() {
                 selection.replace(cursorPos - 1, cursorPos, "")
                 expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
                 expression_value.setSelection(cursorPos - 1)
-            } else if ("+-×÷()%$decimalSeparator".contains(selection[cursorPos - 1])){
+            } else if ("+-×÷()%".contains(selection[cursorPos - 1])){
 
                 if (selection[cursorPos - 1] == '('){
                     numberOfParenthesis--
@@ -196,6 +196,10 @@ class CalculatorNew : AppCompatActivity() {
 
                 selection.replace(cursorPos - 1, cursorPos, "")
                 expression_value.text = formatColor(selection) //#formatColor
+                expression_value.setSelection(cursorPos - 1)
+            } else if (selection[cursorPos - 1] == decimalSeparator){
+                selection.replace(cursorPos - 1, cursorPos, "")
+                expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
                 expression_value.setSelection(cursorPos - 1)
             }
         }
@@ -342,7 +346,7 @@ class CalculatorNew : AppCompatActivity() {
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
-                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷$decimalSeparator".contains(rightStr[0])){
+                else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷%$decimalSeparator".contains(rightStr[0])){
                     //Case: Number[cursor]MathSign: 6[cursor]"+-×÷"
                     if (leftStr[leftStr.length -1] == '0'){
                         // case: 0[cursor]
@@ -360,7 +364,7 @@ class CalculatorNew : AppCompatActivity() {
                         expression_value.setSelection(cursorPos + 1)
                     }
                 }
-                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && "+-×÷$decimalSeparator".contains(rightStr[0])){
+                else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && "+-×÷%$decimalSeparator".contains(rightStr[0])){
                     //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
                     expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
@@ -525,7 +529,11 @@ class CalculatorNew : AppCompatActivity() {
 
         val oldStr = expression_value.text.toString()
         val cursorPos = expression_value.selectionStart
-        val number = getNumberOnExpression()
+        var number = getNumberOnExpression()
+
+        if (number.contains('%')){
+            number = number.replace("%","")
+        }
 
         // string on the left and on the right of the cursor
         val leftStr = oldStr.substring(0, cursorPos)
@@ -647,6 +655,10 @@ class CalculatorNew : AppCompatActivity() {
                     //Case: closeParenthesis[cursor]openParenthesis )[cursor])
                     expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 2)
+                }
+                else if (number.toDouble() > 0 && rightStr[0] == '%') {
+                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    expression_value.setSelection(cursorPos + 1)
                 }
             } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
                 // if the number is empty can be something like: (-, (
@@ -820,13 +832,26 @@ class CalculatorNew : AppCompatActivity() {
                     }
                 }
             } else {
-                if ("+-×÷%(".contains(leftStr[leftStr.length - 1])){
-                    expression_value.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
-                    expression_value.setSelection(leftStr.length + 2)
-                } else if (leftStr[leftStr.length - 1] == ')'){
-                    expression_value.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
-                    expression_value.setSelection(leftStr.length + 3)
+                when {
+                    "+-×÷(".contains(leftStr[leftStr.length - 1]) -> {
+                        expression_value.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
+                        expression_value.setSelection(leftStr.length + 2)
+                    }
+                    leftStr[leftStr.length - 1] == ')' -> {
+                        expression_value.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
+                        expression_value.setSelection(leftStr.length + 3)
+                    }
+                    leftStr[leftStr.length - 1] == '%' -> {
+                        expression_value.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
+                        expression_value.setSelection(leftStr.length + 3)
+                    }
                 }
+            }
+        } else if (rightStr.isNotEmpty()) {
+            // if you want to add 0. on the start of the number
+            if (rightStr[0].isDigit()){
+                expression_value.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
+                expression_value.setSelection(leftStr.length + 2)
             }
         }
     }
@@ -854,6 +879,7 @@ class CalculatorNew : AppCompatActivity() {
         if (oldStr.isEmpty()) {
             expression_value.setText(formatColor(expressionPlusLess)) //#formatColor
             expression_value.setSelection(cursorPos + 2)
+            numberOfParenthesis++
         // case 2: when the expression have information
         } else {
 
@@ -896,6 +922,7 @@ class CalculatorNew : AppCompatActivity() {
                 if (stringA.isNotEmpty()) {
                     if (stringA[stringA.length-1] == '-' && stringA[stringA.length -2] == '(') {
                         stringA = stringA.substring(0,  stringA.length -2)
+                        numberOfParenthesis--
                     }
                 }
 
@@ -903,6 +930,7 @@ class CalculatorNew : AppCompatActivity() {
                     if (stringB[0] == ')') {
                         stringB = stringB.substring(1)
                         number = number.replace(")", "")
+                        numberOfParenthesis++
                     }
                 }
 
@@ -919,6 +947,7 @@ class CalculatorNew : AppCompatActivity() {
                     number = "(-$number"
                     expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
                     expression_value.setSelection(stringA.length + number.length)
+                    numberOfParenthesis++
                 } else if(stringA.isNotEmpty() && number.isEmpty()){
                     // case 2: in the case when you don't select a number you put gonna have open to write down the rest
                     // in this example like 21*[cursor] the result is: 21*(-[cursor]
@@ -928,13 +957,14 @@ class CalculatorNew : AppCompatActivity() {
 
                     expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
                     expression_value.setSelection(stringA.length + number.length)
+                    numberOfParenthesis++
 
                      // case 4: to check when is the first position to insert a negative number
                 } else if (stringA.isEmpty() && oldStr[cursorPos] == '('){
                      number = "(-$number"
                      expression_value.setText(formatColor(stringA + number + oldStr.substring(cursorPos))) //#formatColor
                      expression_value.setSelection(stringA.length + number.length)
-
+                     numberOfParenthesis++
                 } else {
                     // case default: if you find a number on the middle of the expression you put this number negative like 21+4[cursor]-9
                     // the result of the expression be easy 21+(-4)-9
@@ -986,11 +1016,21 @@ class CalculatorNew : AppCompatActivity() {
         if (num.contains('%')){
             // if the number contain already percentage % you don't need put more
         } else {
-            if (leftStr.isNotEmpty()) {
-                if (leftStr[leftStr.length - 1 ].isDigit() || leftStr[leftStr.length - 1 ] == ')') {
+            if (leftStr.isNotEmpty()){
+                if (rightStr.isNotEmpty()){
+                    if (leftStr[leftStr.length - 1 ].isDigit() && rightStr[0].isDigit()){
+                        expression_value.setText(formatColor("$leftStr%×$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 2)
+                    } else if (leftStr[leftStr.length - 1 ].isDigit() || leftStr[leftStr.length - 1 ] == ')') {
+                        expression_value.setText(formatColor("$leftStr%$rightStr")) //#formatColor
+                        expression_value.setSelection(cursorPos + 1)
+                    }
+
+                } else if (leftStr[leftStr.length - 1 ].isDigit() || leftStr[leftStr.length - 1 ] == ')') {
                     expression_value.setText(formatColor("$leftStr%$rightStr")) //#formatColor
                     expression_value.setSelection(cursorPos + 1)
                 }
+
             }
         }
     }
@@ -1260,4 +1300,5 @@ class CalculatorNew : AppCompatActivity() {
 
         return tempNumber.toBigInteger() == BigInteger.ZERO
     }
+
 }
