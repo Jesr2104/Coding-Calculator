@@ -184,23 +184,27 @@ class CalculatorNew : AppCompatActivity() {
         if (expression_value.text.isNotEmpty()){
             val selection = expression_value.text as SpannableStringBuilder
 
-            if (selection[cursorPos - 1].isDigit()){
-                selection.replace(cursorPos - 1, cursorPos, "")
-                expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
-                expression_value.setSelection(cursorPos - 1)
-            } else if ("+-×÷()%".contains(selection[cursorPos - 1])){
-
-                if (selection[cursorPos - 1] == '('){
-                    numberOfParenthesis--
+            when {
+                selection[cursorPos - 1].isDigit() -> {
+                    selection.replace(cursorPos - 1, cursorPos, "")
+                    expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
+                    expression_value.setSelection(cursorPos - 1)
                 }
+                "+-×÷()%".contains(selection[cursorPos - 1]) -> {
 
-                selection.replace(cursorPos - 1, cursorPos, "")
-                expression_value.text = formatColor(selection) //#formatColor
-                expression_value.setSelection(cursorPos - 1)
-            } else if (selection[cursorPos - 1] == decimalSeparator){
-                selection.replace(cursorPos - 1, cursorPos, "")
-                expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
-                expression_value.setSelection(cursorPos - 1)
+                    if (selection[cursorPos - 1] == '('){
+                        numberOfParenthesis--
+                    }
+
+                    selection.replace(cursorPos - 1, cursorPos, "")
+                    expression_value.text = formatColor(selection) //#formatColor
+                    expression_value.setSelection(cursorPos - 1)
+                }
+                selection[cursorPos - 1] == decimalSeparator -> {
+                    selection.replace(cursorPos - 1, cursorPos, "")
+                    expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
+                    expression_value.setSelection(cursorPos - 1)
+                }
             }
         }
     }
@@ -677,9 +681,9 @@ class CalculatorNew : AppCompatActivity() {
                         expression_value.setSelection(cursorPos + 1)
                     }
                 }
-            } else if (leftStr.isEmpty() && rightStr.isNotEmpty()){
+            } /*else if (leftStr.isEmpty() && rightStr.isNotEmpty()){
                 // if you find data just on the right side of the cursor for example [cursor]25
-            }
+            }*/
         }
     }
 
@@ -1056,13 +1060,13 @@ class CalculatorNew : AppCompatActivity() {
                 saveHistoryExpression(rowExpression, result)
                 numberOfParenthesis = 0
             } else {
-                val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
-                toast.show()
+                //message of error to inform field is wrong
+                Toast.makeText(this, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
             }
 
         } else {
-            val toast = Toast.makeText(applicationContext,"Invalid format used.", Toast.LENGTH_SHORT)
-            toast.show()
+            //message of error to inform field is wrong
+            Toast.makeText(this, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -1078,7 +1082,8 @@ class CalculatorNew : AppCompatActivity() {
             if (expression_value.text.toString().checkParenthesis()) {
                  return true
             } else {
-                Toast.makeText(this, "It's missing close a parenthesis", Toast.LENGTH_SHORT).show()
+                //message of error to inform field is wrong
+                Toast.makeText(this, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
             }
         }
         return false
