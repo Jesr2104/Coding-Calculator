@@ -434,7 +434,7 @@ class Converter : AppCompatActivity() {
 
                             val resultValue = ConvertUtilities().checkConvert(
                                 systemOfConvert,
-                                dataA.text.toString().toDouble(),
+                                dataA.text.toString().replace(",","").toDouble(),
                                 SpinnerMenuA.selectedItem.toString(),
                                 SpinnerMenuB.selectedItem.toString()
                             )
@@ -473,7 +473,7 @@ class Converter : AppCompatActivity() {
 
                         val resultValue = ConvertUtilities().checkConvert(
                             systemOfConvert,
-                            dataB.text.toString().toDouble(),
+                            dataB.text.toString().replace(",","").toDouble(),
                             SpinnerMenuB.selectedItem.toString(),
                             SpinnerMenuA.selectedItem.toString()
                         )
