@@ -7,7 +7,7 @@
     </item>
 
     <item
-        android:drawable="@drawable/icon_app_foreground"
+        android:drawable="@drawable/bg_splash_logo"
         android:gravity="center_vertical|center_horizontal">
     </item>
 

@@ -3,7 +3,7 @@ package com.just_jump.coding_calculator
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.just_jump.coding_calculator.data.remote.currentVersion
+import com.just_jump.coding_calculator.data.remote.checkCurrentVersion
 import com.just_jump.coding_calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // call to check update of the app
-        currentVersion(this)
+        checkCurrentVersion(this)
 
         binding.cardCalculator.setOnClickListener {
             val calculator = Intent(this, CalculatorNew::class.java)
