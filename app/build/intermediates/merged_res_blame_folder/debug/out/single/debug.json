@@ -1,0 +1,458 @@
+[
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_down.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_arrow_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_extra_calculations.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_extra_calculations.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_new_fields.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_new_fields.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_nav_average_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_nav_average_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_nav_square_root_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_nav_square_root_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_background_main.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\background_main.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_track_seek_bar_green.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\track_seek_bar_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_track_seek_bar_red.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\track_seek_bar_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_info_rule_of_three_direct.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_rule_of_three_direct.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_backspace.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_backspace.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_icon_app.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-anydpi-v26\\icon_app.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_time.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_example_rule_of_three_inverse.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\example_rule_of_three_inverse.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_numerical_systems_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_numerical_systems_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_thumb_seek_bar_blue.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\thumb_seek_bar_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_info_tetradic_color.JPG.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\info_tetradic_color.JPG"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_info_analogous_color.JPG.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\info_analogous_color.JPG"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_history.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon_app_round.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-xxhdpi\\icon_app_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_background_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\background_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cursor_drawable.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\cursor_drawable.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_dropdown_item.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_info_split_complementary_color.JPG.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\info_split_complementary_color.JPG"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_white_corner.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_white_corner.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_converter_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_converter_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_palette_color.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\item_palette_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_data.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_speed.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_speed.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_change_value_color.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_change_value_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_weight.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_weight.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment__percentage_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment__percentage_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_color_harmony.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_color_harmony.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_background_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\background_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_info_color.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_black_stroke.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_black_stroke.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-xhdpi\\icon_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_yellow_corner.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_yellow_corner.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_background_main.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\background_main.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_background_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\background_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_info_complementary_color.JPG.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\info_complementary_color.JPG"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment__average_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment__average_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_colorcode.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_colorcode.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_temp.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_temp.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_update_version.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_update_version.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_icon_app_round.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-xxxhdpi\\icon_app_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment__rule_of_three_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment__rule_of_three_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_button_average.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_button_average.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_update.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-hdpi\\ic_update.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_example_rule_of_three_direct.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\example_rule_of_three_direct.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_exponent_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment_exponent_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_transparent.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_transparent.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_gamma_colors.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_gamma_colors.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_thumb_seek_bar_green.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\thumb_seek_bar_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_nth_root_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment_nth_root_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\menu_navigation_bar_extra_calculations.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\menu\\navigation_bar_extra_calculations.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_background_main.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\background_main.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_background_main.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\background_main.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_color_saved.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\item_color_saved.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_background_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\background_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_volume.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_volume.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_info_rule_of_three_inverse.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_rule_of_three_inverse.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_length.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_length.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_equation_direct.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\equation_direct.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_separator_line_dark.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\separator_line_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_update.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_update.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_icon_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-xxxhdpi\\icon_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_features.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_features.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_square_root_expression.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_square_root_expression.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_layout.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_info.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_info_triadic_color.JPG.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\info_triadic_color.JPG"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_splash_logo.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\bg_splash_logo.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_thumb_seek_bar_red.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\thumb_seek_bar_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_nav_rule_of_three_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_nav_rule_of_three_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_dark_expression.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_dark_expression.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_app_foreground.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\icon_app_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_background_main.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\background_main.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_up.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_arrow_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_background_main.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\background_main.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_nav_exponent_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_nav_exponent_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_background_main.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\background_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_list_saved_colors.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_list_saved_colors.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_calculator_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_calculator_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_background_app.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\background_app.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_baseline_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_background_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\background_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-hdpi\\icon_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_arrow_shape.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\arrow_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_background_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\background_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_plus.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\icon_plus.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_nav_percentage_new.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_nav_percentage_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-xxhdpi\\icon_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_equation_inverse.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\equation_inverse.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_track_seek_bar_blue.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\track_seek_bar_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_modules_light.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_modules_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_dark_result_percentage.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_dark_result_percentage.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_extra.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_extra.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_select_color.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_select_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icon_app_round.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-mdpi\\icon_app_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_converter.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_converter.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_area.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_area.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_calculator.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_calculator.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icon_app.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-mdpi\\icon_app.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_palette_colors.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_palette_colors.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_info_system_color.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_system_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon_app_round.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-hdpi\\icon_app_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_icon_app_round.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-anydpi-v26\\icon_app_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_numerical_system.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\ic_numerical_system.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_colors_palette.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\icon_colors_palette.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_dark_new_fields.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\background_dark_new_fields.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_app_round.png.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\mipmap-xhdpi\\icon_app_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\res\\merged\\debug\\drawable_main_splash.xml.flat",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\drawable\\main_splash.xml"
+    }
+]

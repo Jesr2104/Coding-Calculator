@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_info_rule_of_three_inverse.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_rule_of_three_inverse.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_change_value_color.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_change_value_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_extra_calculations.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_extra_calculations.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_update_version.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_update_version.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_exponent_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment_exponent_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_calculator_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_calculator_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_converter_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_converter_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_numerical_systems_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_numerical_systems_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_list_saved_colors.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_list_saved_colors.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment__average_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment__average_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_palette_color.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\item_palette_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_palette_colors.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_palette_colors.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\spinner_dropdown_item.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_layout.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment__rule_of_three_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment__rule_of_three_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_info_rule_of_three_direct.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_rule_of_three_direct.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\spinner_item.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_color_saved.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\item_color_saved.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_nth_root_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment_nth_root_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_gamma_colors.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_gamma_colors.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_colorcode.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\activity_colorcode.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_info_system_color.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_system_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment__percentage_new.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\fragment__percentage_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_info_color.xml",
+        "source": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\src\\main\\res\\layout\\dialog_info_color.xml"
+    }
+]

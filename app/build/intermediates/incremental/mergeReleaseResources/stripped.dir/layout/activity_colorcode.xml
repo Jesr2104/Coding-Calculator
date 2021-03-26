@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline35Percent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35">
+
+    </androidx.constraintlayout.widget.Guideline>
+
+       <!--  HSL Value color  -->
+    <TextView
+        android:id="@+id/TextHSL"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/hsl"
+        android:textColor="#FFF"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:rotation="-90"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="bottom|center_vertical"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="@id/HSL_hueValue"
+        app:layout_constraintBottom_toBottomOf="@id/HSL_LightnessValue">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HSL_hueValue"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/value_hue_hsl"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:elevation="3dp"
+        android:text=""
+        android:background="@color/Front_ColorGrey"
+        android:minWidth="52dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toRightOf="@id/TextHSL"
+        app:layout_constraintTop_toBottomOf="@id/HEX_blueValue"
+        android:layout_marginTop="25dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HSL_saturationValue"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/value_lightness_hsl"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:elevation="3dp"
+        android:text=""
+        android:background="@color/Front_ColorGrey"
+        android:minWidth="52dp"
+        android:layout_marginTop="5dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toRightOf="@id/TextHSL"
+        app:layout_constraintTop_toBottomOf="@id/HSL_hueValue">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HSL_LightnessValue"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/value_saturation_hsl"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:elevation="3dp"
+        android:text=""
+        android:background="@color/Front_ColorGrey"
+        android:minWidth="52dp"
+        android:layout_marginTop="5dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toRightOf="@id/TextHSL"
+        app:layout_constraintTop_toBottomOf="@id/HSL_saturationValue">
+
+    </TextView>
+
+    <!--  HEX Value color  -->
+    <TextView
+        android:id="@+id/TextHex"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/hex"
+        android:textColor="#FFF"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:rotation="-90"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="bottom|center_vertical"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="@id/HEX_redValue"
+        app:layout_constraintBottom_toBottomOf="@id/HEX_blueValue">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HEX_redValue"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/value_red_hex"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:elevation="3dp"
+        android:text=""
+        android:background="@color/Front_ColorGrey"
+        android:minWidth="52dp"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toRightOf="@id/TextHex"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HEX_greenValue"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/value_green_hex"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:elevation="3dp"
+        android:text=""
+        android:background="@color/Front_ColorGrey"
+        android:minWidth="52dp"
+        android:layout_marginTop="5dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toRightOf="@id/TextHSL"
+        app:layout_constraintTop_toBottomOf="@id/HEX_redValue">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/HEX_blueValue"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/value_blue_hex"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text=""
+        android:background="@color/Front_ColorGrey"
+        android:minWidth="52dp"
+        android:layout_marginTop="5dp"
+        android:elevation="3dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toRightOf="@id/TextHSL"
+        app:layout_constraintTop_toBottomOf="@id/HEX_greenValue">
+
+    </TextView>
+
+    <!--  Buttons for Palette and select color  -->
+    <ImageButton
+        android:id="@+id/BPaletteColors"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/Front_ColorGrey"
+        android:elevation="5dp"
+        android:contentDescription="@string/palette_of_color"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_colors_palette"
+        app:layout_constraintBottom_toTopOf="@id/ColorPicker"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/guideline35Percent">
+
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/ColorPicker"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="15dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/color_piker_button"
+        android:backgroundTint="@color/Front_ColorGrey"
+        android:elevation="5dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_select_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/guideline35Percent">
+
+    </ImageButton>
+
+    <!--  Color principal  -->
+
+    <!--  Controls to change RGB Colors  -->
+    <TextView
+        android:id="@+id/mainColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/main_color_selected"
+        android:background="#fff"
+        android:elevation="-5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline35Percent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/RedColorBT"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/ColorRGB_R"
+        android:minWidth="30dp"
+        android:text="@string/r"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/color_text_contrast"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/guideline35Percent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/controlBarRed"
+        app:layout_constraintBottom_toTopOf="@id/GreenColorBT"
+        android:layout_marginStart="10dp"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/controlBarRed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/rgb_bar_color_red"
+        android:max="255"
+        android:progress="0"
+        android:progressDrawable="@drawable/track_seek_bar_red"
+        android:thumb="@drawable/thumb_seek_bar_red"
+        android:indeterminate="false"
+        app:layout_constraintLeft_toRightOf="@id/RedColorBT"
+        app:layout_constraintTop_toTopOf="@id/RedColorBT"
+        app:layout_constraintBottom_toBottomOf="@id/RedColorBT"
+        app:layout_constraintRight_toLeftOf="@id/RGBValue_RedColor"
+        tools:ignore="MissingConstraints">
+
+    </androidx.appcompat.widget.AppCompatSeekBar>
+
+    <TextView
+        android:id="@+id/RGBValue_RedColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/value_rgb_color_red"
+        android:background="#424242"
+        android:minWidth="25dp"
+        android:text="@string/initialValue"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/RedColorBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/controlBarRed"
+        app:layout_constraintTop_toTopOf="@+id/RedColorBT"
+        android:layout_marginEnd="10dp">
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/GreenColorBT"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/ColorRGB_G"
+        android:minWidth="30dp"
+        android:text="@string/g"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/color_text_contrast"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
+        app:layout_constraintTop_toBottomOf="@+id/RedColorBT"
+        app:layout_constraintRight_toLeftOf="@id/controlBarGreen"
+        app:layout_constraintBottom_toTopOf="@id/blueColorBT"
+        android:layout_marginStart="10dp">
+
+    </TextView>
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/controlBarGreen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/rgb_bar_color_green"
+        android:indeterminate="false"
+        android:max="255"
+        android:progress="0"
+        android:progressDrawable="@drawable/track_seek_bar_green"
+        android:thumb="@drawable/thumb_seek_bar_green"
+        app:layout_constraintBottom_toBottomOf="@+id/GreenColorBT"
+        app:layout_constraintLeft_toRightOf="@+id/GreenColorBT"
+        app:layout_constraintTop_toBottomOf="@+id/RedColorBT"
+        app:layout_constraintRight_toLeftOf="@id/RGBValue_GreenColor">
+
+    </androidx.appcompat.widget.AppCompatSeekBar>
+
+    <TextView
+        android:id="@+id/RGBValue_GreenColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/value_rgb_color_green"
+        android:background="#424242"
+        android:minWidth="25dp"
+        android:text="@string/initialValue"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/GreenColorBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/controlBarGreen"
+        app:layout_constraintTop_toBottomOf="@+id/RedColorBT"
+        android:layout_marginEnd="10dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/blueColorBT"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/ColorRGB_B"
+        android:minWidth="30dp"
+        android:text="@string/b"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/color_text_contrast"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
+        app:layout_constraintTop_toBottomOf="@+id/GreenColorBT"
+        app:layout_constraintRight_toLeftOf="@id/controlBarBlue"
+        app:layout_constraintBottom_toTopOf="@id/Color1_Complementary"
+        android:layout_marginStart="10dp">
+
+    </TextView>
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/controlBarBlue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/rgb_bar_color_blue"
+        android:indeterminate="false"
+        android:max="255"
+        android:progress="0"
+        android:progressDrawable="@drawable/track_seek_bar_blue"
+        android:thumb="@drawable/thumb_seek_bar_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/blueColorBT"
+        app:layout_constraintLeft_toRightOf="@+id/blueColorBT"
+        app:layout_constraintTop_toBottomOf="@+id/GreenColorBT"
+        app:layout_constraintRight_toLeftOf="@id/RGBValue_BlueColor">
+
+    </androidx.appcompat.widget.AppCompatSeekBar>
+
+    <TextView
+        android:id="@+id/RGBValue_BlueColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/value_rgb_color_blue"
+        android:background="#424242"
+        android:minWidth="25dp"
+        android:text="@string/initialValue"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/blueColorBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/controlBarBlue"
+        app:layout_constraintTop_toBottomOf="@+id/GreenColorBT"
+        android:layout_marginEnd="10dp">
+
+    </TextView>
+
+
+    <!--  Harmonic colors  -->
+    <TextView
+        android:id="@+id/Color1_Complementary"
+        android:contentDescription="@string/complementary_color_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/complementary_color"
+        app:layout_constraintRight_toLeftOf="@+id/complementary_color"
+        app:layout_constraintTop_toBottomOf="@id/blueColorBT"
+        app:layout_constraintBottom_toTopOf="@id/SplitCC_Color1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/complementaryInfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/complementary_color_information"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/complementary_color"
+        app:layout_constraintRight_toRightOf="@id/complementary_color"
+        app:layout_constraintBottom_toBottomOf="@id/complementary_color"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/complementary_color"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/Front_ColorGrey"
+        android:elevation="2dp"
+        android:text="@string/complementary"
+        android:gravity="center_vertical|center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/Color1_Complementary"
+        app:layout_constraintTop_toTopOf="@id/Color1_Complementary"
+        app:layout_constraintLeft_toLeftOf="@id/guideline35Percent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/SplitCC_Color1"
+        android:contentDescription="@string/splitCC_color_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/split_complementary_colors"
+        app:layout_constraintRight_toLeftOf="@+id/split_complementary_colors"
+        app:layout_constraintTop_toBottomOf="@id/Color1_Complementary"
+        app:layout_constraintBottom_toTopOf="@id/SplitCC_Color2"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/SplitCC_Color2"
+        android:contentDescription="@string/splitCC_color_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/split_complementary_colors"
+        app:layout_constraintRight_toLeftOf="@+id/split_complementary_colors"
+        app:layout_constraintTop_toBottomOf="@id/SplitCC_Color1"
+        app:layout_constraintBottom_toTopOf="@id/Analogous_Color1"
+        android:layout_marginBottom="10dp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/splitComplementaryInfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/split_complementary_information"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/split_complementary_colors"
+        app:layout_constraintRight_toRightOf="@id/split_complementary_colors"
+        app:layout_constraintBottom_toBottomOf="@id/split_complementary_colors"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/split_complementary_colors"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/Front_ColorGrey"
+        android:elevation="2dp"
+        android:text="@string/split_complementary"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp"
+        android:gravity="center_vertical|center"
+        app:layout_constraintTop_toTopOf="@id/SplitCC_Color1"
+        app:layout_constraintBottom_toBottomOf="@id/SplitCC_Color2"
+        app:layout_constraintLeft_toLeftOf="@id/guideline35Percent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Analogous_Color1"
+        android:contentDescription="@string/analogous_color_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
+        app:layout_constraintTop_toBottomOf="@id/SplitCC_Color2"
+        app:layout_constraintBottom_toTopOf="@id/Analogous_Color2"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Analogous_Color2"
+        android:contentDescription="@string/analogous_color_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Analogous_Color1"
+        app:layout_constraintBottom_toTopOf="@id/Analogous_Color3"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Analogous_Color3"
+        android:contentDescription="@string/analogous_color_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Analogous_Color2"
+        app:layout_constraintBottom_toTopOf="@id/Analogous_Color4"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Analogous_Color4"
+        android:contentDescription="@string/analogous_color_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Analogous_Color3"
+        app:layout_constraintBottom_toTopOf="@id/Analogous_Color5"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Analogous_Color5"
+        android:contentDescription="@string/analogous_color_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Analogous_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Analogous_Color4"
+        app:layout_constraintBottom_toTopOf="@id/Triadic_Color1"
+        android:layout_marginBottom="10dp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/analogousInfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/analogous_color_information"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/Analogous_Colors"
+        app:layout_constraintRight_toRightOf="@id/Analogous_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Analogous_Colors"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Analogous_Colors"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/Front_ColorGrey"
+        android:elevation="2dp"
+        android:text="@string/analogous"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        app:layout_constraintTop_toTopOf="@id/Analogous_Color1"
+        app:layout_constraintBottom_toBottomOf="@id/Analogous_Color5"
+        app:layout_constraintLeft_toLeftOf="@id/guideline35Percent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Triadic_Color1"
+        android:contentDescription="@string/triadic_color_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Triadic_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Triadic_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Analogous_Color5"
+        app:layout_constraintBottom_toTopOf="@id/Triadic_Color2"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Triadic_Color2"
+        android:contentDescription="@string/triadic_color_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Triadic_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Triadic_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Triadic_Color1"
+        app:layout_constraintBottom_toTopOf="@id/Tetradic_Color1"
+        android:layout_marginBottom="10dp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/triadicInfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/triadic_color_information"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/Triadic_Colors"
+        app:layout_constraintRight_toRightOf="@id/Triadic_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Triadic_Colors"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Triadic_Colors"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/Front_ColorGrey"
+        android:elevation="2dp"
+        android:text="@string/triadic"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        app:layout_constraintTop_toTopOf="@id/Triadic_Color1"
+        app:layout_constraintBottom_toBottomOf="@id/Triadic_Color2"
+        app:layout_constraintLeft_toLeftOf="@id/guideline35Percent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Tetradic_Color1"
+        android:contentDescription="@string/tetradic_color_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Tetradic_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Tetradic_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Triadic_Color2"
+        app:layout_constraintBottom_toTopOf="@id/Tetradic_Color2"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Tetradic_Color2"
+        android:contentDescription="@string/tetradic_color_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Tetradic_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Tetradic_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Tetradic_Color1"
+        app:layout_constraintBottom_toTopOf="@id/Tetradic_Color3"
+        android:layout_marginBottom="2dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Tetradic_Color3"
+        android:contentDescription="@string/tetradic_color_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFDD00"
+        android:elevation="3dp"
+        app:layout_constraintWidth_percent=".16"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="@id/Tetradic_Colors"
+        app:layout_constraintRight_toLeftOf="@+id/Tetradic_Colors"
+        app:layout_constraintTop_toBottomOf="@id/Tetradic_Color2"
+        app:layout_constraintBottom_toTopOf="@id/buttonSaved"
+        android:layout_marginBottom="10dp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/tetradicInfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/tetradic_color_information"
+        android:src="@drawable/ic_info"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="@id/Tetradic_Colors"
+        app:layout_constraintRight_toRightOf="@id/Tetradic_Colors"
+        app:layout_constraintBottom_toBottomOf="@id/Tetradic_Colors"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Tetradic_Colors"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/Front_ColorGrey"
+        android:elevation="2dp"
+        android:text="@string/tetradic"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        app:layout_constraintTop_toTopOf="@id/Tetradic_Color1"
+        app:layout_constraintBottom_toBottomOf="@id/Tetradic_Color3"
+        app:layout_constraintLeft_toLeftOf="@id/guideline35Percent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+
+    <!--  Buttons Colors saves   -->
+    <TextView
+        android:id="@+id/buttonSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:backgroundTint="#505050"
+        android:elevation="5dp"
+        android:text="@string/saved"
+        android:textStyle="bold"
+        android:textColor="@color/material_white"
+        android:textSize="18sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline35Percent"
+        app:layout_constraintEnd_toStartOf="@id/buttonColor1">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/buttonColor1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/saved_color_1"
+        android:backgroundTint="#AB00C3"
+        android:elevation="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSaved"
+        app:layout_constraintEnd_toStartOf="@id/buttonColor2"
+        android:visibility="invisible">
+
+    </Button>
+
+    <Button
+        android:id="@+id/buttonColor2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/saved_color_2"
+        android:backgroundTint="#66FF6E"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonColor1"
+        app:layout_constraintEnd_toStartOf="@id/buttonColor3"
+        android:visibility="invisible">
+
+    </Button>
+
+    <Button
+        android:id="@+id/buttonColor3"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/saved_color_3"
+        android:backgroundTint="#65AAFF"
+        android:elevation="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonColor2"
+        app:layout_constraintEnd_toStartOf="@id/moreColors"
+        android:visibility="invisible">
+
+    </Button>
+
+    <ImageButton
+        android:id="@+id/moreColors"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/more_saved_color"
+        android:adjustViewBounds="true"
+        android:scaleType="center"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/icon_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonColor3"
+        android:layout_marginEnd="2dp">
+
+    </ImageButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

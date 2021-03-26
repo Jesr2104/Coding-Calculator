@@ -1,0 +1,265 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.just_jump.coding_calculator"
+4    android:versionCode="10"
+5    android:versionName="1.1.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:7:5-67
+11-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:7:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[com.google.firebase:firebase-config:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\bc4fd76c298ccb81e84da0cc58e806fd\jetified-firebase-config-20.0.1\AndroidManifest.xml:25:5-79
+12-->[com.google.firebase:firebase-config:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\bc4fd76c298ccb81e84da0cc58e806fd\jetified-firebase-config-20.0.1\AndroidManifest.xml:25:22-76
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\46836c9d3a8dc0ad26ccd22081611425\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:24:5-68
+13-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\46836c9d3a8dc0ad26ccd22081611425\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:24:22-65
+14    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Permission will be merged into the manifest of the hosting app. -->
+14-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:5-110
+14-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:22-107
+15    <!-- Is required to launch foreground extraction service for targetSdkVersion 28+. -->
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+16-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:8:3-74
+16-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:8:20-72
+17
+18    <application
+18-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:9:5-55:19
+19        android:allowBackup="true"
+19-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:10:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.3.2] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\12cbcfb62e3102878f64eb0b074d227d\core-1.3.2\AndroidManifest.xml:24:18-86
+21        android:icon="@mipmap/icon_app"
+21-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:11:9-40
+22        android:label="@string/app_name"
+22-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:12:9-41
+23        android:roundIcon="@mipmap/icon_app"
+23-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:13:9-45
+24        android:supportsRtl="true"
+24-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:14:9-35
+25        android:theme="@style/splash" >
+25-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:15:9-38
+26        <activity
+26-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:18:9-20:51
+27            android:name="com.just_jump.coding_calculator.CalculatorNew"
+27-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:19:13-73
+28            android:screenOrientation="portrait" />
+28-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:20:13-49
+29        <activity
+29-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:21:9-23:51
+30            android:name="com.just_jump.coding_calculator.UpdateVersion"
+30-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:22:13-73
+31            android:screenOrientation="portrait" />
+31-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:23:13-49
+32        <activity
+32-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:24:9-26:51
+33            android:name="com.just_jump.coding_calculator.ListSavedColors"
+33-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:25:13-75
+34            android:screenOrientation="portrait" />
+34-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:26:13-49
+35        <activity
+35-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:27:9-29:51
+36            android:name="com.just_jump.coding_calculator.ExtraCalculations"
+36-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:28:13-77
+37            android:screenOrientation="portrait" />
+37-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:29:13-49
+38        <activity
+38-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:30:9-32:51
+39            android:name="com.just_jump.coding_calculator.Converter"
+39-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:31:13-69
+40            android:screenOrientation="portrait" />
+40-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:32:13-49
+41        <activity
+41-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:33:9-35:51
+42            android:name="com.just_jump.coding_calculator.NumericalSystems"
+42-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:34:13-76
+43            android:screenOrientation="portrait" />
+43-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:35:13-49
+44        <activity
+44-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:36:9-38:51
+45            android:name="com.just_jump.coding_calculator.GammaColors"
+45-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:37:13-71
+46            android:screenOrientation="portrait" />
+46-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:38:13-49
+47        <activity
+47-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:39:9-41:51
+48            android:name="com.just_jump.coding_calculator.PaletteColors"
+48-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:40:13-73
+49            android:screenOrientation="portrait" />
+49-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:41:13-49
+50        <activity
+50-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:42:9-44:51
+51            android:name="com.just_jump.coding_calculator.ColorCode"
+51-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:43:13-69
+52            android:screenOrientation="portrait" />
+52-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:44:13-49
+53        <activity
+53-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:45:9-53:20
+54            android:name="com.just_jump.coding_calculator.MainActivity"
+54-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:46:13-72
+55            android:screenOrientation="portrait" >
+55-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:47:13-49
+56            <intent-filter>
+56-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:49:13-52:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:50:17-69
+57-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:50:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:51:17-77
+59-->C:\Users\jjsot\AndroidStudioProjects\coding_calculator\app\src\main\AndroidManifest.xml:51:27-74
+60            </intent-filter>
+61        </activity>
+62
+63        <service
+63-->[com.google.firebase:firebase-config-ktx:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\b4c73afb85d846fa7ca9ed6fe4e4cb0b\jetified-firebase-config-ktx-20.0.1\AndroidManifest.xml:12:9-18:19
+64            android:name="com.google.firebase.components.ComponentDiscoveryService"
+64-->[com.google.firebase:firebase-config-ktx:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\b4c73afb85d846fa7ca9ed6fe4e4cb0b\jetified-firebase-config-ktx-20.0.1\AndroidManifest.xml:13:13-84
+65            android:directBootAware="true"
+65-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:35:13-43
+66            android:exported="false" >
+66-->[com.google.firebase:firebase-config-ktx:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\b4c73afb85d846fa7ca9ed6fe4e4cb0b\jetified-firebase-config-ktx-20.0.1\AndroidManifest.xml:14:13-37
+67            <meta-data
+67-->[com.google.firebase:firebase-config-ktx:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\b4c73afb85d846fa7ca9ed6fe4e4cb0b\jetified-firebase-config-ktx-20.0.1\AndroidManifest.xml:15:13-17:85
+68                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseRemoteConfigKtxRegistrar"
+68-->[com.google.firebase:firebase-config-ktx:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\b4c73afb85d846fa7ca9ed6fe4e4cb0b\jetified-firebase-config-ktx-20.0.1\AndroidManifest.xml:16:17-132
+69                android:value="com.google.firebase.components.ComponentRegistrar" />
+69-->[com.google.firebase:firebase-config-ktx:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\b4c73afb85d846fa7ca9ed6fe4e4cb0b\jetified-firebase-config-ktx-20.0.1\AndroidManifest.xml:17:17-82
+70            <meta-data
+70-->[com.google.firebase:firebase-analytics-ktx:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\aed64c13f7b3c9c058c9273e513d89c9\jetified-firebase-analytics-ktx-18.0.0\AndroidManifest.xml:11:13-13:85
+71                android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
+71-->[com.google.firebase:firebase-analytics-ktx:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\aed64c13f7b3c9c058c9273e513d89c9\jetified-firebase-analytics-ktx-18.0.0\AndroidManifest.xml:12:17-126
+72                android:value="com.google.firebase.components.ComponentRegistrar" />
+72-->[com.google.firebase:firebase-analytics-ktx:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\aed64c13f7b3c9c058c9273e513d89c9\jetified-firebase-analytics-ktx-18.0.0\AndroidManifest.xml:13:17-82
+73            <meta-data
+73-->[com.google.firebase:firebase-common-ktx:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\24983f05013cbdd06ba5e8bcb6a8c802\jetified-firebase-common-ktx-19.4.0\AndroidManifest.xml:15:13-17:85
+74                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+74-->[com.google.firebase:firebase-common-ktx:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\24983f05013cbdd06ba5e8bcb6a8c802\jetified-firebase-common-ktx-19.4.0\AndroidManifest.xml:16:17-113
+75                android:value="com.google.firebase.components.ComponentRegistrar" />
+75-->[com.google.firebase:firebase-common-ktx:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\24983f05013cbdd06ba5e8bcb6a8c802\jetified-firebase-common-ktx-19.4.0\AndroidManifest.xml:17:17-82
+76            <meta-data
+76-->[com.google.firebase:firebase-config:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\bc4fd76c298ccb81e84da0cc58e806fd\jetified-firebase-config-20.0.1\AndroidManifest.xml:32:13-34:85
+77                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+77-->[com.google.firebase:firebase-config:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\bc4fd76c298ccb81e84da0cc58e806fd\jetified-firebase-config-20.0.1\AndroidManifest.xml:33:17-117
+78                android:value="com.google.firebase.components.ComponentRegistrar" />
+78-->[com.google.firebase:firebase-config:20.0.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\bc4fd76c298ccb81e84da0cc58e806fd\jetified-firebase-config-20.0.1\AndroidManifest.xml:34:17-82
+79            <meta-data
+79-->[com.google.firebase:firebase-abt:20.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\380dfe9db8764a4342d7df8abd793661\jetified-firebase-abt-20.0.0\AndroidManifest.xml:13:13-15:85
+80                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+80-->[com.google.firebase:firebase-abt:20.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\380dfe9db8764a4342d7df8abd793661\jetified-firebase-abt-20.0.0\AndroidManifest.xml:14:17-109
+81                android:value="com.google.firebase.components.ComponentRegistrar" />
+81-->[com.google.firebase:firebase-abt:20.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\380dfe9db8764a4342d7df8abd793661\jetified-firebase-abt-20.0.0\AndroidManifest.xml:15:17-82
+82            <meta-data
+82-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\46836c9d3a8dc0ad26ccd22081611425\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:30:13-32:85
+83                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+83-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\46836c9d3a8dc0ad26ccd22081611425\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:31:17-139
+84                android:value="com.google.firebase.components.ComponentRegistrar" />
+84-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\46836c9d3a8dc0ad26ccd22081611425\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:32:17-82
+85            <meta-data
+85-->[com.google.firebase:firebase-installations:16.3.4] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\62a5434d611748b022ef005210ae66ed\jetified-firebase-installations-16.3.4\AndroidManifest.xml:18:13-20:85
+86                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+86-->[com.google.firebase:firebase-installations:16.3.4] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\62a5434d611748b022ef005210ae66ed\jetified-firebase-installations-16.3.4\AndroidManifest.xml:19:17-127
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[com.google.firebase:firebase-installations:16.3.4] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\62a5434d611748b022ef005210ae66ed\jetified-firebase-installations-16.3.4\AndroidManifest.xml:20:17-82
+88        </service>
+89
+90        <provider
+90-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:26:9-31:39
+91            android:name="com.google.firebase.provider.FirebaseInitProvider"
+91-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:27:13-77
+92            android:authorities="com.just_jump.coding_calculator.firebaseinitprovider"
+92-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:28:13-72
+93            android:directBootAware="true"
+93-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:29:13-43
+94            android:exported="false"
+94-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:30:13-37
+95            android:initOrder="100" />
+95-->[com.google.firebase:firebase-common:19.4.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\ee728b98d34621713287515808168d44\jetified-firebase-common-19.4.0\AndroidManifest.xml:31:13-36
+96
+97        <receiver
+97-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:29:9-33:20
+98            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+98-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:30:13-85
+99            android:enabled="true"
+99-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:31:13-35
+100            android:exported="false" >
+100-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:32:13-37
+101        </receiver>
+102
+103        <service
+103-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:35:9-38:40
+104            android:name="com.google.android.gms.measurement.AppMeasurementService"
+104-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:36:13-84
+105            android:enabled="true"
+105-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:37:13-35
+106            android:exported="false" />
+106-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:38:13-37
+107        <service
+107-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:39:9-43:72
+108            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+108-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:40:13-87
+109            android:enabled="true"
+109-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:41:13-35
+110            android:exported="false"
+110-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:42:13-37
+111            android:permission="android.permission.BIND_JOB_SERVICE" />
+111-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\a092ce6981b60ded2db80eb68211111e\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:43:13-69
+112
+113        <meta-data
+113-->[com.google.android.gms:play-services-basement:17.2.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\dbe35fa8f06202b77974135bf82aa1d9\jetified-play-services-basement-17.2.1\AndroidManifest.xml:23:9-25:69
+114            android:name="com.google.android.gms.version"
+114-->[com.google.android.gms:play-services-basement:17.2.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\dbe35fa8f06202b77974135bf82aa1d9\jetified-play-services-basement-17.2.1\AndroidManifest.xml:24:13-58
+115            android:value="@integer/google_play_services_version" />
+115-->[com.google.android.gms:play-services-basement:17.2.1] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\dbe35fa8f06202b77974135bf82aa1d9\jetified-play-services-basement-17.2.1\AndroidManifest.xml:25:13-66
+116
+117        <provider
+117-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\543a6f59e46c9d28b7995cd1a1238136\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+118            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+118-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\543a6f59e46c9d28b7995cd1a1238136\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+119            android:authorities="com.just_jump.coding_calculator.lifecycle-process"
+119-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\543a6f59e46c9d28b7995cd1a1238136\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+120            android:exported="false"
+120-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\543a6f59e46c9d28b7995cd1a1238136\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+121            android:multiprocess="true" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+121-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\543a6f59e46c9d28b7995cd1a1238136\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+122        <activity
+122-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:5-271
+123            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
+123-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:15-102
+124            android:enabled="false"
+124-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:103-126
+125            android:exported="false"
+125-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:127-151
+126            android:launchMode="singleInstance"
+126-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:204-239
+127            android:process=":playcore_missing_splits_activity"
+127-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:152-203
+128            android:stateNotNeeded="true" />
+128-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:12:240-269
+129        <activity
+129-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:13:5-226
+130            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+130-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:13:15-95
+131            android:enabled="false"
+131-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:13:96-119
+132            android:exported="false"
+132-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:13:120-144
+133            android:stateNotNeeded="true"
+133-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:13:145-174
+134            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
+134-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:13:175-224
+135        <service
+135-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:16:5-145
+136            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
+136-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:16:14-95
+137            android:enabled="false"
+137-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:16:96-119
+138            android:exported="true" />
+138-->[com.google.android.play:core:1.8.0] C:\Users\jjsot\.gradle\caches\transforms-2\files-2.1\23e2dd3f729596a7f8166f0ff7e5cd47\jetified-core-1.8.0\AndroidManifest.xml:16:120-143
+139    </application>
+140
+141</manifest>

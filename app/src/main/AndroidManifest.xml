@@ -16,42 +16,41 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".CalculatorNew"
+            android:name="com.just_jump.coding_calculator.CalculatorNew"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".UpdateVersion"
+            android:name="com.just_jump.coding_calculator.UpdateVersion"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ListSavedColors"
+            android:name="com.just_jump.coding_calculator.ListSavedColors"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ExtraCalculations"
+            android:name="com.just_jump.coding_calculator.ExtraCalculations"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Converter"
+            android:name="com.just_jump.coding_calculator.Converter"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".NumericalSystems"
+            android:name="com.just_jump.coding_calculator.NumericalSystems"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".GammaColors"
+            android:name="com.just_jump.coding_calculator.GammaColors"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".PaletteColors"
+            android:name="com.just_jump.coding_calculator.PaletteColors"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ColorCode"
+            android:name="com.just_jump.coding_calculator.ColorCode"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name="com.just_jump.coding_calculator.MainActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>

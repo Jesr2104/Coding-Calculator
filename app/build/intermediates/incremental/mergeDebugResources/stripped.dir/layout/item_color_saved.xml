@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/Background_CardSavedColor">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <TextView
+            android:id="@+id/titleColorSaved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/color"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/titleHexadecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:text="@string/hexadecimal"
+            app:layout_constraintTop_toBottomOf="@id/titleColorSaved"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/colorCodeHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_4aa48a"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleHexadecimal">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/titleRGB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rgb"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/colorCodeHex">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/colorCodeRGB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_42_164_138"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleRGB">
+
+        </TextView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/colorSaved"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/colorCodeRGB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/titleHexadecimal"
+            app:layout_constraintTop_toBottomOf="@+id/titleColorSaved">
+
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loadSavedColor"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorCodeRGB" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:id="@+id/deleteSavedColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@+id/loadSavedColor"
+            app:layout_constraintTop_toBottomOf="@+id/colorCodeRGB" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,5 +1,3 @@
-@file:Suppress("SpellCheckingInspection")
-
 package com.just_jump.coding_calculator
 
 import android.content.Intent
@@ -10,6 +8,7 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.just_jump.coding_calculator.*
 import com.just_jump.coding_calculator.data.local.SRDataColors
 import com.just_jump.coding_calculator.utilities.ColorDesign
 import com.just_jump.coding_calculator.utilities.Functions
