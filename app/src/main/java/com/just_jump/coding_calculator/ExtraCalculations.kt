@@ -5,13 +5,17 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.just_jump.coding_calculator.databinding.ActivityExtraCalculationsBinding
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.activity_extra_calculations.*
 
 class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
+
+    private lateinit var binding: ActivityExtraCalculationsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_extra_calculations)
+        binding = ActivityExtraCalculationsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val fragmentAverage = FragmentAverage(this)
         val fragmentExponent = FragmentExponent(this)
@@ -29,12 +33,12 @@ class ExtraCalculations : AppCompatActivity(), ReturnMainActivity {
             intArrayOf(android.R.attr.state_enabled, android.R.attr.state_checked)
         )
 
-        navigationBar_view.itemTextColor = ColorStateList(states, colors)
-        navigationBar_view.itemIconTintList = null
+        binding.navigationBarView.itemTextColor = ColorStateList(states, colors)
+        binding.navigationBarView.itemIconTintList = null
 
         makeCurrentFragment(fragmentAverage)
 
-        navigationBar_view.setOnNavigationItemSelectedListener {
+        binding.navigationBarView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.NavBar_average -> makeCurrentFragment(fragmentAverage)
                 R.id.NavBar_exponent -> makeCurrentFragment(fragmentExponent)

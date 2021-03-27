@@ -4,18 +4,21 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialogFragment
+import com.just_jump.coding_calculator.databinding.DialogInfoRuleOfThreeInverseBinding
 
 class InfoRuleOfThreeInverseDialog : AppCompatDialogFragment() {
+
+    private lateinit var binding:DialogInfoRuleOfThreeInverseBinding
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         return activity?.let {
             val builder = AlertDialog.Builder(it)
 
             // Get the layout inflater
-            val inflater = requireActivity().layoutInflater
-            val viewDialog = inflater.inflate(R.layout.dialog_info_rule_of_three_inverse, null)
+            binding = DialogInfoRuleOfThreeInverseBinding.inflate(layoutInflater)
 
-            builder.setView(viewDialog)
+            builder.setView(binding.root)
 
                 // Add action buttons
                 .setNeutralButton("Ok") { dialog, _ ->

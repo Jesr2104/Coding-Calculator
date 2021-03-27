@@ -10,12 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.just_jump.coding_calculator.*
 import com.just_jump.coding_calculator.data.local.SRDataColors
+import com.just_jump.coding_calculator.databinding.ActivityColorcodeBinding
 import com.just_jump.coding_calculator.utilities.ColorDesign
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.viewmodel.ViewModelColorCode
 import com.skydoves.colorpickerview.ColorPickerDialog
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
-import kotlinx.android.synthetic.main.activity_colorcode.*
 
 class ColorCode : AppCompatActivity(){
 
@@ -25,6 +25,7 @@ class ColorCode : AppCompatActivity(){
     private lateinit var analogousColorStore: Array<Int>
     private lateinit var triadicColorStore: Array<Int>
     private lateinit var tetradicColorStore: Array<Int>
+    private lateinit var binding: ActivityColorcodeBinding
 
     override fun onResume() {
         cViewModel.setRGBColor(cViewModel.getRGBColor())
@@ -53,7 +54,8 @@ class ColorCode : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_colorcode)
+        binding = ActivityColorcodeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         cViewModel = ViewModelProvider(this)[ViewModelColorCode::class.java]
 
@@ -63,37 +65,37 @@ class ColorCode : AppCompatActivity(){
         val myObserverColor = Observer<Int> {
 
             //  Primary color
-            mainColor.setBackgroundColor(cViewModel.getRGBColor())
+            binding.mainColor.setBackgroundColor(cViewModel.getRGBColor())
 
             loadDataColor(cViewModel.getRGBColor())
 
             // Complementary color viewer
             complementaryColorStore = cViewModel.loadComplementaryColor()
-            Color1_Complementary.setBackgroundColor(complementaryColorStore)
+            binding.Color1Complementary.setBackgroundColor(complementaryColorStore)
 
             // Split Complementary color viewer
             splitComplementaryColorStore = cViewModel.loadSplitComplementaryColor()
-            SplitCC_Color1.setBackgroundColor(splitComplementaryColorStore[0])
-            SplitCC_Color2.setBackgroundColor(splitComplementaryColorStore[1])
+            binding.SplitCCColor1.setBackgroundColor(splitComplementaryColorStore[0])
+            binding.SplitCCColor2.setBackgroundColor(splitComplementaryColorStore[1])
 
             // Analogous
             analogousColorStore = cViewModel.loadAnalogous()
-            Analogous_Color1.setBackgroundColor(analogousColorStore[0])
-            Analogous_Color2.setBackgroundColor(analogousColorStore[1])
-            Analogous_Color3.setBackgroundColor(analogousColorStore[2])
-            Analogous_Color4.setBackgroundColor(analogousColorStore[3])
-            Analogous_Color5.setBackgroundColor(analogousColorStore[4])
+            binding.AnalogousColor1.setBackgroundColor(analogousColorStore[0])
+            binding.AnalogousColor2.setBackgroundColor(analogousColorStore[1])
+            binding.AnalogousColor3.setBackgroundColor(analogousColorStore[2])
+            binding.AnalogousColor4.setBackgroundColor(analogousColorStore[3])
+            binding.AnalogousColor5.setBackgroundColor(analogousColorStore[4])
 
             // Triadic
             triadicColorStore = cViewModel.loadTriadic()
-            Triadic_Color1.setBackgroundColor(triadicColorStore[0])
-            Triadic_Color2.setBackgroundColor(triadicColorStore[1])
+            binding.TriadicColor1.setBackgroundColor(triadicColorStore[0])
+            binding.TriadicColor2.setBackgroundColor(triadicColorStore[1])
 
             // Tetradic
             tetradicColorStore = cViewModel.loadTetradicColor()
-            Tetradic_Color1.setBackgroundColor(tetradicColorStore[0])
-            Tetradic_Color2.setBackgroundColor(tetradicColorStore[1])
-            Tetradic_Color3.setBackgroundColor(tetradicColorStore[2])
+            binding.TetradicColor1.setBackgroundColor(tetradicColorStore[0])
+            binding.TetradicColor2.setBackgroundColor(tetradicColorStore[1])
+            binding.TetradicColor3.setBackgroundColor(tetradicColorStore[2])
 
             // this function need to be update and implement more clear
             updateColor()
@@ -105,7 +107,7 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         // this event control when you press the color select
         //------------------------------------------------------------------------------------------
-        ColorPicker.setOnClickListener {
+        binding.ColorPicker.setOnClickListener {
 
             ColorPickerDialog.Builder(this)
                 .setTitle("Color Picker")
@@ -119,13 +121,13 @@ class ColorCode : AppCompatActivity(){
                 }
                 .attachAlphaSlideBar(false) // the default value is true.
                 .attachBrightnessSlideBar(true) // the default value is true.
-                .setBottomSpace(12) // set a bottom space between the last slidebar and buttons.
+                .setBottomSpace(12) // set a bottom space between the last slide bar and buttons.
                 .show()
         }
         //------------------------------------------------------------------------------------------
         // Dialog with the color information
         //------------------------------------------------------------------------------------------
-        mainColor.setOnClickListener {
+        binding.mainColor.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 cViewModel.getRGBColor(),
@@ -134,7 +136,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Color1_Complementary.setOnClickListener {
+        binding.Color1Complementary.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 complementaryColorStore,
@@ -143,7 +145,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        SplitCC_Color1.setOnClickListener {
+        binding.SplitCCColor1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 splitComplementaryColorStore[0],
@@ -152,7 +154,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        SplitCC_Color2.setOnClickListener {
+        binding.SplitCCColor2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 splitComplementaryColorStore[1],
@@ -161,7 +163,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Analogous_Color1.setOnClickListener {
+        binding.AnalogousColor1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[0],
@@ -170,7 +172,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Analogous_Color2.setOnClickListener {
+        binding.AnalogousColor2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[1],
@@ -179,7 +181,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Analogous_Color3.setOnClickListener {
+        binding.AnalogousColor3.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[2],
@@ -188,7 +190,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Analogous_Color4.setOnClickListener {
+        binding.AnalogousColor4.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[3],
@@ -197,7 +199,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Analogous_Color5.setOnClickListener {
+        binding.AnalogousColor5.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 analogousColorStore[4],
@@ -206,7 +208,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Triadic_Color1.setOnClickListener {
+        binding.TriadicColor1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 triadicColorStore[0],
@@ -215,7 +217,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Triadic_Color2.setOnClickListener {
+        binding.TriadicColor2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 triadicColorStore[1],
@@ -224,7 +226,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Tetradic_Color1.setOnClickListener {
+        binding.TetradicColor1.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 tetradicColorStore[0],
@@ -233,7 +235,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Tetradic_Color2.setOnClickListener {
+        binding.TetradicColor2.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 tetradicColorStore[1],
@@ -242,7 +244,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        Tetradic_Color3.setOnClickListener {
+        binding.TetradicColor3.setOnClickListener {
             val newFragment = InfoColorDialog(
                 this.applicationContext,
                 tetradicColorStore[2],
@@ -253,7 +255,7 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         // Dialog with the saved color information
         //------------------------------------------------------------------------------------------
-        buttonColor1.setOnClickListener {
+        binding.buttonColor1.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
                 SRDataColors.getItem(0),
                 cViewModel
@@ -261,7 +263,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        buttonColor2.setOnClickListener {
+        binding.buttonColor2.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
                 SRDataColors.getItem(1),
                 cViewModel
@@ -269,7 +271,7 @@ class ColorCode : AppCompatActivity(){
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        buttonColor3.setOnClickListener {
+        binding.buttonColor3.setOnClickListener {
             val newFragment = InfoColorSavedDialog(
                 SRDataColors.getItem(2),
                 cViewModel
@@ -279,92 +281,92 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
-        complementaryInfo.setOnClickListener {
+        binding.complementaryInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("IC")
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        splitComplementaryInfo.setOnClickListener {
+        binding.splitComplementaryInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("ISC")
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        analogousInfo.setOnClickListener {
+        binding.analogousInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("IA")
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        triadicInfo.setOnClickListener {
+        binding.triadicInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("ITR")
             newFragment.show(supportFragmentManager, "infoColor")
         }
 
-        tetradicInfo.setOnClickListener {
+        binding.tetradicInfo.setOnClickListener {
             val newFragment = InfoSystemDialog("ITE")
             newFragment.show(supportFragmentManager, "infoColor")
         }
         //------------------------------------------------------------------------------------------
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
-        moreColors.setOnClickListener {
+        binding.moreColors.setOnClickListener {
             val listSavedColors = Intent(this, ListSavedColors::class.java)
             startActivityForResult(listSavedColors,1)
         }
         //------------------------------------------------------------------------------------------
         // Dialog to show the controls to change the code color
         //------------------------------------------------------------------------------------------
-        HEX_redValue.setOnClickListener {
+        binding.HEXRedValue.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(
-                HEX_redValue.text.toString(),
+                binding.HEXRedValue.text.toString(),
                 "HEXR",
                 cViewModel.colorRGB
             )
             newFragment.show(supportFragmentManager, "changeColorValue")
         }
 
-        HEX_greenValue.setOnClickListener {
+        binding.HEXGreenValue.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(
-                HEX_greenValue.text.toString(),
+                binding.HEXGreenValue.text.toString(),
                 "HEXG",
                 cViewModel.colorRGB
             )
             newFragment.show(supportFragmentManager, "changeColorValue")
         }
 
-        HEX_blueValue.setOnClickListener {
+        binding.HEXBlueValue.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(
-                HEX_blueValue.text.toString(),
+                binding.HEXBlueValue.text.toString(),
                 "HEXB",
                 cViewModel.colorRGB
             )
             newFragment.show(supportFragmentManager, "changeColorValue")
         }
 
-        RGBValue_RedColor.setOnClickListener {
+        binding.RGBValueRedColor.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(
-                RGBValue_RedColor.text.toString(),
+                binding.RGBValueRedColor.text.toString(),
                 "RGBR",
                 cViewModel.colorRGB
             )
             newFragment.show(supportFragmentManager, "changeColorValue")
         }
-        RGBValue_GreenColor.setOnClickListener {
+        binding.RGBValueGreenColor.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(
-                RGBValue_GreenColor.text.toString(),
+                binding.RGBValueGreenColor.text.toString(),
                 "RGBG",
                 cViewModel.colorRGB
             )
             newFragment.show(supportFragmentManager, "changeColorValue")
         }
-        RGBValue_BlueColor.setOnClickListener {
+        binding.RGBValueBlueColor.setOnClickListener {
 
             val newFragment = InfoChangeValueColorDialog(
-                RGBValue_BlueColor.text.toString(),
+                binding.RGBValueBlueColor.text.toString(),
                 "RGBB",
                 cViewModel.colorRGB
             )
@@ -373,7 +375,7 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         // event to control the new palette colors list
         //------------------------------------------------------------------------------------------
-        BPaletteColors.setOnClickListener {
+        binding.BPaletteColors.setOnClickListener {
             val paletteColors = Intent(this, PaletteColors::class.java)
             paletteColors.putExtra("TAG", 1)
             startActivity(paletteColors)
@@ -381,9 +383,9 @@ class ColorCode : AppCompatActivity(){
         //------------------------------------------------------------------------------------------
         // Event of the seekBar of the RGB controls
         //------------------------------------------------------------------------------------------
-        controlBarRed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.controlBarRed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                RGBValue_RedColor.text = p1.toString()
+                binding.RGBValueRedColor.text = p1.toString()
                 val valueRed = Functions().convertDecToHex(p1)
                 cViewModel.setRGBColor(Color.parseColor("#$valueRed${cViewModel.getGreen()}${cViewModel.getBlue()}"))
             }
@@ -395,9 +397,9 @@ class ColorCode : AppCompatActivity(){
             }
         })
 
-        controlBarGreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.controlBarGreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                RGBValue_GreenColor.text = p1.toString()
+                binding.RGBValueGreenColor.text = p1.toString()
                 val valueGreen = Functions().convertDecToHex(p1)
                 cViewModel.setRGBColor(Color.parseColor("#${cViewModel.getRed()}$valueGreen${cViewModel.getBlue()}"))
             }
@@ -409,9 +411,9 @@ class ColorCode : AppCompatActivity(){
             }
         })
 
-        controlBarBlue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.controlBarBlue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                RGBValue_BlueColor.text = p1.toString()
+                binding.RGBValueBlueColor.text = p1.toString()
                 val valueBlue = Functions().convertDecToHex(p1)
                 cViewModel.setRGBColor(Color.parseColor("#${cViewModel.getRed()}${cViewModel.getGreen()}$valueBlue"))
             }
@@ -429,19 +431,19 @@ class ColorCode : AppCompatActivity(){
         val g = Color.green(rgbColor)
         val b = Color.blue(rgbColor)
 
-        controlBarRed.progress = r
-        controlBarGreen.progress = g
-        controlBarBlue.progress = b
+        binding.controlBarRed.progress = r
+        binding.controlBarGreen.progress = g
+        binding.controlBarBlue.progress = b
 
-        HEX_redValue.text = Functions().convertDecToHex(r)
-        HEX_greenValue.text = Functions().convertDecToHex(g)
-        HEX_blueValue.text = Functions().convertDecToHex(b)
+        binding.HEXRedValue.text = Functions().convertDecToHex(r)
+        binding.HEXGreenValue.text = Functions().convertDecToHex(g)
+        binding.HEXBlueValue.text = Functions().convertDecToHex(b)
 
         val colorHSL = ColorDesign().getHSLColorFromRGB(rgbColor)
 
-        HSL_hueValue.text = ((colorHSL[0] * 360).toInt()).toString()
-        HSL_saturationValue.text = ((colorHSL[1] * 100).toInt()).toString()
-        HSL_LightnessValue.text = ((colorHSL[2] * 100).toInt()).toString()
+        binding.HSLHueValue.text = ((colorHSL[0] * 360).toInt()).toString()
+        binding.HSLSaturationValue.text = ((colorHSL[1] * 100).toInt()).toString()
+        binding.HSLLightnessValue.text = ((colorHSL[2] * 100).toInt()).toString()
     }
 
     private fun updateColor() {
@@ -449,30 +451,30 @@ class ColorCode : AppCompatActivity(){
 
         if (data.size != 0) {
             if (data.size + 1 > 1) {
-                buttonColor1.visibility = View.VISIBLE
-                buttonColor1.background.setTint(data[0])
+                binding.buttonColor1.visibility = View.VISIBLE
+                binding.buttonColor1.background.setTint(data[0])
             }
             else{
-                buttonColor1.visibility = View.INVISIBLE
+                binding.buttonColor1.visibility = View.INVISIBLE
             }
 
             if (data.size + 1 > 2){
-                buttonColor2.visibility = View.VISIBLE
-                buttonColor2.background.setTint(data[1])
+                binding.buttonColor2.visibility = View.VISIBLE
+                binding.buttonColor2.background.setTint(data[1])
             }
             else{
-                buttonColor2.visibility = View.INVISIBLE
+                binding.buttonColor2.visibility = View.INVISIBLE
             }
 
             if (data.size + 1 > 3){
-                buttonColor3.visibility = View.VISIBLE
-                buttonColor3.background.setTint(data[2])
+                binding.buttonColor3.visibility = View.VISIBLE
+                binding.buttonColor3.background.setTint(data[2])
             }
             else{
-                buttonColor3.visibility = View.INVISIBLE
+                binding.buttonColor3.visibility = View.INVISIBLE
             }
         }else{
-            buttonColor1.visibility = View.INVISIBLE
+            binding.buttonColor1.visibility = View.INVISIBLE
         }
     }
 }

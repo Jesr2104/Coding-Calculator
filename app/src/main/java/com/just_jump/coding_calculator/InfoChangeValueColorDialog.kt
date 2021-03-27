@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.InputFilter
 import android.text.InputType
@@ -13,8 +14,8 @@ import android.text.TextWatcher
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.lifecycle.MutableLiveData
+import com.just_jump.coding_calculator.databinding.DialogChangeValueColorBinding
 import com.just_jump.coding_calculator.utilities.Functions
-import kotlinx.android.synthetic.main.dialog_change_value_color.view.*
 
 class InfoChangeValueColorDialog(
     private var Value: String,
@@ -27,29 +28,29 @@ class InfoChangeValueColorDialog(
     private var newValue: Int = 0
     private var hexValue: Int = 0
     var mainHandler: Handler? = null
+    private lateinit var binding: DialogChangeValueColorBinding
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
 
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater
-            val viewDialog = inflater.inflate(R.layout.dialog_change_value_color, null)
+            binding = DialogChangeValueColorBinding.inflate(layoutInflater)
 
             // insert the value previous in the field to change
-            viewDialog.editTextReal.setText(Value)
+            binding.editTextReal.setText(Value)
 
             when (TypeColor) {
                 "HEXR", "HEXG", "HEXB" -> {
                     rangeA = 0
                     rangeB = 255
-                    viewDialog.editText.helperText = "Range [00 - FF]"
+                    binding.editText.helperText = "Range [00 - FF]"
 
                     // this code allow to filter the input on the filter
-                    viewDialog.editTextReal.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                    binding.editTextReal.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
 
                     // change keyboard for text to include letter
-                    viewDialog.editTextReal.inputType = InputType.TYPE_CLASS_TEXT
+                    binding.editTextReal.inputType = InputType.TYPE_CLASS_TEXT
 
                     val filter = InputFilter { source, _, _, _, _, _ ->
                             val blockCharacterSet = "~#^|$%*!@/()-'\":;,?{}=!$^';,?×÷<>{}€£¥₩%~`¤♡♥_|《》¡¿°•○●□■◇◆♧♣▲▼▶◀↑↓←→☆★▪:-);-):-D:-(:'(:O ghijklmnñopqrstuvwxyzGHIJKLMNÑOPQRSTUVWXYZ"
@@ -59,15 +60,15 @@ class InfoChangeValueColorDialog(
                             } else null
                         }
 
-                    viewDialog.editTextReal.filters = arrayOf(filter)
+                    binding.editTextReal.filters = arrayOf(filter)
                 }
                 else -> {
                     rangeA = 0
                     rangeB = 255
-                    viewDialog.editText.helperText = "Range [0 - 255]"
+                    binding.editText.helperText = "Range [0 - 255]"
 
                     // change keyboard for number
-                    viewDialog.editTextReal.inputType = InputType.TYPE_CLASS_NUMBER
+                    binding.editTextReal.inputType = InputType.TYPE_CLASS_NUMBER
                 }
             }
 
@@ -75,22 +76,22 @@ class InfoChangeValueColorDialog(
             val actionToIncrease = object : Runnable {
                 override fun run() {
                     if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB") {
-                        newValue = viewDialog.editTextReal.text.toString().toInt()
+                        newValue = binding.editTextReal.text.toString().toInt()
                         if (newValue > rangeA) {
                             newValue -= 1
                         }
 
-                        viewDialog.editTextReal.setText(newValue.toString())
+                        binding.editTextReal.setText(newValue.toString())
 
                     } else {
                         hexValue =
-                            Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                            Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                                 .toInt()
                         if (hexValue > rangeA) {
                             hexValue -= 1
                         }
 
-                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
+                        binding.editTextReal.setText(Functions().convertDecToHex(hexValue))
                     }
                     mainHandler?.postDelayed(this, 70)
                 }
@@ -100,58 +101,58 @@ class InfoChangeValueColorDialog(
             val actionToDecrease = object : Runnable {
                 override fun run() {
                     if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB") {
-                        newValue = viewDialog.editTextReal.text.toString().toInt()
+                        newValue = binding.editTextReal.text.toString().toInt()
 
                         if (newValue < rangeB) {
                             newValue += 1
                         }
 
-                        viewDialog.editTextReal.setText(newValue.toString())
+                        binding.editTextReal.setText(newValue.toString())
 
                     } else {
                         hexValue =
-                            Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                            Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                                 .toInt()
                         if (hexValue < rangeB) {
                             hexValue += 1
                         }
 
-                        viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
+                        binding.editTextReal.setText(Functions().convertDecToHex(hexValue))
                     }
                     mainHandler?.postDelayed(this, 70)
                 }
             }
 
             // event to control the button to increase the value
-            viewDialog.decrease.setOnClickListener {
+            binding.decrease.setOnClickListener {
 
                 if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB") {
-                    newValue = viewDialog.editTextReal.text.toString().toInt()
+                    newValue = binding.editTextReal.text.toString().toInt()
                     if (newValue > rangeA) {
                         newValue -= 1
                     }
 
-                    viewDialog.editTextReal.setText(newValue.toString())
+                    binding.editTextReal.setText(newValue.toString())
 
                 } else {
                     hexValue =
-                        Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                        Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                             .toInt()
                     if (hexValue > rangeA) {
                         hexValue -= 1
                     }
 
-                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
+                    binding.editTextReal.setText(Functions().convertDecToHex(hexValue))
                 }
             }
 
             // event to control the increase the value fast
-            viewDialog.decrease.setOnTouchListener { _, motionEvent ->
+            binding.decrease.setOnTouchListener { _, motionEvent ->
                 when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
                             true
-                        mainHandler = Handler()
+                        mainHandler = Handler(Looper.getMainLooper())
                         mainHandler?.postDelayed(actionToIncrease, 200)
                         false
                     }
@@ -167,36 +168,36 @@ class InfoChangeValueColorDialog(
             }
 
             // event to control the increase the value one by one
-            viewDialog.increase.setOnClickListener {
+            binding.increase.setOnClickListener {
 
                 if (TypeColor != "HEXR" && TypeColor != "HEXG" && TypeColor != "HEXB") {
-                    newValue = viewDialog.editTextReal.text.toString().toInt()
+                    newValue = binding.editTextReal.text.toString().toInt()
 
                     if (newValue < rangeB) {
                         newValue += 1
                     }
 
-                    viewDialog.editTextReal.setText(newValue.toString())
+                    binding.editTextReal.setText(newValue.toString())
 
                 } else {
                     hexValue =
-                        Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                        Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                             .toInt()
                     if (hexValue < rangeB) {
                         hexValue += 1
                     }
 
-                    viewDialog.editTextReal.setText(Functions().convertDecToHex(hexValue))
+                    binding.editTextReal.setText(Functions().convertDecToHex(hexValue))
                 }
             }
 
             // event to control the increase the value fast
-            viewDialog.increase.setOnTouchListener { _, motionEvent ->
+            binding.increase.setOnTouchListener { _, motionEvent ->
                 when (motionEvent.action) {
                     MotionEvent.ACTION_DOWN -> {
                         if (mainHandler != null)
                             true
-                        mainHandler = Handler()
+                        mainHandler = Handler(Looper.getMainLooper())
                         mainHandler?.postDelayed(actionToDecrease, 200)
                         false
                     }
@@ -212,7 +213,7 @@ class InfoChangeValueColorDialog(
             }
 
             // to control user typed text
-            viewDialog.editTextReal.addTextChangedListener(object : TextWatcher {
+            binding.editTextReal.addTextChangedListener(object : TextWatcher {
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -234,7 +235,7 @@ class InfoChangeValueColorDialog(
 
                                 // if the value is higher to the range we gonna change for the max range
                                 if (text.toInt() > 255) {
-                                    viewDialog.editTextReal.setText("255")
+                                    binding.editTextReal.setText("255")
                                 }
 
                                 // if the value is lower to the range we gonna change for the min range
@@ -253,7 +254,7 @@ class InfoChangeValueColorDialog(
 
                                 // if the value is higher to the range we gonna change for the max range
                                 if (Functions().convertHexToDecimal(text).toInt() > 255) {
-                                    viewDialog.editTextReal.setText("FF")
+                                    binding.editTextReal.setText("FF")
                                 }
 
                                 // if the value is lower to the range we gonna change for the min range
@@ -267,7 +268,7 @@ class InfoChangeValueColorDialog(
                 }
             })
 
-            builder.setView(viewDialog)
+            builder.setView(binding.root)
 
                 // Add action buttons
                 .setNegativeButton("Cancel") { _, _ -> }
@@ -277,9 +278,9 @@ class InfoChangeValueColorDialog(
 
                     when (TypeColor) {
                         "HEXR" -> {
-                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                            if (binding.editTextReal.text.toString().isNotEmpty()) {
                                 val r =
-                                    Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                    Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                                         .toInt()
                                 val g = Color.green(colorRGB.value!!)
                                 val b = Color.blue(colorRGB.value!!)
@@ -288,10 +289,10 @@ class InfoChangeValueColorDialog(
                             }
                         }
                         "HEXG" -> {
-                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                            if (binding.editTextReal.text.toString().isNotEmpty()) {
                                 val r = Color.red(colorRGB.value!!)
                                 val g =
-                                    Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                    Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                                         .toInt()
                                 val b = Color.blue(colorRGB.value!!)
 
@@ -299,49 +300,49 @@ class InfoChangeValueColorDialog(
                             }
                         }
                         "HEXB" -> {
-                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                            if (binding.editTextReal.text.toString().isNotEmpty()) {
                                 val r = Color.red(colorRGB.value!!)
                                 val g = Color.green(colorRGB.value!!)
                                 val b =
-                                    Functions().convertHexToDecimal(viewDialog.editTextReal.text.toString())
+                                    Functions().convertHexToDecimal(binding.editTextReal.text.toString())
                                         .toInt()
 
                                 colorRGB.value = Color.rgb(r, g, b)
                             }
                         }
                         "RGBR" -> {
-                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                            if (binding.editTextReal.text.toString().isNotEmpty()) {
                                 val g = Color.green(colorRGB.value!!)
                                 val b = Color.blue(colorRGB.value!!)
 
                                 colorRGB.value = Color.rgb(
-                                    viewDialog.editTextReal.text.toString().toInt(),
+                                    binding.editTextReal.text.toString().toInt(),
                                     g,
                                     b
                                 )
                             }
                         }
                         "RGBG" -> {
-                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                            if (binding.editTextReal.text.toString().isNotEmpty()) {
                                 val r = Color.red(colorRGB.value!!)
                                 val b = Color.blue(colorRGB.value!!)
 
                                 colorRGB.value = Color.rgb(
                                     r,
-                                    viewDialog.editTextReal.text.toString().toInt(),
+                                    binding.editTextReal.text.toString().toInt(),
                                     b
                                 )
                             }
                         }
                         "RGBB" -> {
-                            if (viewDialog.editTextReal.text.toString().isNotEmpty()) {
+                            if (binding.editTextReal.text.toString().isNotEmpty()) {
                                 val r = Color.red(colorRGB.value!!)
                                 val g = Color.green(colorRGB.value!!)
 
                                 colorRGB.value = Color.rgb(
                                     r,
                                     g,
-                                    viewDialog.editTextReal.text.toString().toInt()
+                                    binding.editTextReal.text.toString().toInt()
                                 )
                             }
                         }

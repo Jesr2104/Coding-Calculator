@@ -5,16 +5,19 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.just_jump.coding_calculator.data.local.ListColorsRange
-import kotlinx.android.synthetic.main.item_palette_color.view.*
-import kotlinx.android.synthetic.main.activity_palette_colors.*
+import com.just_jump.coding_calculator.databinding.ActivityPaletteColorsBinding
+import com.just_jump.coding_calculator.databinding.ItemPaletteColorBinding
 
 class PaletteColors : AppCompatActivity() {
+
+    private lateinit var binding: ActivityPaletteColorsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_palette_colors)
+        binding = ActivityPaletteColorsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val gradientDrawable = GradientDrawable(
             GradientDrawable.Orientation.BOTTOM_TOP,
@@ -23,7 +26,7 @@ class PaletteColors : AppCompatActivity() {
                 Color.parseColor("#616161")
             )
         )
-        mainLayoutPalette.background = gradientDrawable
+        binding.mainLayoutPalette.background = gradientDrawable
 
 
         // call to the function to load the list colors
@@ -32,16 +35,17 @@ class PaletteColors : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n", "DefaultLocale", "InflateParams")
     private fun loadListColors(itemList: Array<Array<String>>) {
+        var bindingItem: ItemPaletteColorBinding
+
         for (item in itemList) {
 
-            val view = LayoutInflater.from(this).inflate(R.layout.item_palette_color, null, false)
+            bindingItem = ItemPaletteColorBinding.inflate(layoutInflater)
+            binding.layoutColors.addView(bindingItem.root)
 
-            layoutColors.addView(view)
+            bindingItem.NameColor.text = "  ${item[0]}".toUpperCase()
+            bindingItem.ColorInfo.setColorFilter(Color.parseColor(item[1]))
 
-            view.NameColor.text = "  ${item[0]}".toUpperCase()
-            view.ColorInfo.setColorFilter(Color.parseColor(item[1]))
-
-            view.Button.setOnClickListener {
+            bindingItem.Button.setOnClickListener {
                 val paletteColors = Intent(this, GammaColors::class.java)
 
                 paletteColors.putExtra("COLOR", item[1])

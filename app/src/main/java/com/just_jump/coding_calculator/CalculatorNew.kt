@@ -3,45 +3,24 @@ package com.just_jump.coding_calculator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import com.github.hamzaahmedkhan.spinnerdialog.callbacks.OnSpinnerOKPressedListener
 import com.github.hamzaahmedkhan.spinnerdialog.enums.SpinnerSelectionType
 import com.github.hamzaahmedkhan.spinnerdialog.models.SpinnerModel
 import com.github.hamzaahmedkhan.spinnerdialog.ui.SpinnerDialogFragment
 import com.just_jump.coding_calculator.data.local.SRDataExpression
+import com.just_jump.coding_calculator.databinding.ActivityCalculatorNewBinding
 import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.extensions.checkParenthesis
 import com.just_jump.coding_calculator.extensions.paintString
-import kotlinx.android.synthetic.main.activity_calculator_new.*
-import kotlinx.android.synthetic.main.activity_calculator_new.historic
-import kotlinx.android.synthetic.main.activity_calculator_new.number0
-import kotlinx.android.synthetic.main.activity_calculator_new.number1
-import kotlinx.android.synthetic.main.activity_calculator_new.number2
-import kotlinx.android.synthetic.main.activity_calculator_new.number3
-import kotlinx.android.synthetic.main.activity_calculator_new.number4
-import kotlinx.android.synthetic.main.activity_calculator_new.number5
-import kotlinx.android.synthetic.main.activity_calculator_new.number6
-import kotlinx.android.synthetic.main.activity_calculator_new.number7
-import kotlinx.android.synthetic.main.activity_calculator_new.number8
-import kotlinx.android.synthetic.main.activity_calculator_new.number9
-import kotlinx.android.synthetic.main.activity_calculator_new.numberAllClear
-import kotlinx.android.synthetic.main.activity_calculator_new.numberBackSpace
-import kotlinx.android.synthetic.main.activity_calculator_new.numberCloseParenthesis
-import kotlinx.android.synthetic.main.activity_calculator_new.numberDivide
-import kotlinx.android.synthetic.main.activity_calculator_new.numberLess
-import kotlinx.android.synthetic.main.activity_calculator_new.numberMultiply
-import kotlinx.android.synthetic.main.activity_calculator_new.numberOpenParenthesis
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPercentage
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPlus
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPlusLess
-import kotlinx.android.synthetic.main.activity_calculator_new.numberPoint
-import kotlinx.android.synthetic.main.activity_calculator_new.numberResult
 import org.mariuszgromada.math.mxparser.Expression
 import java.math.BigInteger
 
@@ -50,6 +29,7 @@ class CalculatorNew : AppCompatActivity() {
     private var mainHandler: Handler? = null
     private var decimalSeparator = '.'
     private var numberOfParenthesis = 0
+    lateinit var binding: ActivityCalculatorNewBinding
 
     private val action = object : Runnable {
         override fun run() {
@@ -61,75 +41,76 @@ class CalculatorNew : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calculator_new)
-        expression_value.showSoftInputOnFocus = false
+        binding = ActivityCalculatorNewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.expressionValue.showSoftInputOnFocus = false        
 
         /***************************************************************************/
         // Events to come back to the main window
         /***************************************************************************/
 
-        button_back.setOnClickListener { finish() }
+        binding.buttonBack.setOnClickListener { finish() }
 
         /***************************************************************************/
         // Events of Numbers
         /***************************************************************************/
 
-        number1.setOnClickListener { insertNumber('1') }
+        binding.number1.setOnClickListener { insertNumber('1') }
 
-        number2.setOnClickListener { insertNumber('2') }
+        binding.number2.setOnClickListener { insertNumber('2') }
 
-        number3.setOnClickListener { insertNumber('3') }
+        binding.number3.setOnClickListener { insertNumber('3') }
 
-        number4.setOnClickListener { insertNumber('4') }
+        binding.number4.setOnClickListener { insertNumber('4') }
 
-        number5.setOnClickListener { insertNumber('5') }
+        binding.number5.setOnClickListener { insertNumber('5') }
 
-        number6.setOnClickListener { insertNumber('6') }
+        binding.number6.setOnClickListener { insertNumber('6') }
 
-        number7.setOnClickListener { insertNumber('7') }
+        binding.number7.setOnClickListener { insertNumber('7') }
 
-        number8.setOnClickListener { insertNumber('8') }
+        binding.number8.setOnClickListener { insertNumber('8') }
 
-        number9.setOnClickListener { insertNumber('9') }
+        binding.number9.setOnClickListener { insertNumber('9') }
 
-        number0.setOnClickListener { insertNumberZero()}
+        binding.number0.setOnClickListener { insertNumberZero()}
 
         /***************************************************************************/
         // Events of Math signs
         /***************************************************************************/
 
-        numberPlus.setOnClickListener { insertMathSign('+') }
+        binding.numberPlus.setOnClickListener { insertMathSign('+') }
 
-        numberLess.setOnClickListener { insertMathSign('-') }
+        binding.numberLess.setOnClickListener { insertMathSign('-') }
 
-        numberMultiply.setOnClickListener { insertMathSign('×') }
+        binding.numberMultiply.setOnClickListener { insertMathSign('×') }
 
-        numberDivide.setOnClickListener { insertMathSign('÷') }
+        binding.numberDivide.setOnClickListener { insertMathSign('÷') }
 
-        numberPercentage.setOnClickListener { insertPercentage() }
+        binding.numberPercentage.setOnClickListener { insertPercentage() }
 
-        numberOpenParenthesis.setOnClickListener { insertParenthesis('(') }
+        binding.numberOpenParenthesis.setOnClickListener { insertParenthesis('(') }
 
-        numberCloseParenthesis.setOnClickListener { insertParenthesis(')') }
+        binding.numberCloseParenthesis.setOnClickListener { insertParenthesis(')') }
 
-        numberPlusLess.setOnClickListener { insertPlusLess() }
+        binding.numberPlusLess.setOnClickListener { insertPlusLess() }
 
-        numberPoint.setOnClickListener { insertPoint() }
+        binding.numberPoint.setOnClickListener { insertPoint() }
 
         /***************************************************************************/
         // clear field
         /***************************************************************************/
 
-        numberAllClear.setOnClickListener { allClear() }
+        binding.numberAllClear.setOnClickListener { allClear() }
 
-        numberBackSpace.setOnClickListener { backspaceBTN() }
+        binding.numberBackSpace.setOnClickListener { backspaceBTN() }
 
-        numberBackSpace.setOnTouchListener { _, motionEvent ->
+        binding.numberBackSpace.setOnTouchListener { _, motionEvent ->
             when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
                     if (mainHandler != null)
                         true
-                    mainHandler = Handler()
+                    mainHandler = Handler(Looper.getMainLooper())
                     mainHandler?.postDelayed(action, 150)
                     false
                 }
@@ -148,20 +129,20 @@ class CalculatorNew : AppCompatActivity() {
         // Result expression
         /***************************************************************************/
 
-        numberResult.setOnClickListener { calculateResult() }
+        binding.numberResult.setOnClickListener { calculateResult() }
 
         /***************************************************************************/
         // History
         /***************************************************************************/
 
-        historic.setOnClickListener { showHistory() }
+        binding.historic.setOnClickListener { showHistory() }
     }
 
     // this function clear all the field
     /*   finished and checked   */
     private fun allClear() {
-        expression_value.setText("")
-        Result_field.text = ""
+        binding.expressionValue.setText("")
+        binding.ResultField.text = ""
         numberOfParenthesis = 0
     }
 
@@ -173,7 +154,7 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val cursorPos = expression_value.selectionStart
+        val cursorPos = binding.expressionValue.selectionStart
 
         // case: if you delete number 9000 for example need to check for the rest o the number if
         // this number is 0000 need you put just one 0 on the expression
@@ -181,14 +162,14 @@ class CalculatorNew : AppCompatActivity() {
         // case: if you have 5+(9-4) and you delete number 5 need to delete the math sign before
         // 5 to don't leave any math orphan sign
 
-        if (expression_value.text.isNotEmpty()){
-            val selection = expression_value.text as SpannableStringBuilder
+        if (binding.expressionValue.text.isNotEmpty()){
+            val selection = binding.expressionValue.text as SpannableStringBuilder
 
             when {
                 selection[cursorPos - 1].isDigit() -> {
                     selection.replace(cursorPos - 1, cursorPos, "")
-                    expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
-                    expression_value.setSelection(cursorPos - 1)
+                    binding.expressionValue.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
+                    binding.expressionValue.setSelection(cursorPos - 1)
                 }
                 "+-×÷()%".contains(selection[cursorPos - 1]) -> {
 
@@ -197,13 +178,13 @@ class CalculatorNew : AppCompatActivity() {
                     }
 
                     selection.replace(cursorPos - 1, cursorPos, "")
-                    expression_value.text = formatColor(selection) //#formatColor
-                    expression_value.setSelection(cursorPos - 1)
+                    binding.expressionValue.text = formatColor(selection) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos - 1)
                 }
                 selection[cursorPos - 1] == decimalSeparator -> {
                     selection.replace(cursorPos - 1, cursorPos, "")
-                    expression_value.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
-                    expression_value.setSelection(cursorPos - 1)
+                    binding.expressionValue.setText(formatColor(checkNumbers(selection.toString())))  //#formatColor
+                    binding.expressionValue.setSelection(cursorPos - 1)
                 }
             }
         }
@@ -218,16 +199,16 @@ class CalculatorNew : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun insertMathSign(mathSignToAdd: Char) {
         if (stateResult){
-            val resultData = Result_field.text.toString()
+            val resultData = binding.ResultField.text.toString()
 
-            expression_value.setText(formatColor(resultData)) //#formatColor
-            expression_value.setSelection(resultData.length)
-            Result_field.text = ""
+            binding.expressionValue.setText(formatColor(resultData)) //#formatColor
+            binding.expressionValue.setSelection(resultData.length)
+            binding.ResultField.text = ""
             stateResult = false
         }
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
@@ -238,74 +219,74 @@ class CalculatorNew : AppCompatActivity() {
             if (leftStr.isNotEmpty() && rightStr.isNotEmpty()) {
                 // case 1: if you gonna put a math sign between two number like 21[cursor]04
                 if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()) {
-                    expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                     // case 2: if you press a math sign and you find one already on the left you change for the new one 8+[cursor]5
                 } else if ("+-×÷".contains(leftStr[leftStr.length - 1])) {
                     if(leftStr[leftStr.length - 2] == '(') {
                         if (leftStr[leftStr.length - 1] == '-' || leftStr[leftStr.length - 1] == '+'){
                             if (mathSignToAdd == '+') {
-                                expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd + rightStr)) //#formatColor
-                                expression_value.setSelection(cursorPos)
+                                binding.expressionValue.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd + rightStr)) //#formatColor
+                                binding.expressionValue.setSelection(cursorPos)
                             } else if (mathSignToAdd == '-') {
-                                expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd + rightStr)) //#formatColor
-                                expression_value.setSelection(cursorPos)
+                                binding.expressionValue.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd + rightStr)) //#formatColor
+                                binding.expressionValue.setSelection(cursorPos)
                             }
                         }
                     } else {
-                        expression_value.setText(formatColor(leftStr.substring(0,leftStr.length - 1) + mathSignToAdd + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos)
+                        binding.expressionValue.setText(formatColor(leftStr.substring(0,leftStr.length - 1) + mathSignToAdd + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos)
                     }
                 }   else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '(') {
-                    expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 // case 3: if you press a math sign and you find one already on the right you change for the new one 8[cursor]+5
                 else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷".contains(rightStr[0])) {
-                    expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr.substring(1))) //#formatColor
-                    expression_value.setSelection(cursorPos)
+                    binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr.substring(1))) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos)
                 }
                 // case 6: it's the same but for the case we find data on both side
                 else if (")".contains(leftStr[leftStr.length - 1])) {
                     if (!("+-×÷".contains(rightStr[0]))){
-                        expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     } else {
-                        expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr.substring(1))) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr.substring(1))) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 } else if (leftStr[leftStr.length - 1] != '('){
-                    expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 // case 4: if you try to insert a math sign on the end of number like: 21[cursor]
             } else if (leftStr[leftStr.length - 1].isDigit() && rightStr.isEmpty()) {
-                expression_value.setText(formatColor(leftStr + mathSignToAdd)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
+                binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd)) //#formatColor
+                binding.expressionValue.setSelection(cursorPos + 1)
                 // case 5: if you want to insert a math sign but is one on the right you change this for the new one
             } else if ("+-×÷".contains(leftStr[leftStr.length - 1]) && rightStr.isEmpty()) {
                 if(leftStr[leftStr.length - 2] == '(') {
                     if (leftStr[leftStr.length - 1] == '-' || leftStr[leftStr.length - 1] == '+'){
                         if (mathSignToAdd == '+') {
-                            expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)) //#formatColor
-                            expression_value.setSelection(cursorPos)
+                            binding.expressionValue.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos)
                         } else if (mathSignToAdd == '-') {
-                            expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)) //#formatColor
-                            expression_value.setSelection(cursorPos)
+                            binding.expressionValue.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos)
                         }
                     }
                 } else {
-                    expression_value.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)) //#formatColor
-                    expression_value.setSelection(cursorPos)
+                    binding.expressionValue.setText(formatColor(leftStr.substring(0, leftStr.length - 1) + mathSignToAdd)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos)
                 }
                 // case 6: if you press a math sign but is a close parenthesis on the left
             } else if (")".contains(leftStr[leftStr.length - 1])) {
-                expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
+                binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
+                binding.expressionValue.setSelection(cursorPos + 1)
                 // when we got percentage sign and we want to insert math sign
             } else if (leftStr[leftStr.length - 1] == '%'){
-                expression_value.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
-                expression_value.setSelection(cursorPos + 1)
+                binding.expressionValue.setText(formatColor(leftStr + mathSignToAdd + rightStr)) //#formatColor
+                binding.expressionValue.setSelection(cursorPos + 1)
             }
         }
     }
@@ -321,8 +302,8 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
 
         // string on the left and on the right of the cursor
         val leftStr = oldStr.substring(0, cursorPos)
@@ -330,8 +311,8 @@ class CalculatorNew : AppCompatActivity() {
 
         if (oldStr.isEmpty()){
             // case: if you find empty the expression
-            expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-            expression_value.setSelection(cursorPos + 1)
+            binding.expressionValue.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+            binding.expressionValue.setSelection(cursorPos + 1)
         } else {
             // the case if you have expression in both side
             if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
@@ -342,178 +323,178 @@ class CalculatorNew : AppCompatActivity() {
                     *   3[cursor]3 -> result: 3[Number][cursor]3
                     *   0[cursor]3 -> result: 0[Number][cursor]3 "in this case you delete number zero because can bee before a number like 30[cursor]3"
                     * */
-                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()) {
                     //Case: Number[cursor]Number: "+-×÷."[cursor]6
-                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷%$decimalSeparator".contains(rightStr[0])){
                     //Case: Number[cursor]MathSign: 6[cursor]"+-×÷"
                     if (leftStr[leftStr.length -1] == '0'){
                         // case: 0[cursor]
                         if (checkReplaceZero(oldStr, cursorPos)){
-                            expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos)
+                            binding.expressionValue.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos)
                         } else {
                             // if the number if different of zero we can add the new number
-                            expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                     } else {
                         // if the number if different of zero we can add the new number
-                        expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && "+-×÷%$decimalSeparator".contains(rightStr[0])){
                     //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
-                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()){
                     //Case: closeParenthesis[cursor]Number: )[cursor]6
-                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '('){
                     //Case: Number[cursor]openParenthesis: 6[cursor](
                     if (leftStr[leftStr.length -1] == '0'){
                         // case: 0[cursor]
                         if (checkReplaceZero(oldStr, cursorPos)){
-                            expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd×$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos)
+                            binding.expressionValue.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd×$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos)
                         } else {
                             // if the number if different of zero we can add the new number
-                            expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                     } else {
                         // if the number if different of zero we can add the new number
-                        expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == '('){
                     //Case: closeParenthesis[cursor]openParenthesis: )[cursor](
-                    expression_value.setText(formatColor("$leftStr×$numberToAdd×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr×$numberToAdd×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && "+-×÷".contains(rightStr[0])) {
                     //Case: openParenthesis[cursor]"+-×÷": ([cursor]"+-×÷"
-                    expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && rightStr[0] == ')'){
                     //Case: "+-×÷."[cursor]closeParenthesis: "+-×÷."[cursor])
-                    expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1].isDigit() && rightStr[0] == ')'){
                     //Case: Number[cursor]closeParenthesis: 6[cursor])
                     if (leftStr[leftStr.length -1] == '0'){
                         // case: 0[cursor]
                         if (checkReplaceZero(oldStr, cursorPos)){
-                            expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos)
+                            binding.expressionValue.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos)
                         } else {
                             // if the number if different of zero we can add the new number
-                            expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                     } else {
                         // if the number if different of zero we can add the new number
-                        expression_value.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$numberToAdd$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0].isDigit()){
                     //Case: openParenthesis[cursor]Number ([cursor]Number
-                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == ')') {
                     //Case: openParenthesis[cursor]closeParenthesis: ([cursor])
-                    expression_value.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + numberToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == '(') {
                     //Case: openParenthesis[cursor]openParenthesis: ([cursor](
-                    expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == ')') {
                     //Case: closeParenthesis[cursor]closeParenthesis: ([cursor](
-                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && rightStr[0] == '(') {
                     //Case: MathSign[cursor]openParenthesis: "+-×÷."[cursor](
-                    expression_value.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr$numberToAdd×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && "+-×÷".contains(rightStr[0])) {
                     //Case: closeParenthesis[cursor]MathSign: ([cursor]"+-×÷"
-                    expression_value.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr×$numberToAdd$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
             } else {
                 if (leftStr.isEmpty() && rightStr.isNotEmpty()){
                     when {
                         "+-×÷.".contains(rightStr[0]) -> {
-                            expression_value.setText(formatColor("$numberToAdd$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$numberToAdd$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                         rightStr[0] == '(' -> {
-                            expression_value.setText(formatColor("$numberToAdd×$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$numberToAdd×$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                         rightStr[0] == ')' -> {
 
                         }
                         rightStr[0].isDigit() -> {
-                            expression_value.setText(formatColor("$numberToAdd$rightStr")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$numberToAdd$rightStr")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                     }
                 } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
                     if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1])){
                         // case: MathSign[cursor]
-                        expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     } else if (leftStr[leftStr.length -1] == '(') {
                         // case: openParenthesis[cursor]
-                        expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     } else if (leftStr[leftStr.length -1] == ')') {
                         // case: closeParenthesis[cursor]
-                        expression_value.setText(formatColor("$leftStr×$numberToAdd")) //#formatColor
-                        expression_value.setSelection(cursorPos + 2)
+                        binding.expressionValue.setText(formatColor("$leftStr×$numberToAdd")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 2)
                     } else if (leftStr[leftStr.length -1] == '.') {
                         // case: .[cursor]
-                        expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     } else if (leftStr[leftStr.length -1] == '%') {
                         // case: %[cursor]
-                        expression_value.setText(formatColor("$leftStr×$numberToAdd")) //#formatColor
-                        expression_value.setSelection(cursorPos + 2)
+                        binding.expressionValue.setText(formatColor("$leftStr×$numberToAdd")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 2)
                     } else if (leftStr[leftStr.length -1].isDigit()) {
                         // case: Number[cursor]
                         if (leftStr[leftStr.length -1] == '0'){
                             // case: 0[cursor]
                             if (checkReplaceZero(oldStr, cursorPos)){
-                                expression_value.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd")) //#formatColor
-                                expression_value.setSelection(cursorPos)
+                                binding.expressionValue.setText(formatColor("${leftStr.substring(0, leftStr.length - 1)}$numberToAdd")) //#formatColor
+                                binding.expressionValue.setSelection(cursorPos)
                             } else {
-                                expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
-                                expression_value.setSelection(cursorPos + 1)
+                                binding.expressionValue.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                                binding.expressionValue.setSelection(cursorPos + 1)
                             }
                         } else {
                             // case: Number!=0[cursor]
-                            expression_value.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
-                            expression_value.setSelection(cursorPos + 1)
+                            binding.expressionValue.setText(formatColor("$leftStr$numberToAdd")) //#formatColor
+                            binding.expressionValue.setSelection(cursorPos + 1)
                         }
                     }
                 }
@@ -531,8 +512,8 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
         var number = getNumberOnExpression()
 
         if (number.contains('%')){
@@ -545,23 +526,23 @@ class CalculatorNew : AppCompatActivity() {
 
         if (oldStr.isEmpty()){
             // case: if you find empty the expression
-            expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
-            expression_value.setSelection(cursorPos + 1)
+            binding.expressionValue.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
+            binding.expressionValue.setSelection(cursorPos + 1)
         } else {
             if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
                 // if you find data on both side of the cursor for example: 25[cursor]45
                 if (leftStr[leftStr.length - 1].isDigit() && rightStr[0].isDigit()){
                     //Case: Number[cursor]Number: 6[cursor]6
                     if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + '0' + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0].isDigit()){
                     //Case: MathSign[cursor]Number: "+-×÷"[cursor]6
                     if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor(leftStr + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos)
+                        binding.expressionValue.setText(formatColor(leftStr + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos)
                     }
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && "+-×÷$decimalSeparator".contains(rightStr[0])){
@@ -570,115 +551,115 @@ class CalculatorNew : AppCompatActivity() {
                     }
                     //Case: Number[cursor]MathSign: 6[cursor]"+-×÷."
                     else if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if (leftStr[leftStr.length -1]== decimalSeparator){
                     //Case: .[cursor]Number: 0.[cursor]wherever
                     if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + "0" + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if ("+-×÷$decimalSeparator".contains(leftStr[leftStr.length -1]) && "+-×÷$decimalSeparator".contains(rightStr[0])){
                     //Case: MathSign[cursor]MathSign: "+-×÷"[cursor]"+-×÷"
-                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()) {
                     //Case: closeParenthesis[cursor]MathSign: )[cursor]"+-×÷"
-                    expression_value.setText(formatColor("${leftStr}×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == '('){
                     //Case: Number[cursor]openParenthesis 6[cursor](
                     if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == '('){
                     //Case: closeParenthesis[cursor]openParenthesis )[cursor](
-                    expression_value.setText(formatColor("${leftStr}×0×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 2)
+                    binding.expressionValue.setText(formatColor("${leftStr}×0×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 2)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && "+-×÷".contains(rightStr[0])){
                     //Case: openParenthesis[cursor]MathSign ([cursor]"+-×÷"
-                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0] == '('){
                     //Case: MathSign[cursor]openParenthesis "+-×÷"[cursor](
-                    expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && "+-×÷".contains(rightStr[0])){
                     //Case: closeParenthesis[cursor]MathSign )[cursor]"+-×÷"
-                    expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if ("+-×÷".contains(leftStr[leftStr.length -1]) && rightStr[0] == ')'){
                     //Case: MathSign[cursor]closeParenthesis "+-×÷"[cursor])
-                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length - 1].isDigit() && rightStr[0] == ')') {
                     //Case: Number[cursor]closeParenthesis Number[cursor])
                     if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0].isDigit()){
                     //Case: openParenthesis[cursor]Number ([cursor]Number
-                    expression_value.setText(formatColor("$leftStr×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos)
+                    binding.expressionValue.setText(formatColor("$leftStr×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == ')'){
                     //Case: openParenthesis[cursor]closeParenthesis ([cursor])
-                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '%' && "+-×÷".contains(rightStr[0])){
                     //Case: %[cursor]MathSign %[cursor]"+-×÷"
-                    expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
                 else if (leftStr[leftStr.length -1] == '%' && rightStr[0] == '('){
                     //Case: %[cursor]openParenthesis %[cursor](
-                    expression_value.setText(formatColor("${leftStr}×0×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 2)
+                    binding.expressionValue.setText(formatColor("${leftStr}×0×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 2)
                 }
                 else if (leftStr[leftStr.length -1] == '(' && rightStr[0] == '('){
                     //Case: closeParenthesis[cursor]openParenthesis ([cursor](
-                    expression_value.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 2)
+                    binding.expressionValue.setText(formatColor("${leftStr}0×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 2)
                 }
                 else if (leftStr[leftStr.length -1] == ')' && rightStr[0] == ')'){
                     //Case: closeParenthesis[cursor]openParenthesis )[cursor])
-                    expression_value.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 2)
+                    binding.expressionValue.setText(formatColor("${leftStr}×0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 2)
                 }
                 else if (number.toDouble() > 0 && rightStr[0] == '%') {
-                    expression_value.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("${leftStr}0$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
             } else if (leftStr.isNotEmpty() && rightStr.isEmpty()){
                 // if the number is empty can be something like: (-, (
                 if (number.isEmpty()){
                     if (leftStr[leftStr.length -1] == '(' || leftStr[leftStr.length -1] == decimalSeparator || "+-×÷".contains(leftStr[leftStr.length -1])){
-                        expression_value.setText(formatColor(leftStr + "0")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + "0")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                     else if (leftStr[leftStr.length -1] == ')' || leftStr[leftStr.length -1] == '%'){
-                        expression_value.setText(formatColor("$leftStr×0")) //#formatColor
-                        expression_value.setSelection(cursorPos + 2)
+                        binding.expressionValue.setText(formatColor("$leftStr×0")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 2)
                     }
                 } else if (leftStr[leftStr.length -1].isDigit() ||  leftStr[leftStr.length -1] == '.') {
                     if (number.toDouble() > 0 || number.contains(decimalSeparator) || (number.contains('-') && number != "-0")){
-                        expression_value.setText(formatColor(leftStr + "0")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + "0")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
                 }
             } /*else if (leftStr.isEmpty() && rightStr.isNotEmpty()){
@@ -700,8 +681,8 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
@@ -713,8 +694,8 @@ class CalculatorNew : AppCompatActivity() {
 
             if (leftStr.isNotEmpty() && rightStr.isNotEmpty()){
                 if(rightStr[0] == '(' && parenthesisToAdd == ')'){
-                    expression_value.setText(formatColor("$leftStr$parenthesisToAdd×$rightStr")) //#formatColor
-                    expression_value.setSelection(leftStr.length + 2)
+                    binding.expressionValue.setText(formatColor("$leftStr$parenthesisToAdd×$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(leftStr.length + 2)
                     if (parenthesisToAdd == '('){
                         numberOfParenthesis++
                     } else {
@@ -723,16 +704,16 @@ class CalculatorNew : AppCompatActivity() {
 
                 } else {
                     if (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(') {
-                        expression_value.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 2)
+                        binding.expressionValue.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 2)
                         if (parenthesisToAdd == '('){
                             numberOfParenthesis++
                         } else {
                             numberOfParenthesis--
                         }
                     } else {
-                        expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                         if (parenthesisToAdd == '('){
                             numberOfParenthesis++
                         } else {
@@ -742,16 +723,16 @@ class CalculatorNew : AppCompatActivity() {
                 }
             } else if (leftStr.isNotEmpty()) {
                 if ((leftStr[leftStr.length - 1] == '%' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1] == ')' && parenthesisToAdd == '(') || (leftStr[leftStr.length - 1].isDigit() && parenthesisToAdd == '(')) {
-                    expression_value.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 2)
+                    binding.expressionValue.setText(formatColor("$leftStr×$parenthesisToAdd$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 2)
                     if (parenthesisToAdd == '('){
                         numberOfParenthesis++
                     } else {
                         numberOfParenthesis--
                     }
                 } else {
-                    expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                     if (parenthesisToAdd == '('){
                         numberOfParenthesis++
                     } else {
@@ -762,8 +743,8 @@ class CalculatorNew : AppCompatActivity() {
                 if (rightStr.isEmpty() && parenthesisToAdd == ')') {
                     // if the string leftStr and rightStr is empty
                 } else {
-                    expression_value.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor(leftStr + parenthesisToAdd + rightStr)) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                     if (parenthesisToAdd == '('){
                         numberOfParenthesis++
                     } else {
@@ -784,16 +765,16 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
         val charPoint = decimalSeparator
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
 
         if (oldStr.isEmpty()){
-            expression_value.setText(formatColor("0$charPoint")) //#formatColor
-            expression_value.setSelection(2)
+            binding.expressionValue.setText(formatColor("0$charPoint")) //#formatColor
+            binding.expressionValue.setSelection(2)
         } else if (leftStr.isNotEmpty()) {
             var num = ""
             var cont = leftStr.length - 1
@@ -823,39 +804,39 @@ class CalculatorNew : AppCompatActivity() {
                         // if this number contain point already we don't put more just can be one
                     }
                     "+-×÷%(".contains(leftStr[leftStr.length - 1]) ->{
-                        expression_value.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
-                        expression_value.setSelection(leftStr.length + 2)
+                        binding.expressionValue.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(leftStr.length + 2)
                     }
                     leftStr[leftStr.length - 1] == ')' ->{
-                        expression_value.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
-                        expression_value.setSelection(leftStr.length + 3)
+                        binding.expressionValue.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(leftStr.length + 3)
                     }
                     else -> {
-                        expression_value.setText(formatColor("$leftStr$charPoint$rightStr")) //#formatColor
-                        expression_value.setSelection(leftStr.length + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr$charPoint$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(leftStr.length + 1)
                     }
                 }
             } else {
                 when {
                     "+-×÷(".contains(leftStr[leftStr.length - 1]) -> {
-                        expression_value.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
-                        expression_value.setSelection(leftStr.length + 2)
+                        binding.expressionValue.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(leftStr.length + 2)
                     }
                     leftStr[leftStr.length - 1] == ')' -> {
-                        expression_value.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
-                        expression_value.setSelection(leftStr.length + 3)
+                        binding.expressionValue.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(leftStr.length + 3)
                     }
                     leftStr[leftStr.length - 1] == '%' -> {
-                        expression_value.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
-                        expression_value.setSelection(leftStr.length + 3)
+                        binding.expressionValue.setText(formatColor("${leftStr}×0$charPoint$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(leftStr.length + 3)
                     }
                 }
             }
         } else if (rightStr.isNotEmpty()) {
             // if you want to add 0. on the start of the number
             if (rightStr[0].isDigit()){
-                expression_value.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
-                expression_value.setSelection(leftStr.length + 2)
+                binding.expressionValue.setText(formatColor("${leftStr}0$charPoint$rightStr")) //#formatColor
+                binding.expressionValue.setSelection(leftStr.length + 2)
             }
         }
     }
@@ -870,8 +851,8 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
         val expressionPlusLess = "(-"
 
         var indexA = 0
@@ -881,8 +862,8 @@ class CalculatorNew : AppCompatActivity() {
 
         // case 1: if you want to insert a negative number but the expression is totally empty
         if (oldStr.isEmpty()) {
-            expression_value.setText(formatColor(expressionPlusLess)) //#formatColor
-            expression_value.setSelection(cursorPos + 2)
+            binding.expressionValue.setText(formatColor(expressionPlusLess)) //#formatColor
+            binding.expressionValue.setSelection(cursorPos + 2)
             numberOfParenthesis++
         // case 2: when the expression have information
         } else {
@@ -938,8 +919,8 @@ class CalculatorNew : AppCompatActivity() {
                     }
                 }
 
-                expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
-                expression_value.setSelection(stringA.length + number.length)
+                binding.expressionValue.setText(formatColor(stringA + number + stringB)) //#formatColor
+                binding.expressionValue.setSelection(stringA.length + number.length)
 
             } else {
                 val stringA = oldStr.substring( 0,indexA)
@@ -949,8 +930,8 @@ class CalculatorNew : AppCompatActivity() {
                     // case 1: if you press the button and you got de last number like 21[cursor] or 6+21[cursor]
                     // the result is gonna be (-21[cursor] or 6+(-21[cursor] living the expression open to finish to write
                     number = "(-$number"
-                    expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
-                    expression_value.setSelection(stringA.length + number.length)
+                    binding.expressionValue.setText(formatColor(stringA + number + stringB)) //#formatColor
+                    binding.expressionValue.setSelection(stringA.length + number.length)
                     numberOfParenthesis++
                 } else if(stringA.isNotEmpty() && number.isEmpty()){
                     // case 2: in the case when you don't select a number you put gonna have open to write down the rest
@@ -959,22 +940,22 @@ class CalculatorNew : AppCompatActivity() {
 
                     number = if (stringA[stringA.length -1] == ')' || stringA[stringA.length -1] == '%'){ "×(-" } else { "(-" }
 
-                    expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
-                    expression_value.setSelection(stringA.length + number.length)
+                    binding.expressionValue.setText(formatColor(stringA + number + stringB)) //#formatColor
+                    binding.expressionValue.setSelection(stringA.length + number.length)
                     numberOfParenthesis++
 
                      // case 4: to check when is the first position to insert a negative number
                 } else if (stringA.isEmpty() && oldStr[cursorPos] == '('){
                      number = "(-$number"
-                     expression_value.setText(formatColor(stringA + number + oldStr.substring(cursorPos))) //#formatColor
-                     expression_value.setSelection(stringA.length + number.length)
+                     binding.expressionValue.setText(formatColor(stringA + number + oldStr.substring(cursorPos))) //#formatColor
+                     binding.expressionValue.setSelection(stringA.length + number.length)
                      numberOfParenthesis++
                 } else {
                     // case default: if you find a number on the middle of the expression you put this number negative like 21+4[cursor]-9
                     // the result of the expression be easy 21+(-4)-9
                     number = "(-$number)"
-                    expression_value.setText(formatColor(stringA + number + stringB)) //#formatColor
-                    expression_value.setSelection(stringA.length + number.length)
+                    binding.expressionValue.setText(formatColor(stringA + number + stringB)) //#formatColor
+                    binding.expressionValue.setSelection(stringA.length + number.length)
                 }
             }
         }
@@ -990,8 +971,8 @@ class CalculatorNew : AppCompatActivity() {
         // clear the expression is the state of the result is already shown
         clearExpression()
 
-        val oldStr = expression_value.text.toString()
-        val cursorPos = expression_value.selectionStart
+        val oldStr = binding.expressionValue.text.toString()
+        val cursorPos = binding.expressionValue.selectionStart
 
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
@@ -1023,16 +1004,16 @@ class CalculatorNew : AppCompatActivity() {
             if (leftStr.isNotEmpty()){
                 if (rightStr.isNotEmpty()){
                     if (leftStr[leftStr.length - 1 ].isDigit() && rightStr[0].isDigit()){
-                        expression_value.setText(formatColor("$leftStr%×$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 2)
+                        binding.expressionValue.setText(formatColor("$leftStr%×$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 2)
                     } else if (leftStr[leftStr.length - 1 ].isDigit() || leftStr[leftStr.length - 1 ] == ')') {
-                        expression_value.setText(formatColor("$leftStr%$rightStr")) //#formatColor
-                        expression_value.setSelection(cursorPos + 1)
+                        binding.expressionValue.setText(formatColor("$leftStr%$rightStr")) //#formatColor
+                        binding.expressionValue.setSelection(cursorPos + 1)
                     }
 
                 } else if (leftStr[leftStr.length - 1 ].isDigit() || leftStr[leftStr.length - 1 ] == ')') {
-                    expression_value.setText(formatColor("$leftStr%$rightStr")) //#formatColor
-                    expression_value.setSelection(cursorPos + 1)
+                    binding.expressionValue.setText(formatColor("$leftStr%$rightStr")) //#formatColor
+                    binding.expressionValue.setSelection(cursorPos + 1)
                 }
 
             }
@@ -1043,7 +1024,7 @@ class CalculatorNew : AppCompatActivity() {
     // 1. check the number of parenthesis
     // 2. check for the expression field is no empty
     private fun calculateResult() {
-        val rowExpression = expression_value.text.toString()
+        val rowExpression = binding.expressionValue.text.toString()
 
         var userExp: String = rowExpression.replace('×', '*')
         userExp = userExp.replace('÷', '/')
@@ -1055,7 +1036,7 @@ class CalculatorNew : AppCompatActivity() {
             val result = expression.calculate().toString().checkInteger()
 
             if (result != "NaN"){
-                Result_field.text = result
+                binding.ResultField.text = result
                 stateResult = true
                 saveHistoryExpression(rowExpression, result)
                 numberOfParenthesis = 0
@@ -1077,9 +1058,9 @@ class CalculatorNew : AppCompatActivity() {
     }
 
     private fun checkExpression(): Boolean {
-        if (expression_value.text.isNotEmpty()){
+        if (binding.expressionValue.text.isNotEmpty()){
             // this function check if the number of the parenthesis open and close is the same quantity
-            if (expression_value.text.toString().checkParenthesis()) {
+            if (binding.expressionValue.text.toString().checkParenthesis()) {
                  return true
             } else {
                 //message of error to inform field is wrong
@@ -1111,20 +1092,20 @@ class CalculatorNew : AppCompatActivity() {
                                     if (stateResult){
                                         data.text.substring(8)
                                     } else {
-                                        expression_value.text.toString() + data.text.substring(8)
+                                        binding.expressionValue.text.toString() + data.text.substring(8)
                                     }
                             } else -> {
                                 dataResult =
                                     if (stateResult) {
                                         data.text
                                     } else {
-                                        expression_value.text.toString() + data.text
+                                        binding.expressionValue.text.toString() + data.text
                                     }
                             }
                         }
                         clearExpression()
-                        expression_value.setText(formatColor(dataResult))
-                        expression_value.setSelection(dataResult.length)
+                        binding.expressionValue.setText(formatColor(dataResult))
+                        binding.expressionValue.setSelection(dataResult.length)
                     }
 
                     override fun onMultiSelection(data: List<SpinnerModel>,selectedPosition: Int) {
@@ -1134,7 +1115,7 @@ class CalculatorNew : AppCompatActivity() {
             )
         spinnerSingleSelectDialogFragment.showSearchBar = false
         spinnerSingleSelectDialogFragment.buttonText = "Load Expression"
-        spinnerSingleSelectDialogFragment.themeColorResId = resources.getColor(R.color.color_text_contrast)
+        spinnerSingleSelectDialogFragment.themeColorResId = ContextCompat.getColor(this, R.color.color_text_contrast)
         spinnerSingleSelectDialogFragment.show(
             supportFragmentManager,
             "SpinnerDialogFragmentSingle"
@@ -1146,7 +1127,7 @@ class CalculatorNew : AppCompatActivity() {
     // to used like expression
     private fun clearExpression(){
         if (stateResult){
-            expression_value.setText("")
+            binding.expressionValue.setText("")
             stateResult = false
         }
     }
@@ -1168,9 +1149,9 @@ class CalculatorNew : AppCompatActivity() {
     // this function return the number select with the cursor
     private fun getNumberOnExpression(): String {
         // complete string expression
-        val oldStr = expression_value.text.toString()
+        val oldStr = binding.expressionValue.text.toString()
         // position of the cursor
-        val cursorPos = expression_value.selectionStart
+        val cursorPos = binding.expressionValue.selectionStart
         // string on the left and on the right of the cursor
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
@@ -1305,5 +1286,4 @@ class CalculatorNew : AppCompatActivity() {
 
         return tempNumber.toBigInteger() == BigInteger.ZERO
     }
-
 }

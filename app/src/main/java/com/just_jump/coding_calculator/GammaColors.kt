@@ -6,17 +6,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.just_jump.coding_calculator.data.local.ListColorsRange
-import kotlinx.android.synthetic.main.activity_gamma_colors.*
+import com.just_jump.coding_calculator.databinding.ActivityGammaColorsBinding
+
 
 class GammaColors : AppCompatActivity() {
+
+    private lateinit var binding:ActivityGammaColorsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gamma_colors)
+        binding = ActivityGammaColorsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val colorValue = intent.getStringExtra("COLOR")
 
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.adapter = RecyclerAdapterGammaColors(ListColorsRange().getRangeColors(colorValue!!))
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = RecyclerAdapterGammaColors(ListColorsRange().getRangeColors(colorValue!!))
 
         val gradientDrawable = GradientDrawable(
             GradientDrawable.Orientation.BOTTOM_TOP,
@@ -25,6 +30,6 @@ class GammaColors : AppCompatActivity() {
                 Color.parseColor("#616161")
             )
         )
-        mainLayoutGamma.background = gradientDrawable
+        binding.mainLayoutGamma.background = gradientDrawable
     }
 }

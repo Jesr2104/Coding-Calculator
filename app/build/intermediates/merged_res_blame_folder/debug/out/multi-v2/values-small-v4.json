@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\jjsot\\AndroidStudioProjects\\coding_calculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-small-v4\\values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jjsot\\.gradle\\caches\\transforms-2\\files-2.1\\0d603b0fd63561a28ede65f1c14c8d02\\material-1.3.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\jjsot\\.gradle\\caches\\transforms-2\\files-2.1\\fa39cc5287394aea1a99a9a650792e62\\material-1.3.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

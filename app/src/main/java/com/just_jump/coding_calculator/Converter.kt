@@ -10,15 +10,16 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.just_jump.coding_calculator.databinding.ActivityConverterNewBinding
 import com.just_jump.coding_calculator.utilities.ConvertUtilities
 import com.just_jump.coding_calculator.utilities.PrefixText
 import com.just_jump.coding_calculator.utilities.ValidateExponential
-import kotlinx.android.synthetic.main.activity_converter_new.*
 import java.text.DecimalFormat
 
 class Converter : AppCompatActivity() {
 
     var statePrint = true
+    private lateinit var binding:ActivityConverterNewBinding
 
     // this var is for check when the user press temp to control negative number
     var stateTemp: Boolean = false
@@ -102,7 +103,8 @@ class Converter : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_converter_new)
+        binding = ActivityConverterNewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val adapterMenu = ArrayAdapter(
             this,
@@ -111,15 +113,15 @@ class Converter : AppCompatActivity() {
         )
         adapterMenu.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-        dataA.hint = getString(R.string.insert_number)
-        dataA.setHintTextColor(resources.getColor(R.color.grey_hint))
+        binding.dataA.hint = getString(R.string.insert_number)
+        binding.dataA.setHintTextColor(ContextCompat.getColor(this, R.color.grey_hint))
 
-        dataB.hint = getString(R.string.insert_number)
-        dataB.setHintTextColor(resources.getColor(R.color.grey_hint))
+        binding.dataB.hint = getString(R.string.insert_number)
+        binding.dataB.setHintTextColor(ContextCompat.getColor(this, R.color.grey_hint))
 
-        SpinnerMenuA.adapter = adapterMenu
-        SpinnerMenuB.adapter = adapterMenu
-        SpinnerMenuB.setSelection(1)
+        binding.SpinnerMenuA.adapter = adapterMenu
+        binding.SpinnerMenuB.adapter = adapterMenu
+        binding.SpinnerMenuB.setSelection(1)
 
         // valor to check what system of convert is selected
         var systemOfConvert = 1
@@ -127,28 +129,28 @@ class Converter : AppCompatActivity() {
         /**
          *  Event to control: when the new field lost the focus
          */
-        dataA.setOnFocusChangeListener { _, hasFocus ->
+        binding.dataA.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
-                dataA.hint = ""
+                binding.dataA.hint = ""
             } else {
-                if (dataA.text!!.isEmpty()){
-                    dataA.hint = getString(R.string.insert_number)
+                if (binding.dataA.text!!.isEmpty()){
+                    binding.dataA.hint = getString(R.string.insert_number)
                 }
             }
         }
 
-        dataB.setOnFocusChangeListener { _, hasFocus ->
+        binding.dataB.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
-                dataB.hint = ""
+                binding.dataB.hint = ""
             } else {
-                if (dataB.text!!.isEmpty()){
-                    dataB.hint = getString(R.string.insert_number)
+                if (binding.dataB.text!!.isEmpty()){
+                    binding.dataB.hint = getString(R.string.insert_number)
                 }
             }
         }
 
         // Event when you press button Area
-        card_Area.setOnClickListener {
+        binding.cardArea.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -158,30 +160,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 1
 
-            textArea.setTextColor(Color.rgb(150, 150, 150))
+            binding.textArea.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.area)
+            binding.TitleTypeConvert.text = getString(R.string.area)
 
             // change color lost selection
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Length.setOnClickListener {
+        binding.cardLength.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -191,30 +193,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 2
 
-            textLength.setTextColor(Color.rgb(150, 150, 150))
+            binding.textLength.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.length)
+            binding.TitleTypeConvert.text = getString(R.string.length)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Time.setOnClickListener {
+        binding.cardTime.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -224,30 +226,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 3
 
-            textTime.setTextColor(Color.rgb(150, 150, 150))
+            binding.textTime.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.time)
+            binding.TitleTypeConvert.text = getString(R.string.time)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Temp.setOnClickListener {
+        binding.cardTemp.setOnClickListener {
 
             stateTemp = true
             val adapterMenuList = ArrayAdapter(
@@ -257,30 +259,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 4
 
-            textTemp.setTextColor(Color.rgb(150, 150, 150))
+            binding.textTemp.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.temp)
+            binding.TitleTypeConvert.text = getString(R.string.temp)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Volume.setOnClickListener {
+        binding.cardVolume.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -290,30 +292,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 5
 
-            textVolume.setTextColor(Color.rgb(150, 150, 150))
+            binding.textVolume.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.volume)
+            binding.TitleTypeConvert.text = getString(R.string.volume)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Weight.setOnClickListener {
+        binding.cardWeight.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -323,30 +325,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 6
 
-            textWeight.setTextColor(Color.rgb(150, 150, 150))
+            binding.textWeight.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.weight)
+            binding.TitleTypeConvert.text = getString(R.string.weight)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Data.setOnClickListener {
+        binding.cardData.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -356,30 +358,30 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 7
 
-            textData.setTextColor(Color.rgb(150, 150, 150))
+            binding.textData.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.data)
+            binding.TitleTypeConvert.text = getString(R.string.data)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textSpeed.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
-        card_Speed.setOnClickListener {
+        binding.cardSpeed.setOnClickListener {
 
             stateTemp = false
             val adapterMenuList = ArrayAdapter(
@@ -389,64 +391,64 @@ class Converter : AppCompatActivity() {
             )
             adapterMenuList.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-            SpinnerMenuA.adapter = adapterMenuList
-            SpinnerMenuB.adapter = adapterMenuList
-            SpinnerMenuB.setSelection(1)
+            binding.SpinnerMenuA.adapter = adapterMenuList
+            binding.SpinnerMenuB.adapter = adapterMenuList
+            binding.SpinnerMenuB.setSelection(1)
 
             systemOfConvert = 8
 
-            textSpeed.setTextColor(Color.rgb(150, 150, 150))
+            binding.textSpeed.setTextColor(Color.rgb(150, 150, 150))
 
-            Title_TypeConvert.text = getString(R.string.speed)
+            binding.TitleTypeConvert.text = getString(R.string.speed)
 
             // change color lost selection
-            textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
-            textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textArea.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textLength.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTime.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textTemp.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textVolume.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textWeight.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
+            binding.textData.setTextColor(ContextCompat.getColor(this, R.color.Front_ColorGrey))
 
-            dataA.setText("")
-            dataB.setText("")
+            binding.dataA.setText("")
+            binding.dataB.setText("")
         }
 
         // this event control when the user change the metric but the value is done on the field.
-        SpinnerMenuA.onItemSelectedListener = object : OnItemSelectedListener {
+        binding.SpinnerMenuA.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parentView: AdapterView<*>?,
                 selectedItemView: View?,
                 position: Int,
                 id: Long
             ) {
-                if (dataA.text.toString().isNotEmpty()) {
+                if (binding.dataA.text.toString().isNotEmpty()) {
                     if (statePrint) {
-                        if (dataA.text.toString().isNotEmpty()) {
+                        if (binding.dataA.text.toString().isNotEmpty()) {
 
                             //calculator the prefix
-                            textInputLayoutA.prefixText =
-                                PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
-                            textInputLayoutB.prefixText =
-                                PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+                            binding.textInputLayoutA.prefixText =
+                                PrefixText().getPrefix(binding.SpinnerMenuA.selectedItem.toString())
+                            binding.textInputLayoutB.prefixText =
+                                PrefixText().getPrefix(binding.SpinnerMenuB.selectedItem.toString())
 
-                            textInputLayoutB.prefixText
+                            binding.textInputLayoutB.prefixText
 
                             val resultValue = ConvertUtilities().checkConvert(
                                 systemOfConvert,
-                                dataA.text.toString().replace(",","").toDouble(),
-                                SpinnerMenuA.selectedItem.toString(),
-                                SpinnerMenuB.selectedItem.toString()
+                                binding.dataA.text.toString().replace(",","").toDouble(),
+                                binding.SpinnerMenuA.selectedItem.toString(),
+                                binding.SpinnerMenuB.selectedItem.toString()
                             )
 
                             // Insert the value on the result field
                             statePrint = false
-                            dataB.setText(resultValue)
+                            binding.dataB.setText(resultValue)
                             statePrint = true
                         } else {
-                            dataB.setText("")
-                            textInputLayoutA.prefixText = ""
-                            textInputLayoutB.prefixText = ""
+                            binding.dataB.setText("")
+                            binding.textInputLayoutA.prefixText = ""
+                            binding.textInputLayoutB.prefixText = ""
                         }
                     }
                 }
@@ -455,7 +457,7 @@ class Converter : AppCompatActivity() {
             override fun onNothingSelected(parentView: AdapterView<*>?) {}
         }
 
-        SpinnerMenuB.onItemSelectedListener = object : OnItemSelectedListener {
+        binding.SpinnerMenuB.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -463,29 +465,29 @@ class Converter : AppCompatActivity() {
                 id: Long
             ) {
                 if (statePrint) {
-                    if (dataB.text.toString().isNotEmpty()) {
+                    if (binding.dataB.text.toString().isNotEmpty()) {
 
                         //calculator the prefix
-                        textInputLayoutA.prefixText =
-                            PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
-                        textInputLayoutB.prefixText =
-                            PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+                        binding.textInputLayoutA.prefixText =
+                            PrefixText().getPrefix(binding.SpinnerMenuA.selectedItem.toString())
+                        binding.textInputLayoutB.prefixText =
+                            PrefixText().getPrefix(binding.SpinnerMenuB.selectedItem.toString())
 
                         val resultValue = ConvertUtilities().checkConvert(
                             systemOfConvert,
-                            dataB.text.toString().replace(",","").toDouble(),
-                            SpinnerMenuB.selectedItem.toString(),
-                            SpinnerMenuA.selectedItem.toString()
+                            binding.dataB.text.toString().replace(",","").toDouble(),
+                            binding.SpinnerMenuB.selectedItem.toString(),
+                            binding.SpinnerMenuA.selectedItem.toString()
                         )
 
                         // Insert the value on the result field
                         statePrint = false
-                        dataA.setText(resultValue)
+                        binding.dataA.setText(resultValue)
                         statePrint = true
                     } else {
-                        dataA.setText("")
-                        textInputLayoutA.prefixText = ""
-                        textInputLayoutB.prefixText = ""
+                        binding.dataA.setText("")
+                        binding.textInputLayoutA.prefixText = ""
+                        binding.textInputLayoutB.prefixText = ""
                     }
                 }
             }
@@ -493,20 +495,20 @@ class Converter : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        dataA.addTextChangedListener(object : TextWatcher {
+        binding.dataA.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
                 if (!stateTemp) {
-                    if (dataA.text.toString() == "-") {
+                    if (binding.dataA.text.toString() == "-") {
                         p0!!.delete(p0.length - 1, p0.length)
                     }
                 }
 
                 if (statePrint) {
-                    if (dataA.text.toString()
-                            .isNotEmpty() && dataA.text.toString() != "." && dataA.text.toString() != "-"
+                    if (binding.dataA.text.toString()
+                            .isNotEmpty() && binding.dataA.text.toString() != "." && binding.dataA.text.toString() != "-"
                     ) {
 
                         var resultValue = ""
@@ -514,60 +516,60 @@ class Converter : AppCompatActivity() {
                         format.maximumFractionDigits = 7
 
                         //calculator the prefix
-                        textInputLayoutA.prefixText =
-                            PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
-                        textInputLayoutB.prefixText =
-                            PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+                        binding.textInputLayoutA.prefixText =
+                            PrefixText().getPrefix(binding.SpinnerMenuA.selectedItem.toString())
+                        binding.textInputLayoutB.prefixText =
+                            PrefixText().getPrefix(binding.SpinnerMenuB.selectedItem.toString())
 
-                        if (dataA.text.toString().contains('E') || dataA.text.toString()
+                        if (binding.dataA.text.toString().contains('E') || binding.dataA.text.toString()
                                 .contains('e')
                         ) {
-                            if (ValidateExponential().validate(dataA.text.toString())) {
+                            if (ValidateExponential().validate(binding.dataA.text.toString())) {
                                 resultValue = ConvertUtilities().checkConvert(
                                     systemOfConvert,
-                                    dataA.text.toString().toDouble(),
-                                    SpinnerMenuA.selectedItem.toString(),
-                                    SpinnerMenuB.selectedItem.toString()
+                                    binding.dataA.text.toString().replace(",","").toDouble(),
+                                    binding.SpinnerMenuA.selectedItem.toString(),
+                                    binding.SpinnerMenuB.selectedItem.toString()
                                 )
                             }
                         } else {
                             resultValue = ConvertUtilities().checkConvert(
                                 systemOfConvert,
-                                dataA.text.toString().toDouble(),
-                                SpinnerMenuA.selectedItem.toString(),
-                                SpinnerMenuB.selectedItem.toString()
+                                binding.dataA.text.toString().replace(",","").toDouble(),
+                                binding.SpinnerMenuA.selectedItem.toString(),
+                                binding.SpinnerMenuB.selectedItem.toString()
                             )
                         }
 
                         // Insert the value on the result field
                         statePrint = false
-                        dataB.setText(format.format(resultValue.toDouble()))
+                        binding.dataB.setText(format.format(resultValue.toDouble()))
                         statePrint = true
                     } else {
-                        if (dataB.text!!.isNotEmpty()) {
-                            dataB.setText("")
-                            textInputLayoutA.prefixText = ""
-                            textInputLayoutB.prefixText = ""
+                        if (binding.dataB.text!!.isNotEmpty()) {
+                            binding.dataB.setText("")
+                            binding.textInputLayoutA.prefixText = ""
+                            binding.textInputLayoutB.prefixText = ""
                         }
                     }
                 }
             }
         })
 
-        dataB.addTextChangedListener(object : TextWatcher {
+        binding.dataB.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
 
                 if (!stateTemp) {
-                    if (dataB.text.toString() == "-") {
+                    if (binding.dataB.text.toString() == "-") {
                         p0!!.delete(p0.length - 1, p0.length)
                     }
                 }
 
                 if (statePrint) {
-                    if (dataB.text.toString()
-                            .isNotEmpty() && dataB.text.toString() != "." && dataB.text.toString() != "-"
+                    if (binding.dataB.text.toString()
+                            .isNotEmpty() && binding.dataB.text.toString() != "." && binding.dataB.text.toString() != "-"
                     ) {
 
                         var resultValue = ""
@@ -575,40 +577,40 @@ class Converter : AppCompatActivity() {
                         format.maximumFractionDigits = 7
 
                         //calculator the prefix
-                        textInputLayoutA.prefixText =
-                            PrefixText().getPrefix(SpinnerMenuA.selectedItem.toString())
-                        textInputLayoutB.prefixText =
-                            PrefixText().getPrefix(SpinnerMenuB.selectedItem.toString())
+                        binding.textInputLayoutA.prefixText =
+                            PrefixText().getPrefix(binding.SpinnerMenuA.selectedItem.toString())
+                        binding.textInputLayoutB.prefixText =
+                            PrefixText().getPrefix(binding.SpinnerMenuB.selectedItem.toString())
 
-                        if (dataB.text.toString().contains('E') || dataB.text.toString()
+                        if (binding.dataB.text.toString().contains('E') || binding.dataB.text.toString()
                                 .contains('e')
                         ) {
-                            if (ValidateExponential().validate(dataB.text.toString())) {
+                            if (ValidateExponential().validate(binding.dataB.text.toString())) {
                                 resultValue = ConvertUtilities().checkConvert(
                                     systemOfConvert,
-                                    dataB.text.toString().toDouble(),
-                                    SpinnerMenuB.selectedItem.toString(),
-                                    SpinnerMenuA.selectedItem.toString()
+                                    binding.dataB.text.toString().replace(",","").toDouble(),
+                                    binding.SpinnerMenuB.selectedItem.toString(),
+                                    binding.SpinnerMenuA.selectedItem.toString()
                                 )
                             }
                         } else {
                             resultValue = ConvertUtilities().checkConvert(
                                 systemOfConvert,
-                                dataB.text.toString().toDouble(),
-                                SpinnerMenuB.selectedItem.toString(),
-                                SpinnerMenuA.selectedItem.toString()
+                                binding.dataB.text.toString().replace(",","").toDouble(),
+                                binding.SpinnerMenuB.selectedItem.toString(),
+                                binding.SpinnerMenuA.selectedItem.toString()
                             )
                         }
 
                         // Insert the value on the result field
                         statePrint = false
-                        dataA.setText(format.format(resultValue.toDouble()))
+                        binding.dataA.setText(format.format(resultValue.toDouble()))
                         statePrint = true
                     } else {
-                        if (dataA.text!!.isNotEmpty()) {
-                            dataA.setText("")
-                            textInputLayoutA.prefixText = ""
-                            textInputLayoutB.prefixText = ""
+                        if (binding.dataA.text!!.isNotEmpty()) {
+                            binding.dataA.setText("")
+                            binding.textInputLayoutA.prefixText = ""
+                            binding.textInputLayoutB.prefixText = ""
                         }
                     }
                 }
@@ -618,7 +620,7 @@ class Converter : AppCompatActivity() {
         /**
          * Event to control: button come back to the parent
          */
-        button_back.setOnClickListener {
+        binding.buttonBack.setOnClickListener {
             finish()
         }
     }

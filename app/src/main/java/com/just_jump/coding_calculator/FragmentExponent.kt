@@ -6,102 +6,103 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.just_jump.coding_calculator.databinding.FragmentExponentNewBinding
 import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.fragment_exponent_new.*
-import kotlinx.android.synthetic.main.fragment_exponent_new.view.*
 import java.text.DecimalFormat
 import kotlin.math.pow
 
 class FragmentExponent(private val myInterface: ReturnMainActivity) : Fragment() {
 
+    private lateinit var binding: FragmentExponentNewBinding
+
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle? ): View? {
+        savedInstanceState: Bundle? ): View {
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_exponent_new, container, false)
+        binding = FragmentExponentNewBinding.inflate(layoutInflater)
 
-        view.field_base.hint = getString(R.string.base_x)
-        view.field_base.setHintTextColor(resources.getColor(R.color.grey_hint))
+        binding.fieldBase.hint = getString(R.string.base_x)
+        binding.fieldBase.setHintTextColor(ContextCompat.getColor(requireContext().applicationContext, R.color.grey_hint))
 
-        view.field_exponent.hint = getString(R.string.exponent_n)
-        view.field_exponent.setHintTextColor(resources.getColor(R.color.grey_hint))
+        binding.fieldExponent.hint = getString(R.string.exponent_n)
+        binding.fieldExponent.setHintTextColor(ContextCompat.getColor(requireContext(), R.color.grey_hint))
 
         /**
          * Event to control: button come back to the parent
          */
-        view.button_back.setOnClickListener {
+        binding.buttonBack.setOnClickListener {
             myInterface.returnMainActivity()
         }
 
-        view.calculatorButton.setOnClickListener {
-            if (field_base.text!!.isNotEmpty() && field_exponent.text!!.isNotEmpty()){
+        binding.calculatorButton.setOnClickListener {
+            if (binding.fieldBase.text!!.isNotEmpty() && binding.fieldExponent.text!!.isNotEmpty()){
 
-                if (field_base.text.toString() != "." && field_exponent.text.toString() != "."&&
-                    field_base.text.toString() != "-" && field_exponent.text.toString() != "-"){
+                if (binding.fieldBase.text.toString() != "." && binding.fieldExponent.text.toString() != "."&&
+                    binding.fieldBase.text.toString() != "-" && binding.fieldExponent.text.toString() != "-"){
 
-                    var result = ""
                     val format = DecimalFormat()
                     format.maximumFractionDigits = 6
 
-                    val base = (field_base.text.toString()).toDouble()
-                    val exponent = (field_exponent.text.toString()).toDouble()
+                    val base = (binding.fieldBase.text.toString()).toDouble()
+                    val exponent = (binding.fieldExponent.text.toString()).toDouble()
 
-                    result =
+                    val result =
                         if (base == 0.0 && exponent == 0.0) {
                             "NaN"
                         } else {
                             format.format(base.pow(exponent))
                         }
 
-                    view.resultField.text = result.checkInteger()
+                    binding.resultField.text = result.checkInteger()
 
-                    view.base_value.text = "${getText(R.string.base)} ${base.toString().checkInteger()}"
-                    view.exponent_value.text = "${getText(R.string.exponent_dot)} ${exponent.toString().checkInteger()}"
+                    binding.baseValue.text = "${getText(R.string.base)} ${base.toString().checkInteger()}"
+                    binding.exponentValue.text = "${getText(R.string.exponent_dot)} ${exponent.toString().checkInteger()}"
 
-                    view.field_base.setText("")
-                    view.field_base.clearFocus()
-                    view.field_base.hint = getString(R.string.base_x)
+                    binding.fieldBase.setText("")
+                    binding.fieldBase.clearFocus()
+                    binding.fieldBase.hint = getString(R.string.base_x)
 
-                    view.field_exponent.setText("")
-                    view.field_exponent.clearFocus()
-                    view.field_exponent.hint = getString(R.string.exponent_n)
+                    binding.fieldExponent.setText("")
+                    binding.fieldExponent.clearFocus()
+                    binding.fieldExponent.hint = getString(R.string.exponent_n)
 
-                    view.label_result.visibility = View.VISIBLE
+                    binding.labelResult.visibility = View.VISIBLE
 
                 } else {
                     //message of error to inform field is wrong
-                    Toast.makeText(view.context, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.message_3), Toast.LENGTH_SHORT).show()
                 }
             } else {
                 //message of error to inform one field is empty
-                Toast.makeText(view.context, getString(R.string.message_2), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.message_2), Toast.LENGTH_SHORT).show()
             }
         }
 
-        view.field_base.setOnFocusChangeListener { _, hasFocus ->
+        binding.fieldBase.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
-                view.field_base.hint = ""
+                binding.fieldBase.hint = ""
             } else {
-                if (view.field_base.text!!.isEmpty()){
-                    view.field_base.hint = getString(R.string.base_x)
+                if (binding.fieldBase.text!!.isEmpty()){
+                    binding.fieldBase.hint = getString(R.string.base_x)
                 }
             }
         }
 
-        view.field_exponent.setOnFocusChangeListener { _, hasFocus ->
+        binding.fieldExponent.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
-                view.field_exponent.hint = ""
+                binding.fieldExponent.hint = ""
             } else {
-                if (view.field_exponent.text!!.isEmpty()){
-                    view.field_exponent.hint = getString(R.string.exponent_n)
+                if (binding.fieldExponent.text!!.isEmpty()){
+                    binding.fieldExponent.hint = getString(R.string.exponent_n)
                 }
             }
         }
 
-        return view
+        return binding.root
     }
 }

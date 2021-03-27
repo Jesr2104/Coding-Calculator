@@ -3,11 +3,11 @@ package com.just_jump.coding_calculator
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.just_jump.coding_calculator.data.local.SRDataColors
-import kotlinx.android.synthetic.main.item_color_saved.view.*
+import com.just_jump.coding_calculator.databinding.ItemColorSavedBinding
+
 
 class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, private var RVSavedColorInt: RVSavedColorInt): RecyclerView.Adapter<RecycleAdapterSavedColors.ViewHolder>() {
 
@@ -16,12 +16,12 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, private var 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_color_saved,
+        val binding = ItemColorSavedBinding.inflate(
+            LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return ViewHolder(view)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -29,14 +29,14 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, private var 
         holder.render(item)
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(private val binding: ItemColorSavedBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
-            itemView.deleteSavedColor.setOnClickListener{
+            binding.deleteSavedColor.setOnClickListener{
                 removeItem(layoutPosition)
             }
 
-            itemView.loadSavedColor.setOnClickListener{
+            binding.loadSavedColor.setOnClickListener{
                 loadItem(layoutPosition)
             }
         }
@@ -47,9 +47,9 @@ class RecycleAdapterSavedColors(var listDataColors: ArrayList<Int>, private var 
             println(listDataColors)
 
             val hexColor = "#" + Integer.toHexString(item).substring(2)
-            itemView.colorCodeHex.text = "HEX "+hexColor.toUpperCase()
-            itemView.colorCodeRGB.text = "RGB(${Color.red(item)},${Color.green(item)},${Color.blue(item)})"
-            itemView.colorSaved.setBackgroundColor(item)
+            binding.colorCodeHex.text = "HEX "+hexColor.toUpperCase()
+            binding.colorCodeRGB.text = "RGB(${Color.red(item)},${Color.green(item)},${Color.blue(item)})"
+            binding.colorSaved.setBackgroundColor(item)
         }
     }
 

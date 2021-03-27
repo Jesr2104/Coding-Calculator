@@ -10,33 +10,36 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import com.just_jump.coding_calculator.databinding.ActivityNumericalSystemsNewBinding
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.viewmodel.ViewModelNumericalSystem
-import kotlinx.android.synthetic.main.activity_numerical_systems_new.*
 
 class NumericalSystems : AppCompatActivity() {
 
     lateinit var cViewModel: ViewModelNumericalSystem
+    private lateinit var binding: ActivityNumericalSystemsNewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_numerical_systems_new)
+        binding = ActivityNumericalSystemsNewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        cViewModel = ViewModelProviders.of(this).get(ViewModelNumericalSystem::class.java)
+        cViewModel = ViewModelProvider(this).get(ViewModelNumericalSystem::class.java)
 
-        field_number.hint = getString(R.string.insert_number)
-        field_number.setHintTextColor(resources.getColor(R.color.grey_hint))
+        binding.fieldNumber.hint = getString(R.string.insert_number)
+        binding.fieldNumber.setHintTextColor(ContextCompat.getColor(this, R.color.grey_hint))
 
-        titleOctal.textSize = 15F
+        binding.titleOctal.textSize = 15F
 
         /***************************************************************************/
         // observer
         /***************************************************************************/
         val myObserverColor = Observer<String> {
 
-            val intSelectButton: Int = radioGroup!!.checkedRadioButtonId
+            val intSelectButton: Int = binding.radioGroup.checkedRadioButtonId
             val radioButton = findViewById<RadioButton>(intSelectButton)
 
             when (radioButton.text) {
@@ -54,10 +57,10 @@ class NumericalSystems : AppCompatActivity() {
                 }
             }
 
-            resultBinary.text = cViewModel.resultBinary.value
-            resultOctal.text = cViewModel.resultOctal.value
-            resultHex.text = cViewModel.resultHex.value
-            resultDecimal.text = cViewModel.resultDecimal.value
+            binding.resultBinary.text = cViewModel.resultBinary.value
+            binding.resultOctal.text = cViewModel.resultOctal.value
+            binding.resultHex.text = cViewModel.resultHex.value
+            binding.resultDecimal.text = cViewModel.resultDecimal.value
         }
 
         // this observer works when the expression change
@@ -66,10 +69,10 @@ class NumericalSystems : AppCompatActivity() {
         //------------------------------------------------------------------------------------------
         // event to control when the user change the type of the numerical system.
         //------------------------------------------------------------------------------------------
-        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+        binding.radioGroup.setOnCheckedChangeListener { _, _ ->
 
             // checkedId is the RadioButton selected
-            val intSelectButton: Int = radioGroup!!.checkedRadioButtonId
+            val intSelectButton: Int = binding.radioGroup.checkedRadioButtonId
             val radioButton = findViewById<RadioButton>(intSelectButton)
 
             when(radioButton.text){
@@ -78,30 +81,30 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    field_number.filters = filterArray
+                    binding.fieldNumber.filters = filterArray
 
                     // change keyboard for number
-                    field_number.inputType = InputType.TYPE_CLASS_NUMBER
+                    binding.fieldNumber.inputType = InputType.TYPE_CLASS_NUMBER
 
-                    if (field_number.text.toString().isNotEmpty()) {
-                        if (field_number.text.toString().length >= 15) {
-                            field_number_layout.error = "The number is much larger than I allow"
-                            field_number.setText("")
-                        } else if (!Functions().validateDecimalNumber(field_number.text.toString())) {
-                            field_number_layout.error = "The Number is not correct in this system"
-                            field_number.setText("")
+                    if (binding.fieldNumber.text.toString().isNotEmpty()) {
+                        if (binding.fieldNumber.text.toString().length >= 15) {
+                            binding.fieldNumberLayout.error = "The number is much larger than I allow"
+                            binding.fieldNumber.setText("")
+                        } else if (!Functions().validateDecimalNumber(binding.fieldNumber.text.toString())) {
+                            binding.fieldNumberLayout.error = "The Number is not correct in this system"
+                            binding.fieldNumber.setText("")
                         }
                     }
 
-                    titleDecimal.visibility = View.GONE
-                    resultDecimal.visibility = View.GONE
+                    binding.titleDecimal.visibility = View.GONE
+                    binding.resultDecimal.visibility = View.GONE
 
-                    titleOctal.visibility = View.VISIBLE
-                    resultOctal.visibility = View.VISIBLE
-                    titleBinary.visibility = View.VISIBLE
-                    resultBinary.visibility = View.VISIBLE
-                    titleHex.visibility = View.VISIBLE
-                    resultHex.visibility = View.VISIBLE
+                    binding.titleOctal.visibility = View.VISIBLE
+                    binding.resultOctal.visibility = View.VISIBLE
+                    binding.titleBinary.visibility = View.VISIBLE
+                    binding.resultBinary.visibility = View.VISIBLE
+                    binding.titleHex.visibility = View.VISIBLE
+                    binding.resultHex.visibility = View.VISIBLE
                     Toast.makeText(this, "Decimal", Toast.LENGTH_SHORT).show()
                 }
 
@@ -110,27 +113,27 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    field_number.filters = filterArray
+                    binding.fieldNumber.filters = filterArray
 
                     // change keyboard for number
-                    field_number.inputType = InputType.TYPE_CLASS_NUMBER
+                    binding.fieldNumber.inputType = InputType.TYPE_CLASS_NUMBER
 
-                    if (field_number.text.toString().isNotEmpty()) {
-                        if (!Functions().validateBinaryNumber(field_number.text.toString())) {
-                            field_number_layout.error = "Number is not correct in this system"
-                            field_number.setText("")
+                    if (binding.fieldNumber.text.toString().isNotEmpty()) {
+                        if (!Functions().validateBinaryNumber(binding.fieldNumber.text.toString())) {
+                            binding.fieldNumberLayout.error = "Number is not correct in this system"
+                            binding.fieldNumber.setText("")
                         }
                     }
 
-                    titleBinary.visibility = View.GONE
-                    resultBinary.visibility = View.GONE
+                    binding.titleBinary.visibility = View.GONE
+                    binding.resultBinary.visibility = View.GONE
 
-                    titleDecimal.visibility = View.VISIBLE
-                    resultDecimal.visibility = View.VISIBLE
-                    titleOctal.visibility = View.VISIBLE
-                    resultOctal.visibility = View.VISIBLE
-                    titleHex.visibility = View.VISIBLE
-                    resultHex.visibility = View.VISIBLE
+                    binding.titleDecimal.visibility = View.VISIBLE
+                    binding.resultDecimal.visibility = View.VISIBLE
+                    binding.titleOctal.visibility = View.VISIBLE
+                    binding.resultOctal.visibility = View.VISIBLE
+                    binding.titleHex.visibility = View.VISIBLE
+                    binding.resultHex.visibility = View.VISIBLE
                     Toast.makeText(this, "Binary", Toast.LENGTH_SHORT).show()
                 }
 
@@ -139,30 +142,30 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    field_number.filters = filterArray
+                    binding.fieldNumber.filters = filterArray
 
                     // change keyboard for number
-                    field_number.inputType = InputType.TYPE_CLASS_NUMBER
+                    binding.fieldNumber.inputType = InputType.TYPE_CLASS_NUMBER
 
-                    if (field_number.text.toString().isNotEmpty()) {
-                        if (field_number.text.toString().length >= 15) {
-                            field_number_layout.error = "The number is much larger than I allow"
-                            field_number.setText("")
-                        } else if (!Functions().validateDecimalNumber(field_number.text.toString())) {
-                            field_number_layout.error = "The Number is not correct in this system"
-                            field_number.setText("")
+                    if (binding.fieldNumber.text.toString().isNotEmpty()) {
+                        if (binding.fieldNumber.text.toString().length >= 15) {
+                            binding.fieldNumberLayout.error = "The number is much larger than I allow"
+                            binding.fieldNumber.setText("")
+                        } else if (!Functions().validateDecimalNumber(binding.fieldNumber.text.toString())) {
+                            binding.fieldNumberLayout.error = "The Number is not correct in this system"
+                            binding.fieldNumber.setText("")
                         }
                     }
 
-                    titleOctal.visibility = View.GONE
-                    resultOctal.visibility = View.GONE
+                    binding.titleOctal.visibility = View.GONE
+                    binding.resultOctal.visibility = View.GONE
 
-                    titleDecimal.visibility = View.VISIBLE
-                    resultDecimal.visibility = View.VISIBLE
-                    titleBinary.visibility = View.VISIBLE
-                    resultBinary.visibility = View.VISIBLE
-                    titleHex.visibility = View.VISIBLE
-                    resultHex.visibility = View.VISIBLE
+                    binding.titleDecimal.visibility = View.VISIBLE
+                    binding.resultDecimal.visibility = View.VISIBLE
+                    binding.titleBinary.visibility = View.VISIBLE
+                    binding.resultBinary.visibility = View.VISIBLE
+                    binding.titleHex.visibility = View.VISIBLE
+                    binding.resultHex.visibility = View.VISIBLE
                     Toast.makeText(this, "Octal", Toast.LENGTH_SHORT).show()
                 }
 
@@ -172,30 +175,30 @@ class NumericalSystems : AppCompatActivity() {
                     val filterArray = arrayOfNulls<InputFilter>(1)
                     filterArray[0] = LengthFilter(maxLength)
 
-                    field_number.filters = filterArray
+                    binding.fieldNumber.filters = filterArray
 
                     // change keyboard for text to include letter
-                    field_number.inputType = InputType.TYPE_CLASS_TEXT
+                    binding.fieldNumber.inputType = InputType.TYPE_CLASS_TEXT
 
-                    if (field_number.text.toString().isNotEmpty()) {
-                        if (field_number.text.toString().length >= 15) {
-                            field_number_layout.error = "The number is much larger than I allow"
-                            field_number.setText("")
-                        } else if (!Functions().validateDecimalNumber(field_number.text.toString())) {
-                            field_number_layout.error = "The Number is not correct in this system"
-                            field_number.setText("")
+                    if (binding.fieldNumber.text.toString().isNotEmpty()) {
+                        if (binding.fieldNumber.text.toString().length >= 15) {
+                            binding.fieldNumberLayout.error = "The number is much larger than I allow"
+                            binding.fieldNumber.setText("")
+                        } else if (!Functions().validateDecimalNumber(binding.fieldNumber.text.toString())) {
+                            binding.fieldNumberLayout.error = "The Number is not correct in this system"
+                            binding.fieldNumber.setText("")
                         }
                     }
 
-                    titleHex.visibility = View.GONE
-                    resultHex.visibility = View.GONE
+                    binding.titleHex.visibility = View.GONE
+                    binding.resultHex.visibility = View.GONE
 
-                    titleDecimal.visibility = View.VISIBLE
-                    resultDecimal.visibility = View.VISIBLE
-                    titleOctal.visibility = View.VISIBLE
-                    resultOctal.visibility = View.VISIBLE
-                    titleBinary.visibility = View.VISIBLE
-                    resultBinary.visibility = View.VISIBLE
+                    binding.titleDecimal.visibility = View.VISIBLE
+                    binding.resultDecimal.visibility = View.VISIBLE
+                    binding.titleOctal.visibility = View.VISIBLE
+                    binding.resultOctal.visibility = View.VISIBLE
+                    binding.titleBinary.visibility = View.VISIBLE
+                    binding.resultBinary.visibility = View.VISIBLE
                     Toast.makeText(this, "Hexadecimal", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -207,12 +210,12 @@ class NumericalSystems : AppCompatActivity() {
         /**
          *  Event to control: when the new field lost the focus
          */
-        field_number.setOnFocusChangeListener { _, hasFocus ->
+        binding.fieldNumber.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
-                field_number.hint = ""
+                binding.fieldNumber.hint = ""
             } else {
-                if (field_number.text!!.isEmpty()){
-                    field_number.hint = getString(R.string.base_x)
+                if (binding.fieldNumber.text!!.isEmpty()){
+                    binding.fieldNumber.hint = getString(R.string.base_x)
                 }
             }
         }
@@ -220,7 +223,7 @@ class NumericalSystems : AppCompatActivity() {
         //------------------------------------------------------------------------------------------
         // event to control when the field change the value tu check if this is valid.
         //------------------------------------------------------------------------------------------
-        field_number.addTextChangedListener(object : TextWatcher {
+        binding.fieldNumber.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
@@ -228,7 +231,7 @@ class NumericalSystems : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
 
-                val intSelectButton: Int = radioGroup!!.checkedRadioButtonId
+                val intSelectButton: Int = binding.radioGroup.checkedRadioButtonId
                 val radioButton = findViewById<RadioButton>(intSelectButton)
 
                 when (radioButton.text) {
@@ -239,10 +242,10 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateDecimalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = field_number.text.toString()
+                            cViewModel.dataNumber.value = binding.fieldNumber.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                field_number_layout.isErrorEnabled = false
+                                binding.fieldNumberLayout.isErrorEnabled = false
                             }
                         }
                     }
@@ -253,10 +256,10 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateOctalNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = field_number.text.toString()
+                            cViewModel.dataNumber.value = binding.fieldNumber.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                field_number_layout.isErrorEnabled = false
+                                binding.fieldNumberLayout.isErrorEnabled = false
                             }
                         }
                     }
@@ -267,26 +270,26 @@ class NumericalSystems : AppCompatActivity() {
                         if (!Functions().validateBinaryNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = field_number.text.toString()
+                            cViewModel.dataNumber.value = binding.fieldNumber.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                field_number_layout.isErrorEnabled = false
+                                binding.fieldNumberLayout.isErrorEnabled = false
                             }
                         }
                     }
                     "Hex" -> {
 
-                        field_number.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                        binding.fieldNumber.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
                         val text: String = p0.toString()
                         val length: Int = text.length
 
                         if (!Functions().validateHexNumber(text) && length > 0) {
                             p0!!.delete(length - 1, length)
                         } else {
-                            cViewModel.dataNumber.value = field_number.text.toString()
+                            cViewModel.dataNumber.value = binding.fieldNumber.text.toString()
 
                             if (cViewModel.dataNumber.value!!.isNotEmpty()) {
-                                field_number_layout.isErrorEnabled = false
+                                binding.fieldNumberLayout.isErrorEnabled = false
                             }
                         }
                     }
@@ -297,7 +300,7 @@ class NumericalSystems : AppCompatActivity() {
         /**
          * Event to control: button come back to the parent
          */
-        button_back.setOnClickListener {
+        binding.buttonBack.setOnClickListener {
             finish()
         }
     }

@@ -3,19 +3,21 @@ package com.just_jump.coding_calculator
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDialogFragment
+import com.just_jump.coding_calculator.databinding.DialogInfoSystemColorBinding
 
 class InfoSystemDialog(private var InfoColorFor: String) : AppCompatDialogFragment() {
+
+    private lateinit var binding: DialogInfoSystemColorBinding
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         return activity?.let {
             val builder = AlertDialog.Builder(it)
 
             // Get the layout inflater
-            val inflater = requireActivity().layoutInflater
-            val viewDialog = inflater.inflate(R.layout.dialog_info_system_color, null)
-            val imageInformation = viewDialog.findViewById<ImageView>(R.id.my_info_image)
+            binding = DialogInfoSystemColorBinding.inflate(layoutInflater)
+            val imageInformation = binding.myInfoImage
 
             when(InfoColorFor){
                 "IC" -> {
@@ -35,7 +37,7 @@ class InfoSystemDialog(private var InfoColorFor: String) : AppCompatDialogFragme
                 }
             }
 
-            builder.setView(viewDialog)
+            builder.setView(binding.root)
 
                 // Add action buttons
                 .setNeutralButton("Ok") { dialog, _ ->

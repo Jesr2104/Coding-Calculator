@@ -6,45 +6,47 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
-import com.just_jump.coding_calculator.R.layout.fragment__average_new
+import com.just_jump.coding_calculator.databinding.FragmentAverageNewBinding
 import com.just_jump.coding_calculator.extensions.checkInteger
 import com.just_jump.coding_calculator.utilities.Functions
 import com.just_jump.coding_calculator.utilities.ReturnMainActivity
-import kotlinx.android.synthetic.main.fragment__average_new.*
-import kotlinx.android.synthetic.main.fragment__average_new.view.*
 import java.text.DecimalFormat
 
 class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() {
+
+    private lateinit var binding: FragmentAverageNewBinding
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle? ): View {
 
-        val view = inflater.inflate(fragment__average_new, container, false)
-        view.clear_button.isEnabled = false
+        // Inflate the layout for this fragment
+        binding = FragmentAverageNewBinding.inflate(layoutInflater)
+        binding.clearButton.isEnabled = false
 
-        view.new_value.hint = getString(R.string.insert_new_value)
-        view.new_value.setHintTextColor(resources.getColor(R.color.grey_hint))
+        binding.newValue.hint = getString(R.string.insert_new_value)
+        binding.newValue.setHintTextColor(ContextCompat.getColor(requireContext(), R.color.grey_hint))
 
         /**
          * Event to control: button come back to the parent
          */
-        view.button_back.setOnClickListener {
+        binding.buttonBack.setOnClickListener {
             myInterface.returnMainActivity()
         }
 
         /**
          *  Event to control: when the new field lost the focus
          */
-        view.new_value.setOnFocusChangeListener { _, hasFocus ->
+        binding.newValue.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus){
-                new_value.hint = ""
+                binding.newValue.hint = ""
             } else {
-                if (new_value.text!!.isEmpty()){
-                    new_value.hint = getString(R.string.base_x)
+                if (binding.newValue.text!!.isEmpty()){
+                    binding.newValue.hint = getString(R.string.base_x)
                 }
             }
         }
@@ -52,34 +54,34 @@ class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() 
         /**
          * Event to control: insert new value
          */
-        view.InsertNewValue.setOnClickListener {
+        binding.InsertNewValue.setOnClickListener {
 
-            if (new_value.text!!.isNotEmpty()) {
+            if (binding.newValue.text!!.isNotEmpty()) {
 
-                if (new_value.text.toString() != "." && new_value.text.toString() != "-"){
+                if (binding.newValue.text.toString() != "." && binding.newValue.text.toString() != "-"){
 
                     val chip = Chip(this.context)
-                    chip.text = new_value.text.toString()
+                    chip.text = binding.newValue.text.toString()
                     chip.isCloseIconVisible = true
                     chip.setOnCloseIconClickListener {
-                        chipGroup.removeView(chip)
-                        getResult(view)
+                        binding.chipGroup.removeView(chip)
+                        getResult()
                     }
-                    chipGroup.addView(chip)
+                    binding.chipGroup.addView(chip)
 
-                    view.linearLayout.fullScroll(View.FOCUS_DOWN)
+                    binding.linearLayout.fullScroll(View.FOCUS_DOWN)
 
                     // clean the field
-                    new_value.setText("")
+                    binding.newValue.setText("")
 
-                    view.clear_button.isEnabled = true
+                    binding.clearButton.isEnabled = true
 
                     // get to values
-                    getResult(view)
+                    getResult()
 
                 } else {
                     // clean the field
-                    new_value.setText("")
+                    binding.newValue.setText("")
                     Toast.makeText(context, getString(R.string.message_3),Toast.LENGTH_SHORT).show()
                 }
             }
@@ -88,42 +90,42 @@ class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() 
         /**
          *  Event to control: button clear
          */
-        view.clear_button.setOnClickListener {
-            val count = this.chipGroup.childCount
+        binding.clearButton.setOnClickListener {
+            val count = binding.chipGroup.childCount
             var i = 0
 
             while(i < count) {
-                chipGroup.removeView(chipGroup.getChildAt(0))
+                binding.chipGroup.removeView(binding.chipGroup.getChildAt(0))
                 i++
             }
-            view.clear_button.isEnabled = false
-            view.resultField.text = getString(R.string.mean)
-            view.total_value_add.text = getString(R.string.total)
-            view.num_values.text = getString(R.string.n_values)
+            binding.clearButton.isEnabled = false
+            binding.resultField.text = getString(R.string.mean)
+            binding.totalValueAdd.text = getString(R.string.total)
+            binding.numValues.text = getString(R.string.n_values)
 
-            view.new_value.setText("")
-            view.new_value.clearFocus()
-            view.new_value.hint = getString(R.string.insert_new_value)
+            binding.newValue.setText("")
+            binding.newValue.clearFocus()
+            binding.newValue.hint = getString(R.string.insert_new_value)
 
-            view.label_Total.visibility = View.INVISIBLE
-            view.label_nValues.visibility = View.INVISIBLE
-            view.label_result.visibility = View.INVISIBLE
+            binding.labelTotal.visibility = View.INVISIBLE
+            binding.labelNValues.visibility = View.INVISIBLE
+            binding.labelResult.visibility = View.INVISIBLE
         }
 
-        return view
+        return binding.root
     }
 
-    private fun getResult(view: View){
+    private fun getResult(){
         val format = DecimalFormat()
         val dataArray: ArrayList<String> = arrayListOf()
-        val count = this.chipGroup.childCount
+        val count = binding.chipGroup.childCount
         var i = 0
 
         format.maximumFractionDigits = 6
 
         while(i < count) {
 
-            val chip = chipGroup.getChildAt(i) as Chip
+            val chip = binding.chipGroup.getChildAt(i) as Chip
             dataArray.add(chip.text.toString())
             i++
         }
@@ -136,19 +138,19 @@ class FragmentAverage(private val myInterface: ReturnMainActivity) : Fragment() 
                     dataArray[0].toDouble()
                 }
 
-            view.resultField.text = format.format(result).toString().checkInteger()
-            view.total_value_add.text = format.format(Functions().resultAdd(dataArray)).toString().checkInteger()
-            view.num_values.text = count.toString()
+            binding.resultField.text = format.format(result).toString().checkInteger()
+            binding.totalValueAdd.text = format.format(Functions().resultAdd(dataArray)).toString().checkInteger()
+            binding.numValues.text = count.toString()
 
-            view.label_Total.visibility = View.VISIBLE
-            view.label_nValues.visibility = View.VISIBLE
-            view.label_result.visibility = View.VISIBLE
+            binding.labelTotal.visibility = View.VISIBLE
+            binding.labelNValues.visibility = View.VISIBLE
+            binding.labelResult.visibility = View.VISIBLE
 
         } else{
-            view.clear_button.isEnabled = false
-            view.resultField.text = getString(R.string.mean)
-            view.total_value_add.text = getString(R.string.total)
-            view.num_values.text = getString(R.string.n_values)
+            binding.clearButton.isEnabled = false
+            binding.resultField.text = getString(R.string.mean)
+            binding.totalValueAdd.text = getString(R.string.total)
+            binding.numValues.text = getString(R.string.n_values)
         }
     }
 }

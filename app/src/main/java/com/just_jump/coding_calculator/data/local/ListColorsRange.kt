@@ -335,8 +335,6 @@ class ListColorsRange {
         arrayOf("900","#263238")
     )
 
-
-
     fun getListColors(): Array<Array<String>> {
         return itemList
     }

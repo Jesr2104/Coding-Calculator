@@ -3,11 +3,11 @@ package com.just_jump.coding_calculator
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.just_jump.coding_calculator.databinding.ItemLayoutBinding
 
 class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.Adapter<RecyclerAdapterGammaColors.ViewHolder>() {
 
@@ -18,12 +18,12 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_layout,
+        val binding = ItemLayoutBinding.inflate(
+            LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return ViewHolder(view)
+        return ViewHolder(binding)
     }
 
     @SuppressLint("SetTextI18n", "DefaultLocale")
@@ -82,7 +82,7 @@ class RecyclerAdapterGammaColors(itemsList: Array<Array<String>>):RecyclerView.A
         return items?.count()!!
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         var rgbColor: TextView? = null
         var codeColor: TextView? = null
         var hexColor: TextView? = null

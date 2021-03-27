@@ -7,22 +7,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.just_jump.coding_calculator.data.local.SRDataColors
-import kotlinx.android.synthetic.main.activity_list_saved_colors.*
+import com.just_jump.coding_calculator.databinding.ActivityListSavedColorsBinding
 
 class ListSavedColors : AppCompatActivity(), RVSavedColorInt {
 
     private lateinit var adapter: RecycleAdapterSavedColors
     lateinit var data: ArrayList<Int>
+    private lateinit var binding: ActivityListSavedColorsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_saved_colors)
+        binding = ActivityListSavedColorsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         data = SRDataColors.customPreference(this).getlist()
 
-        recycleViewFields.layoutManager = LinearLayoutManager(this)
+        binding.recycleViewFields.layoutManager = LinearLayoutManager(this)
         adapter = RecycleAdapterSavedColors(data,this)
-        recycleViewFields.adapter = adapter
+        binding.recycleViewFields.adapter = adapter
 
         val gradientDrawable = GradientDrawable(
             GradientDrawable.Orientation.BOTTOM_TOP,
@@ -31,7 +33,7 @@ class ListSavedColors : AppCompatActivity(), RVSavedColorInt {
                 Color.parseColor("#616161")
             )
         )
-        mainLayoutSavedColor.background = gradientDrawable
+        binding.mainLayoutSavedColor.background = gradientDrawable
     }
 
     override fun colorIntValue(colorInt: Int) {
