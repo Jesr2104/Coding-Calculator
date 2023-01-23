@@ -2,6 +2,12 @@
 
 This application is a powerful tool that I consider to be an essential part of my programming arsenal. I have decided to invest time and effort into developing it, in order to bring together a wide range of useful features and functionalities. By doing so, I aim to streamline my workflow and make it easier for me to perform common programming tasks. The application is intuitive, user-friendly and offers a comprehensive set of features that can help me to be more productive and efficient. With this application, I can save time and focus more on the logic and functionality of my application rather than getting stuck on repetitive tasks.
 
+**This application is available for download on the Google Play Store.**
+
+<a href="https://play.google.com/store/apps/details?id=com.just_jump.coding_calculator&gl=GB">
+  <img src="https://www.vectorlogo.zone/logos/google_play/google_play-ar21.svg">
+</a>
+
 This is an application written for the android platform and is written in Kotlin with views designed in XML and an MVVM design pattern. The algorithm has been created in the application for each of the color systems that have been implemented.
 
 ## Future update.
